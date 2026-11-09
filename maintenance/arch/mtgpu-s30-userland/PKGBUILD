@@ -28,8 +28,8 @@ options=('!strip' '!debug')
 source=(
     "musa_3.1.0-pc_x86.deb::https://github.com/cont1nu1ty/mtt-s30-arch/releases/download/v3.1.0/musa_3.1.0-pc_x86.deb"
     'repair-mtgpu-dri.py'
-    'libEGL_mesa.so.0'
-    'libglapi.so.0'
+    "libEGL_mesa.so.0::https://github.com/cont1nu1ty/mtt-s30-arch/releases/download/v3.1.0/libEGL_mesa.so.0"
+    "libglapi.so.0::https://github.com/cont1nu1ty/mtt-s30-arch/releases/download/v3.1.0/libglapi.so.0"
     '50_mtt_mesa.json'
     '10-mtt-s30.conf'
     '70-mtgpu.rules'
