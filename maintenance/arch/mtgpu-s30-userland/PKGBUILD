@@ -34,7 +34,7 @@ source=(
     '10-mtt-s30.conf'
     '70-mtgpu.rules'
 )
-noextract=("musa_3.1.0-pc_x86.deb::https://github.com/cont1nu1ty/mtt-s30-arch/releases/download/v3.1.0/musa_3.1.0-pc_x86.deb")
+noextract=("musa_3.1.0-pc_x86.deb")
 sha256sums=(
     '04c286ba452fe0cfbea2c47465f0c48b0659c09b896f05f363feba680dd8efda'
     '7a42ba27ef3a03d277f73c80aaa3c190a6215dcc30dfd67b6330d59800939a0d'
