@@ -1,6 +1,8 @@
 # Moore Threads MTT S30 Arch Linux 驱动与桌面适配套件
 
 [![Arch Linux](https://img.shields.io/badge/Arch_Linux-Kernel_7.x-blue.svg?logo=archlinux)](https://archlinux.org/)
+[![AUR package](https://img.shields.io/badge/AUR-mtgpu--s30--dkms-1793D1.svg?logo=archlinux)](https://aur.archlinux.org/packages/mtgpu-s30-dkms)
+[![AUR package](https://img.shields.io/badge/AUR-mtgpu--s30--userland-1793D1.svg?logo=archlinux)](https://aur.archlinux.org/packages/mtgpu-s30-userland)
 [![KDE Plasma](https://img.shields.io/badge/KDE_Plasma-6.8_Wayland-31A8FF.svg?logo=kde)](https://kde.org/)
 [![License](https://img.shields.io/badge/License-Dual_MIT%2FGPL-green.svg)](LICENSE)
 [![GitHub release](https://img.shields.io/github/v/release/cont1nu1ty/mtt-s30-arch)](https://github.com/cont1nu1ty/mtt-s30-arch/releases)
