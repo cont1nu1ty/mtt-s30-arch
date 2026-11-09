@@ -1,0 +1,24 @@
+commit 983a895a8af9577dd04e31758276c3ad1ec101c1
+Author:     dixyes <dixyes@gmail.com>
+AuthorDate: Thu Dec 12 00:16:30 2024 +0800
+Commit:     dixyes <dixyes@gmail.com>
+CommitDate: Tue Apr 22 20:42:42 2025 +0800
+
+    Add FOP_UNSIGNED_OFFSET flag
+    
+    from torvalds/linux@641bb4394f405cba498b100b44541ffc0aed5be1
+
+diff --git a/src/mtgpu/mtgpu_drm_drv.c b/src/mtgpu/mtgpu_drm_drv.c
+index 81ca1f8..3c7afe7 100644
+--- a/src/mtgpu/mtgpu_drm_drv.c
++++ b/src/mtgpu/mtgpu_drm_drv.c
+@@ -231,6 +231,9 @@ const struct file_operations mtgpu_drm_driver_fops = {
+ 	.read		= drm_read,
+ 	.llseek		= noop_llseek,
+ 	.mmap		= mtgpu_mmap,
++#ifdef FOP_UNSIGNED_OFFSET
++	.fop_flags = FOP_UNSIGNED_OFFSET,
++#endif // FOP_UNSIGNED_OFFSET
+ };
+ 
+ static int mtgpu_gem_show(struct seq_file *m, void *arg)

@@ -1,0 +1,66 @@
+{
+  "test": "20261104-111130",
+  "profile": "kwin-wayland-v4",
+  "kernel": "7.2.14-arch1-1",
+  "passed": false,
+  "reboot_observed": true,
+  "boot_and_efi_verified": true,
+  "esp_comparison": {
+    "expected_files": 11,
+    "current_files": 11,
+    "added": [],
+    "removed": [],
+    "changed": [
+      "loader/random-seed"
+    ],
+    "unchanged_files": 10
+  },
+  "driver_installed": false,
+  "vulkan_pixels_independently_verified": true,
+  "h264_all_bytes_independently_verified": true,
+  "egl_gbm_independently_verified": true,
+  "egl_gbm": {
+    "passed": true,
+    "mode": "gbm-s30",
+    "frames": 8,
+    "pixels_checked": 393216,
+    "mismatches": 0,
+    "presented": 0,
+    "discarded": 0,
+    "hardware_presentations": 0,
+    "presentation_flags_all": 0,
+    "renderer": "MTT S30",
+    "vendor": "MOORE THREADS",
+    "egl_vendor": "MTT Mesa Client"
+  },
+  "kwin_renderer": "MTT S30",
+  "compositor_faults": [],
+  "wayland_client_exit": -6,
+  "wayland_failure": "_eglSetConfigKey assertion offset >= 0",
+  "lookup_v1_selected": true,
+  "opaque_screen_selected": true,
+  "context_adapter_reached": false,
+  "post_load_kernel_faults": [],
+  "hardware_watchdog_reset_proven": false,
+  "core_analysis_pending": false,
+  "unreviewed_previous_v4_run": "20261103-142638",
+  "previous_run_scope": "Public summary has same client SIGABRT; its detailed output and EFI recovery not independently exported.",
+  "configuration_failure": {
+    "attribute": 56,
+    "value": 0,
+    "invalid_key": "0x66727573",
+    "cause": "Attribute map out-of-bounds access before _eglSetConfigKey assertion",
+    "actual_vendor_configs": 54,
+    "unknown_attributes": [
+      54,
+      55,
+      56,
+      57,
+      58,
+      59
+    ],
+    "unknown_attribute_values_all_zero": true,
+    "linear_doublebuffer_candidates_from_static_review": 15,
+    "required_standard_fields_after_unknown": true
+  }
+}

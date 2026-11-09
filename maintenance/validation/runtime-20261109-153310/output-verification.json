@@ -1,0 +1,65 @@
+{
+  "test": "20261109-153310",
+  "independently_verified": true,
+  "export": "/var/tmp/mtt-s30-results-20261109-153310-46qtcw6l",
+  "desktop_manifest_sha256": "747d5896a604dd03bbae5b136082a635ad26bc7d0aa7d10275a3a487e9450304",
+  "verified_bundle_files": 8,
+  "loaded_libraries": [
+    "/var/lib/mtt-s30-test/20261109-153310/test/desktop/egl/libEGL_mesa.so.0",
+    "/var/lib/mtt-s30-test/20261109-153310/test/desktop/client-dri/mtgpu_dri.so",
+    "/var/lib/mtt-s30-test/20261109-153310/test/desktop/client-dri/musa_dri.so"
+  ],
+  "saved_images": {
+    "render.rgba": {
+      "pixels": 12288,
+      "bytes": 49152,
+      "frame": 7,
+      "sha256": "f6b5fea7be1327ca395fb1e22b7a3a3b813ac4edcc8c568e8102d0670dabaedd",
+      "independent_match": true
+    },
+    "egl-gbm.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 7,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    },
+    "wayland.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 59,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    }
+  },
+  "video_bytes_compared": 4423680,
+  "video_reference_match": true,
+  "video_fresh_cpu_decode_match": true,
+  "video_sha256": "71bc2ca60616df175a713a32e904a759ecf4b46982a3d352d68c9d7c40756b3c",
+  "wayland_client": {
+    "passed": true,
+    "mode": "wayland-s30",
+    "frames": 60,
+    "pixels_checked": 2949120,
+    "mismatches": 0,
+    "presented": 60,
+    "discarded": 0,
+    "hardware_presentations": 60,
+    "presentation_flags_all": 7,
+    "renderer": "MTT S30",
+    "vendor": "MOORE THREADS",
+    "egl_vendor": "Mesa Project"
+  },
+  "matched_requests_and_callbacks": 60,
+  "first_present_ns": 1737855003000,
+  "last_present_ns": 1739905034000,
+  "strictly_increasing_present_times": true,
+  "all_presentation_flags": 7,
+  "protocol_cleanup_and_roundtrip": true,
+  "client_exit": 0,
+  "kwin_alive_after_client": true,
+  "kwin_orderly_exit": true,
+  "compositor_faults": [],
+  "source_cleanup_gate": "egl-check.c:208-216 before final success JSON",
+  "scope": "Saved final frame independently checked for each render path, all H264 frames compared; live earlier frame correctness comes from the pinned client checks and final successful result. Scanout pixels were not captured."
+}

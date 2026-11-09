@@ -1,0 +1,18 @@
+struct mt_conf {
+	u32                        type;                 /*     0     4 */
+	u32                        regs_base;            /*     4     4 */
+	u32                        regs_chip_size;       /*     8     4 */
+	u32                        regs_core_size[24];   /*    12    96 */
+	/* --- cacheline 1 boundary (64 bytes) was 44 bytes ago --- */
+	u32                        regs_top_offset;      /*   108     4 */
+	u32                        regs_ata_offset;      /*   112     4 */
+	u32                        core_base;            /*   116     4 */
+	u32                        core_size;            /*   120     4 */
+	u32                        product[24];          /*   124    96 */
+	/* --- cacheline 3 boundary (192 bytes) was 28 bytes ago --- */
+	u32                        core_group[8][24];    /*   220   768 */
+
+	/* size: 988, cachelines: 16, members: 10 */
+	/* last cacheline: 28 bytes */
+};
+

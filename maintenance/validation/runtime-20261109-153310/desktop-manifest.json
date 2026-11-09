@@ -1,0 +1,41 @@
+{
+  "profile": "kwin-wayland-v10",
+  "base_manifest_sha256": "041b3ad6f378a9ced7569a658a0e917cd72147ad3bcb68b27222054a7e5d5e30",
+  "builder_sha256": "8bb0414e2995937a4cec560835de096654519f727791612a1b392f5fbebdcaf5",
+  "original_dri_sha256": "2583b5c4e793389e0d130bfb8895884dfdee358ac70d63195deeba1eb0d1a07c",
+  "files": {
+    "client-dri/mtgpu_dri.so": {
+      "size": 15471624,
+      "sha256": "05cd2ddd3dcb2c0a77994d52b959548babcf912027b550efb9a45aeb6201fc23"
+    },
+    "client-dri/musa_dri.so": {
+      "size": 268120,
+      "sha256": "0c8ddef50a68b20db4fcb1b5e91a5c74075fa0c5527b3a9b45cd93aeaec3532b"
+    },
+    "egl/50_mesa.json": {
+      "size": 92,
+      "sha256": "4aafa7f214e777358e7196084dff436d6b0aab3b13f367c2abf2a5f98b507df7"
+    },
+    "egl/libEGL_mesa.so.0": {
+      "size": 1667952,
+      "sha256": "6c8de88d01a2a3a7a61a95aa1e3a98b26d37dcc67d916a2302fb41c05f050fd3"
+    },
+    "egl/libglapi.so.0": {
+      "size": 211304,
+      "sha256": "3b796b01bb3b6d8fa8bd0b970258fd2c284841fd3ded0e82f684adc06ba2f1cb"
+    },
+    "egl-check": {
+      "size": 82112,
+      "sha256": "963a424d31dbffb20f227a2897cc1210b74c87fafd301c54369bf02bf9ef8f79"
+    },
+    "kwin/kwin_wayland": {
+      "size": 2607248,
+      "sha256": "f3d11822f04a3d81ab1bda8aaf79ee362c72faa707f91619089b0ec62c7aca12"
+    },
+    "kwin/libkwin.so.6": {
+      "size": 16903120,
+      "sha256": "70f2110f553b260311d24ded8f287c262e60700eb8ba146b5f949c47eaedd5f0"
+    }
+  },
+  "hardware_tested": false
+}

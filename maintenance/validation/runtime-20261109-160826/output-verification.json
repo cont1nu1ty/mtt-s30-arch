@@ -1,0 +1,137 @@
+{
+  "test": "20261109-160826",
+  "independently_verified": true,
+  "export": "/var/tmp/mtt-s30-results-20261109-160826",
+  "desktop_manifest_sha256": "8b6f7a9f028bac894b34a206b17a9755470e45b88e5e2b923122eab64cd18f64",
+  "verified_bundle_files": 9,
+  "client_source_hashes_verified": true,
+  "loaded_libraries_per_client": [
+    "/var/lib/mtt-s30-test/20261109-160826/test/desktop/client-dri/mtgpu_dri.so",
+    "/var/lib/mtt-s30-test/20261109-160826/test/desktop/client-dri/musa_dri.so",
+    "/var/lib/mtt-s30-test/20261109-160826/test/desktop/egl/libEGL_mesa.so.0"
+  ],
+  "saved_images": {
+    "render.rgba": {
+      "pixels": 12288,
+      "bytes": 49152,
+      "frame": 7,
+      "sha256": "f6b5fea7be1327ca395fb1e22b7a3a3b813ac4edcc8c568e8102d0670dabaedd",
+      "independent_match": true
+    },
+    "egl-gbm.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 7,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    },
+    "wayland.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 59,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    },
+    "qt.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 11,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    }
+  },
+  "qt_png_matches_rgba": true,
+  "video_bytes_compared": 4423680,
+  "video_reference_match": true,
+  "video_fresh_cpu_decode_match": true,
+  "video_sha256": "71bc2ca60616df175a713a32e904a759ecf4b46982a3d352d68c9d7c40756b3c",
+  "wayland_client": {
+    "passed": true,
+    "mode": "wayland-s30",
+    "frames": 300,
+    "pixels_checked": 14745600,
+    "mismatches": 0,
+    "presented": 300,
+    "discarded": 0,
+    "hardware_presentations": 300,
+    "presentation_flags_all": 7,
+    "completed_cycles": 5,
+    "frames_per_cycle": 60,
+    "renderer": "MTT S30",
+    "vendor": "MOORE THREADS",
+    "egl_vendor": "Mesa Project"
+  },
+  "cycles": [
+    {
+      "cycle": 1,
+      "matched_presentations": 60,
+      "surface_id": "3",
+      "all_flags": 7,
+      "cleanup_roundtrip_before_completion": true,
+      "first_present_ns": 1937586427000,
+      "last_present_ns": 1939652987000
+    },
+    {
+      "cycle": 2,
+      "matched_presentations": 60,
+      "surface_id": "3",
+      "all_flags": 7,
+      "cleanup_roundtrip_before_completion": true,
+      "first_present_ns": 1939886306000,
+      "last_present_ns": 1941936176000
+    },
+    {
+      "cycle": 3,
+      "matched_presentations": 60,
+      "surface_id": "3",
+      "all_flags": 7,
+      "cleanup_roundtrip_before_completion": true,
+      "first_present_ns": 1942169494000,
+      "last_present_ns": 1944219364000
+    },
+    {
+      "cycle": 4,
+      "matched_presentations": 60,
+      "surface_id": "3",
+      "all_flags": 7,
+      "cleanup_roundtrip_before_completion": true,
+      "first_present_ns": 1944436017000,
+      "last_present_ns": 1946402558000
+    },
+    {
+      "cycle": 5,
+      "matched_presentations": 60,
+      "surface_id": "3",
+      "all_flags": 7,
+      "cleanup_roundtrip_before_completion": true,
+      "first_present_ns": 1946702524000,
+      "last_present_ns": 1948669080000
+    }
+  ],
+  "matched_requests_and_callbacks": 300,
+  "strictly_increasing_present_times_across_cycles": true,
+  "all_presentation_flags": 7,
+  "qt_quick_client": {
+    "frames": 12,
+    "gl_version": "OpenGL ES 3.2 build 20250516 release HEAD a8e4abb80@20250506 ",
+    "graphics_api": "OpenGL",
+    "mismatches": 0,
+    "mode": "qt-wayland-s30",
+    "opengles": true,
+    "passed": true,
+    "pixels_checked": 589824,
+    "renderer": "MTT S30",
+    "swapped": 12,
+    "vendor": "MOORE THREADS",
+    "window_destroyed": true
+  },
+  "qt_application_protocol_teardown_precedes_last_success_json": true,
+  "client_exit": 0,
+  "qt_client_exit": 0,
+  "kwin_alive_after_clients": true,
+  "kwin_orderly_exit": true,
+  "compositor_faults": [],
+  "client_core_records": "none for either client",
+  "all_exported_files_complete": true,
+  "scope": "Saved final frame independently checked for each render path; all H264 bytes compared. Earlier frame correctness relies on pinned client checks plus successful exits. Qt swaps/readback are not presentation feedback. Physical scanout pixels, complete Plasma, XWayland and long-duration stability were not tested."
+}

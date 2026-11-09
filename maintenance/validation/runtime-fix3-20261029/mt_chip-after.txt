@@ -1,0 +1,106 @@
+struct mt_chip {
+	int                        idx;                  /*     0     4 */
+	struct mt_conf             conf;                 /*     4   988 */
+	/* --- cacheline 15 boundary (960 bytes) was 32 bytes ago --- */
+	struct pci_dev *           pdev;                 /*   992     8 */
+	struct device *            parent;               /*  1000     8 */
+	struct device *            dev;                  /*  1008     8 */
+	struct drm_device *        drm_host;             /*  1016     8 */
+	/* --- cacheline 16 boundary (1024 bytes) --- */
+	int                        driver_mode;          /*  1024     4 */
+	u32                        inst_cnt;             /*  1028     4 */
+	struct mutex *             inst_cnt_lock;        /*  1032     8 */
+	bool                       soc_mode;             /*  1040     1 */
+
+	/* XXX 3 bytes hole, try to pack */
+
+	int                        mem_group_id[16];     /*  1044    64 */
+
+	/* XXX 4 bytes hole, try to pack */
+
+	/* --- cacheline 17 boundary (1088 bytes) was 24 bytes ago --- */
+	u64                        mem_group_base[16];   /*  1112   128 */
+	/* --- cacheline 19 boundary (1216 bytes) was 24 bytes ago --- */
+	u64                        mem_group_size[16];   /*  1240   128 */
+	/* --- cacheline 21 boundary (1344 bytes) was 24 bytes ago --- */
+	int                        mem_group_cnt;        /*  1368     4 */
+
+	/* XXX 4 bytes hole, try to pack */
+
+	struct spinlock *          shared_mem_lock;      /*  1376     8 */
+	struct spinlock *          pool_lock;            /*  1384     8 */
+	struct mt_pool             pool_array[256];      /*  1392  8192 */
+	/* --- cacheline 149 boundary (9536 bytes) was 48 bytes ago --- */
+	int                        pool_idx;             /*  9584     4 */
+	int                        mpc_drm_cnt;          /*  9588     4 */
+	struct drm_device *        drms[32];             /*  9592   256 */
+	/* --- cacheline 153 boundary (9792 bytes) was 56 bytes ago --- */
+	int                        mpc_group_ids[32];    /*  9848   128 */
+	/* --- cacheline 155 boundary (9920 bytes) was 56 bytes ago --- */
+	struct spinlock *          mpc_lock;             /*  9976     8 */
+	/* --- cacheline 156 boundary (9984 bytes) --- */
+	int                        core_group_inst_cnt[16]; /*  9984    64 */
+	/* --- cacheline 157 boundary (10048 bytes) --- */
+	void *                     vaddr;                /* 10048     8 */
+	u64                        bar_base;             /* 10056     8 */
+	struct mt_core             core[24];             /* 10064 1400640 */
+	/* --- cacheline 22042 boundary (1410688 bytes) was 16 bytes ago --- */
+	int                        start_core_idx;       /* 1410704     4 */
+
+	/* XXX 4 bytes hole, try to pack */
+
+	struct semaphore *         host_thread_semas[3]; /* 1410712    24 */
+	struct task_struct *       host_threads[3];      /* 1410736    24 */
+	/* --- cacheline 22043 boundary (1410752 bytes) was 8 bytes ago --- */
+	struct list_head           vm_heads[3];          /* 1410760    48 */
+	int                        vm_count;             /* 1410808     4 */
+	bool                       host_vcpu_inited;     /* 1410812     1 */
+
+	/* XXX 3 bytes hole, try to pack */
+
+	/* --- cacheline 22044 boundary (1410816 bytes) --- */
+	u32                        limit_dec_cnt;        /* 1410816     4 */
+	u32                        limit_enc_cnt;        /* 1410820     4 */
+	u32                        shared_dec_cnt;       /* 1410824     4 */
+	u32                        shared_enc_cnt;       /* 1410828     4 */
+	u64                        limit_vcpu_size;      /* 1410832     8 */
+	u64                        shared_vcpu_size;     /* 1410840     8 */
+	struct mt_virm             vm;                   /* 1410848   176 */
+
+	/* XXX last struct has 4 holes */
+
+	/* --- cacheline 22047 boundary (1411008 bytes) was 16 bytes ago --- */
+	struct mutex *             vm_locks[3];          /* 1411024    24 */
+	struct mt_codec_limit      codec_limit;          /* 1411048    24 */
+	/* --- cacheline 22048 boundary (1411072 bytes) --- */
+	struct dentry *            debugfs;              /* 1411072     8 */
+	struct timer_list *        util_timer;           /* 1411080     8 */
+	struct timer_list *        stat_timer;           /* 1411088     8 */
+	struct semaphore *         jpu_core_sema;        /* 1411096     8 */
+	struct mtvpu_mmu_ctx *     mmu_ctx;              /* 1411104     8 */
+	struct iommu_group *       io_group;             /* 1411112     8 */
+	struct iommu_domain *      io_domain;            /* 1411120     8 */
+	struct iova_domain *       iova_domain[24];      /* 1411128   192 */
+	/* --- cacheline 22051 boundary (1411264 bytes) was 56 bytes ago --- */
+	struct devfreq *           dev_freq;             /* 1411320     8 */
+	/* --- cacheline 22052 boundary (1411328 bytes) --- */
+	struct devfreq_simple_ondemand_data * devfreq_data; /* 1411328     8 */
+	u64                        curr_freq;            /* 1411336     8 */
+	u32                        freq_min;             /* 1411344     4 */
+	u32                        freq_max;             /* 1411348     4 */
+	void *                     freq_share_mem;       /* 1411352     8 */
+	atomic_t                   perf_mode __attribute__((__aligned__(4))); /* 1411360     4 */
+	u32                        fixed_decode_core;    /* 1411364     4 */
+	int                        auto_reset_en;        /* 1411368     4 */
+
+	/* XXX 4 bytes hole, try to pack */
+
+	struct mutex *             reset_lock;           /* 1411376     8 */
+
+	/* size: 1411384, cachelines: 22053, members: 59 */
+	/* sum members: 1411362, holes: 6, sum holes: 22 */
+	/* member types with holes: 1, total: 4 */
+	/* forced alignments: 1 */
+	/* last cacheline: 56 bytes */
+} __attribute__((__aligned__(8)));
+

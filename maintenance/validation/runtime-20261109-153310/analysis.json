@@ -1,0 +1,146 @@
+{
+  "test": "20261109-153310",
+  "profile": "kwin-wayland-v10",
+  "kernel": "7.2.14-arch1-1",
+  "passed": true,
+  "client_exit": 0,
+  "failure_stage": null,
+  "client_core": {
+    "status": "not_found",
+    "reason": "No matching client SIGABRT/SIGSEGV in test boot."
+  },
+  "test_boot_id": "fb247138-c6a2-41c1-83d4-3562f237680a",
+  "current_boot_id": "812ae8c5-0a59-4809-96da-3b96172be7dc",
+  "reboot_observed": true,
+  "boot_and_efi_verified": true,
+  "esp_comparison": {
+    "expected_files": 11,
+    "current_files": 11,
+    "added": [],
+    "removed": [],
+    "changed": [
+      "loader/random-seed"
+    ],
+    "unchanged_files": 10
+  },
+  "current_kernel_booted_at": "2026-11-09 15:37:01",
+  "current_services": {
+    "display-manager.service": "active",
+    "mtt-s30-once.service": "inactive",
+    "mtt-s30-deadline.timer": "inactive",
+    "mtt-s30-deadline.service": "inactive"
+  },
+  "current_watchdog_state": "inactive",
+  "driver_installed": false,
+  "driver_currently_loaded": false,
+  "hardware_watchdog_reset_proven": false,
+  "module_sha256": "6857f52e14db1071ca5b089029725432d5bbb71022dba55f9cd973121bc4adff",
+  "private_desktop_manifest_sha256": "747d5896a604dd03bbae5b136082a635ad26bc7d0aa7d10275a3a487e9450304",
+  "client_primary_sha256": "05cd2ddd3dcb2c0a77994d52b959548babcf912027b550efb9a45aeb6201fc23",
+  "bound_driver_in_test": "mtgpu",
+  "render_nodes": [
+    "renderD128"
+  ],
+  "vulkan": {
+    "passed": true,
+    "mode": "s30",
+    "frames": 8,
+    "pixels_checked": 98304,
+    "mismatches": 0
+  },
+  "h264": {
+    "passed": true,
+    "mode": "vaapi",
+    "frames": 48,
+    "hardware_frames": 48,
+    "bad_frames": 0,
+    "different_bytes": 0,
+    "max_abs_error": 0
+  },
+  "h264_all_bytes_independently_verified": true,
+  "h264_fresh_cpu_decode_match": true,
+  "h264_bytes_compared": 4423680,
+  "egl_gbm": {
+    "passed": true,
+    "mode": "gbm-s30",
+    "frames": 8,
+    "pixels_checked": 393216,
+    "mismatches": 0,
+    "presented": 0,
+    "discarded": 0,
+    "hardware_presentations": 0,
+    "presentation_flags_all": 0,
+    "renderer": "MTT S30",
+    "vendor": "MOORE THREADS",
+    "egl_vendor": "MTT Mesa Client"
+  },
+  "saved_images": {
+    "render.rgba": {
+      "pixels": 12288,
+      "bytes": 49152,
+      "frame": 7,
+      "sha256": "f6b5fea7be1327ca395fb1e22b7a3a3b813ac4edcc8c568e8102d0670dabaedd",
+      "independent_match": true
+    },
+    "egl-gbm.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 7,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    },
+    "wayland.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 59,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    }
+  },
+  "wayland_client": {
+    "passed": true,
+    "mode": "wayland-s30",
+    "frames": 60,
+    "pixels_checked": 2949120,
+    "mismatches": 0,
+    "presented": 60,
+    "discarded": 0,
+    "hardware_presentations": 60,
+    "presentation_flags_all": 7,
+    "renderer": "MTT S30",
+    "vendor": "MOORE THREADS",
+    "egl_vendor": "Mesa Project"
+  },
+  "kwin_renderer": "MTT S30",
+  "kwin_renderer_after": "MTT S30",
+  "compositor_faults": [],
+  "kwin_requested_exit_signal": 15,
+  "kwin_forced_kill": false,
+  "selected_output": "HDMI-A-1",
+  "selected_drm_layer_size": [
+    1920,
+    1080
+  ],
+  "selected_drm_layer_fourcc": "XR24",
+  "fixed_driver_import_table_verified": true,
+  "client_gles_dispatch_and_private_dri_verified": true,
+  "window_presentations": 60,
+  "window_discarded": 0,
+  "presentation_timestamps_advance": true,
+  "presentation_flags_all": 7,
+  "egl_and_wayland_cleanup_completed": true,
+  "client_success_record_emitted": true,
+  "post_load_kernel_faults": [],
+  "full_plasma_tested": false,
+  "xwayland_tested": false,
+  "scanout_pixels_captured": false,
+  "long_duration_stability_tested": false,
+  "verified_utc": "2026-11-09T07:41:48.441451+00:00",
+  "residual_startup_messages": [
+    "swrast load failed",
+    "EGL_NOT_INITIALIZED",
+    "PipeWire context connection failed"
+  ],
+  "residual_egl_attribution": "Source and log-order inference: optional software EGL device creation before hardware enumeration. Exact EGLDisplay attribution not traced.",
+  "screencast_tested": false
+}

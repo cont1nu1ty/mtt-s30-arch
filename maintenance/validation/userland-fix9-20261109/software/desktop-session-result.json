@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "mode": "virtual-software",
+  "kwin_started": true,
+  "forced_kill": false,
+  "kwin_pid": 16804,
+  "renderer": "llvmpipe (LLVM 23.1.4, 256 bits)",
+  "drm_fds": [],
+  "context_import_formats_accepted": false,
+  "context_import_formats_evidence": [],
+  "fixed_driver_import_table_verified": false,
+  "fixed_driver_import_table_evidence": [],
+  "fixed_driver_import_table_invalid": [],
+  "drm_layer_swapchain_selected": false,
+  "swapchain_selection_evidence": [],
+  "drm_layer_swapchains": [],
+  "physical_output_sizes": [],
+  "client_exit": 0,
+  "checks_passed": true,
+  "termination_requested": true,
+  "kwin_exit": 15,
+  "compositor_faults": []
+}

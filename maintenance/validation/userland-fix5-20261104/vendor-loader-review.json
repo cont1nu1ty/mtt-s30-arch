@@ -1,0 +1,54 @@
+{
+  "scope": "Static review only; no GPU device opened, driver loaded, or native screen/context constructed",
+  "binaries": {
+    "official/driver-3.1.0/usr/lib/x86_64-linux-gnu/libEGL_mtgpu.so.0": "0a9460529f715037c0db589cefc5fd864e2915c7b373cc0f37b32ec70a0500b3",
+    "official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so": "2583b5c4e793389e0d130bfb8895884dfdee358ac70d63195deeba1eb0d1a07c"
+  },
+  "vendor_egl_display": {
+    "platform_offset": "0x30",
+    "native_display_offset": "0x38",
+    "driver_data_offset": "0x70",
+    "evidence": [
+      "libEGL_mtgpu+0x24f1c compares platform",
+      "libEGL_mtgpu+0x24f21 compares native display",
+      "libEGL_mtgpu+0x25005 writes platform",
+      "libEGL_mtgpu+0x25008 writes native display",
+      "libEGL_mtgpu+0x24651 reads DriverData and passes original display as createScreen r9"
+    ]
+  },
+  "vendor_wayland_loader": {
+    "render_node_branch": "libEGL_mtgpu+0x2c55d",
+    "render_array": "0x2537c0",
+    "render_extensions": [
+      "DRI_IMAGE_LOADER v5 at 0x24dac0",
+      "DRI_IMAGE_LOOKUP v1 at 0x24e6b0",
+      "DRI_UseInvalidate at 0x24e6a0"
+    ],
+    "has_dri2_loader": false,
+    "primary_array": "0x2537e0",
+    "primary_extensions": [
+      "DRI_DRI2Loader v6 at 0x24db00",
+      "DRI_IMAGE_LOADER v5 at 0x24dac0",
+      "DRI_IMAGE_LOOKUP v1",
+      "DRI_UseInvalidate"
+    ],
+    "private_extra_callback": "IMAGE_LOADER+0x38 = libEGL_mtgpu+0x21c60, reads display.DriverData at 0x70 then display GPU fd at 0xc4; not provided by modern public IMAGE_LOADER v2"
+  },
+  "vendor_dri_screen": {
+    "dri2_loader_pointer_offset": "0x40 (written at +0x6e538e)",
+    "image_lookup_pointer_offset": "0x48 (written at +0x6e53ad)",
+    "image_loader_pointer_offset": "0x60 (written at +0x6e5402)",
+    "loader_private_offset": "0x18 (written at +0x6e5486)",
+    "reads_legacy_platform": "0x6e56f8 from loaderPrivate+0x30",
+    "reads_legacy_native": "0x6e56ee from loaderPrivate+0x38",
+    "wayland_selection": "platform 2 -> internal native type 4 at 0x6e5ed7",
+    "drawable_selection": "internal type 4 at 0x6ea114 -> image path 0x6ea133; absent DRI2+present IMAGE without type4 -> XCB path 0x6ea2f0"
+  },
+  "repair_direction": "Bridge vendor screen loaderPrivate legacy Platform/PlatformDisplay fields, preserve real display pointer and translate lookup callback; scope to exact mtgpu Wayland, keep public IMAGE-only loader and its supported versions.",
+  "not_justified": [
+    "Adding DRI2 loader on render node solely to select another branch",
+    "Patching vendor binary branch or weakening asserts",
+    "Treating screen constructor branch proof as full window/presentation acceptance"
+  ],
+  "limitations": "Static review of screen constructor and drawable dispatch is not an exhaustive proof of all closed driver memory access paths; corrected real hardware run and strict output verification remain required."
+}

@@ -1,0 +1,176 @@
+From: Local MTT S30 compatibility maintenance
+Subject: [PATCH] egl: route the private S30 Wayland client through MUSA GL API
+
+The official DRI backend sets MUSA's GL dispatch table. Mesa GLVND's
+ordinary client stubs use a separate table, leaving GL identity absent
+after successful Wayland context binding. Provide the isolated client an
+explicit process-wide choice of resolver before GLVND can cache stubs.
+Use the same resolver for the internal DRI flush. Missing selected
+providers or entries return NULL. Ordinary Mesa keeps its own resolver.
+Safely intercept and stub glGetGraphicsResetStatus to prevent crashes in
+robustness checks when the driver lacks GL_ARB_robustness.
+
+--- a/src/egl/main/egldriver.h
++++ b/src/egl/main/egldriver.h
+@@ -69,6 +69,11 @@
+  */
+ typedef void (*_EGLProc)(void);
+ 
++_EGLProc
++_eglGetClientGLProcAddress(const char *name);
++void
++_eglPatchClientGLDispatchTable(void);
++
+ struct wl_display;
+ struct mesa_glinterop_device_info;
+ struct mesa_glinterop_export_in;
+--- a/src/egl/main/eglapi.c
++++ b/src/egl/main/eglapi.c
+@@ -91,6 +91,9 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
++#if defined(HAVE_WAYLAND_PLATFORM) && defined(USE_LIBGLVND) && defined(__GLIBC__)
++#include <dlfcn.h>
++#endif
+ #include "c11/threads.h"
+ #include "mapi/glapi/glapi.h"
+ #include "util/macros.h"
+@@ -2791,6 +2794,101 @@
+    RETURN_EGL_EVAL(disp, ret);
+ }
+ 
++/* GLVND can request entrypoints before an EGL context is current. Select the
++ * GL API namespace once for this isolated client and let its stubs follow the
++ * driver's per-thread dispatch table across context binds and unbinds.
++ */
++#if defined(HAVE_WAYLAND_PLATFORM) && defined(USE_LIBGLVND) && defined(__GLIBC__)
++typedef _EGLProc (*gl_resolver)(const char *name);
++typedef void **(*gl_get_dispatch)(void);
++static gl_resolver client_gl_resolver = _glapi_get_proc_address;
++static gl_get_dispatch client_gl_get_dispatch = NULL;
++static once_flag client_gl_resolver_once = ONCE_FLAG_INIT;
++
++static void
++select_client_gl_resolver(void)
++{
++   const char *path = secure_getenv("MTT_S30_WAYLAND_GLAPI");
++   if (!path)
++      return;
++
++   client_gl_resolver = NULL;
++   client_gl_get_dispatch = NULL;
++   if (path[0] != '/') {
++      _eglLog(_EGL_WARNING, "MTT dispatch requires an absolute GL API library path");
++      return;
++   }
++
++   void *handle = dlopen(path, RTLD_NOW | RTLD_LOCAL);
++   if (!handle) {
++      _eglLog(_EGL_WARNING, "MTT dispatch could not open %s: %s", path, dlerror());
++      return;
++   }
++
++   gl_resolver resolver = (gl_resolver)dlsym(handle, "musa_glapi_get_proc_address");
++   gl_get_dispatch get_disp = (gl_get_dispatch)dlsym(handle, "musa_glapi_get_dispatch");
++   Dl_info provider;
++   char *actual = resolver && dladdr((void *)resolver, &provider)
++                  ? realpath(provider.dli_fname, NULL) : NULL;
++   char *requested = realpath(path, NULL);
++   if (!actual || !requested || strcmp(requested, actual) != 0) {
++      _eglLog(_EGL_WARNING, "MTT dispatch resolver missing or outside %s", path);
++      dlclose(handle);
++   } else {
++      /* GLVND caches the resulting function pointers. Keep this dlopen
++       * reference for their entire process lifetime. */
++      client_gl_resolver = resolver;
++      client_gl_get_dispatch = get_disp;
++      _eglLog(_EGL_INFO, "MTT compatibility: Wayland GLES dispatch %s", actual);
++   }
++   free(actual);
++   free(requested);
++}
++#endif
++
++static unsigned int
++s30_dummy_glGetGraphicsResetStatus(void)
++{
++   return 0; /* GL_NO_ERROR */
++}
++
++void
++_eglPatchClientGLDispatchTable(void)
++{
++   void **table = NULL;
++#if defined(HAVE_WAYLAND_PLATFORM) && defined(USE_LIBGLVND) && defined(__GLIBC__)
++   call_once(&client_gl_resolver_once, select_client_gl_resolver);
++   if (client_gl_get_dispatch)
++      table = client_gl_get_dispatch();
++#endif
++   if (!table)
++      table = (void **)_glapi_get_dispatch();
++   if (table) {
++      if (table[841] == NULL)
++         table[841] = (void *)s30_dummy_glGetGraphicsResetStatus;
++      if (table[973] == NULL)
++         table[973] = (void *)s30_dummy_glGetGraphicsResetStatus;
++   }
++}
++
++_EGLProc
++_eglGetClientGLProcAddress(const char *name)
++{
++   if (strncmp(name, "gl", 2) != 0)
++      return NULL;
++   if (strcmp(name, "glGetGraphicsResetStatus") == 0 ||
++       strcmp(name, "glGetGraphicsResetStatusARB") == 0 ||
++       strcmp(name, "glGetGraphicsResetStatusEXT") == 0 ||
++       strcmp(name, "glGetGraphicsResetStatusKHR") == 0)
++      return (_EGLProc)s30_dummy_glGetGraphicsResetStatus;
++#if defined(HAVE_WAYLAND_PLATFORM) && defined(USE_LIBGLVND) && defined(__GLIBC__)
++   call_once(&client_gl_resolver_once, select_client_gl_resolver);
++   return client_gl_resolver ? client_gl_resolver(name) : NULL;
++#else
++   return _glapi_get_proc_address(name);
++#endif
++}
++
+ PUBLIC __eglMustCastToProperFunctionPointerType EGLAPIENTRY
+ eglGetProcAddress(const char *procname)
+ {
+@@ -2815,7 +2913,7 @@
+    }
+ 
+    if (!ret)
+-      ret = _glapi_get_proc_address(procname);
++      ret = _eglGetClientGLProcAddress(procname);
+ 
+    RETURN_EGL_SUCCESS(NULL, ret);
+ }
+--- a/src/egl/drivers/dri2/egl_dri2.c
++++ b/src/egl/drivers/dri2/egl_dri2.c
+@@ -139,7 +139,7 @@
+ static void
+ dri2_gl_flush_get(_glapi_proc *glFlush)
+ {
+-   *glFlush = _glapi_get_proc_address("glFlush");
++   *glFlush = _eglGetClientGLProcAddress("glFlush");
+ }
+ 
+ static void
+@@ -1824,6 +1824,7 @@
+ 
+          /* undo the previous dri2_dpy->core->unbindContext */
+          if (dri2_dpy->core->bindContext(cctx, ddraw, rdraw)) {
++            _eglPatchClientGLDispatchTable();
+             if (old_dsurf && _eglSurfaceInSharedBufferMode(old_dsurf) &&
+                 old_dri2_dpy->vtbl->set_shared_buffer_mode) {
+                old_dri2_dpy->vtbl->set_shared_buffer_mode(old_disp, old_dsurf,
+@@ -1853,6 +1854,7 @@
+           * context is still bound. See dri2_initialize() for a more in depth
+           * explanation. */
+          p_atomic_inc(&dri2_dpy->ref_count);
++         _eglPatchClientGLDispatchTable();
+       }
+    }
+ 

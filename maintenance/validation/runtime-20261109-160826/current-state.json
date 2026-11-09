@@ -1,0 +1,22 @@
+{
+  "module_lookup": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": "modinfo: ERROR: Module mtgpu not found."
+  },
+  "installed_packages": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": "error: package 'mtgpu-s30-dkms' was not found\nerror: package 'mtgpu-dkms' was not found"
+  },
+  "services": {
+    "exit": 0,
+    "stdout": "active\ninactive\ninactive\ninactive",
+    "stderr": ""
+  },
+  "kernel": "7.2.14-arch1-1",
+  "boot_id": "ba558900-3338-45c9-a700-514e4acdce87",
+  "module_loaded": false,
+  "watchdog_state": "inactive",
+  "firmware_path": ""
+}

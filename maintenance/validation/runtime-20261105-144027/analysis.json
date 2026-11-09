@@ -1,0 +1,80 @@
+{
+  "test": "20261105-144027",
+  "profile": "kwin-wayland-v8",
+  "kernel": "7.2.14-arch1-1",
+  "passed": false,
+  "test_boot_id": "07df0449-535c-4581-940e-5c125daa2744",
+  "current_boot_id": "30b5b4b1-3c32-48bd-a06e-bc86ceeb8d41",
+  "reboot_observed": true,
+  "boot_and_efi_verified": true,
+  "esp_comparison": {
+    "expected_files": 11,
+    "current_files": 11,
+    "added": [],
+    "removed": [],
+    "changed": [
+      "loader/random-seed"
+    ],
+    "unchanged_files": 10
+  },
+  "driver_installed": false,
+  "driver_currently_loaded": false,
+  "module_sha256": "6857f52e14db1071ca5b089029725432d5bbb71022dba55f9cd973121bc4adff",
+  "private_desktop_manifest_sha256": "0451e520e6bc2372c9165e110f9358ca1bff06e56fa4d01e4dfba1ffa4254ae1",
+  "vulkan_pixels_independently_verified": true,
+  "h264_all_bytes_independently_verified": true,
+  "egl_gbm_independently_verified": true,
+  "egl_gbm": {
+    "passed": true,
+    "mode": "gbm-s30",
+    "frames": 8,
+    "pixels_checked": 393216,
+    "mismatches": 0,
+    "presented": 0,
+    "discarded": 0,
+    "hardware_presentations": 0,
+    "presentation_flags_all": 0,
+    "renderer": "MTT S30",
+    "vendor": "MOORE THREADS",
+    "egl_vendor": "MTT Mesa Client"
+  },
+  "kwin_renderer": "MTT S30",
+  "compositor_faults": [],
+  "current_context_refresh_executed": true,
+  "fixed_driver_import_table_verified": true,
+  "accepted_formats": [
+    "AB24",
+    "AR24",
+    "GR88",
+    "R8  ",
+    "RG16",
+    "XR24"
+  ],
+  "selected_drm_layer_fourcc": "XR24",
+  "selected_drm_layer_size": [
+    1920,
+    1080
+  ],
+  "selected_output": "HDMI-A-1",
+  "wayland_client_executed": true,
+  "client_exit": 2,
+  "v6_display_bridge_hardware_exercised": true,
+  "wayland_egl_context_created": true,
+  "wayland_egl_surface_created": true,
+  "wayland_egl_make_current_succeeded": true,
+  "failure_stage": "GLES identity check after successful eglMakeCurrent, before drawing the first frame",
+  "wayland_failure": "Missing GLES identity (EGL=3000 GL=0)",
+  "gl_identity_detail": "At least one of GL_RENDERER and GL_VENDOR returned NULL. The program checks the pair together.",
+  "window_frames_drawn": 0,
+  "window_presentations": 0,
+  "client_core": {
+    "status": "not_found",
+    "reason": "No matching client SIGABRT/SIGSEGV in test boot."
+  },
+  "kernel_client_cleanup": "14:41:18 comm=egl-check pid=247535 force destroy app memory context",
+  "post_load_kernel_faults": [],
+  "hardware_watchdog_reset_proven": false,
+  "full_plasma_tested": false,
+  "xwayland_tested": false,
+  "next_desktop_retry_ready": false
+}

@@ -1,0 +1,204 @@
+--- a/src/egl/drivers/dri2/egl_dri2.c
++++ b/src/egl/drivers/dri2/egl_dri2.c
+@@ -826,10 +826,24 @@
+    return ret;
+ }
+ 
++/* The vendor mtgpu screen is opaque; it is not a Gallium dri_screen even
++ * when DRI_Mesa reports the same Mesa package version.  Only use public DRI
++ * callbacks for this driver.  Unknown optional capabilities stay disabled.
++ */
++static bool
++dri2_mtgpu_opaque_screen(const struct dri2_egl_display *dri2_dpy)
++{
++   return dri2_dpy->driver_name &&
++          strcmp(dri2_dpy->driver_name, "mtgpu") == 0;
++}
++
+ static int
+ get_screen_param(_EGLDisplay *disp, enum pipe_cap param)
+ {
+    struct dri2_egl_display *dri2_dpy = dri2_egl_display(disp);
++   if (dri2_mtgpu_opaque_screen(dri2_dpy))
++      return 0;
++
+    struct dri_screen *screen = dri_screen(dri2_dpy->dri_screen_render_gpu);
+    return screen->base.screen->get_param(screen->base.screen, param);
+ }
+@@ -838,9 +852,26 @@
+ dri2_setup_screen(_EGLDisplay *disp)
+ {
+    struct dri2_egl_display *dri2_dpy = dri2_egl_display(disp);
+-   struct dri_screen *screen = dri_screen(dri2_dpy->dri_screen_render_gpu);
+-   struct pipe_screen *pscreen = screen->base.screen;
+-   unsigned int api_mask = screen->api_mask;
++   const bool opaque_screen = dri2_mtgpu_opaque_screen(dri2_dpy);
++   struct pipe_screen *pscreen = NULL;
++   unsigned int api_mask = 0;
++
++   if (opaque_screen) {
++      if (dri2_dpy->image_driver &&
++          dri2_dpy->image_driver->base.version >= 1 &&
++          dri2_dpy->image_driver->getAPIMask) {
++         api_mask = dri2_dpy->image_driver->getAPIMask(
++            dri2_dpy->dri_screen_render_gpu);
++      } else if (dri2_dpy->dri2 && dri2_dpy->dri2->base.version >= 2 &&
++                 dri2_dpy->dri2->getAPIMask) {
++         api_mask = dri2_dpy->dri2->getAPIMask(dri2_dpy->dri_screen_render_gpu);
++      }
++      _eglLog(_EGL_INFO, "MTT compatibility: opaque DRI screen callbacks");
++   } else {
++      struct dri_screen *screen = dri_screen(dri2_dpy->dri_screen_render_gpu);
++      pscreen = screen->base.screen;
++      api_mask = screen->api_mask;
++   }
+ 
+    /*
+     * EGL 1.5 specification defines the default value to 1. Moreover,
+@@ -866,7 +897,7 @@
+ 
+    assert(dri2_dpy->image_driver || dri2_dpy->dri2 || dri2_dpy->swrast);
+    disp->Extensions.KHR_create_context = EGL_TRUE;
+-   disp->Extensions.KHR_create_context_no_error = EGL_TRUE;
++   disp->Extensions.KHR_create_context_no_error = !opaque_screen;
+    disp->Extensions.KHR_no_config_context = EGL_TRUE;
+    disp->Extensions.KHR_surfaceless_context = EGL_TRUE;
+ 
+@@ -878,9 +909,9 @@
+    disp->Extensions.IMG_context_priority =
+       get_screen_param(disp, PIPE_CAP_CONTEXT_PRIORITY_MASK);
+ 
+-   disp->Extensions.EXT_pixel_format_float = EGL_TRUE;
+-
+-   if (pscreen->is_format_supported(pscreen, PIPE_FORMAT_B8G8R8A8_SRGB,
++   disp->Extensions.EXT_pixel_format_float = !opaque_screen;
++
++   if (pscreen && pscreen->is_format_supported(pscreen, PIPE_FORMAT_B8G8R8A8_SRGB,
+                                     PIPE_TEXTURE_2D, 0, 0,
+                                     PIPE_BIND_RENDER_TARGET)) {
+       disp->Extensions.KHR_gl_colorspace = EGL_TRUE;
+@@ -894,8 +925,13 @@
+       disp->Extensions.KHR_wait_sync = EGL_TRUE;
+       if (dri2_dpy->fence->get_fence_from_cl_event)
+          disp->Extensions.KHR_cl_event2 = EGL_TRUE;
+-      unsigned capabilities =
+-         dri2_dpy->fence->get_capabilities(dri2_dpy->dri_screen_render_gpu);
++      unsigned capabilities = 0;
++      if (!opaque_screen || (dri2_dpy->fence->base.version >= 2 &&
++                             dri2_dpy->fence->get_capabilities &&
++                             dri2_dpy->fence->create_fence_fd &&
++                             dri2_dpy->fence->get_fence_fd))
++         capabilities = dri2_dpy->fence->get_capabilities(
++            dri2_dpy->dri_screen_render_gpu);
+       disp->Extensions.ANDROID_native_fence_sync =
+          (capabilities & __DRI_FENCE_CAP_NATIVE_FD) != 0;
+    }
+@@ -923,6 +959,15 @@
+             disp->Extensions.MESA_image_dma_buf_export = EGL_TRUE;
+       }
+ 
++      /* Do not advertise global-name imports for an opaque vendor screen
++       * unless both its capability query and its import callback support it.
++       */
++      if (opaque_screen &&
++          (dri2_dpy->image->base.version < 10 ||
++           !dri2_dpy->image->getCapabilities ||
++           !dri2_dpy->image->createImageFromName))
++         disp->Extensions.MESA_drm_image = EGL_FALSE;
++
+       disp->Extensions.KHR_image_base = EGL_TRUE;
+       disp->Extensions.KHR_gl_renderbuffer_image = EGL_TRUE;
+       disp->Extensions.KHR_gl_texture_2D_image = EGL_TRUE;
+@@ -935,7 +980,12 @@
+       if (dri2_dpy->image->base.version >= 8 &&
+           dri2_dpy->image->createImageFromDmaBufs) {
+          disp->Extensions.EXT_image_dma_buf_import = EGL_TRUE;
+-         disp->Extensions.EXT_image_dma_buf_import_modifiers = EGL_TRUE;
++         disp->Extensions.EXT_image_dma_buf_import_modifiers =
++            !opaque_screen ||
++            (dri2_dpy->image->base.version >= 15 &&
++             dri2_dpy->image->createImageFromDmaBufs2 &&
++             dri2_dpy->image->queryDmaBufFormats &&
++             dri2_dpy->image->queryDmaBufModifiers);
+       }
+ #endif
+    }
+@@ -1399,6 +1449,37 @@
+    return true;
+ }
+ 
++/* DRI_Mesa.createContext is a private Mesa entry point.  mtgpu supplies
++ * the public createContextAttribs callback instead; keep all attributes and
++ * the driver's error reporting intact rather than assuming a Mesa layout.
++ */
++static __DRIcontext *
++dri2_create_driver_context(struct dri2_egl_display *dri2_dpy, int api,
++                           const __DRIconfig *config, __DRIcontext *shared,
++                           unsigned num_attribs, const uint32_t *attribs,
++                           unsigned *error, void *loader_private)
++{
++   __DRIcreateContextAttribsFunc create = NULL;
++
++   if (dri2_mtgpu_opaque_screen(dri2_dpy)) {
++      if (dri2_dpy->image_driver &&
++          dri2_dpy->image_driver->base.version >= 1)
++         create = dri2_dpy->image_driver->createContextAttribs;
++      if (!create && dri2_dpy->dri2 && dri2_dpy->dri2->base.version >= 3)
++         create = dri2_dpy->dri2->createContextAttribs;
++      if (!create) {
++         *error = __DRI_CTX_ERROR_BAD_API;
++         return NULL;
++      }
++      _eglLog(_EGL_INFO, "MTT compatibility: public DRI context callbacks");
++   } else {
++      create = dri2_dpy->mesa->createContext;
++   }
++
++   return create(dri2_dpy->dri_screen_render_gpu, api, config, shared,
++                 num_attribs, attribs, error, loader_private);
++}
++
+ /**
+  * Called via eglCreateContext(), drv->CreateContext().
+  */
+@@ -1479,8 +1560,8 @@
+                                   &num_attribs))
+       goto cleanup;
+ 
+-   dri2_ctx->dri_context = dri2_dpy->mesa->createContext(
+-      dri2_dpy->dri_screen_render_gpu, api, dri_config, shared, num_attribs / 2,
++   dri2_ctx->dri_context = dri2_create_driver_context(
++      dri2_dpy, api, dri_config, shared, num_attribs / 2,
+       ctx_attribs, &error, dri2_ctx);
+    dri2_create_context_attribs_error(error);
+ 
+--- a/src/egl/drivers/dri2/egl_dri2.h
++++ b/src/egl/drivers/dri2/egl_dri2.h
+@@ -30,6 +30,7 @@
+ 
+ #include <stdbool.h>
+ #include <stdint.h>
++#include <string.h>
+ 
+ #ifdef HAVE_X11_PLATFORM
+ #include <X11/Xlib-xcb.h>
+@@ -626,6 +627,19 @@
+ #ifdef HAVE_WAYLAND_PLATFORM
+    struct dri2_egl_display *dri2_dpy = dri2_egl_display(disp);
+ 
++   /* mtgpu does not promise Gallium's global-name image support.  This
++    * server-side wl_drm extension must not expose unavailable import calls;
++    * it is independent of the native client's linux-dmabuf path.
++    */
++   if (dri2_dpy->driver_name && strcmp(dri2_dpy->driver_name, "mtgpu") == 0 &&
++       (!dri2_dpy->image || dri2_dpy->image->base.version < 10 ||
++        !dri2_dpy->image->getCapabilities ||
++        !dri2_dpy->image->createImageFromNames ||
++        !dri2_dpy->image->createImageFromFds)) {
++      disp->Extensions.WL_bind_wayland_display = EGL_FALSE;
++      return;
++   }
++
+    if (dri2_dpy->device_name && dri2_dpy->image) {
+       if (dri2_dpy->image->base.version >= 10 &&
+           dri2_dpy->image->getCapabilities != NULL) {

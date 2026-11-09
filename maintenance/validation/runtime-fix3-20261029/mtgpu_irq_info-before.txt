@@ -1,0 +1,21 @@
+struct mtgpu_irq_info {
+	u32                        irq_type;             /*     0     4 */
+	u32                        irq_cnt;              /*     4     4 */
+	u32                        desc_cnt;             /*     8     4 */
+
+	/* XXX 4 bytes hole, try to pack */
+
+	struct mtgpu_int_mon_stat * int_monitor_stat;    /*    16     8 */
+	struct mtgpu_irq_desc * *  desc_table;           /*    24     8 */
+	struct mtgpu_irq_data *    irq_data;             /*    32     8 */
+	spinlock_t *               irq_handler_lock;     /*    40     8 */
+	spinlock_t *               irq_enable_lock;      /*    48     8 */
+	struct timer_list *        int_monitor_timer;    /*    56     8 */
+	/* --- cacheline 1 boundary (64 bytes) --- */
+	struct irq_affinity_notify * * affinity_notify;  /*    64     8 */
+
+	/* size: 72, cachelines: 2, members: 10 */
+	/* sum members: 68, holes: 1, sum holes: 4 */
+	/* last cacheline: 8 bytes */
+};
+

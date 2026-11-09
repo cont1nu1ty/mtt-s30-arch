@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "unset",
+      "exit": 0,
+      "error": "Detected locale \"C\" with character encoding \"ANSI_X3.4-1968\", which is not UTF-8.\nQt depends on a UTF-8 locale, and has switched to \"C.UTF-8\" instead.\nIf this causes problems, reconfigure your locale. See the locale(1) manual\nfor more information.\nkwin_xwl: MTT validation: Xwayland startup failed: private empty script directory required"
+    },
+    {
+      "case": "relative",
+      "exit": 0,
+      "error": "Detected locale \"C\" with character encoding \"ANSI_X3.4-1968\", which is not UTF-8.\nQt depends on a UTF-8 locale, and has switched to \"C.UTF-8\" instead.\nIf this causes problems, reconfigure your locale. See the locale(1) manual\nfor more information.\nkwin_xwl: MTT validation: Xwayland startup failed: private empty script directory required"
+    },
+    {
+      "case": "nonempty",
+      "exit": 0,
+      "error": "Detected locale \"C\" with character encoding \"ANSI_X3.4-1968\", which is not UTF-8.\nQt depends on a UTF-8 locale, and has switched to \"C.UTF-8\" instead.\nIf this causes problems, reconfigure your locale. See the locale(1) manual\nfor more information.\nkwin_xwl: MTT validation: Xwayland startup failed: private empty script directory required"
+    },
+    {
+      "case": "symlink",
+      "exit": 0,
+      "error": "Detected locale \"C\" with character encoding \"ANSI_X3.4-1968\", which is not UTF-8.\nQt depends on a UTF-8 locale, and has switched to \"C.UTF-8\" instead.\nIf this causes problems, reconfigure your locale. See the locale(1) manual\nfor more information.\nkwin_xwl: MTT validation: Xwayland startup failed: private empty script directory required"
+    },
+    {
+      "case": "wrong-helper",
+      "exit": 0,
+      "error": "Detected locale \"C\" with character encoding \"ANSI_X3.4-1968\", which is not UTF-8.\nQt depends on a UTF-8 locale, and has switched to \"C.UTF-8\" instead.\nIf this causes problems, reconfigure your locale. See the locale(1) manual\nfor more information.\nkwin_xwl: MTT validation: Xwayland startup failed: wrong Arch helper path \"/unreviewed-helper-dir/plasma-setup-xwayland\""
+    }
+  ],
+  "actual_patched_function_sha256": "f800d9434d02cd4cdfe82d511cf6557572861961b1d0b34f1bae4c3e55ad98ad",
+  "scope": "Compiled exact replacement method with minimal KWin object stubs; invalid paths and helper prefix all exit before any helper or X server call. Valid helper exercised by integrated session separately."
+}

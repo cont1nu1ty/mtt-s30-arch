@@ -1,0 +1,19 @@
+Breakpoint 1 at 0x1314: file /home/bull/Documents/mtt-s30-arch/maintenance/desktop/tests/display-abi-test.c, line 49.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+[Detaching after vfork from child process 36665]
+[Detaching after vfork from child process 36666]
+
+Breakpoint 1, probe_ready () at /home/bull/Documents/mtt-s30-arch/maintenance/desktop/tests/display-abi-test.c:49
+49	}
+GUARD=1
+Catchpoint 2 (syscalls 'ioctl' [16] 'open' [2] 'openat' [257] 'openat2' [437] 'socket' [41] 'socketpair' [53] 'connect' [42] 'io_uring_setup' [425] 'io_uring_enter' [426])
+Breakpoint 3 at 0x7f56edae54b2
+Breakpoint 4 at 0x7f56edae5e95
+Breakpoint 5 at 0x7f56edae5ec5
+Breakpoint 6 at 0x7f56edae5ef4
+Breakpoint 7 at 0x7f56edae572e
+DISPATCH_TYPE=4 FD=-1
+STUB_DELEGATE_CALLS=0
+STOPPED_BEFORE_DEVICE_WORK
+[Inferior 1 (process 36662) killed]

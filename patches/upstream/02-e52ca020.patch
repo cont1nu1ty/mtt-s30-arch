@@ -1,0 +1,26 @@
+commit e52ca0202af67e5da5976f0dd9f5d44e6a7d3ab1
+Author:     dixyes <dixyes@gmail.com>
+AuthorDate: Wed Dec 11 19:49:19 2024 +0800
+Commit:     dixyes <dixyes@gmail.com>
+CommitDate: Tue Apr 22 13:21:09 2025 +0800
+
+    Use fd_file macro if exist
+    
+    from torvalds/linux@88a2f6468d013ca1163490dbddfc95135d1c27a1
+
+diff --git a/src/common/os-interface.c b/src/common/os-interface.c
+index 68dc47b..5806524 100644
+--- a/src/common/os-interface.c
++++ b/src/common/os-interface.c
+@@ -1711,7 +1711,11 @@ void os_fdput(struct fd *fd)
+ 
+ struct file *os_get_fd_file(struct fd *fd)
+ {
++#ifdef fd_file
++	return fd_file(*fd);
++#else
+ 	return fd->file;
++#endif // fd_file
+ }
+ 
+ void os_kref_init(mt_kref *kref)

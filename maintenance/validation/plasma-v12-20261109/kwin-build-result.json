@@ -1,0 +1,24 @@
+{
+  "base_source_sha256": "b546d29d64010c6c3ac5826886cb9074be6662e1bcef67ec41976abb2827ec30",
+  "old_binaries": {
+    "kwin_wayland": "f3d11822f04a3d81ab1bda8aaf79ee362c72faa707f91619089b0ec62c7aca12",
+    "libkwin.so.6.8.2": "70f2110f553b260311d24ded8f287c262e60700eb8ba146b5f949c47eaedd5f0"
+  },
+  "built": true,
+  "system_files_changed": false,
+  "old_trees_restored": true,
+  "new_binaries": {
+    "kwin_wayland": {
+      "sha256": "e6f6ce06dd3db798a4f83e4ef4e0aa9c5fa2e4145a1ed78cbb3d721b0a82e4a9",
+      "size": 2607264
+    },
+    "libkwin.so.6": {
+      "sha256": "b6e4de33a98a3072b9d83beae9df1135da0950a50d54e62d029704a5f0e2dd8f",
+      "size": 16903120
+    }
+  },
+  "modified_source_sha256": "6df59e65839b7ca5cce24e458825c51e9bb86d57ccde27d5fef7dbaf48aa7efb",
+  "patch_sha256": "204b599371a3956b5445cfc9706ee6bb5efc938d0f7ae7c1dbdc51b073faa68f",
+  "builder_sha256": "f8c3fe5a8ff68aeaf7e6b8cf359fa504e68d799fe4ed6ac279dc178a1d808eaa",
+  "configure_libexecdir": "/usr/lib"
+}

@@ -1,0 +1,27 @@
+{
+  "phase": "backup_only_no_test_started",
+  "running_kernel": "7.2.14-arch1-1",
+  "boot_loader": "systemd-boot",
+  "entry": "ba2e34dd35724617b087c81f894d3b6b-7.2.14-arch1-1.conf",
+  "esp": "/efi",
+  "esp_source": "/dev/nvme0n1p1",
+  "backup_directory": "/var/lib/mtt-s30-test/20261109-160826",
+  "backup_sha256": "189021b131813f145843ce2de82cf029737a4d4df31340b8d6e47c6fbfc13e79",
+  "esp_file_count": 11,
+  "esp_unchanged": true,
+  "boot_images": [
+    "ba2e34dd35724617b087c81f894d3b6b/7.2.14-arch1-1/linux",
+    "ba2e34dd35724617b087c81f894d3b6b/7.2.14-arch1-1/initrd"
+  ],
+  "firmware_path_before": "",
+  "watchdog": {
+    "identity": "SP5100 TCO timer",
+    "state": "inactive",
+    "timeout": "60",
+    "nowayout": "0"
+  },
+  "systemd_watchdog": "RuntimeWatchdogUSec=0\nRebootWatchdogUSec=10min",
+  "module_sha256": "6857f52e14db1071ca5b089029725432d5bbb71022dba55f9cd973121bc4adff",
+  "module_installed": false,
+  "module_loaded": false
+}

@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "phase": "complete",
+  "software_control": true,
+  "client_exit": 0,
+  "server": {
+    "pid": 28510,
+    "parent_pid": 28196,
+    "display": ":100",
+    "authenticated": true,
+    "exe": "/usr/bin/Xwayland",
+    "setup_helper_verified": true,
+    "hardware_server_verified": false
+  },
+  "client": {
+    "passed": true,
+    "mode": "xwayland-glx-software",
+    "frames": 12,
+    "pixels_checked": 589824,
+    "mismatches": 0,
+    "swapped": 12,
+    "direct": true,
+    "xwayland_extension": true,
+    "desktop_opengl": true,
+    "gl_major": 4,
+    "gl_minor": 6,
+    "window_destroyed": true,
+    "context_destroyed": true,
+    "display_closed": true,
+    "renderer": "llvmpipe (LLVM 23.1.4, 256 bits)",
+    "vendor": "Mesa",
+    "gl_version": "4.6 (Core Profile) Mesa 26.2.6-arch1.1",
+    "glx_vendor": "Mesa Project and SGI",
+    "xserver_vendor": "The X.Org Foundation",
+    "dri3_extension": false,
+    "dri3_node": "",
+    "dri3_device_major": 0,
+    "dri3_device_minor": 0
+  }
+}

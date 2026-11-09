@@ -1,0 +1,42 @@
+{
+  "mtgpu_dispc": {
+    "existing_fields_unchanged": true,
+    "old_field_count": 10,
+    "new_field_count": 11
+  },
+  "mtgpu_dispc_ctx": {
+    "existing_fields_unchanged": true,
+    "old_field_count": 22,
+    "new_field_count": 22
+  },
+  "mtgpu_drm_private": {
+    "existing_fields_unchanged": true,
+    "old_field_count": 3,
+    "new_field_count": 4
+  },
+  "mt_chip": {
+    "existing_fields_unchanged": true,
+    "old_field_count": 59,
+    "new_field_count": 59
+  },
+  "mt_conf": {
+    "existing_fields_unchanged": true,
+    "old_field_count": 10,
+    "new_field_count": 10
+  },
+  "mtgpu_device": {
+    "existing_fields_unchanged": true,
+    "old_field_count": 141,
+    "new_field_count": 141
+  },
+  "mtgpu_irq_info": {
+    "existing_fields_unchanged": true,
+    "old_field_count": 10,
+    "new_field_count": 10
+  },
+  "mtgpu_irq_data": {
+    "existing_fields_unchanged": true,
+    "old_field_count": 6,
+    "new_field_count": 6
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "profile": "render-decode-v1",
+  "files": {
+    "vk-offscreen": {
+      "sha256": "50e3fbc1a44924d509c4246866d20047d5d2f46c2c01575467db2aa2912bf583",
+      "size": 241232
+    },
+    "h264-check": {
+      "sha256": "bf316db47183d8e110214d33782d24be2dfc91e37a51d40b2703066f4c3af978",
+      "size": 81672
+    },
+    "clip.h264": {
+      "sha256": "298d10704f27b62d8750f794f7375299865e66fa8f252d93d1063b76c1e0f296",
+      "size": 90277
+    },
+    "reference.nv12": {
+      "sha256": "71bc2ca60616df175a713a32e904a759ecf4b46982a3d352d68c9d7c40756b3c",
+      "size": 4423680
+    }
+  },
+  "source_sha256": {
+    "build.py": "c8945f0eba854b3b4be80da681fb273cbb3f8558695995576bdcfc49ef1577c1",
+    "h264-check.c": "a88c84adc54866076cf491c0f0ab3f71c84ce37e0c1f5be40a802fc8db41693a",
+    "pattern.frag": "1bfae234bff810ca8f4a1fff004713a084fa5de87e37b823ca209587244f5460",
+    "pattern.vert": "d16907bcf9e7b7d6d24689250489b3b396b6b0cc7d4cd505d471181b8bbd7b04",
+    "vk-offscreen.c": "2cc4bb5b8af0a4401e59c5196e0ac6ac7356fe257309a290775f875f588db702"
+  },
+  "video": {
+    "codec": "h264",
+    "width": 320,
+    "height": 192,
+    "frames": 48,
+    "comparison": "exact NV12 bytes after decoding"
+  },
+  "render": {
+    "width": 128,
+    "height": 96,
+    "frames": 8,
+    "comparison": "exact RGBA8 pixels"
+  }
+}

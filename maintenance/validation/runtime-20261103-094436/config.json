@@ -1,0 +1,10 @@
+{
+  "summary": "/var/tmp/mtt-s30-test-20261103-094436.json",
+  "firmware_before": "",
+  "script_sha256": "e0a0a71a0169237c2add3651780269e3edc94aea73a649e868e8676191eb463a",
+  "workload_support_sha256": "d1b15c6592b6f64c3aaaee11dc22f40d10c2cf4622789b4d7695161037299602",
+  "desktop_support_sha256": "839dd8e9f2ab875c7cb65a742c63b75cf48881f7fcb8690f2a092de1ac76c608",
+  "profile": "kwin-wayland-v2",
+  "workload_manifest_sha256": "68c2d8c057dae856de6f5baad1771125fd2310647b02098ad92b1586e5766ea8",
+  "desktop_manifest_sha256": "4a2f2c694807c91b2d467a41fac968296e3419d61c1f65682a39a339ea9fddcc"
+}

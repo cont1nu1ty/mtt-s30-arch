@@ -1,0 +1,71 @@
+--- a/src/egl/drivers/dri2/platform_wayland.c
++++ b/src/egl/drivers/dri2/platform_wayland.c
+@@ -2088,6 +2088,31 @@
+    NULL,
+ };
+ 
++/* The reviewed MTT 3.1.0 DRI driver rejects IMAGE_LOOKUP versions other
++ * than 1 before creating a screen. Offer the complete v1 callback, which
++ * validates the EGLImage before looking it up; do not change Mesa ABI checks
++ * or expose v2 callbacks under a misleading version. Other drivers retain v2.
++ */
++static const __DRIimageLookupExtension mtgpu_image_lookup_v1 = {
++   .base = {__DRI_IMAGE_LOOKUP, 1},
++   .lookupEGLImage = dri2_lookup_egl_image,
++};
++
++static const __DRIextension *mtgpu_dri2_loader_extensions[] = {
++   &dri2_loader_extension.base,
++   &image_loader_extension.base,
++   &mtgpu_image_lookup_v1.base,
++   &use_invalidate.base,
++   NULL,
++};
++
++static const __DRIextension *mtgpu_image_loader_extensions[] = {
++   &image_loader_extension.base,
++   &mtgpu_image_lookup_v1.base,
++   &use_invalidate.base,
++   NULL,
++};
++
+ static EGLBoolean
+ dri2_wl_add_configs_for_visuals(_EGLDisplay *disp)
+ {
+@@ -2284,16 +2309,20 @@
+       goto cleanup;
+    }
+ 
++   const bool mtgpu_lookup_v1 = strcmp(dri2_dpy->driver_name, "mtgpu") == 0;
++   if (mtgpu_lookup_v1)
++      _eglLog(_EGL_INFO, "MTT compatibility: Wayland DRI_IMAGE_LOOKUP v1");
++
+    /* render nodes cannot use Gem names, and thus do not support
+     * the __DRI_DRI2_LOADER extension */
+    if (!dri2_dpy->is_render_node) {
+-      dri2_dpy->loader_extensions = dri2_loader_extensions;
++      dri2_dpy->loader_extensions = mtgpu_lookup_v1 ? mtgpu_dri2_loader_extensions : dri2_loader_extensions;
+       if (!dri2_load_driver(disp)) {
+          _eglError(EGL_BAD_ALLOC, "DRI2: failed to load driver");
+          goto cleanup;
+       }
+    } else {
+-      dri2_dpy->loader_extensions = image_loader_extensions;
++      dri2_dpy->loader_extensions = mtgpu_lookup_v1 ? mtgpu_image_loader_extensions : image_loader_extensions;
+       if (!dri2_load_driver_dri3(disp)) {
+          _eglError(EGL_BAD_ALLOC, "DRI3: failed to load driver");
+          goto cleanup;
+--- a/meson.build
++++ b/meson.build
+@@ -860,9 +860,9 @@
+ has_mako = run_command(
+   prog_python, '-c',
+   '''
+-from distutils.version import StrictVersion
++from packaging.version import Version
+ import mako
+-assert StrictVersion(mako.__version__) >= StrictVersion("0.8.0")
++assert Version(mako.__version__) >= Version("0.8.0")
+   ''', check: false)
+ if has_mako.returncode() != 0
+   error('Python (3.x) mako module >= 0.8.0 required to build mesa.')

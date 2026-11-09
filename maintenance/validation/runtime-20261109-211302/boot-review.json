@@ -1,0 +1,14 @@
+{
+  "test": "20261109-211302",
+  "test_boot_id": "4fd8b8ae-7e86-42bd-adea-ebea071a0e49",
+  "current_boot_id": "6090af90-47f4-44dd-b76f-8898cbe78e7e",
+  "start_utc": "2026-11-09T13:13:14Z",
+  "postload_kernel_fault_matches": [],
+  "reboot_requester_unit": "mtt-s30-once.service",
+  "planned_reboot_confirmed": true,
+  "service_sigkill_interpretation": "Expected supervisor stop policy after reboot requested: signal handler stops pinging and sleeps; systemd TimeoutStopSec=10s kills it during shutdown.",
+  "root_test_client_coredumps": [],
+  "hardware_watchdog_reset_proven": false,
+  "efi_restore_verified": true,
+  "independent_pixels_verified": true
+}

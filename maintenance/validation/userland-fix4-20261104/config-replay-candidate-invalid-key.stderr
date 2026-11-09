@@ -1,0 +1,7 @@
+libEGL debug: Ignoring unknown DRI config attribute 54
+libEGL debug: Ignoring unknown DRI config attribute 55
+libEGL debug: Ignoring unknown DRI config attribute 56
+libEGL debug: Ignoring unknown DRI config attribute 57
+libEGL debug: Ignoring unknown DRI config attribute 58
+libEGL debug: Ignoring unknown DRI config attribute 59
+config-abi-test: ../mesa-23.2.1/src/egl/main/eglconfig.h:155: _eglSetConfigKey: Assertion `offset >= 0' failed.

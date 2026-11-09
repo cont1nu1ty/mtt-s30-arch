@@ -1,0 +1,17 @@
+{
+  "profile": "kwin-wayland-v1",
+  "files": {
+    "egl-check": {
+      "sha256": "9f1e47d5b63aa812ae43cf6bb6cc250bd7c4af07d6d36932a3d8fb8d7a365d16",
+      "size": 75976
+    }
+  },
+  "source_sha256": {
+    "build.py": "eb1a911002a200d8ab53012580f8372c9d96faeffbb20a9fa33f034544a0d67e",
+    "egl-check.c": "ad9192c019276e9fe8ae3041bdb63bb5878fd8cf927b9579213e19e5d53f545c"
+  },
+  "protocol_sha256": {
+    "/usr/share/qt6/wayland/protocols/xdg-shell/xdg-shell.xml": "b72112a7a1f9b2ad94ffa59468753ced568d6e7b2069df94a9d437e488b8506e",
+    "/usr/share/qt6/wayland/protocols/presentation-time/presentation-time.xml": "57c15a794125d5c3b3d83f5069a10d96d23988cb464ae9f3635b7116a10ab481"
+  }
+}

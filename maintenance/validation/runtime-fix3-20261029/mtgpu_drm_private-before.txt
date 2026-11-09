@@ -1,0 +1,10 @@
+struct mtgpu_drm_private {
+	struct pvr_drm_private     pvr_private;          /*     0    40 */
+	struct mt_chip *           chip;                 /*    40     8 */
+	struct mutex               gem_mmap_mutex __attribute__((__aligned__(8))); /*    48    24 */
+
+	/* size: 72, cachelines: 2, members: 3 */
+	/* forced alignments: 1 */
+	/* last cacheline: 8 bytes */
+} __attribute__((__aligned__(8)));
+

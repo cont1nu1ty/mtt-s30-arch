@@ -1,0 +1,17 @@
+[
+  {
+    "name": "libegl-mesa0_23.2.1-1ubuntu3.1~22.04.3_amd64.deb",
+    "url": "https://snapshot.ubuntu.com/ubuntu/20250516T000000Z/pool/main/m/mesa/libegl-mesa0_23.2.1-1ubuntu3.1~22.04.3_amd64.deb",
+    "sha256": "3f7066355233c54a82332c009169b8156de48e2be9f15b54cadfb0ab03f95122"
+  },
+  {
+    "name": "libglapi-mesa_23.2.1-1ubuntu3.1~22.04.3_amd64.deb",
+    "url": "https://snapshot.ubuntu.com/ubuntu/20250516T000000Z/pool/main/m/mesa/libglapi-mesa_23.2.1-1ubuntu3.1~22.04.3_amd64.deb",
+    "sha256": "6a1a64062d386a0a9ca651057e369b1d418ceebb6c71584c2d0cda324166caea"
+  },
+  {
+    "name": "libgl1-mesa-dri_23.2.1-1ubuntu3.1~22.04.3_amd64.deb",
+    "url": "https://snapshot.ubuntu.com/ubuntu/20250516T000000Z/pool/main/m/mesa/libgl1-mesa-dri_23.2.1-1ubuntu3.1~22.04.3_amd64.deb",
+    "sha256": "b4119271ea60062864b8ce982076844e74bcb2ca53076d7300c5dffd34d3aeb2"
+  }
+]

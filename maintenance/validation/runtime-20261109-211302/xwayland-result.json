@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "phase": "complete",
+  "software_control": false,
+  "client_exit": 0,
+  "server": {
+    "pid": 40514,
+    "parent_pid": 40310,
+    "display": ":100",
+    "authenticated": true,
+    "exe": "/usr/bin/Xwayland",
+    "setup_helper_verified": true,
+    "hardware_server_verified": true,
+    "drm_fds": [
+      "/dev/dri/card0",
+      "/dev/dri/renderD128"
+    ],
+    "vendor_libraries": [
+      "/var/lib/mtt-s30-test/20261109-211302/test/vendor/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so",
+      "/var/lib/mtt-s30-test/20261109-211302/test/vendor/usr/lib/x86_64-linux-gnu/dri/musa_dri.so",
+      "/var/lib/mtt-s30-test/20261109-211302/test/vendor/usr/lib/x86_64-linux-gnu/libEGL_mtgpu.so.0.0.0"
+    ],
+    "glamor_fallback_messages": [],
+    "evidence_scope": "Vendor EGL/DRI mappings, S30 node and no fallback; GLX DRI3 query is checked separately."
+  },
+  "client": {
+    "passed": true,
+    "mode": "xwayland-glx-s30",
+    "frames": 12,
+    "pixels_checked": 589824,
+    "mismatches": 0,
+    "swapped": 12,
+    "direct": true,
+    "xwayland_extension": true,
+    "desktop_opengl": true,
+    "gl_major": 3,
+    "gl_minor": 3,
+    "window_destroyed": true,
+    "context_destroyed": true,
+    "display_closed": true,
+    "renderer": "MTT S30",
+    "vendor": "Moore Threads",
+    "gl_version": "3.3 build 20250122_master-227-gdf7bc68e",
+    "glx_vendor": "MTT Mesa Client",
+    "xserver_vendor": "The X.Org Foundation",
+    "dri3_extension": true,
+    "dri3_node": "/dev/dri/renderD128",
+    "dri3_device_major": 226,
+    "dri3_device_minor": 128
+  },
+  "vendor_libraries": [
+    "/var/lib/mtt-s30-test/20261109-211302/test/vendor/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so",
+    "/var/lib/mtt-s30-test/20261109-211302/test/vendor/usr/lib/x86_64-linux-gnu/dri/musa_dri.so",
+    "/var/lib/mtt-s30-test/20261109-211302/test/vendor/usr/lib/x86_64-linux-gnu/libGLX_mtgpu.so.0.0.0"
+  ]
+}

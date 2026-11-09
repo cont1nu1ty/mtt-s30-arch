@@ -1,0 +1,122 @@
+{
+  "profile": "kwin-wayland-v11",
+  "base_manifest_sha256": "747d5896a604dd03bbae5b136082a635ad26bc7d0aa7d10275a3a487e9450304",
+  "builder_sha256": "fb24da2c4b097da6b35b07ea93f8543790248fb05c39ed48183cf85046a297f7",
+  "source_sha256": {
+    "egl-check.c": "fa22fd04a4c7088a8a0ae94153f1965ff90d30ee60eb5da5f73e14f0218812f1",
+    "qt-check.cpp": "8cfa34caaafba1cbccc0c3b409f945760fd0cf8bf4eddbda5b8896e9ac01ed32"
+  },
+  "protocol_sha256": {
+    "/usr/share/qt6/wayland/protocols/xdg-shell/xdg-shell.xml": "b72112a7a1f9b2ad94ffa59468753ced568d6e7b2069df94a9d437e488b8506e",
+    "/usr/share/qt6/wayland/protocols/presentation-time/presentation-time.xml": "57c15a794125d5c3b3d83f5069a10d96d23988cb464ae9f3635b7116a10ab481"
+  },
+  "commands": [
+    [
+      "cc",
+      "-std=c11",
+      "-O2",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-ffile-prefix-map=/mtt-s30-checks=/mtt-s30-checks",
+      "-I/mtt-s30-checks",
+      "/mtt-s30-checks/egl-check.c",
+      "/mtt-s30-checks/xdg-shell-protocol.c",
+      "/mtt-s30-checks/presentation-time-protocol.c",
+      "-o",
+      "/mtt-s30-checks/bundle/egl-check",
+      "-I/usr/include/libdrm",
+      "-lEGL",
+      "-lGLESv2",
+      "-lgbm",
+      "-ldrm",
+      "-lwayland-egl",
+      "-lwayland-client",
+      "-lm"
+    ],
+    [
+      "c++",
+      "-std=c++17",
+      "-O2",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-ffile-prefix-map=/mtt-s30-checks=/mtt-s30-checks",
+      "-I/mtt-s30-checks",
+      "/mtt-s30-checks/qt-check.cpp",
+      "-fPIC",
+      "-ldl",
+      "-o",
+      "/mtt-s30-checks/bundle/qt-check",
+      "-I/usr/include/qt6/QtQuick",
+      "-I/usr/include/qt6",
+      "-DQT_QUICK_LIB",
+      "-I/usr/include/qt6/QtOpenGL",
+      "-DQT_OPENGL_LIB",
+      "-I/usr/include/qt6/QtGui",
+      "-DQT_GUI_LIB",
+      "-I/usr/include/qt6/QtQml",
+      "-DQT_QML_LIB",
+      "-I/usr/include/qt6/QtQmlIntegration",
+      "-DQT_QMLINTEGRATION_LIB",
+      "-I/usr/include/qt6/QtNetwork",
+      "-DQT_NETWORK_LIB",
+      "-I/usr/include/qt6/QtCore",
+      "-DQT_CORE_LIB",
+      "-I/usr/lib/qt6/mkspecs/linux-g++",
+      "-lQt6Quick",
+      "-lQt6OpenGL",
+      "-lQt6Gui",
+      "-lQt6Qml",
+      "-lQt6Network",
+      "-lQt6Core"
+    ]
+  ],
+  "compiler": "cc (GCC) 16.2.1 20260810\nCopyright (C) 2026 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "qt_versions": [
+    "6.12.0",
+    "6.12.0",
+    "6.12.0"
+  ],
+  "files": {
+    "client-dri/mtgpu_dri.so": {
+      "sha256": "05cd2ddd3dcb2c0a77994d52b959548babcf912027b550efb9a45aeb6201fc23",
+      "size": 15471624
+    },
+    "client-dri/musa_dri.so": {
+      "sha256": "0c8ddef50a68b20db4fcb1b5e91a5c74075fa0c5527b3a9b45cd93aeaec3532b",
+      "size": 268120
+    },
+    "egl/50_mesa.json": {
+      "sha256": "4aafa7f214e777358e7196084dff436d6b0aab3b13f367c2abf2a5f98b507df7",
+      "size": 92
+    },
+    "egl/libEGL_mesa.so.0": {
+      "sha256": "6c8de88d01a2a3a7a61a95aa1e3a98b26d37dcc67d916a2302fb41c05f050fd3",
+      "size": 1667952
+    },
+    "egl/libglapi.so.0": {
+      "sha256": "3b796b01bb3b6d8fa8bd0b970258fd2c284841fd3ded0e82f684adc06ba2f1cb",
+      "size": 211304
+    },
+    "egl-check": {
+      "sha256": "d48911d631daa824b6c2821ab049b7e8511d800cdf7015fab4cd4dd33153a00a",
+      "size": 90912
+    },
+    "kwin/kwin_wayland": {
+      "sha256": "f3d11822f04a3d81ab1bda8aaf79ee362c72faa707f91619089b0ec62c7aca12",
+      "size": 2607248
+    },
+    "kwin/libkwin.so.6": {
+      "sha256": "70f2110f553b260311d24ded8f287c262e60700eb8ba146b5f949c47eaedd5f0",
+      "size": 16903120
+    },
+    "qt-check": {
+      "sha256": "2fe67128e8b6ba5869a67228606909a90abd84d108777e338b03a59f023e8381",
+      "size": 1047064
+    }
+  },
+  "hardware_tested": false
+}

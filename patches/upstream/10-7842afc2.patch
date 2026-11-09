@@ -1,0 +1,25 @@
+commit 7842afc22e88ff9b44a182e05acb22c0cdd172e4
+Author:     dixyes <dixyes@gmail.com>
+AuthorDate: Thu Apr 3 23:33:17 2025 +0800
+Commit:     dixyes <dixyes@gmail.com>
+CommitDate: Tue Apr 22 20:42:43 2025 +0800
+
+    Adopt 6.13 __get_task_comm change
+
+diff --git a/src/common/os-interface.c b/src/common/os-interface.c
+index 9dee9f0..f27dae7 100644
+--- a/src/common/os-interface.c
++++ b/src/common/os-interface.c
+@@ -774,7 +774,12 @@ void os_sg_free_table(struct sg_table *sgt)
+ 
+ void os_get_current_task_comm(char *to, int size)
+ {
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 13, 0)
++	WARN_ON(size < TASK_COMM_LEN);
++	sized_strscpy_pad(to, current->comm, size);
++#else
+ 	__get_task_comm(to, size, current);
++#endif // LINUX_VERSION
+ }
+ 
+ void *os_vmap(struct page **pages, unsigned int count)

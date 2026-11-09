@@ -1,0 +1,45 @@
+{
+  "candidate": "runtime-fix3-v2",
+  "patch_sha256": "edde0ef52965529dfc87e4806fd78b7249c7684deee73de8ad73ded42890b136",
+  "source_tests_passed": 14,
+  "recovery_tests_passed": 23,
+  "kernel_builds": {
+    "7.2.11": {
+      "kernel": "7.2.11-arch1-1",
+      "build_exit": 0,
+      "module_built": true,
+      "runtime_tested": false,
+      "objtool_warnings": 5486,
+      "vendor_blob_modified": false,
+      "module_sha256": "db8e4393ec50e0e2542dafdb7277240627406b847dc19d0427444712249143bb",
+      "vermagic": "7.2.11-arch1-1 SMP preempt mod_unload",
+      "s30_pci_alias_present": true,
+      "unresolved_kernel_symbols": []
+    },
+    "6.18.58": {
+      "kernel": "6.18.58-1-lts",
+      "build_exit": 0,
+      "module_built": true,
+      "runtime_tested": false,
+      "objtool_warnings": 5486,
+      "vendor_blob_modified": false,
+      "module_sha256": "658e341758548e14116d56f0f45f1c81a290eab5f12bec07bf0d788fa371331c",
+      "vermagic": "6.18.58-1-lts SMP preempt mod_unload",
+      "s30_pci_alias_present": true,
+      "unresolved_kernel_symbols": []
+    }
+  },
+  "arch_source_hashes_verified": true,
+  "complete_arch_package_built": false,
+  "candidate_runtime_tested": false,
+  "driver_installed": false,
+  "currently_loaded": false,
+  "previous_runtime_test": "20261029-231534",
+  "gpu_acceleration_verified": false,
+  "remaining": [
+    "new candidate hardware initialization",
+    "management/Vulkan/VA-API enumeration",
+    "real graphics/video/desktop/stability tests",
+    "vendor blob objtool and mitigations compatibility"
+  ]
+}

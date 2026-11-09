@@ -1,0 +1,152 @@
+From: Local MTT S30 compatibility maintenance
+Subject: [PATCH] egl/wayland: bridge mtgpu 3.1.0 private display prefix
+
+The x86-64 vendor reads platform/native display at offsets 0x30/0x38
+of createNewScreen's loaderPrivate. Mesa 23.2.1 places them at 0x48/0x50,
+so the vendor initializes an X11 backend and treats a Wayland surface as
+an XCB drawable. Keep the real Mesa display and locking unchanged, retain
+an isolated prefix for the lifetime of the DRI screens, and translate the
+v1 image lookup callback back to the real display before validation.
+
+Limited to mtgpu on Wayland. No DRI2/GEM-name loader is added to render
+nodes, no vendor binary is modified, and optional loader versions remain
+unchanged. This adapter is specific to the reviewed official 3.1.0 binary.
+
+--- a/src/egl/drivers/dri2/egl_dri2.h
++++ b/src/egl/drivers/dri2/egl_dri2.h
+@@ -215,6 +215,20 @@
+    struct dmabuf_feedback_tranche pending_tranche;
+ };
+ #endif
++
++/* The reviewed x86-64 mtgpu 3.1.0 DRI loader reads two fields of its
++ * original EGL display through createNewScreen's loaderPrivate.  Expose that
++ * prefix without changing Mesa's real display, mutex, or termination lock.
++ * Only the two documented-by-inspection offsets are supplied; this is not a
++ * replacement _EGLDisplay or a general vendor ABI implementation.
++ */
++struct dri2_mtgpu_display {
++   uint8_t reserved[0x30];
++   uint32_t platform;
++   uint32_t pad;
++   void *native_display;
++   _EGLDisplay *display;
++};
+ 
+ struct dri2_egl_display {
+    const struct dri2_egl_display_vtbl *vtbl;
+@@ -317,6 +331,11 @@
+ #endif
+ 
+    bool is_render_node;
++
++   /* Must outlive both DRI screens and their image-lookup callbacks.  It is
++    * embedded so dri2_display_destroy frees it only after destroyScreen.
++    */
++   struct dri2_mtgpu_display mtgpu_display;
+ };
+ 
+ struct dri2_egl_context {
+--- a/src/egl/drivers/dri2/egl_dri2.c
++++ b/src/egl/drivers/dri2/egl_dri2.c
+@@ -1046,6 +1046,34 @@
+    }
+ }
+ 
++static void *
++dri2_screen_loader_private(_EGLDisplay *disp)
++{
++   struct dri2_egl_display *dri2_dpy = dri2_egl_display(disp);
++
++   if (disp->Platform != _EGL_PLATFORM_WAYLAND ||
++       !dri2_mtgpu_opaque_screen(dri2_dpy))
++      return disp;
++
++#if !defined(__x86_64__) || UINTPTR_MAX != UINT64_MAX
++   _eglError(EGL_NOT_INITIALIZED, "mtgpu display ABI requires x86-64");
++   return NULL;
++#else
++   STATIC_ASSERT(offsetof(struct dri2_mtgpu_display, platform) == 0x30);
++   STATIC_ASSERT(offsetof(struct dri2_mtgpu_display, native_display) == 0x38);
++   STATIC_ASSERT(offsetof(struct dri2_mtgpu_display, display) == 0x40);
++   STATIC_ASSERT(sizeof(struct dri2_mtgpu_display) == 0x48);
++   STATIC_ASSERT(_EGL_PLATFORM_WAYLAND == 2);
++
++   struct dri2_mtgpu_display *bridge = &dri2_dpy->mtgpu_display;
++   bridge->platform = _EGL_PLATFORM_WAYLAND;
++   bridge->native_display = disp->PlatformDisplay;
++   bridge->display = disp;
++   _eglLog(_EGL_INFO, "MTT compatibility: Wayland display ABI bridge");
++   return bridge;
++#endif
++}
++
+ /* All platforms but DRM call this function to create the screen and populate
+  * the driver_configs. DRM inherits that information from its display - GBM.
+  */
+@@ -1054,6 +1082,9 @@
+ {
+    struct dri2_egl_display *dri2_dpy = dri2_egl_display(disp);
+    char *driver_name_display_gpu;
++   void *loader_private = dri2_screen_loader_private(disp);
++   if (!loader_private)
++      return EGL_FALSE;
+ 
+    if (dri2_dpy->fd_render_gpu != dri2_dpy->fd_display_gpu) {
+       driver_name_display_gpu =
+@@ -1065,7 +1096,8 @@
+          if (strcmp(dri2_dpy->driver_name, driver_name_display_gpu) == 0) {
+             dri2_dpy->dri_screen_display_gpu = dri2_dpy->mesa->createNewScreen(
+                0, dri2_dpy->fd_display_gpu, dri2_dpy->loader_extensions,
+-               dri2_dpy->driver_extensions, &dri2_dpy->driver_configs, disp);
++               dri2_dpy->driver_extensions, &dri2_dpy->driver_configs,
++               loader_private);
+          }
+          free(driver_name_display_gpu);
+       }
+@@ -1074,7 +1106,7 @@
+    int screen_fd = dri2_dpy->swrast ? -1 : dri2_dpy->fd_render_gpu;
+    dri2_dpy->dri_screen_render_gpu = dri2_dpy->mesa->createNewScreen(
+       0, screen_fd, dri2_dpy->loader_extensions, dri2_dpy->driver_extensions,
+-      &dri2_dpy->driver_configs, disp);
++      &dri2_dpy->driver_configs, loader_private);
+ 
+    if (dri2_dpy->dri_screen_render_gpu == NULL) {
+       _eglLog(_EGL_WARNING, "egl: failed to create dri2 screen");
+--- a/src/egl/drivers/dri2/platform_wayland.c
++++ b/src/egl/drivers/dri2/platform_wayland.c
+@@ -2093,9 +2093,33 @@
+  * validates the EGLImage before looking it up; do not change Mesa ABI checks
+  * or expose v2 callbacks under a misleading version. Other drivers retain v2.
+  */
++/* DRI specifies that data is the screen's loaderPrivate.  mtgpu receives
++ * the legacy display prefix above, so translate back before Mesa validates
++ * the EGLImage against the real display and its resource list.
++ */
++static __DRIimage *
++mtgpu_lookup_egl_image(__DRIscreen *screen, void *image, void *data)
++{
++   struct dri2_mtgpu_display *bridge = data;
++   if (!bridge || bridge->platform != _EGL_PLATFORM_WAYLAND ||
++       !bridge->display || bridge->display->Platform != _EGL_PLATFORM_WAYLAND) {
++      _eglError(EGL_BAD_PARAMETER, "mtgpu image lookup display bridge");
++      return NULL;
++   }
++
++   struct dri2_egl_display *dri2_dpy = dri2_egl_display(bridge->display);
++   if (!dri2_dpy || &dri2_dpy->mtgpu_display != bridge ||
++       !dri2_dpy->driver_name || strcmp(dri2_dpy->driver_name, "mtgpu") != 0) {
++      _eglError(EGL_BAD_PARAMETER, "mtgpu image lookup display bridge");
++      return NULL;
++   }
++
++   return dri2_lookup_egl_image(screen, image, bridge->display);
++}
++
+ static const __DRIimageLookupExtension mtgpu_image_lookup_v1 = {
+    .base = {__DRI_IMAGE_LOOKUP, 1},
+-   .lookupEGLImage = dri2_lookup_egl_image,
++   .lookupEGLImage = mtgpu_lookup_egl_image,
+ };
+ 
+ static const __DRIextension *mtgpu_dri2_loader_extensions[] = {

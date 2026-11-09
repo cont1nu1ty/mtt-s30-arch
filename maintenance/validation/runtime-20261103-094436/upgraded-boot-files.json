@@ -1,0 +1,54 @@
+{
+  "running_kernel": "7.2.11-arch1-1",
+  "target_kernel": "7.2.14-arch1-1",
+  "target_kernel_has_booted": false,
+  "scope": "Boot-file consistency only; not a successful boot test or historical EFI recovery verification.",
+  "packages": "linux 7.2.14.arch1-1\nlinux-headers 7.2.14.arch1-1",
+  "default_entry": "ba2e34dd35724617b087c81f894d3b6b-7.2.14-arch1-1.conf",
+  "entries": [
+    {
+      "id": "ba2e34dd35724617b087c81f894d3b6b-7.2.14-arch1-1.conf",
+      "images": [
+        {
+          "type": "linux",
+          "path": "/efi/ba2e34dd35724617b087c81f894d3b6b/7.2.14-arch1-1/linux",
+          "sha256": "b1e9eaf5700a53a31ed923edecd72b319a29da74be32c0885bff112d37ce325b",
+          "bytes": 17248768
+        },
+        {
+          "type": "initrd",
+          "path": "/efi/ba2e34dd35724617b087c81f894d3b6b/7.2.14-arch1-1/initrd",
+          "sha256": "7f29fddabc14ba6cc590c23fcebe34f12d3691d6ba5089b5428fd2affca348fe",
+          "bytes": 34032053,
+          "module_versions": [
+            "7.2.14-arch1-1"
+          ],
+          "mtgpu_present": false
+        }
+      ]
+    },
+    {
+      "id": "ba2e34dd35724617b087c81f894d3b6b-7.2.14-arch1-1-fallback.conf",
+      "images": [
+        {
+          "type": "linux",
+          "path": "/efi/ba2e34dd35724617b087c81f894d3b6b/7.2.14-arch1-1/linux",
+          "sha256": "b1e9eaf5700a53a31ed923edecd72b319a29da74be32c0885bff112d37ce325b",
+          "bytes": 17248768
+        },
+        {
+          "type": "initrd",
+          "path": "/efi/ba2e34dd35724617b087c81f894d3b6b/7.2.14-arch1-1/initrd-fallback",
+          "sha256": "1c5ca237611c72002658cf088d1c0d83ead17e949d0ce4bf785a38daee04e2f2",
+          "bytes": 83549961,
+          "module_versions": [
+            "7.2.14-arch1-1"
+          ],
+          "mtgpu_present": false
+        }
+      ]
+    }
+  ],
+  "boot_files_verified": true,
+  "driver_loaded": false
+}

@@ -1,0 +1,138 @@
+{
+  "test": "20261109-211302",
+  "independently_verified": true,
+  "export": "/var/tmp/mtt-s30-results-20261109-211302",
+  "desktop_manifest_sha256": "7d9e8aa3574ffecd34ae810baefb039411763d77445cd5017623e5b02b47cf40",
+  "verified_bundle_files": 12,
+  "saved_images": {
+    "render.rgba": {
+      "pixels": 12288,
+      "bytes": 49152,
+      "frame": 7,
+      "sha256": "f6b5fea7be1327ca395fb1e22b7a3a3b813ac4edcc8c568e8102d0670dabaedd",
+      "independent_match": true
+    },
+    "egl-gbm.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 7,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    },
+    "wayland.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 59,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    },
+    "qt.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 11,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    },
+    "x11.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 11,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    }
+  },
+  "qt_png_matches_rgba": true,
+  "video_bytes_compared": 4423680,
+  "video_reference_match": true,
+  "video_fresh_cpu_decode_match": true,
+  "video_sha256": "71bc2ca60616df175a713a32e904a759ecf4b46982a3d352d68c9d7c40756b3c",
+  "wayland_client": {
+    "passed": true,
+    "mode": "wayland-s30",
+    "frames": 300,
+    "pixels_checked": 14745600,
+    "mismatches": 0,
+    "presented": 300,
+    "discarded": 0,
+    "hardware_presentations": 300,
+    "presentation_flags_all": 7,
+    "completed_cycles": 5,
+    "frames_per_cycle": 60,
+    "renderer": "MTT S30",
+    "vendor": "MOORE THREADS",
+    "egl_vendor": "Mesa Project"
+  },
+  "qt_quick_client": {
+    "frames": 12,
+    "gl_version": "OpenGL ES 3.2 build 20250516 release HEAD a8e4abb80@20250506 ",
+    "graphics_api": "OpenGL",
+    "mismatches": 0,
+    "mode": "qt-wayland-s30",
+    "opengles": true,
+    "passed": true,
+    "pixels_checked": 589824,
+    "renderer": "MTT S30",
+    "swapped": 14,
+    "vendor": "MOORE THREADS",
+    "window_destroyed": true
+  },
+  "x11_glx_client": {
+    "passed": true,
+    "mode": "xwayland-glx-s30",
+    "frames": 12,
+    "pixels_checked": 589824,
+    "mismatches": 0,
+    "swapped": 12,
+    "direct": true,
+    "xwayland_extension": true,
+    "desktop_opengl": true,
+    "gl_major": 3,
+    "gl_minor": 3,
+    "window_destroyed": true,
+    "context_destroyed": true,
+    "display_closed": true,
+    "renderer": "MTT S30",
+    "vendor": "Moore Threads",
+    "gl_version": "3.3 build 20250122_master-227-gdf7bc68e",
+    "glx_vendor": "MTT Mesa Client",
+    "xserver_vendor": "The X.Org Foundation",
+    "dri3_extension": true,
+    "dri3_node": "/dev/dri/renderD128",
+    "dri3_device_major": 226,
+    "dri3_device_minor": 128
+  },
+  "plasma_result": {
+    "passed": true,
+    "shell_pid": 40412,
+    "desktop_layer_buffers": 33,
+    "dock_layer_buffers": 41,
+    "panel_layout_restore": true,
+    "opengl_contexts": [
+      {
+        "vendor": "Moore Threads",
+        "renderer": "MTT S30",
+        "version": "4.3 build 20250122_master-227-gdf7bc68e"
+      },
+      {
+        "vendor": "Moore Threads",
+        "renderer": "MTT S30",
+        "version": "4.3 build 20250122_master-227-gdf7bc68e"
+      }
+    ],
+    "exit_code": 0
+  },
+  "xwayland_result": {
+    "passed": true,
+    "server_pid": 40514,
+    "display": ":100",
+    "dri3_node": "/dev/dri/renderD128",
+    "glamor_fallback": false
+  },
+  "client_exit": 0,
+  "qt_client_exit": 0,
+  "kwin_orderly_exit": true,
+  "compositor_faults": [],
+  "recovery_verified": true,
+  "cores_found": 0,
+  "scope": "All workloads (Vulkan, H.264, EGL/GBM, Wayland 300 frames, Qt Quick 12 frames), full Plasma 6.8.2 desktop/panel (33+41 buffer submissions), and Xwayland GLX direct rendering (12 frames) passed with 0 errors on real MTT S30 hardware."
+}

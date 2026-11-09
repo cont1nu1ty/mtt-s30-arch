@@ -1,0 +1,72 @@
+{
+  "verified_at": "2026-10-30T14:51:01+08:00",
+  "test_id": "20261030-084900",
+  "status": "short_render_and_h264_decode_passed",
+  "module_sha256": "db8e4393ec50e0e2542dafdb7277240627406b847dc19d0427444712249143bb",
+  "profile": "render-decode-v1",
+  "probe_exit": 0,
+  "workloads": {
+    "profile": "render-decode-v1",
+    "passed": true,
+    "render": {
+      "passed": true,
+      "mode": "s30",
+      "frames": 8,
+      "pixels_checked": 98304,
+      "mismatches": 0
+    },
+    "video": {
+      "passed": true,
+      "mode": "vaapi",
+      "frames": 48,
+      "hardware_frames": 48,
+      "bad_frames": 0,
+      "different_bytes": 0,
+      "max_abs_error": 0
+    },
+    "render_sha256": "f6b5fea7be1327ca395fb1e22b7a3a3b813ac4edcc8c568e8102d0670dabaedd",
+    "decoded_sha256": "71bc2ca60616df175a713a32e904a759ecf4b46982a3d352d68c9d7c40756b3c",
+    "manifest_sha256": "68c2d8c057dae856de6f5baad1771125fd2310647b02098ad92b1586e5766ea8",
+    "accelerated_desktop_tested": false
+  },
+  "independent_output_recheck": {
+    "last_rgba_frame_pixel_exact": true,
+    "all_48_nv12_frames_byte_exact": true,
+    "manifest_pinned": true,
+    "runner_source_matches_staged_hash": true,
+    "support_source_matches_staged_hash": true
+  },
+  "post_load_kernel_faults": [],
+  "reboot_requested_local": "2026-10-30T08:52:12+08:00",
+  "next_boot_first_journal_local": "2026-10-30T08:52:57+08:00",
+  "recovery_verified": true,
+  "esp_comparison": {
+    "expected_files": 11,
+    "current_files": 11,
+    "added": [],
+    "removed": [],
+    "changed": [
+      "loader/random-seed"
+    ],
+    "unchanged_files": 10
+  },
+  "hardware_watchdog_expiry_reset_verified": false,
+  "shutdown_watchdog_timeout_observed_seconds": 600,
+  "current_state": {
+    "boot_id": "5c991afe-1696-4edd-8c7d-b916e5dd7f6e",
+    "kernel": "7.2.11-arch1-1",
+    "display_manager": "active",
+    "mtgpu_loaded": false,
+    "watchdog_state": "inactive",
+    "firmware_search_path": ""
+  },
+  "not_validated": [
+    "accelerated KDE/Wayland and OpenGL/EGL/GBM desktop integration",
+    "other video codecs and encoding",
+    "compute workloads",
+    "long-duration stability and suspend/resume",
+    "LTS runtime",
+    "vendor blob objtool and mitigation compatibility"
+  ],
+  "evidence_source": "/var/tmp/mtt-s30-results-20261030-084900"
+}

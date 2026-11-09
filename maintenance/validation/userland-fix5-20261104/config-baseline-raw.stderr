@@ -1,0 +1,1 @@
+config-abi-test: ../mesa-23.2.1/src/egl/main/eglconfig.h:155: _eglSetConfigKey: Assertion `offset >= 0' failed.

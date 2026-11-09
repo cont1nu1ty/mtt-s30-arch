@@ -1,0 +1,16 @@
+{
+  "source_lookup": "Mesa src/egl/main/eglglvnd.c:74 passes GLVND getProcAddress to eglGetProcAddress; src/egl/main/eglapi.c and src/egl/drivers/dri2/egl_dri2.c previously resolved generic Mesa GL stubs.",
+  "official_egl": "libEGL_mtgpu.so.0.0.0+0x342e0 tailcalls musa_glapi_get_proc_address; offsets 0x342bc/0x38617 request its glFlush.",
+  "secondary_driver": "musa_dri.so+0xa704 dispatches via musa_glapi_set_dispatch; +0xa6d2 sets NULL on reset. These use libglapi_musa.so.0 thread storage.",
+  "scope": "Private Linux/glibc Mesa GLVND/Wayland client opts into a fixed staged resolver before the first GL lookup. Other client processes keep their own ordinary resolver. Resolver selection persists per process through bind/unbind.",
+  "limitations": "The physical log checks GL_VENDOR and GL_RENDERER together and records a missing identity before frame 1. The v9 vendor dispatch and subsequent draw/swap still require the S30 physical test.",
+  "vendor_sha256": {
+    "libglapi_musa.so.0.0.0": "c130e2756e374e5ef6a843a0e9d93bfba1674412249a4a426858e2f381acd569",
+    "libEGL_mtgpu.so.0.0.0": "0a9460529f715037c0db589cefc5fd864e2915c7b373cc0f37b32ec70a0500b3",
+    "dri/musa_dri.so": "0c8ddef50a68b20db4fcb1b5e91a5c74075fa0c5527b3a9b45cd93aeaec3532b",
+    "dri/mtgpu_dri.so": "2583b5c4e793389e0d130bfb8895884dfdee358ac70d63195deeba1eb0d1a07c"
+  },
+  "patch_sha256": "46e48196607fadf80e75035389d8c117dd64b07229ff1793818db06b9d4248ce",
+  "new_egl_sha256": "6c8de88d01a2a3a7a61a95aa1e3a98b26d37dcc67d916a2302fb41c05f050fd3",
+  "display_bridge_cases": 8
+}

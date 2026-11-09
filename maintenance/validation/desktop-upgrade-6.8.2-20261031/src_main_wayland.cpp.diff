@@ -1,0 +1,18 @@
+--- 6.8.1/src/main_wayland.cpp
++++ 6.8.2/src/main_wayland.cpp
+@@ -307,6 +307,15 @@
+ 
+     QProcessEnvironment environment = QProcessEnvironment::systemEnvironment();
+ 
++    const QStringList kwinEnvs = environment.keys() | std::views::filter([](const QString &key) {
++        return key.startsWith("KWIN_");
++    }) | std::views::transform([&environment](const QString &key) {
++        return key + '=' + environment.value(key);
++    }) | std::ranges::to<QStringList>();
++    if (!kwinEnvs.isEmpty()) {
++        qWarning() << "KWIN environment variables:" << kwinEnvs;
++    }
++
+     // enforce our internal qpa plugin, unfortunately command line switch has precedence
+     setenv("QT_QPA_PLATFORM", "wayland-org.kde.kwin.qpa", true);
+ 

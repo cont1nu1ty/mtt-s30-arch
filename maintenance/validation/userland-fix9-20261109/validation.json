@@ -1,0 +1,89 @@
+{
+  "profile": "kwin-wayland-v10",
+  "bundle": "desktop-userland-fix9-20261109",
+  "manifest_sha256": "747d5896a604dd03bbae5b136082a635ad26bc7d0aa7d10275a3a487e9450304",
+  "checked_utc": "2026-11-09T07:21:48.883747+00:00",
+  "kernel": "7.2.14-arch1-1",
+  "module_sha256": "6857f52e14db1071ca5b089029725432d5bbb71022dba55f9cd973121bc4adff",
+  "reviewed_packages": {
+    "kwin": "6.8.2-1",
+    "mesa": "1:26.2.6-1",
+    "qt6-base": "6.12.0-3",
+    "qt6-declarative": "6.12.0-4",
+    "kdecoration": "6.8.2-1"
+  },
+  "base_manifest_sha256": "041b3ad6f378a9ced7569a658a0e917cd72147ad3bcb68b27222054a7e5d5e30",
+  "v9_payloads_preserved": true,
+  "original_dri_sha256": "2583b5c4e793389e0d130bfb8895884dfdee358ac70d63195deeba1eb0d1a07c",
+  "client_dri_sha256": "05cd2ddd3dcb2c0a77994d52b959548babcf912027b550efb9a45aeb6201fc23",
+  "client_secondary_sha256": "0c8ddef50a68b20db4fcb1b5e91a5c74075fa0c5527b3a9b45cd93aeaec3532b",
+  "original_gnu_build_id_retained": true,
+  "changed_instruction_offsets": [
+    "0x5a51a0",
+    "0x5875e0"
+  ],
+  "changed_bytes": 10,
+  "source_and_result_hashes_enforced": true,
+  "second_build_byte_identical": true,
+  "original_double_free_reproduced_cases": 4,
+  "repaired_destructor_cases": 4,
+  "load_unload_control": {
+    "original": {
+      "leaked_bytes": 74268,
+      "allocations": 22
+    },
+    "candidate": {
+      "leaked_bytes": 74268,
+      "allocations": 22
+    }
+  },
+  "loader_routing_cases": 4,
+  "recovery_tests_passed": 68,
+  "software_window": {
+    "passed": true,
+    "mode": "wayland-software",
+    "frames": 60,
+    "pixels_checked": 2949120,
+    "mismatches": 0,
+    "presented": 60,
+    "discarded": 0,
+    "hardware_presentations": 60,
+    "presentation_flags_all": 7,
+    "renderer": "softpipe",
+    "vendor": "Mesa",
+    "egl_vendor": "Mesa Project"
+  },
+  "software_session": {
+    "passed": true,
+    "mode": "virtual-software",
+    "kwin_started": true,
+    "forced_kill": false,
+    "kwin_pid": 16804,
+    "renderer": "llvmpipe (LLVM 23.1.4, 256 bits)",
+    "drm_fds": [],
+    "context_import_formats_accepted": false,
+    "context_import_formats_evidence": [],
+    "fixed_driver_import_table_verified": false,
+    "fixed_driver_import_table_evidence": [],
+    "fixed_driver_import_table_invalid": [],
+    "drm_layer_swapchain_selected": false,
+    "swapchain_selection_evidence": [],
+    "drm_layer_swapchains": [],
+    "physical_output_sizes": [],
+    "client_exit": 0,
+    "checks_passed": true,
+    "termination_requested": true,
+    "kwin_exit": 15,
+    "compositor_faults": []
+  },
+  "software_rejected_as_hardware": true,
+  "staging_and_runtime_dependencies_verified": true,
+  "last_runtime_test": "20261109-150112",
+  "last_runtime_recovery_verified": true,
+  "ready_for_fresh_backup_entrypoint": true,
+  "s30_v10_tested": false,
+  "hardware_watchdog_reset_proven": false,
+  "build_command": "python3 maintenance/desktop/build-drawable-compat.py --output builds/desktop-userland-fix9-20261109",
+  "lifetime_command": "python3 maintenance/desktop/test-drawable-teardown.py --candidate builds/desktop-userland-fix9-20261109/client-dri/mtgpu_dri.so --output work/v9-lifetime-20261109/final",
+  "software_command": "python3 maintenance/desktop/validate-userland.py --bundle builds/desktop-userland-fix9-20261109 --stage work/userland-fix9-software-20261109 --software-root work/userland-fix-20261031/ubuntu-mesa"
+}

@@ -1,0 +1,8 @@
+{
+  "summary": "/var/tmp/mtt-s30-test-20261030-084900.json",
+  "firmware_before": "",
+  "script_sha256": "ecb8360b9e4256a5ccbb0c264928d1d1ce6ecc0088cb333093d9c51d7eafddaa",
+  "workload_support_sha256": "d1b15c6592b6f64c3aaaee11dc22f40d10c2cf4622789b4d7695161037299602",
+  "profile": "render-decode-v1",
+  "workload_manifest_sha256": "68c2d8c057dae856de6f5baad1771125fd2310647b02098ad92b1586e5766ea8"
+}

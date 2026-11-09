@@ -1,0 +1,50 @@
+{
+  "repaired": {
+    "dri_paths": [
+      "/home/bull/Documents/mtt-s30-arch/work/v9-loader-routing-20261109/desktop/client-dri/mtgpu_dri.so",
+      "/home/bull/Documents/mtt-s30-arch/work/v9-loader-routing-20261109/desktop/client-dri/musa_dri.so"
+    ],
+    "sha256": [
+      "05cd2ddd3dcb2c0a77994d52b959548babcf912027b550efb9a45aeb6201fc23",
+      "0c8ddef50a68b20db4fcb1b5e91a5c74075fa0c5527b3a9b45cd93aeaec3532b"
+    ],
+    "primary_extensions_returned": true,
+    "libgl_drivers_path": "/home/bull/Documents/mtt-s30-arch/work/v9-loader-routing-20261109/desktop/client-dri",
+    "uid": 1000,
+    "ioctl_and_connect_would_kill_process": true
+  },
+  "stock": {
+    "dri_paths": [
+      "/home/bull/Documents/mtt-s30-arch/official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so",
+      "/home/bull/Documents/mtt-s30-arch/official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/musa_dri.so"
+    ],
+    "sha256": [
+      "2583b5c4e793389e0d130bfb8895884dfdee358ac70d63195deeba1eb0d1a07c",
+      "0c8ddef50a68b20db4fcb1b5e91a5c74075fa0c5527b3a9b45cd93aeaec3532b"
+    ],
+    "primary_extensions_returned": true,
+    "libgl_drivers_path": "/home/bull/Documents/mtt-s30-arch/work/egl-gles-dispatch-final-20261106/dependency-stage/vendor/usr/lib/x86_64-linux-gnu/dri",
+    "uid": 1000,
+    "ioctl_and_connect_would_kill_process": true
+  },
+  "missing-secondary": {
+    "dri_paths": [
+      "/home/bull/Documents/mtt-s30-arch/work/v9-loader-routing-20261109/only-primary/mtgpu_dri.so"
+    ],
+    "sha256": [
+      "05cd2ddd3dcb2c0a77994d52b959548babcf912027b550efb9a45aeb6201fc23"
+    ],
+    "primary_extensions_returned": true,
+    "libgl_drivers_path": "/home/bull/Documents/mtt-s30-arch/work/v9-loader-routing-20261109/only-primary",
+    "uid": 1000,
+    "ioctl_and_connect_would_kill_process": true
+  },
+  "missing-primary": {
+    "dri_paths": [],
+    "sha256": [],
+    "primary_extensions_returned": false,
+    "libgl_drivers_path": "/home/bull/Documents/mtt-s30-arch/work/v9-loader-routing-20261109/only-secondary",
+    "uid": 1000,
+    "ioctl_and_connect_would_kill_process": true
+  }
+}

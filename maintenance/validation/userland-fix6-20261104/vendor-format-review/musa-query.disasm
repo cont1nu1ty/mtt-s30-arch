@@ -1,0 +1,63 @@
+
+official/driver-3.1.0/usr/lib/x86_64-linux-gnu/libmusa_dri_support.so.1.0.0:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000015740 <KEGLBlitImage@@Base-0xd3a0>:
+   15740:	44 8b 4f 20          	mov    0x20(%rdi),%r9d
+   15744:	45 85 c9             	test   %r9d,%r9d
+   15747:	0f 88 93 00 00 00    	js     157e0 <__cxa_finalize@plt+0x658>
+   1574d:	85 f6                	test   %esi,%esi
+   1574f:	53                   	push   %rbx
+   15750:	44 0f 45 ce          	cmovne %esi,%r9d
+   15754:	45 85 c9             	test   %r9d,%r9d
+   15757:	0f 8e 93 00 00 00    	jle    157f0 <__cxa_finalize@plt+0x668>
+   1575d:	4c 8d 05 60 f0 04 00 	lea    0x4f060(%rip),%r8        # 647c4 <_fini@@Base+0x9a90>
+   15764:	b8 01 00 00 00       	mov    $0x1,%eax
+   15769:	31 db                	xor    %ebx,%ebx
+   1576b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   15770:	41 80 78 08 00       	cmpb   $0x0,0x8(%r8)
+   15775:	75 29                	jne    157a0 <__cxa_finalize@plt+0x618>
+   15777:	4c 8b 57 28          	mov    0x28(%rdi),%r10
+   1577b:	41 80 7c 02 ff 00    	cmpb   $0x0,-0x1(%r10,%rax,1)
+   15781:	74 1d                	je     157a0 <__cxa_finalize@plt+0x618>
+   15783:	45 8b 10             	mov    (%r8),%r10d
+   15786:	45 85 d2             	test   %r10d,%r10d
+   15789:	74 15                	je     157a0 <__cxa_finalize@plt+0x618>
+   1578b:	85 f6                	test   %esi,%esi
+   1578d:	75 41                	jne    157d0 <__cxa_finalize@plt+0x648>
+   1578f:	83 c3 01             	add    $0x1,%ebx
+   15792:	0f 1f 40 00          	nopl   0x0(%rax)
+   15796:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   1579d:	00 00 00 
+   157a0:	83 f8 1e             	cmp    $0x1e,%eax
+   157a3:	41 0f 96 c3          	setbe  %r11b
+   157a7:	44 39 cb             	cmp    %r9d,%ebx
+   157aa:	41 0f 9c c2          	setl   %r10b
+   157ae:	48 83 c0 01          	add    $0x1,%rax
+   157b2:	49 83 c0 38          	add    $0x38,%r8
+   157b6:	45 84 d3             	test   %r10b,%r11b
+   157b9:	75 b5                	jne    15770 <__cxa_finalize@plt+0x5e8>
+   157bb:	89 19                	mov    %ebx,(%rcx)
+   157bd:	b8 01 00 00 00       	mov    $0x1,%eax
+   157c2:	5b                   	pop    %rbx
+   157c3:	c3                   	ret
+   157c4:	66 90                	xchg   %ax,%ax
+   157c6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   157cd:	00 00 00 
+   157d0:	4c 63 db             	movslq %ebx,%r11
+   157d3:	46 89 14 9a          	mov    %r10d,(%rdx,%r11,4)
+   157d7:	eb b6                	jmp    1578f <__cxa_finalize@plt+0x607>
+   157d9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   157e0:	31 c0                	xor    %eax,%eax
+   157e2:	c3                   	ret
+   157e3:	0f 1f 00             	nopl   (%rax)
+   157e6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   157ed:	00 00 00 
+   157f0:	31 db                	xor    %ebx,%ebx
+   157f2:	b8 01 00 00 00       	mov    $0x1,%eax
+   157f7:	89 19                	mov    %ebx,(%rcx)
+   157f9:	5b                   	pop    %rbx
+   157fa:	c3                   	ret
+   157fb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)

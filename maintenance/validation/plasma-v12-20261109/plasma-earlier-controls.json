@@ -1,0 +1,27 @@
+{
+  "software_control_passed": true,
+  "default_desktop_opengl": [
+    {
+      "vendor": "Mesa",
+      "renderer": "softpipe",
+      "version": "3.3 (Compatibility Profile) Mesa 23.2.1-1ubuntu3.1~22.04.3"
+    },
+    {
+      "vendor": "Mesa",
+      "renderer": "softpipe",
+      "version": "3.3 (Compatibility Profile) Mesa 23.2.1-1ubuntu3.1~22.04.3"
+    }
+  ],
+  "folder_desktop_and_default_panel": true,
+  "panel_layout_change_restored_and_redrawn": true,
+  "all_direct_processes_reaped": true,
+  "no_remaining_private_runtime_processes": true,
+  "callback_failure_rejected_and_cleaned": true,
+  "regression_tests": 5,
+  "hardware_tested": false,
+  "full_login_session_tested": false,
+  "sources": {
+    "maintenance/recovery/plasma_support.py": "4d503e7de691f879f788d6fd707b098e5526eb300b911ad32f1e6a881a350488",
+    "maintenance/recovery/test_plasma.py": "2ae55d03a2209a22a1993cd4a21bd8fecda6d54387e89ad26a7f2a06b0df6b88"
+  }
+}

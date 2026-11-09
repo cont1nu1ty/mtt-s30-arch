@@ -1,0 +1,26 @@
+{
+  "passed": false,
+  "mode": "plasma-s30",
+  "phase": "failed",
+  "forced_kill": false,
+  "full_login_session_tested": false,
+  "shell_pid": 30149,
+  "activity_pid": 30147,
+  "kio_pid": 30148,
+  "last_startup_observation": "Command '['qdbus6', 'org.kde.plasmashell', '/PlasmaShell', 'org.kde.PlasmaShell.evaluateScript', 'var ds=desktops(); var ps=panels();\\nprint(JSON.stringify({desktops:ds.map(function(d){return {id:d.id,type:d.type,screen:d.screen};}),\\npanels:ps.map(function(p){return {id:p.id,type:p.type,screen:p.screen,height:p.height,\\nwidgets:p.widgets().map(function(w){return w.type;})};})}));']' returned non-zero exit status 1.",
+  "error": "Plasma workspace process exited during startup.",
+  "exit_codes": {
+    "plasma.log": {
+      "code": -11,
+      "termination_requested": false
+    },
+    "plasma-kio.log": {
+      "code": -15,
+      "termination_requested": true
+    },
+    "plasma-activities.log": {
+      "code": -15,
+      "termination_requested": true
+    }
+  }
+}

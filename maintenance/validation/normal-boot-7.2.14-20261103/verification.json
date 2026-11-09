@@ -1,0 +1,28 @@
+{
+  "client_date": "2026-11-03",
+  "boot_id": "498cde3c-d518-42d2-a5d3-c34131d38a28",
+  "running_kernel": "7.2.14-arch1-1",
+  "installed_packages": [
+    "linux 7.2.14.arch1-1",
+    "linux-headers 7.2.14.arch1-1",
+    "kwin 6.8.2-1",
+    "mesa 1:26.2.6-1",
+    "qt6-base 6.12.0-3",
+    "qt6-declarative 6.12.0-4",
+    "kdecoration 6.8.2-1"
+  ],
+  "normal_boot_observed": true,
+  "display_manager": "active",
+  "mtgpu_loaded": false,
+  "mtgpu_installed": false,
+  "watchdog_state": "inactive",
+  "profile": "kwin-wayland-v3",
+  "desktop_manifest_sha256": "b6239318bb23252b36bdfa85472984a069119e669105ac006ad11b7734672885",
+  "module_sha256": "6857f52e14db1071ca5b089029725432d5bbb71022dba55f9cd973121bc4adff",
+  "vermagic": "7.2.14-arch1-1 SMP preempt mod_unload",
+  "host_and_bundle_checks_passed": true,
+  "ready_for_controlled_entrypoint": true,
+  "fresh_root_backup_and_boot_audit_pending": true,
+  "new_gpu_run_performed": false,
+  "hardware_reset_proven": false
+}

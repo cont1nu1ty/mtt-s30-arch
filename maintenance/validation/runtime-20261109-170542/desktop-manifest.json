@@ -1,0 +1,121 @@
+{
+  "profile": "kwin-plasma-xwayland-v12",
+  "base_manifest_sha256": "8b6f7a9f028bac894b34a206b17a9755470e45b88e5e2b923122eab64cd18f64",
+  "builder_sha256": "e7565c6423280b1d32fe0873787611834bc21e2173d3ba51830fe3a870d0a48e",
+  "kwin_build_record_sha256": "fa6a0dc8e0ee1cc61ae77b3582192c0b24c24a15129decb79ea66146fbd21851",
+  "kwin_patch_sha256": "204b599371a3956b5445cfc9706ee6bb5efc938d0f7ae7c1dbdc51b073faa68f",
+  "source_sha256": {
+    "plasma_support.py": "d42a07e1234d8b96f3e2129f906f877dd1656fd923927fa0be6fe507e87d93c3",
+    "xwayland_support.py": "6a564442d81dc0ac52bfb6098331f4693995546d4ae666caf148f2cbe21e504a",
+    "x11-check.cpp": "af5cb23b12a5c71b2450919d1a0d0422f80566291c842b2406aa8f24926eb0d0",
+    "qt-check.cpp": "ac72abeb182078c1af09db861d757e9b7e639725b4b082f3458005471726bc87"
+  },
+  "compiler": "c++ (GCC) 16.2.1 20260810\nCopyright (C) 2026 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "build_command": [
+    "c++",
+    "-std=c++17",
+    "-O2",
+    "-g",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-ffile-prefix-map=/mtt-v12-check=/mtt-v12-check",
+    "/mtt-v12-check/x11-check.cpp",
+    "-ldl",
+    "-pthread",
+    "-o",
+    "/mtt-v12-check/bundle/x11-check",
+    "-lX11",
+    "-lGL",
+    "-lxcb-dri3",
+    "-lxcb"
+  ],
+  "qt_build_command": [
+    "c++",
+    "-std=c++17",
+    "-O2",
+    "-g",
+    "-fPIC",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-ffile-prefix-map=/mtt-v12-check=/mtt-v12-check",
+    "/mtt-v12-check/qt-check.cpp",
+    "-ldl",
+    "-o",
+    "/mtt-v12-check/bundle/qt-check",
+    "-I/usr/include/qt6/QtQuick",
+    "-I/usr/include/qt6",
+    "-DQT_QUICK_LIB",
+    "-I/usr/include/qt6/QtOpenGL",
+    "-DQT_OPENGL_LIB",
+    "-I/usr/include/qt6/QtGui",
+    "-DQT_GUI_LIB",
+    "-I/usr/include/qt6/QtQml",
+    "-DQT_QML_LIB",
+    "-I/usr/include/qt6/QtQmlIntegration",
+    "-DQT_QMLINTEGRATION_LIB",
+    "-I/usr/include/qt6/QtNetwork",
+    "-DQT_NETWORK_LIB",
+    "-I/usr/include/qt6/QtCore",
+    "-DQT_CORE_LIB",
+    "-I/usr/lib/qt6/mkspecs/linux-g++",
+    "-lQt6Quick",
+    "-lQt6OpenGL",
+    "-lQt6Gui",
+    "-lQt6Qml",
+    "-lQt6Network",
+    "-lQt6Core"
+  ],
+  "files": {
+    "client-dri/mtgpu_dri.so": {
+      "sha256": "05cd2ddd3dcb2c0a77994d52b959548babcf912027b550efb9a45aeb6201fc23",
+      "size": 15471624
+    },
+    "client-dri/musa_dri.so": {
+      "sha256": "0c8ddef50a68b20db4fcb1b5e91a5c74075fa0c5527b3a9b45cd93aeaec3532b",
+      "size": 268120
+    },
+    "egl/50_mesa.json": {
+      "sha256": "4aafa7f214e777358e7196084dff436d6b0aab3b13f367c2abf2a5f98b507df7",
+      "size": 92
+    },
+    "egl/libEGL_mesa.so.0": {
+      "sha256": "6c8de88d01a2a3a7a61a95aa1e3a98b26d37dcc67d916a2302fb41c05f050fd3",
+      "size": 1667952
+    },
+    "egl/libglapi.so.0": {
+      "sha256": "3b796b01bb3b6d8fa8bd0b970258fd2c284841fd3ded0e82f684adc06ba2f1cb",
+      "size": 211304
+    },
+    "egl-check": {
+      "sha256": "d48911d631daa824b6c2821ab049b7e8511d800cdf7015fab4cd4dd33153a00a",
+      "size": 90912
+    },
+    "kwin/kwin_wayland": {
+      "sha256": "e6f6ce06dd3db798a4f83e4ef4e0aa9c5fa2e4145a1ed78cbb3d721b0a82e4a9",
+      "size": 2607264
+    },
+    "kwin/libkwin.so.6": {
+      "sha256": "b6e4de33a98a3072b9d83beae9df1135da0950a50d54e62d029704a5f0e2dd8f",
+      "size": 16903120
+    },
+    "plasma_support.py": {
+      "sha256": "d42a07e1234d8b96f3e2129f906f877dd1656fd923927fa0be6fe507e87d93c3",
+      "size": 14382
+    },
+    "qt-check": {
+      "sha256": "602b8fb4f61f9151d41365c75285d9a1d6588eeddace7b128b2b764e1f7b6d76",
+      "size": 1049096
+    },
+    "x11-check": {
+      "sha256": "7a56a63c94412241de7d73dd5568dab2b60ea9a5c9f032663bec4ea0d692dac0",
+      "size": 232800
+    },
+    "xwayland_support.py": {
+      "sha256": "6a564442d81dc0ac52bfb6098331f4693995546d4ae666caf148f2cbe21e504a",
+      "size": 10189
+    }
+  },
+  "hardware_tested": false
+}

@@ -1,0 +1,40 @@
+{
+  "phase": "takeover_audit_passed",
+  "running_kernel": "7.2.11-arch1-1",
+  "boot_loader": "systemd-boot",
+  "entry": "ba2e34dd35724617b087c81f894d3b6b-7.2.11-arch1-1.conf",
+  "esp": "/efi",
+  "esp_source": "/dev/nvme0n1p1",
+  "backup_directory": "/var/lib/mtt-s30-test/20261031-190526",
+  "backup_sha256": "8c98c14ad8e0af53d87e537e801a24e1ef390dad29d0e014a862d70cdadb8724",
+  "esp_file_count": 11,
+  "esp_unchanged": true,
+  "boot_images": [
+    "ba2e34dd35724617b087c81f894d3b6b/7.2.11-arch1-1/linux",
+    "ba2e34dd35724617b087c81f894d3b6b/7.2.11-arch1-1/initrd"
+  ],
+  "firmware_path_before": "",
+  "watchdog": {
+    "identity": "SP5100 TCO timer",
+    "state": "inactive",
+    "timeout": "60",
+    "nowayout": "0"
+  },
+  "systemd_watchdog": "RuntimeWatchdogUSec=0\nRebootWatchdogUSec=10min",
+  "module_sha256": "db8e4393ec50e0e2542dafdb7277240627406b847dc19d0427444712249143bb",
+  "module_installed": false,
+  "module_loaded": false,
+  "esp_comparison": {
+    "expected_files": 11,
+    "current_files": 11,
+    "added": [],
+    "removed": [],
+    "changed": [],
+    "unchanged_files": 11
+  },
+  "audit_utc": "2026-10-31T11:05:29Z",
+  "script_sha256": "794fb4ada0e7acc867dd0c7105cae2b38ff89d17b38b7cac0854549e5b343c79",
+  "watchdog_opened": false,
+  "hardware_reset_verified": false,
+  "desktop_changed": false
+}

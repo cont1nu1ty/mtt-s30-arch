@@ -1,0 +1,22 @@
+commit 2847ec7a64aad013491e4d20079b49d6f1af0b9f
+Author:     dixyes <dixyes@gmail.com>
+AuthorDate: Sat Mar 23 14:45:35 2024 +0800
+Commit:     dixyes <dixyes@gmail.com>
+CommitDate: Tue Apr 22 20:42:42 2025 +0800
+
+    Add lock for find_vma
+
+diff --git a/src/pvr/osfunc.c b/src/pvr/osfunc.c
+index 5314e96..73ed74a 100644
+--- a/src/pvr/osfunc.c
++++ b/src/pvr/osfunc.c
+@@ -3489,7 +3489,9 @@ IMG_INT OSGetUserPages(IMG_INT64 ui64Start, IMG_INT iPageCount, struct page **pp
+ 	IMG_UINT32 ui32GpuFlags = 0;
+ 	struct vm_area_struct *psVMA;
+ 
++	mmap_read_lock(current->mm);
+ 	psVMA = find_vma(current->mm, untagged_addr(ui64Start));
++	mmap_read_unlock(current->mm);
+ 	if (unlikely(!psVMA))
+ 		return 0;
+ 

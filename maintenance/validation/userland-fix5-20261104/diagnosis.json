@@ -1,0 +1,55 @@
+{
+  "run": "20261104-112910",
+  "profile": "kwin-wayland-v5",
+  "pid": 24369,
+  "signal": 11,
+  "diagnosis": "Vendor DRI reads legacy EGL display layout, selects X11 instead of Wayland, then treats dri2_egl_surface as an XCB loader object.",
+  "core_evidence": {
+    "surface": "0x55a43f49fed0",
+    "display": "0x55a43ec116f0",
+    "actual_display_platform": 2,
+    "actual_display_platform_offset": "0x48",
+    "actual_display_native_offset": "0x50",
+    "actual_display_driver_data_offset": "0x90",
+    "vendor_display_platform_offset": "0x30",
+    "vendor_display_native_offset": "0x38",
+    "vendor_read_platform": 0,
+    "vendor_read_native": 0,
+    "vendor_internal_platform_kind": 0,
+    "actual_image_loader_version": 2,
+    "dri2_loader_present": false,
+    "xcb_connection_argument_is_egl_display": true,
+    "frame_chain": [
+      "xcb_send_request_with_fds64",
+      "xcb_send_request",
+      "xcb_get_window_attributes",
+      "mtgpu_dri.so+0x6ea408",
+      "dri2_create_drawable:1701",
+      "dri2_wl_create_window_surface:788"
+    ]
+  },
+  "static_evidence": {
+    "screen_creation": "mtgpu+0x6e52f0 stores loaderPrivate at screen+0x18, reads platform+0x30/native+0x38. Platform 2 maps to internal kind 4 at 0x6e5ed7.",
+    "drawable_creation": "mtgpu+0x6ea114 selects generic image branch for kind4; kind0 plus no DRI2Loader takes XCB branch at0x6ea2f0. It locks surface+0x100 then passes surface+0 to xcb_get_window_attributes at0x6ea402.",
+    "image_branch": "mtgpu+0x89d450 stores opaque surface loaderPrivate at object+0x20 without dereferencing its layout during creation.",
+    "secondary_screen": "musa+0xe510 stores loaderPrivate at screen+0x18, init+0xbbe0 forwards it via+0xaf60 to support+0x238f0, which retains it at support screen+0x10.",
+    "secondary_fd_callback": "support+0x281f40 resolves to musa+0xa950. It checks IMAGE_LOADER version>4 and nonnull tail+0x38. Version2 returns -1 without reading the legacy display DriverData.",
+    "image_lookup_callback": "support+0x1582c loads the retained screen loaderPrivate as third parameter, calls callback at+0x281f28 (musa+0xa910), which forwards to screen IMAGE_LOOKUP.lookupEGLImage."
+  },
+  "patch": {
+    "path": "patches/mesa-23.2.1-mtgpu-display-abi.patch",
+    "sha256": "2c3c62a07c2c5506c8b1f4d616c5e525a7a9c2dc8be9de42b363b11902b778ef",
+    "scope": "Reviewed x86-64 mtgpu 3.1.0 Wayland display only",
+    "bridge_size": 72,
+    "platform_offset": 48,
+    "native_offset": 56,
+    "real_display_offset": 64,
+    "lifetime": "embedded in dri2_egl_display through destroyScreen, then freed with display private data",
+    "marker": "MTT compatibility: Wayland display ABI bridge"
+  },
+  "limits": [
+    "Static review and one captured failed core do not establish complete opaque binary behavior.",
+    "Corrected screen/drawable path has not been exercised on S30 hardware.",
+    "Actual library branch replay, callback regression, software client smoke test and next recovery-gated hardware run remain acceptance requirements."
+  ]
+}

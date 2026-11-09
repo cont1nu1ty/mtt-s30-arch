@@ -1,0 +1,215 @@
+struct mtgpu_device {
+	struct device *            dev;                  /*     0     8 */
+	const char  *              marketing_name;       /*     8     8 */
+	struct pci_saved_state *   pci_state;            /*    16     8 */
+	int                        mem_mode;             /*    24     4 */
+
+	/* XXX 4 bytes hole, try to pack */
+
+	struct mtgpu_region        bar[6];               /*    32    96 */
+	/* --- cacheline 2 boundary (128 bytes) --- */
+	struct mtgpu_region        pcie_mem;             /*   128    16 */
+	struct mtgpu_region        bar2_check_mem;       /*   144    16 */
+	struct mtgpu_region        vpu_mem;              /*   160    16 */
+	struct mtgpu_region        smc_mem;              /*   176    16 */
+	/* --- cacheline 3 boundary (192 bytes) --- */
+	struct mtgpu_region        pcie_dma;             /*   192    16 */
+	struct mtgpu_region        gpu_mem;              /*   208    16 */
+	struct mtgpu_region        cursor_mem;           /*   224    16 */
+	struct mtgpu_region        efifb_mem;            /*   240    16 */
+	/* --- cacheline 4 boundary (256 bytes) --- */
+	struct mtgpu_io_region     llc_reg;              /*   256    24 */
+	struct mtgpu_io_region     intc_reg;             /*   280    24 */
+	struct mtgpu_io_region     pcie_config_reg;      /*   304    24 */
+	/* --- cacheline 5 boundary (320 bytes) was 8 bytes ago --- */
+	struct mtgpu_io_region     pcie_ss_config_reg;   /*   328    24 */
+	struct mtgpu_io_region     pcie_phy_reg;         /*   352    24 */
+	struct mtgpu_io_region     distributor_reg;      /*   376    24 */
+	/* --- cacheline 6 boundary (384 bytes) was 16 bytes ago --- */
+	struct mtgpu_io_region     sram_shared_region;   /*   400    24 */
+	struct mtgpu_io_region     gpu_ss_reg;           /*   424    24 */
+	/* --- cacheline 7 boundary (448 bytes) --- */
+	struct mtgpu_io_region     intd_cd_reg;          /*   448    24 */
+	struct mtgpu_io_region     pcie_mhi_reg;         /*   472    24 */
+	struct mtgpu_io_region     pfm_mmu_reg;          /*   496    24 */
+	/* --- cacheline 8 boundary (512 bytes) was 8 bytes ago --- */
+	struct mtgpu_io_region     pfm_ddrc_reg;         /*   520    24 */
+	struct mtgpu_io_region     pfm_d2d_1_reg;        /*   544    24 */
+	struct mtgpu_io_region     pfm_d2d_0_reg;        /*   568    24 */
+	/* --- cacheline 9 boundary (576 bytes) was 16 bytes ago --- */
+	struct mtgpu_io_region     pfm_llc_reg;          /*   592    24 */
+	struct mtgpu_io_region     gpu_daa_reg;          /*   616    24 */
+	/* --- cacheline 10 boundary (640 bytes) --- */
+	struct mtgpu_io_region     gpu_misc_reg;         /*   640    24 */
+	struct mtgpu_io_region     fec_sram_region;      /*   664    24 */
+	int                        disp_cnt;             /*   688     4 */
+
+	/* XXX 4 bytes hole, try to pack */
+
+	struct platform_device *   disp_dev[32];         /*   696   256 */
+	/* --- cacheline 14 boundary (896 bytes) was 56 bytes ago --- */
+	struct platform_device *   drm_dev[32];          /*   952   256 */
+	/* --- cacheline 18 boundary (1152 bytes) was 56 bytes ago --- */
+	struct platform_device *   video_dev;            /*  1208     8 */
+	/* --- cacheline 19 boundary (1216 bytes) --- */
+	struct platform_device *   audio_dev;            /*  1216     8 */
+	u64                        real_vram_size;       /*  1224     8 */
+	struct dp_phy_cfg_hdr *    dp_phy_cfg_hdr;       /*  1232     8 */
+	u32                        cursor_size;          /*  1240     4 */
+	int                        gpu_cnt;              /*  1244     4 */
+	int                        mtrr;                 /*  1248     4 */
+
+	/* XXX 4 bytes hole, try to pack */
+
+	struct platform_device *   gpu_dev[32];          /*  1256   256 */
+	/* --- cacheline 23 boundary (1472 bytes) was 40 bytes ago --- */
+	struct mtgpu_chip_info *   chip_info;            /*  1512     8 */
+	struct mtgpu_int_ops *     int_ops;              /*  1520     8 */
+	struct mtgpu_pcie_local_mgmt_ops * pcie_local_mgmt_ops; /*  1528     8 */
+	/* --- cacheline 24 boundary (1536 bytes) --- */
+	struct mtgpu_dma_ops *     dma_ops;              /*  1536     8 */
+	struct mtgpu_sriov_ops *   sriov_ops;            /*  1544     8 */
+	struct mtgpu_pcie_perf_ops * pcie_perf_ops;      /*  1552     8 */
+	struct mtgpu_display_ops * disp_ops;             /*  1560     8 */
+	const struct mtgpu_smc_ops  * smc_ops;           /*  1568     8 */
+	const struct mtgpu_fec_ops  * fec_ops;           /*  1576     8 */
+	const struct mtgpu_cmc_ops  * cmc_ops;           /*  1584     8 */
+	struct mtgpu_llc_ops *     llc_ops;              /*  1592     8 */
+	/* --- cacheline 25 boundary (1600 bytes) --- */
+	struct mtgpu_pfm_ops *     pfm_ops;              /*  1600     8 */
+	struct mtlink_ops *        link_ops;             /*  1608     8 */
+	struct mtgpu_ob_ops *      ob_ops;               /*  1616     8 */
+	struct mtgpu_gpu_ss_ops *  gpu_ss_ops;           /*  1624     8 */
+	struct mtgpu_daa_ops *     daa_ops;              /*  1632     8 */
+	struct mtgpu_reg_decode_ops * reg_decode_ops;    /*  1640     8 */
+	struct mtgpu_ecc_ops *     ecc_ops;              /*  1648     8 */
+	struct mtgpu_softirq_info * softirq_info;        /*  1656     8 */
+	/* --- cacheline 26 boundary (1664 bytes) --- */
+	struct mtgpu_irq_info *    irq_info;             /*  1664     8 */
+	void *                     dma_private;          /*  1672     8 */
+	void *                     ipc_private;          /*  1680     8 */
+	void *                     pstate_private;       /*  1688     8 */
+	void *                     fec_private;          /*  1696     8 */
+	void *                     smc_private;          /*  1704     8 */
+	void *                     cmc_private;          /*  1712     8 */
+	void *                     event_report_private; /*  1720     8 */
+	/* --- cacheline 27 boundary (1728 bytes) --- */
+	void *                     ras_private;          /*  1728     8 */
+	void *                     pm_monitor_private;   /*  1736     8 */
+	void *                     ecc_private;          /*  1744     8 */
+	struct mtgpu_ob_conf *     ob_conf;              /*  1752     8 */
+	struct mtlink_private_data * link_private_data;  /*  1760     8 */
+	struct mtgpu_board_configs * board_configs;      /*  1768     8 */
+	struct mtgpu_local_mgmt_info * local_mgmt;       /*  1776     8 */
+	struct mtgpu_misc_info *   miscinfo[32];         /*  1784   256 */
+	/* --- cacheline 31 boundary (1984 bytes) was 56 bytes ago --- */
+	int                        current_vdma_chan;    /*  2040     4 */
+
+	/* XXX 4 bytes hole, try to pack */
+
+	/* --- cacheline 32 boundary (2048 bytes) --- */
+	spinlock_t *               vdma_chan_lock;       /*  2048     8 */
+	struct mtgpu_vdma_shared_buffer * vdma_buffer;   /*  2056     8 */
+	struct wait_queue_head *   vdma_wqh[8];          /*  2064    64 */
+	/* --- cacheline 33 boundary (2112 bytes) was 16 bytes ago --- */
+	struct mutex *             vdma_lock[8];         /*  2128    64 */
+	/* --- cacheline 34 boundary (2176 bytes) was 16 bytes ago --- */
+	struct mtgpu_vgpu_ipc *    vgpu_ipc;             /*  2192     8 */
+	struct mtgpu_region        fw_heap;              /*  2200    16 */
+	struct mtgpu_io_region     vgpu_custom_reg;      /*  2216    24 */
+	/* --- cacheline 35 boundary (2240 bytes) --- */
+	void *                     mdev_device_state;    /*  2240     8 */
+	bool                       enable_sriov;         /*  2248     1 */
+
+	/* XXX 7 bytes hole, try to pack */
+
+	void *                     sriov;                /*  2256     8 */
+	u32                        max_vgpu_supported;   /*  2264     4 */
+	u32                        osid_start;           /*  2268     4 */
+	u32                        osid_count;           /*  2272     4 */
+
+	/* XXX 4 bytes hole, try to pack */
+
+	struct vgpu_info *         vgpu_info;            /*  2280     8 */
+	struct vgpu_mem_mgr *      vgpu_vmm;             /*  2288     8 */
+	struct vgpu_mm_state *     vgpu_vms;             /*  2296     8 */
+	/* --- cacheline 36 boundary (2304 bytes) --- */
+	void *                     pm_vddr;              /*  2304     8 */
+	resource_size_t            pm_vddr_size;         /*  2312     8 */
+	MEM_REGION_INFO *          alloced_mem_region[32]; /*  2320   256 */
+	/* --- cacheline 40 boundary (2560 bytes) was 16 bytes ago --- */
+	int                        alloced_mem_region_cnt[32]; /*  2576   128 */
+	/* --- cacheline 42 boundary (2688 bytes) was 16 bytes ago --- */
+	struct notifier_block *    mtgpu_nb;             /*  2704     8 */
+	bool                       pm_restore_prepare;   /*  2712     1 */
+
+	/* XXX 3 bytes hole, try to pack */
+
+	enum mtgpu_type_t          gpu_type;             /*  2716     4 */
+	struct gpu_cfg_info        gpu_info;             /*  2720   100 */
+	/* --- cacheline 44 boundary (2816 bytes) was 4 bytes ago --- */
+	bool                       mpc_is_enabled;       /*  2820     1 */
+
+	/* XXX 3 bytes hole, try to pack */
+
+	struct mgmt_mpc_conf *     mpc_conf;             /*  2824     8 */
+	u32                        dev_id;               /*  2832     4 */
+
+	/* XXX 4 bytes hole, try to pack */
+
+	struct mtgpu_segment_info * segment_info;        /*  2840     8 */
+	int                        segment_info_cnt;     /*  2848     4 */
+	u8                         video_mpc_group_ids[32]; /*  2852    32 */
+	/* --- cacheline 45 boundary (2880 bytes) was 4 bytes ago --- */
+	u8                         video_group_cnt;      /*  2884     1 */
+
+	/* XXX 3 bytes hole, try to pack */
+
+	struct proc_dir_entry *    proc_gpu_dir;         /*  2888     8 */
+	struct proc_dir_entry *    proc_vram_info;       /*  2896     8 */
+	struct proc_dir_entry *    proc_ctrl_devname;    /*  2904     8 */
+	struct proc_dir_entry *    proc_ecc_info;        /*  2912     8 */
+	struct proc_dir_entry *    proc_event_report;    /*  2920     8 */
+	struct proc_dir_entry *    proc_memory;          /*  2928     8 */
+	struct proc_dir_entry *    proc_status;          /*  2936     8 */
+	/* --- cacheline 46 boundary (2944 bytes) --- */
+	struct proc_dir_entry *    proc_mpc_enable;      /*  2944     8 */
+	struct proc_dir_entry *    proc_gpu_instance_dir[32]; /*  2952   256 */
+	/* --- cacheline 50 boundary (3200 bytes) was 8 bytes ago --- */
+	struct proc_dir_entry *    proc_mpc_dir;         /*  3208     8 */
+	struct proc_dir_entry *    proc_gpu_process_util; /*  3216     8 */
+	struct proc_dir_entry *    proc_vgpu_monitor;    /*  3224     8 */
+	int                        (*get_platform_device_info)(struct mtgpu_device *, u32, u32, struct mtgpu_resource * *, u32 *, void * *, size_t *); /*  3232     8 */
+	void                       (*get_fw_cfg_info)(void * *, int *); /*  3240     8 */
+	int                        (*register_access_check)(struct mtgpu_device *); /*  3248     8 */
+	int                        (*get_softirq_ctrls)(struct mtgpu_softirq_ctrl * *, int *); /*  3256     8 */
+	/* --- cacheline 51 boundary (3264 bytes) --- */
+	void                       (*get_mpx_map)(struct mtgpu_device *, void *); /*  3264     8 */
+	struct pci_dev_config *    pci_dev_config_data;  /*  3272     8 */
+	bool                       pstate_supported;     /*  3280     1 */
+
+	/* XXX 7 bytes hole, try to pack */
+
+	struct mtgpu_pcie_perf_bw * pcie_perf_data;      /*  3288     8 */
+	int                        pcie_des_pos;         /*  3296     4 */
+
+	/* XXX 4 bytes hole, try to pack */
+
+	struct mtgpu_pcie_link_monitor * pcie_link_monitor; /*  3304     8 */
+	struct mtgpu_igpu_dvfs *   dvfs;                 /*  3312     8 */
+	struct mtgpu_fec_umd_init_info * fec_umd_init_info; /*  3320     8 */
+	/* --- cacheline 52 boundary (3328 bytes) --- */
+	struct device *            display_device;       /*  3328     8 */
+	u64                        hw_capability;        /*  3336     8 */
+	u32                        mpx_map;              /*  3344     4 */
+	u32                        fan_count;            /*  3348     4 */
+	struct pci_slot_info *     slot_info;            /*  3352     8 */
+	struct mtgpu_fw_versions * fw_versions;          /*  3360     8 */
+	struct mutex *             slot_info_lock;       /*  3368     8 */
+	struct mutex *             fw_versions_lock;     /*  3376     8 */
+
+	/* size: 3384, cachelines: 53, members: 141 */
+	/* sum members: 3333, holes: 12, sum holes: 51 */
+	/* last cacheline: 56 bytes */
+};
+

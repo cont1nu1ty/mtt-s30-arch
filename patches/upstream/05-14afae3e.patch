@@ -1,0 +1,269 @@
+commit 14afae3e1a0f5a77cd6e250f7b70d1b861871b97
+Author:     dixyes <dixyes@gmail.com>
+AuthorDate: Wed Dec 11 20:03:39 2024 +0800
+Commit:     dixyes <dixyes@gmail.com>
+CommitDate: Tue Apr 22 20:42:06 2025 +0800
+
+    Adopt struct platform_device changes
+    
+    from torvalds/linux@0edb555a65d1ef047a9805051c36922b52a38a9d
+    and 6.14 things
+
+diff --git a/src/mtgpu/mtgpu_drm_dispc.c b/src/mtgpu/mtgpu_drm_dispc.c
+index ee81203..913b9ae 100644
+--- a/src/mtgpu/mtgpu_drm_dispc.c
++++ b/src/mtgpu/mtgpu_drm_dispc.c
+@@ -1024,9 +1024,20 @@ static struct platform_device_id mtgpu_dispc_device_id[] = {
+ 	{ },
+ };
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++static void _mtgpu_dispc_remove(struct platform_device *pdev)
++{
++	mtgpu_dispc_remove(pdev);
++}
++#endif // KERNEL_VERSION
++
+ struct platform_driver mtgpu_dispc_driver = {
+ 	.probe    = mtgpu_dispc_probe,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++	.remove   = _mtgpu_dispc_remove,
++#else
+ 	.remove   = mtgpu_dispc_remove,
++#endif // KERNEL_VERSION
+ 	.driver   = {
+ 		.owner  = THIS_MODULE,
+ 		.name   = "mtgpu-dispc-drv",
+diff --git a/src/mtgpu/mtgpu_drm_dp.c b/src/mtgpu/mtgpu_drm_dp.c
+index e284bfb..26d86a0 100644
+--- a/src/mtgpu/mtgpu_drm_dp.c
++++ b/src/mtgpu/mtgpu_drm_dp.c
+@@ -1048,9 +1048,20 @@ const struct dev_pm_ops mtgpu_dp_pm_ops = {
+ 	.freeze		= mtgpu_dp_suspend,
+ };
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++static void _mtgpu_dp_remove(struct platform_device *pdev)
++{
++	mtgpu_dp_remove(pdev);
++}
++#endif // KERNEL_VERSION
++
+ struct platform_driver mtgpu_dp_driver = {
+ 	.probe    = mtgpu_dp_probe,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++	.remove   = _mtgpu_dp_remove,
++#else
+ 	.remove   = mtgpu_dp_remove,
++#endif // KERNEL_VERSION
+ 	.driver   = {
+ 		.owner  = THIS_MODULE,
+ 		.name   = "mtgpu-dp-drv",
+diff --git a/src/mtgpu/mtgpu_drm_dsc.c b/src/mtgpu/mtgpu_drm_dsc.c
+index 81d5aca..cd73979 100644
+--- a/src/mtgpu/mtgpu_drm_dsc.c
++++ b/src/mtgpu/mtgpu_drm_dsc.c
+@@ -185,9 +185,21 @@ static struct platform_device_id mtgpu_dsc_device_id[] = {
+ 	{ },
+ };
+ 
++
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++static void _mtgpu_dsc_remove(struct platform_device *pdev)
++{
++	mtgpu_dsc_remove(pdev);
++}
++#endif // KERNEL_VERSION
++
+ struct platform_driver mtgpu_dsc_driver = {
+ 	.probe    = mtgpu_dsc_probe,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++	.remove   = _mtgpu_dsc_remove,
++#else
+ 	.remove   = mtgpu_dsc_remove,
++#endif // KERNEL_VERSION
+ 	.driver   = {
+ 		.owner  = THIS_MODULE,
+ 		.name   = "mtgpu-dsc-drv",
+diff --git a/src/mtgpu/mtgpu_drm_dummy_connector.c b/src/mtgpu/mtgpu_drm_dummy_connector.c
+index ca61709..6370502 100644
+--- a/src/mtgpu/mtgpu_drm_dummy_connector.c
++++ b/src/mtgpu/mtgpu_drm_dummy_connector.c
+@@ -312,9 +312,21 @@ static struct platform_device_id dummy_device_id[] = {
+ 	{ },
+ };
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++static void _dummy_connector_remove(struct platform_device *pdev)
++{
++	dummy_connector_remove(pdev);
++}
++#endif // KERNEL_VERSION
++
++
+ struct platform_driver dummy_connector_driver = {
+ 	.probe    = dummy_connector_probe,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++	.remove   = _dummy_connector_remove,
++#else
+ 	.remove   = dummy_connector_remove,
++#endif // KERNEL_VERSION
+ 	.driver   = {
+ 		.owner  = THIS_MODULE,
+ 		.name   = "dummy-connector-drv",
+diff --git a/src/mtgpu/mtgpu_drm_dummy_crtc.c b/src/mtgpu/mtgpu_drm_dummy_crtc.c
+index 2444784..152fd72 100644
+--- a/src/mtgpu/mtgpu_drm_dummy_crtc.c
++++ b/src/mtgpu/mtgpu_drm_dummy_crtc.c
+@@ -423,9 +423,20 @@ static struct platform_device_id dummy_crtc_device_id[] = {
+ 	{ },
+ };
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++static void _dummy_crtc_remove(struct platform_device *pdev)
++{
++	dummy_crtc_remove(pdev);
++}
++#endif // KERNEL_VERSION
++
+ struct platform_driver dummy_crtc_driver = {
+ 	.probe    = dummy_crtc_probe,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++	.remove   = _dummy_crtc_remove,
++#else
+ 	.remove   = dummy_crtc_remove,
++#endif // KERNEL_VERSION
+ 	.driver   = {
+ 		.owner  = THIS_MODULE,
+ 		.name   = "dummy-crtc-drv",
+diff --git a/src/mtgpu/mtgpu_drm_hdmi.c b/src/mtgpu/mtgpu_drm_hdmi.c
+index 4787ac0..1b96682 100644
+--- a/src/mtgpu/mtgpu_drm_hdmi.c
++++ b/src/mtgpu/mtgpu_drm_hdmi.c
+@@ -1293,9 +1293,20 @@ static void mtgpu_hdmi_shutdown(struct platform_device *pdev)
+ 		hdmi->core->disable(&hdmi->ctx);
+ }
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++static void _mtgpu_hdmi_remove(struct platform_device *pdev)
++{
++	mtgpu_hdmi_remove(pdev);
++}
++#endif // KERNEL_VERSION
++
+ struct platform_driver mtgpu_hdmi_driver = {
+ 	.probe    = mtgpu_hdmi_probe,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++	.remove   = _mtgpu_hdmi_remove,
++#else
+ 	.remove   = mtgpu_hdmi_remove,
++#endif // KERNEL_VERSION
+ 	.shutdown = mtgpu_hdmi_shutdown,
+ 	.driver   = {
+ 		.owner  = THIS_MODULE,
+diff --git a/src/mtgpu/mtgpu_drv.c b/src/mtgpu/mtgpu_drv.c
+index c9aa6a3..c6edd70 100644
+--- a/src/mtgpu/mtgpu_drv.c
++++ b/src/mtgpu/mtgpu_drv.c
+@@ -572,9 +572,20 @@ static const struct dev_pm_ops igpu_pm_ops = {
+ 	SET_RUNTIME_PM_OPS(mtgpu_igpu_pm_suspend, mtgpu_igpu_pm_resume, NULL)
+ };
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++static void _mtgpu_igpu_remove(struct platform_device *pdev)
++{
++	mtgpu_igpu_remove(pdev);
++}
++#endif // KERNEL_VERSION
++
+ static struct platform_driver mtgpu_platform_driver = {
+ 	.probe = mtgpu_igpu_probe,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++	.remove = _mtgpu_igpu_remove,
++#else
+ 	.remove = mtgpu_igpu_remove,
++#endif // KERNEL_VERSION
+ 	.driver = {
+ 		.name = DRIVER_NAME_IGPU,
+ 		.of_match_table = mtgpu_of_tbl,
+diff --git a/src/mtgpu/phy-mthreads-dp.c b/src/mtgpu/phy-mthreads-dp.c
+index f599db7..2728f4e 100644
+--- a/src/mtgpu/phy-mthreads-dp.c
++++ b/src/mtgpu/phy-mthreads-dp.c
+@@ -171,9 +171,20 @@ static struct platform_device_id mtgpu_phy_device_id[] = {
+ 	{ },
+ };
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++static void _mtgpu_phy_remove(struct platform_device *pdev)
++{
++	mtgpu_phy_remove(pdev);
++}
++#endif // KERNEL_VERSION
++
+ struct platform_driver mtgpu_phy_driver = {
+ 	.probe	= mtgpu_phy_probe,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++	.remove	= _mtgpu_phy_remove,
++#else
+ 	.remove	= mtgpu_phy_remove,
++#endif // KERNEL_VERSION
+ 	.driver	= {
+ 		.owner  = THIS_MODULE,
+ 		.name	= "mtgpu-dp-phy-drv",
+diff --git a/src/mtvpu/mtvpu_drv.c b/src/mtvpu/mtvpu_drv.c
+index 5fdb452..88c1dd3 100644
+--- a/src/mtvpu/mtvpu_drv.c
++++ b/src/mtvpu/mtvpu_drv.c
+@@ -630,7 +630,11 @@ static int vpu_rpm_core_probe(struct platform_device *pdev)
+ 	return 0;
+ }
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++static void vpu_rpm_core_remove(struct platform_device *pdev)
++#else
+ static int vpu_rpm_core_remove(struct platform_device *pdev)
++#endif
+ {
+ 	struct mt_core *core = platform_get_drvdata(pdev);
+ 	struct mt_chip *chip = core->priv;
+@@ -640,7 +644,9 @@ static int vpu_rpm_core_remove(struct platform_device *pdev)
+ 	if (core->fw)
+ 		vpu_hw_deinit(chip->conf.core_base + core->idx);
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 11, 0)
+ 	return 0;
++#endif
+ }
+ 
+ static const struct component_ops mtvpu_component_ops = {
+diff --git a/src/pvr/pvr_platform_drv.c b/src/pvr/pvr_platform_drv.c
+index 8642e7a..3e79144 100644
+--- a/src/pvr/pvr_platform_drv.c
++++ b/src/pvr/pvr_platform_drv.c
+@@ -143,6 +143,13 @@ static struct platform_device_id pvr_platform_ids[] = {
+ MODULE_DEVICE_TABLE(platform, pvr_platform_ids);
+ #endif
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++static void _pvr_remove(struct platform_device *pdev)
++{
++	pvr_remove(pdev);
++}
++#endif // KERNEL_VERSION
++
+ struct platform_driver pvr_platform_driver = {
+ 	.driver = {
+ 		.name		= DRVNAME,
+@@ -153,7 +160,11 @@ struct platform_driver pvr_platform_driver = {
+ 	},
+ 	.id_table		= pvr_platform_ids,
+ 	.probe			= pvr_probe,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++	.remove			= _pvr_remove,
++#else
+ 	.remove			= pvr_remove,
++#endif // KERNEL_VERSION
+ 	.shutdown		= pvr_shutdown,
+ };
+ 

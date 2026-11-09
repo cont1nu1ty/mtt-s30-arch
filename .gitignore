@@ -1,0 +1,31 @@
+# Build outputs and large vendor archives
+*.deb
+*.pkg.tar.*
+*.tar.gz
+*.tar.xz
+*.o
+*.a
+*.bin
+*.elf
+*.log
+*.dict
+
+# Work trees and scratch builds
+work/
+official/
+kernels/
+package-check/
+probe-check/
+builds/
+mtgpu-drv/
+src/
+pkg/
+__pycache__/
+.cache/
+
+# Preserve needed small binary compatibility assets in packaging directory
+!maintenance/arch/mtgpu-s30-userland/libEGL_mesa.so.0
+!maintenance/arch/mtgpu-s30-userland/libglapi.so.0
+*.core.zst
+*.core
+*.nv12

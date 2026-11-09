@@ -1,0 +1,21 @@
+{
+  "source_sha256": "fa22fd04a4c7088a8a0ae94153f1965ff90d30ee60eb5da5f73e14f0218812f1",
+  "binary_sha256": "a782aa76a4d05cba7144a060f455eee83d8d72b763170a784d8343cc80b0bfb6",
+  "build_command": "python3 maintenance/desktop/build.py --output work/lifecycle-20261109/build",
+  "control_command": "python3 maintenance/desktop/tests/test-egl-lifecycle.py --binary work/lifecycle-20261109/build/egl-check --output work/lifecycle-20261109/cpu-tests",
+  "cpu_cases": 12,
+  "wayland_cycles_tested": false,
+  "hardware_cycles_tested": false,
+  "cycles_min": 1,
+  "cycles_max": 10,
+  "default_cycles": 1,
+  "cycle_scope": "Each cycle creates and destroys the EGL display, context and surface, shader/program objects and Wayland connection. Callback state is reset before the next cycle.",
+  "five_window_expectation": {
+    "frames": 300,
+    "pixels_checked": 14745600,
+    "presented": 300,
+    "hardware_presentations": 300,
+    "completed_cycles": 5,
+    "frames_per_cycle": 60
+  }
+}

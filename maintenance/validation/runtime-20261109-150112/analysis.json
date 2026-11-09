@@ -1,0 +1,136 @@
+{
+  "test": "20261109-150112",
+  "profile": "kwin-wayland-v9",
+  "kernel": "7.2.14-arch1-1",
+  "passed": false,
+  "failure_stage": "eglDestroySurface -> dri2_wl_destroy_surface -> DRI core destroyDrawable -> mtgpu_dri.so -> glibc abort after frame 60",
+  "client_exit": -6,
+  "client_error": "free(): double free detected in tcache 2",
+  "client_core": {
+    "status": "copied",
+    "name": "egl-check.core.zst",
+    "source_bytes": 1163148,
+    "sha256": "a6f012ee99025cb13dcbc7eea5224dd3d23bb0d7ec4622c782a1553114a7b844",
+    "pid": "1179576",
+    "boot_id": "30b5b4b13c3248bda06ebc86ceeb8d41",
+    "signal": "6",
+    "format": "zst",
+    "scope": "Only the isolated test egl-check process; compressed core copied unchanged."
+  },
+  "test_boot_id": "30b5b4b1-3c32-48bd-a06e-bc86ceeb8d41",
+  "current_boot_id": "fb247138-c6a2-41c1-83d4-3562f237680a",
+  "reboot_observed": true,
+  "boot_and_efi_verified": true,
+  "esp_comparison": {
+    "expected_files": 11,
+    "current_files": 11,
+    "added": [],
+    "removed": [],
+    "changed": [
+      "loader/random-seed"
+    ],
+    "unchanged_files": 10
+  },
+  "boot_entry_verified_via_efivar": "ba2e34dd35724617b087c81f894d3b6b-7.2.14-arch1-1.conf",
+  "current_kernel_booted_at": "2026-11-09 15:05:04",
+  "driver_installed": false,
+  "driver_currently_loaded": false,
+  "current_services": {
+    "display-manager.service": "active",
+    "mtt-s30-once.service": "inactive",
+    "mtt-s30-deadline.timer": "inactive",
+    "mtt-s30-deadline.service": "inactive"
+  },
+  "current_kwin_running": true,
+  "current_watchdog_state": "inactive",
+  "hardware_watchdog_reset_proven": false,
+  "watchdog_calibration": {
+    "identity": "SP5100 TCO timer",
+    "first": 60,
+    "after_3s": 57,
+    "after_ping": 60,
+    "hardware_reset_verified": false
+  },
+  "module_sha256": "6857f52e14db1071ca5b089029725432d5bbb71022dba55f9cd973121bc4adff",
+  "private_desktop_manifest_sha256": "041b3ad6f378a9ced7569a658a0e917cd72147ad3bcb68b27222054a7e5d5e30",
+  "pci_device": "0000:04:00.0",
+  "bound_driver_in_test": "mtgpu",
+  "render_nodes": [
+    "renderD128"
+  ],
+  "vulkan": {
+    "passed": true,
+    "mode": "s30",
+    "frames": 8,
+    "pixels_checked": 98304,
+    "mismatches": 0
+  },
+  "vulkan_final_image_sha256": "f6b5fea7be1327ca395fb1e22b7a3a3b813ac4edcc8c568e8102d0670dabaedd",
+  "h264": {
+    "passed": true,
+    "mode": "vaapi",
+    "frames": 48,
+    "hardware_frames": 48,
+    "bad_frames": 0,
+    "different_bytes": 0,
+    "max_abs_error": 0
+  },
+  "h264_all_bytes_independently_verified": true,
+  "h264_bytes_compared": 4423680,
+  "egl_gbm": {
+    "passed": true,
+    "mode": "gbm-s30",
+    "frames": 8,
+    "pixels_checked": 393216,
+    "mismatches": 0,
+    "presented": 0,
+    "discarded": 0,
+    "hardware_presentations": 0,
+    "presentation_flags_all": 0,
+    "renderer": "MTT S30",
+    "vendor": "MOORE THREADS",
+    "egl_vendor": "MTT Mesa Client"
+  },
+  "egl_gbm_final_image_sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+  "all_three_saved_images_independently_verified": true,
+  "kwin_renderer": "MTT S30",
+  "compositor_faults": [],
+  "kwin_requested_exit_signal": 15,
+  "kwin_forced_kill": false,
+  "selected_output": "HDMI-A-1",
+  "selected_drm_layer_size": [
+    1920,
+    1080
+  ],
+  "selected_drm_layer_fourcc": "XR24",
+  "fixed_driver_import_table_verified": true,
+  "drm_import_mode": 0,
+  "drm_buffer_target": 0,
+  "wayland_client_executed": true,
+  "vendor_gl_dispatch_hardware_exercised": true,
+  "client_gl_renderer": "MTT S30",
+  "client_gl_vendor": "MOORE THREADS",
+  "client_egl_vendor": "Mesa Project",
+  "wayland_client_buffers": {
+    "count": 3,
+    "size": [
+      256,
+      192
+    ],
+    "fourcc": "AR24"
+  },
+  "window_presentations": 60,
+  "window_discarded": 0,
+  "hardware_presentations": 60,
+  "presentation_flags_all": 7,
+  "presentation_timestamps_advance": true,
+  "presentation_first_ns": 346663620406000,
+  "presentation_last_ns": 346665687087000,
+  "window_pixels_checked_by_client": 2949120,
+  "wayland_last_frame_independently_verified_pixels": 49152,
+  "wayland_final_image_sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+  "client_success_record_emitted": false,
+  "post_load_kernel_faults": [],
+  "full_plasma_tested": false,
+  "xwayland_tested": false
+}

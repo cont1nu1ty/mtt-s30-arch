@@ -1,0 +1,60 @@
+{
+  "test": "20261104-152912",
+  "profile": "kwin-wayland-v6",
+  "kernel": "7.2.14-arch1-1",
+  "passed": false,
+  "reboot_observed": true,
+  "boot_and_efi_verified": true,
+  "esp_comparison": {
+    "expected_files": 11,
+    "current_files": 11,
+    "added": [],
+    "removed": [],
+    "changed": [
+      "loader/random-seed"
+    ],
+    "unchanged_files": 10
+  },
+  "driver_installed": false,
+  "vulkan_pixels_independently_verified": true,
+  "h264_all_bytes_independently_verified": true,
+  "egl_gbm_independently_verified": true,
+  "egl_gbm": {
+    "passed": true,
+    "mode": "gbm-s30",
+    "frames": 8,
+    "pixels_checked": 393216,
+    "mismatches": 0,
+    "presented": 0,
+    "discarded": 0,
+    "hardware_presentations": 0,
+    "presentation_flags_all": 0,
+    "renderer": "MTT S30",
+    "vendor": "MOORE THREADS",
+    "egl_vendor": "MTT Mesa Client"
+  },
+  "kwin_renderer": "MTT S30",
+  "compositor_faults": [
+    "kwin_scene_opengl: MTT validation: dma-buf import failed size 1920 1080 fourcc 875709016 modifier 72057594037927935 planes 1 pitch0 7680 offset0 0",
+    "kwin_scene_opengl: Error creating EGLImageKHR:  \"EGL_BAD_PARAMETER\""
+  ],
+  "wayland_client_executed": false,
+  "v6_display_bridge_hardware_exercised": false,
+  "failure_stage": "KWin startup before native client",
+  "image_import": {
+    "width": 1920,
+    "height": 1080,
+    "fourcc": "XB24",
+    "fourcc_numeric": 875709016,
+    "modifier": "DRM_FORMAT_MOD_INVALID",
+    "planes": 1,
+    "pitch0": 7680,
+    "offset0": 0,
+    "egl_error": "EGL_BAD_PARAMETER"
+  },
+  "post_load_kernel_faults": [],
+  "hardware_watchdog_reset_proven": false,
+  "full_plasma_tested": false,
+  "xwayland_tested": false,
+  "next_desktop_retry_ready": false
+}

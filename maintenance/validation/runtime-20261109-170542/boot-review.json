@@ -1,0 +1,25 @@
+{
+  "test": "20261109-170542",
+  "test_boot_id": "ba558900-3338-45c9-a700-514e4acdce87",
+  "current_boot_id": "4fd8b8ae-7e86-42bd-adea-ebea071a0e49",
+  "module_loaded_at": "2026-11-09T17:06:28+08:00",
+  "postload_kernel_fault_matches": [],
+  "reboot_requested_at": "2026-11-09T17:06:55+08:00",
+  "reboot_requester_unit": "mtt-s30-once.service",
+  "planned_reboot_confirmed": true,
+  "service_sigkill_at_shutdown_at": "2026-11-09T17:07:05+08:00",
+  "service_sigkill_interpretation": "Expected supervisor stop policy after reboot requested: signal handler stops pinging and sleeps; systemd TimeoutStopSec=10s kills it during shutdown.",
+  "root_test_client_coredumps": [
+    {
+      "pid": "30149",
+      "comm": "plasmashell",
+      "signal": 11,
+      "format": "zst",
+      "source_bytes": 7163615,
+      "sha256": "112dceeaec3dd9101d06d278e1575d5012be272c325a6be5ff2580e266d865fc"
+    }
+  ],
+  "hardware_watchdog_reset_proven": false,
+  "efi_restore_verified": true,
+  "independent_pixels_verified": true
+}

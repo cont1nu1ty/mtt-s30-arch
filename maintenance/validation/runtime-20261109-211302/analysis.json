@@ -1,0 +1,176 @@
+{
+  "test": "20261109-211302",
+  "profile": "kwin-plasma-xwayland-v13",
+  "kernel": "7.2.14-arch1-1",
+  "passed": true,
+  "test_boot_id": "4fd8b8ae-7e86-42bd-adea-ebea071a0e49",
+  "current_boot_id": "6090af90-47f4-44dd-b76f-8898cbe78e7e",
+  "reboot_observed": true,
+  "boot_and_efi_verified": true,
+  "esp_comparison": {
+    "expected_files": 11,
+    "current_files": 11,
+    "added": [],
+    "removed": [],
+    "changed": [
+      "loader/random-seed"
+    ],
+    "unchanged_files": 10
+  },
+  "driver_installed": false,
+  "driver_currently_loaded": false,
+  "current_watchdog_state": "inactive",
+  "hardware_watchdog_reset_proven": false,
+  "module_sha256": "6857f52e14db1071ca5b089029725432d5bbb71022dba55f9cd973121bc4adff",
+  "private_desktop_manifest_sha256": "7d9e8aa3574ffecd34ae810baefb039411763d77445cd5017623e5b02b47cf40",
+  "bound_driver_in_test": "mtgpu",
+  "render_nodes": [
+    "renderD128"
+  ],
+  "vulkan": {
+    "passed": true,
+    "mode": "s30",
+    "frames": 8,
+    "pixels_checked": 98304,
+    "mismatches": 0
+  },
+  "h264": {
+    "passed": true,
+    "mode": "vaapi",
+    "frames": 48,
+    "hardware_frames": 48,
+    "bad_frames": 0,
+    "different_bytes": 0,
+    "max_abs_error": 0
+  },
+  "h264_all_bytes_independently_verified": true,
+  "h264_fresh_cpu_decode_match": true,
+  "h264_bytes_compared": 4423680,
+  "egl_gbm": {
+    "passed": true,
+    "mode": "gbm-s30",
+    "frames": 8,
+    "pixels_checked": 393216,
+    "mismatches": 0,
+    "renderer": "MTT S30",
+    "vendor": "MOORE THREADS"
+  },
+  "saved_images": {
+    "render.rgba": {
+      "pixels": 12288,
+      "bytes": 49152,
+      "frame": 7,
+      "sha256": "f6b5fea7be1327ca395fb1e22b7a3a3b813ac4edcc8c568e8102d0670dabaedd",
+      "independent_match": true
+    },
+    "egl-gbm.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 7,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    },
+    "wayland.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 59,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    },
+    "qt.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 11,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    },
+    "x11.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 11,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    }
+  },
+  "wayland_client": {
+    "passed": true,
+    "mode": "wayland-s30",
+    "frames": 300,
+    "pixels_checked": 14745600,
+    "mismatches": 0,
+    "presented": 300,
+    "discarded": 0,
+    "hardware_presentations": 300,
+    "presentation_flags_all": 7,
+    "completed_cycles": 5,
+    "frames_per_cycle": 60,
+    "renderer": "MTT S30",
+    "vendor": "MOORE THREADS"
+  },
+  "qt_quick_client": {
+    "frames": 12,
+    "gl_version": "OpenGL ES 3.2 build 20250516 release HEAD a8e4abb80@20250506 ",
+    "graphics_api": "OpenGL",
+    "mismatches": 0,
+    "mode": "qt-wayland-s30",
+    "opengles": true,
+    "passed": true,
+    "pixels_checked": 589824,
+    "renderer": "MTT S30",
+    "swapped": 14,
+    "vendor": "MOORE THREADS",
+    "window_destroyed": true
+  },
+  "plasma_workspace": {
+    "passed": true,
+    "shell_pid": 40412,
+    "opengl_contexts": [
+      {
+        "vendor": "Moore Threads",
+        "renderer": "MTT S30",
+        "version": "4.3 build 20250122_master-227-gdf7bc68e"
+      },
+      {
+        "vendor": "Moore Threads",
+        "renderer": "MTT S30",
+        "version": "4.3 build 20250122_master-227-gdf7bc68e"
+      }
+    ],
+    "desktop_layer_buffers": 33,
+    "dock_layer_buffers": 41,
+    "panel_layout_change_and_restore": true,
+    "exit_code": 0
+  },
+  "xwayland": {
+    "passed": true,
+    "server_pid": 40514,
+    "display": ":100",
+    "glamor_fallback": false,
+    "client": {
+      "passed": true,
+      "mode": "xwayland-glx-s30",
+      "frames": 12,
+      "pixels_checked": 589824,
+      "mismatches": 0,
+      "swapped": 12,
+      "direct": true,
+      "dri3_extension": true,
+      "dri3_node": "/dev/dri/renderD128",
+      "renderer": "MTT S30",
+      "vendor": "Moore Threads",
+      "gl_version": "3.3 build 20250122_master-227-gdf7bc68e"
+    }
+  },
+  "kwin_renderer": "MTT S30",
+  "kwin_requested_exit_signal": 15,
+  "kwin_forced_kill": false,
+  "selected_output": "HDMI-A-1",
+  "selected_drm_layer_size": [
+    1920,
+    1080
+  ],
+  "selected_drm_layer_fourcc": "XR24",
+  "compositor_faults": [],
+  "post_load_kernel_faults": [],
+  "verified_utc": "2026-11-09T13:22:00Z"
+}

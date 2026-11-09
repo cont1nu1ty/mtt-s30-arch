@@ -1,0 +1,17 @@
+{
+  "bad-color.log": "fa22c4c5e132358a0d810752263f58ed1cf1ecd6fee92dc979dc280251d4908b",
+  "bad-device.log": "e556290b3461f132ff5cd1b071a77d9f367c7323169c5afc6d385ee2d1ba4781",
+  "desktop-manifest.json": "65cb6f8b6d0ed8403c26ff79f8fe9f649b91e4ba2fd3352bf8ee5815505de1f9",
+  "desktop-session-result.json": "40036923009ea28305d6fa5af35dab48e8987b35eb4e82e79533e20159cdb58a",
+  "egl-software.log": "d22c4cd6030eb12b7b96a10e682eb2fa773e52bffc7cca4fb7dd9bce5fad396c",
+  "egl-software.rgba": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+  "host-packages.log": "25ec99f1f058f979301aa52d1b7a6b66901bc322b2079f182f48609629c1c025",
+  "kwin-support-after.log": "dc7a3a8d88cfe264aec12175dcc2d6fc2217e9c37c3e42967cd3bb790b5109b2",
+  "kwin-support-before.log": "dc7a3a8d88cfe264aec12175dcc2d6fc2217e9c37c3e42967cd3bb790b5109b2",
+  "kwin.log": "5551fce4995b24df8234ce2d9624ff6ff299926cce5e177bb7e8faa92b415e92",
+  "recovery-tests.log": "191bbab7c9570b9d91499226042eb548a31d157d4e4cc7f7846c81577745d209",
+  "session.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "validation.json": "382022d29750cb4ae8fb806ae8a10b377dde0ab6164f7796200b7bc29b8d77c9",
+  "wayland-client.log": "97c01d92e4732191f72ce4b661e87d4414c51290eceee8eaf996d75d3ec4162f",
+  "wayland.rgba": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5"
+}

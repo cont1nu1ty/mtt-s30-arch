@@ -1,0 +1,302 @@
+{
+  "passed": true,
+  "mode": "drm-s30",
+  "kwin_started": true,
+  "forced_kill": false,
+  "private_x_display": ":100",
+  "kwin_pid": 40310,
+  "private_kwin_library_verified": true,
+  "renderer": "MTT S30",
+  "drm_fds": [
+    "/dev/dri/renderD128",
+    "/dev/dri/renderD128",
+    "/dev/dri/renderD128",
+    "/dev/dri/renderD128",
+    "/dev/dri/renderD128",
+    "/dev/dri/renderD128",
+    "/dev/dri/renderD128",
+    "/dev/dri/card0",
+    "/dev/dri/card0",
+    "/dev/dri/renderD128",
+    "/dev/dri/renderD128",
+    "/dev/dri/renderD128",
+    "/dev/dri/renderD128",
+    "/dev/dri/card0",
+    "/dev/dri/renderD128",
+    "/dev/dri/renderD128",
+    "/dev/dri/renderD128",
+    "/dev/dri/renderD128",
+    "/dev/dri/card0"
+  ],
+  "context_import_formats_accepted": true,
+  "context_import_formats_evidence": [
+    "kwin_scene_opengl: MTT compatibility: context import formats before QList(\"AB24 little-endian (0x34324241)\", \"AB30 little-endian (0x30334241)\", \"AR12 little-endian (0x32315241)\", \"AR15 little-endian (0x35315241)\", \"AR24 little-endian (0x34325241)\", \"BG24 little-endian (0x34324742)\", \"BX24 little-endian (0x34325842)\", \"GR32 little-endian (0x32335247)\", \"GR88 little-endian (0x38385247)\", \"IMG2 little-endian (0x32474d49)\", \"NV12 little-endian (0x3231564e)\", \"NV21 little-endian (0x3132564e)\", \"R16  little-endian (0x20363152)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"RG88 little-endian (0x38384752)\", \"XB24 little-endian (0x34324258)\", \"XR24 little-endian (0x34325258)\", \"YU12 little-endian (0x32315559)\", \"YU24 little-endian (0x34325559)\", \"YUYV little-endian (0x56595559)\", \"YV12 little-endian (0x32315659)\") current QList(\"AB24 little-endian (0x34324241)\", \"AB30 little-endian (0x30334241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XB24 little-endian (0x34324258)\", \"XR24 little-endian (0x34325258)\") accepted QList(\"AB24 little-endian (0x34324241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XR24 little-endian (0x34325258)\") removed QList(\"AB30 little-endian (0x30334241)\", \"AR12 little-endian (0x32315241)\", \"AR15 little-endian (0x35315241)\", \"BG24 little-endian (0x34324742)\", \"BX24 little-endian (0x34325842)\", \"GR32 little-endian (0x32335247)\", \"IMG2 little-endian (0x32474d49)\", \"NV12 little-endian (0x3231564e)\", \"NV21 little-endian (0x3132564e)\", \"R16  little-endian (0x20363152)\", \"RG88 little-endian (0x38384752)\", \"XB24 little-endian (0x34324258)\", \"YU12 little-endian (0x32315559)\", \"YU24 little-endian (0x34325559)\", \"YUYV little-endian (0x56595559)\", \"YV12 little-endian (0x32315659)\")",
+    "kwin_scene_opengl: MTT compatibility: context import formats before QList(\"AB24 little-endian (0x34324241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XR24 little-endian (0x34325258)\") current QList(\"AB24 little-endian (0x34324241)\", \"AB30 little-endian (0x30334241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XB24 little-endian (0x34324258)\", \"XR24 little-endian (0x34325258)\") accepted QList(\"AB24 little-endian (0x34324241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XR24 little-endian (0x34325258)\") removed QList()",
+    "kwin_scene_opengl: MTT compatibility: context import formats before QList(\"AB24 little-endian (0x34324241)\", \"AB30 little-endian (0x30334241)\", \"AR12 little-endian (0x32315241)\", \"AR15 little-endian (0x35315241)\", \"AR24 little-endian (0x34325241)\", \"BG24 little-endian (0x34324742)\", \"BX24 little-endian (0x34325842)\", \"GR32 little-endian (0x32335247)\", \"GR88 little-endian (0x38385247)\", \"IMG2 little-endian (0x32474d49)\", \"NV12 little-endian (0x3231564e)\", \"NV21 little-endian (0x3132564e)\", \"R16  little-endian (0x20363152)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"RG88 little-endian (0x38384752)\", \"XB24 little-endian (0x34324258)\", \"XR24 little-endian (0x34325258)\", \"YU12 little-endian (0x32315559)\", \"YU24 little-endian (0x34325559)\", \"YUYV little-endian (0x56595559)\", \"YV12 little-endian (0x32315659)\") current QList(\"AB24 little-endian (0x34324241)\", \"AB30 little-endian (0x30334241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XB24 little-endian (0x34324258)\", \"XR24 little-endian (0x34325258)\") accepted QList(\"AB24 little-endian (0x34324241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XR24 little-endian (0x34325258)\") removed QList(\"AB30 little-endian (0x30334241)\", \"AR12 little-endian (0x32315241)\", \"AR15 little-endian (0x35315241)\", \"BG24 little-endian (0x34324742)\", \"BX24 little-endian (0x34325842)\", \"GR32 little-endian (0x32335247)\", \"IMG2 little-endian (0x32474d49)\", \"NV12 little-endian (0x3231564e)\", \"NV21 little-endian (0x3132564e)\", \"R16  little-endian (0x20363152)\", \"RG88 little-endian (0x38384752)\", \"XB24 little-endian (0x34324258)\", \"YU12 little-endian (0x32315559)\", \"YU24 little-endian (0x34325559)\", \"YUYV little-endian (0x56595559)\", \"YV12 little-endian (0x32315659)\")",
+    "kwin_scene_opengl: MTT compatibility: context import formats before QList(\"AB24 little-endian (0x34324241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XR24 little-endian (0x34325258)\") current QList(\"AB24 little-endian (0x34324241)\", \"AB30 little-endian (0x30334241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XB24 little-endian (0x34324258)\", \"XR24 little-endian (0x34325258)\") accepted QList(\"AB24 little-endian (0x34324241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XR24 little-endian (0x34325258)\") removed QList()",
+    "kwin_scene_opengl: MTT compatibility: context import formats before QList(\"AB24 little-endian (0x34324241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XR24 little-endian (0x34325258)\") current QList(\"AB24 little-endian (0x34324241)\", \"AB30 little-endian (0x30334241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XB24 little-endian (0x34324258)\", \"XR24 little-endian (0x34325258)\") accepted QList(\"AB24 little-endian (0x34324241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XR24 little-endian (0x34325258)\") removed QList()",
+    "kwin_scene_opengl: MTT compatibility: context import formats before QList(\"AB24 little-endian (0x34324241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XR24 little-endian (0x34325258)\") current QList(\"AB24 little-endian (0x34324241)\", \"AB30 little-endian (0x30334241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XB24 little-endian (0x34324258)\", \"XR24 little-endian (0x34325258)\") accepted QList(\"AB24 little-endian (0x34324241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XR24 little-endian (0x34325258)\") removed QList()",
+    "kwin_scene_opengl: MTT compatibility: context import formats before QList(\"AB24 little-endian (0x34324241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XR24 little-endian (0x34325258)\") current QList(\"AB24 little-endian (0x34324241)\", \"AB30 little-endian (0x30334241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XB24 little-endian (0x34324258)\", \"XR24 little-endian (0x34325258)\") accepted QList(\"AB24 little-endian (0x34324241)\", \"AR24 little-endian (0x34325241)\", \"GR88 little-endian (0x38385247)\", \"R8   little-endian (0x20203852)\", \"RG16 little-endian (0x36314752)\", \"XR24 little-endian (0x34325258)\") removed QList()"
+  ],
+  "fixed_driver_import_table_verified": true,
+  "fixed_driver_import_table_evidence": [
+    "kwin_scene_opengl: MTT compatibility: fixed-driver import formats tableEntries 18 vendorSha256 2583b5c4e793389e0d130bfb8895884dfdee358ac70d63195deeba1eb0d1a07c outside-primary-table QList(\"AB30 little-endian (0x30334241)\", \"XB24 little-endian (0x34324258)\")",
+    "kwin_scene_opengl: MTT compatibility: fixed-driver import formats tableEntries 18 vendorSha256 2583b5c4e793389e0d130bfb8895884dfdee358ac70d63195deeba1eb0d1a07c outside-primary-table QList(\"AB30 little-endian (0x30334241)\", \"XB24 little-endian (0x34324258)\")",
+    "kwin_scene_opengl: MTT compatibility: fixed-driver import formats tableEntries 18 vendorSha256 2583b5c4e793389e0d130bfb8895884dfdee358ac70d63195deeba1eb0d1a07c outside-primary-table QList(\"AB30 little-endian (0x30334241)\", \"XB24 little-endian (0x34324258)\")",
+    "kwin_scene_opengl: MTT compatibility: fixed-driver import formats tableEntries 18 vendorSha256 2583b5c4e793389e0d130bfb8895884dfdee358ac70d63195deeba1eb0d1a07c outside-primary-table QList(\"AB30 little-endian (0x30334241)\", \"XB24 little-endian (0x34324258)\")",
+    "kwin_scene_opengl: MTT compatibility: fixed-driver import formats tableEntries 18 vendorSha256 2583b5c4e793389e0d130bfb8895884dfdee358ac70d63195deeba1eb0d1a07c outside-primary-table QList(\"AB30 little-endian (0x30334241)\", \"XB24 little-endian (0x34324258)\")",
+    "kwin_scene_opengl: MTT compatibility: fixed-driver import formats tableEntries 18 vendorSha256 2583b5c4e793389e0d130bfb8895884dfdee358ac70d63195deeba1eb0d1a07c outside-primary-table QList(\"AB30 little-endian (0x30334241)\", \"XB24 little-endian (0x34324258)\")",
+    "kwin_scene_opengl: MTT compatibility: fixed-driver import formats tableEntries 18 vendorSha256 2583b5c4e793389e0d130bfb8895884dfdee358ac70d63195deeba1eb0d1a07c outside-primary-table QList(\"AB30 little-endian (0x30334241)\", \"XB24 little-endian (0x34324258)\")"
+  ],
+  "fixed_driver_import_table_invalid": [],
+  "drm_layer_swapchain_selected": true,
+  "swapchain_selection_evidence": [
+    "kwin_wayland_drm: MTT validation: swapchain selected source drm-layer size QSize(1920, 1080) fourcc 875713112 modifier 72057594037927935 importMode 0 bufferTarget 0"
+  ],
+  "drm_layer_swapchains": [
+    {
+      "line": "kwin_wayland_drm: MTT validation: swapchain selected source drm-layer size QSize(1920, 1080) fourcc 875713112 modifier 72057594037927935 importMode 0 bufferTarget 0",
+      "size": [
+        1920,
+        1080
+      ],
+      "fourcc": 875713112,
+      "modifier": 72057594037927935,
+      "import_mode": 0,
+      "buffer_target": 0,
+      "physical_outputs": [
+        "HDMI-A-1"
+      ]
+    }
+  ],
+  "physical_output_sizes": [
+    {
+      "name": "HDMI-A-1",
+      "logical_size": [
+        1920.0,
+        1080.0
+      ],
+      "scale": 1.0,
+      "pixel_size": [
+        1920,
+        1080
+      ]
+    }
+  ],
+  "client_exit": 0,
+  "private_client_egl_verified": true,
+  "private_client_dri_verified": true,
+  "mtgpu_lookup_v1_selected": true,
+  "mtgpu_public_screen_and_context_selected": true,
+  "mtgpu_config_bounds_verified": true,
+  "mtgpu_display_bridge_selected": true,
+  "mtgpu_gles_dispatch_selected": true,
+  "completed_window_cycles": 5,
+  "qt_client_exit": 0,
+  "qt_compatibility": {
+    "private_client_egl_verified": true,
+    "private_client_dri_verified": true,
+    "mtgpu_lookup_v1_selected": true,
+    "mtgpu_public_screen_and_context_selected": true,
+    "mtgpu_config_bounds_verified": true,
+    "mtgpu_display_bridge_selected": true,
+    "mtgpu_gles_dispatch_selected": true
+  },
+  "qt_quick_client": {
+    "frames": 12,
+    "gl_version": "OpenGL ES 3.2 build 20250516 release HEAD a8e4abb80@20250506 ",
+    "graphics_api": "OpenGL",
+    "mismatches": 0,
+    "mode": "qt-wayland-s30",
+    "opengles": true,
+    "passed": true,
+    "pixels_checked": 589824,
+    "renderer": "MTT S30",
+    "swapped": 14,
+    "vendor": "MOORE THREADS",
+    "window_destroyed": true
+  },
+  "plasma_shell": {
+    "passed": true,
+    "mode": "plasma-s30",
+    "phase": "complete",
+    "forced_kill": false,
+    "full_login_session_tested": false,
+    "shell_pid": 40412,
+    "activity_pid": 40410,
+    "kio_pid": 40411,
+    "last_startup_observation": "Plasma desktop/panel did not submit rendered buffers.",
+    "opengl_contexts": [
+      {
+        "vendor": "Moore Threads",
+        "renderer": "MTT S30",
+        "version": "4.3 build 20250122_master-227-gdf7bc68e"
+      },
+      {
+        "vendor": "Moore Threads",
+        "renderer": "MTT S30",
+        "version": "4.3 build 20250122_master-227-gdf7bc68e"
+      }
+    ],
+    "private_egl_verified": true,
+    "private_dri_pair_verified": true,
+    "drawn_layer_surfaces": {
+      "desktop": "53",
+      "dock": "85"
+    },
+    "dmabuf_buffers_per_layer": {
+      "desktop": [
+        "63",
+        "66",
+        "67"
+      ],
+      "dock": [
+        "103",
+        "105",
+        "109",
+        "119",
+        "76",
+        "80",
+        "93"
+      ]
+    },
+    "layer_buffer_submissions": {
+      "desktop": 33,
+      "dock": 41
+    },
+    "graphics_faults": [],
+    "active_activity": "e403cfed-dd51-4414-adda-f9aa342d0f68",
+    "panel_layout_change_and_restore": true,
+    "exercise": {
+      "passed": true,
+      "phase": "complete",
+      "software_control": false,
+      "client_exit": 0,
+      "server": {
+        "pid": 40514,
+        "parent_pid": 40310,
+        "display": ":100",
+        "authenticated": true,
+        "exe": "/usr/bin/Xwayland",
+        "setup_helper_verified": true,
+        "hardware_server_verified": true,
+        "drm_fds": [
+          "/dev/dri/card0",
+          "/dev/dri/renderD128"
+        ],
+        "vendor_libraries": [
+          "/var/lib/mtt-s30-test/20261109-211302/test/vendor/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so",
+          "/var/lib/mtt-s30-test/20261109-211302/test/vendor/usr/lib/x86_64-linux-gnu/dri/musa_dri.so",
+          "/var/lib/mtt-s30-test/20261109-211302/test/vendor/usr/lib/x86_64-linux-gnu/libEGL_mtgpu.so.0.0.0"
+        ],
+        "glamor_fallback_messages": [],
+        "evidence_scope": "Vendor EGL/DRI mappings, S30 node and no fallback; GLX DRI3 query is checked separately."
+      },
+      "client": {
+        "passed": true,
+        "mode": "xwayland-glx-s30",
+        "frames": 12,
+        "pixels_checked": 589824,
+        "mismatches": 0,
+        "swapped": 12,
+        "direct": true,
+        "xwayland_extension": true,
+        "desktop_opengl": true,
+        "gl_major": 3,
+        "gl_minor": 3,
+        "window_destroyed": true,
+        "context_destroyed": true,
+        "display_closed": true,
+        "renderer": "MTT S30",
+        "vendor": "Moore Threads",
+        "gl_version": "3.3 build 20250122_master-227-gdf7bc68e",
+        "glx_vendor": "MTT Mesa Client",
+        "xserver_vendor": "The X.Org Foundation",
+        "dri3_extension": true,
+        "dri3_node": "/dev/dri/renderD128",
+        "dri3_device_major": 226,
+        "dri3_device_minor": 128
+      },
+      "vendor_libraries": [
+        "/var/lib/mtt-s30-test/20261109-211302/test/vendor/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so",
+        "/var/lib/mtt-s30-test/20261109-211302/test/vendor/usr/lib/x86_64-linux-gnu/dri/musa_dri.so",
+        "/var/lib/mtt-s30-test/20261109-211302/test/vendor/usr/lib/x86_64-linux-gnu/libGLX_mtgpu.so.0.0.0"
+      ]
+    },
+    "checks_passed": true,
+    "exit_codes": {
+      "plasma.log": {
+        "code": 0,
+        "termination_requested": true
+      },
+      "plasma-kio.log": {
+        "code": -15,
+        "termination_requested": true
+      },
+      "plasma-activities.log": {
+        "code": -15,
+        "termination_requested": true
+      }
+    }
+  },
+  "xwayland": {
+    "passed": true,
+    "phase": "complete",
+    "software_control": false,
+    "client_exit": 0,
+    "server": {
+      "pid": 40514,
+      "parent_pid": 40310,
+      "display": ":100",
+      "authenticated": true,
+      "exe": "/usr/bin/Xwayland",
+      "setup_helper_verified": true,
+      "hardware_server_verified": true,
+      "drm_fds": [
+        "/dev/dri/card0",
+        "/dev/dri/renderD128"
+      ],
+      "vendor_libraries": [
+        "/var/lib/mtt-s30-test/20261109-211302/test/vendor/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so",
+        "/var/lib/mtt-s30-test/20261109-211302/test/vendor/usr/lib/x86_64-linux-gnu/dri/musa_dri.so",
+        "/var/lib/mtt-s30-test/20261109-211302/test/vendor/usr/lib/x86_64-linux-gnu/libEGL_mtgpu.so.0.0.0"
+      ],
+      "glamor_fallback_messages": [],
+      "evidence_scope": "Vendor EGL/DRI mappings, S30 node and no fallback; GLX DRI3 query is checked separately."
+    },
+    "client": {
+      "passed": true,
+      "mode": "xwayland-glx-s30",
+      "frames": 12,
+      "pixels_checked": 589824,
+      "mismatches": 0,
+      "swapped": 12,
+      "direct": true,
+      "xwayland_extension": true,
+      "desktop_opengl": true,
+      "gl_major": 3,
+      "gl_minor": 3,
+      "window_destroyed": true,
+      "context_destroyed": true,
+      "display_closed": true,
+      "renderer": "MTT S30",
+      "vendor": "Moore Threads",
+      "gl_version": "3.3 build 20250122_master-227-gdf7bc68e",
+      "glx_vendor": "MTT Mesa Client",
+      "xserver_vendor": "The X.Org Foundation",
+      "dri3_extension": true,
+      "dri3_node": "/dev/dri/renderD128",
+      "dri3_device_major": 226,
+      "dri3_device_minor": 128
+    },
+    "vendor_libraries": [
+      "/var/lib/mtt-s30-test/20261109-211302/test/vendor/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so",
+      "/var/lib/mtt-s30-test/20261109-211302/test/vendor/usr/lib/x86_64-linux-gnu/dri/musa_dri.so",
+      "/var/lib/mtt-s30-test/20261109-211302/test/vendor/usr/lib/x86_64-linux-gnu/libGLX_mtgpu.so.0.0.0"
+    ]
+  },
+  "checks_passed": true,
+  "termination_requested": true,
+  "kwin_exit": 15,
+  "compositor_faults": []
+}

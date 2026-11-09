@@ -1,0 +1,2 @@
+baseline vendor-offset platform=0 actual=2
+display bridge case baseline passed: create=1 destroy=1 bridge=0

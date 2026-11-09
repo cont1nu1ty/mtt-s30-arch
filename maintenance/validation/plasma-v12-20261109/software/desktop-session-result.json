@@ -1,0 +1,175 @@
+{
+  "passed": true,
+  "mode": "virtual-software",
+  "kwin_started": true,
+  "forced_kill": false,
+  "private_x_display": ":100",
+  "kwin_pid": 28196,
+  "renderer": "llvmpipe (LLVM 23.1.4, 256 bits)",
+  "drm_fds": [],
+  "context_import_formats_accepted": false,
+  "context_import_formats_evidence": [],
+  "fixed_driver_import_table_verified": false,
+  "fixed_driver_import_table_evidence": [],
+  "fixed_driver_import_table_invalid": [],
+  "drm_layer_swapchain_selected": false,
+  "swapchain_selection_evidence": [],
+  "drm_layer_swapchains": [],
+  "physical_output_sizes": [],
+  "client_exit": 0,
+  "completed_window_cycles": 5,
+  "qt_client_exit": 0,
+  "qt_quick_client": {
+    "frames": 12,
+    "gl_version": "OpenGL ES 3.1 Mesa 23.2.1-1ubuntu3.1~22.04.3",
+    "graphics_api": "OpenGL",
+    "mismatches": 0,
+    "mode": "qt-wayland-software",
+    "opengles": true,
+    "passed": true,
+    "pixels_checked": 589824,
+    "renderer": "softpipe",
+    "swapped": 13,
+    "vendor": "Mesa",
+    "window_destroyed": true
+  },
+  "plasma_shell": {
+    "passed": true,
+    "mode": "plasma-software",
+    "phase": "complete",
+    "forced_kill": false,
+    "full_login_session_tested": false,
+    "shell_pid": 28372,
+    "activity_pid": 28370,
+    "kio_pid": 28371,
+    "last_startup_observation": "Plasma desktop/panel did not submit rendered buffers.",
+    "opengl_contexts": [
+      {
+        "vendor": "Mesa",
+        "renderer": "softpipe",
+        "version": "3.3 (Compatibility Profile) Mesa 23.2.1-1ubuntu3.1~22.04.3"
+      },
+      {
+        "vendor": "Mesa",
+        "renderer": "softpipe",
+        "version": "3.3 (Compatibility Profile) Mesa 23.2.1-1ubuntu3.1~22.04.3"
+      }
+    ],
+    "private_egl_verified": true,
+    "private_dri_pair_verified": false,
+    "drawn_layer_surfaces": {
+      "desktop": "47",
+      "dock": "79"
+    },
+    "dmabuf_buffers_per_layer": {
+      "desktop": [],
+      "dock": []
+    },
+    "layer_buffer_submissions": {
+      "desktop": 18,
+      "dock": 29
+    },
+    "graphics_faults": [],
+    "active_activity": "948e69c6-5fc5-4302-a046-64e1b1b9a071",
+    "panel_layout_change_and_restore": true,
+    "exercise": {
+      "passed": true,
+      "phase": "complete",
+      "software_control": true,
+      "client_exit": 0,
+      "server": {
+        "pid": 28510,
+        "parent_pid": 28196,
+        "display": ":100",
+        "authenticated": true,
+        "exe": "/usr/bin/Xwayland",
+        "setup_helper_verified": true,
+        "hardware_server_verified": false
+      },
+      "client": {
+        "passed": true,
+        "mode": "xwayland-glx-software",
+        "frames": 12,
+        "pixels_checked": 589824,
+        "mismatches": 0,
+        "swapped": 12,
+        "direct": true,
+        "xwayland_extension": true,
+        "desktop_opengl": true,
+        "gl_major": 4,
+        "gl_minor": 6,
+        "window_destroyed": true,
+        "context_destroyed": true,
+        "display_closed": true,
+        "renderer": "llvmpipe (LLVM 23.1.4, 256 bits)",
+        "vendor": "Mesa",
+        "gl_version": "4.6 (Core Profile) Mesa 26.2.6-arch1.1",
+        "glx_vendor": "Mesa Project and SGI",
+        "xserver_vendor": "The X.Org Foundation",
+        "dri3_extension": false,
+        "dri3_node": "",
+        "dri3_device_major": 0,
+        "dri3_device_minor": 0
+      }
+    },
+    "checks_passed": true,
+    "exit_codes": {
+      "plasma.log": {
+        "code": 0,
+        "termination_requested": true
+      },
+      "plasma-kio.log": {
+        "code": -15,
+        "termination_requested": true
+      },
+      "plasma-activities.log": {
+        "code": -15,
+        "termination_requested": true
+      }
+    }
+  },
+  "xwayland": {
+    "passed": true,
+    "phase": "complete",
+    "software_control": true,
+    "client_exit": 0,
+    "server": {
+      "pid": 28510,
+      "parent_pid": 28196,
+      "display": ":100",
+      "authenticated": true,
+      "exe": "/usr/bin/Xwayland",
+      "setup_helper_verified": true,
+      "hardware_server_verified": false
+    },
+    "client": {
+      "passed": true,
+      "mode": "xwayland-glx-software",
+      "frames": 12,
+      "pixels_checked": 589824,
+      "mismatches": 0,
+      "swapped": 12,
+      "direct": true,
+      "xwayland_extension": true,
+      "desktop_opengl": true,
+      "gl_major": 4,
+      "gl_minor": 6,
+      "window_destroyed": true,
+      "context_destroyed": true,
+      "display_closed": true,
+      "renderer": "llvmpipe (LLVM 23.1.4, 256 bits)",
+      "vendor": "Mesa",
+      "gl_version": "4.6 (Core Profile) Mesa 26.2.6-arch1.1",
+      "glx_vendor": "Mesa Project and SGI",
+      "xserver_vendor": "The X.Org Foundation",
+      "dri3_extension": false,
+      "dri3_node": "",
+      "dri3_device_major": 0,
+      "dri3_device_minor": 0
+    }
+  },
+  "checks_passed": true,
+  "termination_requested": true,
+  "kwin_exit": 15,
+  "compositor_faults": []
+}

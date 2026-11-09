@@ -1,0 +1,13 @@
+struct mtgpu_drm_private {
+	struct pvr_drm_private     pvr_private;          /*     0    40 */
+	struct mt_chip *           chip;                 /*    40     8 */
+	struct mutex               gem_mmap_mutex __attribute__((__aligned__(8))); /*    48    24 */
+	/* --- cacheline 1 boundary (64 bytes) was 8 bytes ago --- */
+	bool                       display_irqs_ready;   /*    72     1 */
+
+	/* size: 80, cachelines: 2, members: 4 */
+	/* padding: 7 */
+	/* forced alignments: 1 */
+	/* last cacheline: 16 bytes */
+} __attribute__((__aligned__(8)));
+

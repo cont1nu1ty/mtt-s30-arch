@@ -1,0 +1,13 @@
+--- 6.8.1/src/opengl/eglcontext.cpp
++++ 6.8.2/src/opengl/eglcontext.cpp
+@@ -124,7 +124,9 @@
+ 
+ bool EglContext::makeCurrent()
+ {
+-    if (QOpenGLContext *context = QOpenGLContext::currentContext()) {
++    if (m_failed) {
++        return false;
++    } else if (QOpenGLContext *context = QOpenGLContext::currentContext()) {
+         // Workaround to tell Qt that no QOpenGLContext is current
+         context->doneCurrent();
+     } else if (s_currentContext == this) {

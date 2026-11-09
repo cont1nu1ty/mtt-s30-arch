@@ -1,0 +1,245 @@
+From: Local MTT S30 compatibility maintenance
+Subject: [PATCH] kwin: constrain mtgpu formats with its current context
+
+The reviewed 3.1.0 driver queries secondary formats without a current
+context, while its primary DMA-BUF import validates a different table.
+After binding an S30 context, re-query and intersect the cached format and
+modifier sets. Do not add capabilities, blacklist a pixel format, or ignore
+image import failures. Reject missing/inconsistent format evidence and an
+empty renderable intersection; omit formats with rejected modifier queries
+instead of inventing implicit support. Other drivers keep the old path.
+
+No class data members or system-installed libraries are changed.
+
+--- a/src/opengl/egldisplay.h
++++ b/src/opengl/egldisplay.h
+@@ -51,6 +51,9 @@
+     const FormatModifierMap &allSupportedDrmFormats() const;
+     bool isExternalOnly(uint32_t format, uint64_t modifier) const;
+ 
++    // The reviewed mtgpu driver reports a different format set without a current context.
++    bool restrictMtgpuFormatsToCurrentContext();
++
+     EGLImageKHR createImage(EGLContext ctx, EGLenum target, EGLClientBuffer buffer, const EGLint *attrib_list) const;
+     void destroyImage(EGLImageKHR image) const;
+ 
+@@ -77,7 +80,7 @@
+         FormatModifierMap nonExternalOnly;
+         FormatModifierMap all;
+     };
+-    Formats queryImportFormats() const;
++    Formats queryImportFormats(bool *complete = nullptr) const;
+     QString determineRenderNode() const;
+ 
+     const ::EGLDisplay m_handle;
+--- a/src/opengl/egldisplay.cpp
++++ b/src/opengl/egldisplay.cpp
+@@ -17,6 +17,8 @@
+ #include "utils/envvar.h"
+ 
+ #include <QOpenGLContext>
++#include <QStringList>
++#include <algorithm>
+ #include <drm_fourcc.h>
+ 
+ #ifndef EGL_DRM_RENDER_NODE_FILE_EXT
+@@ -325,8 +327,71 @@
+     return it == m_nonExternalOnlyFormats.end() || !it->contains(modifier);
+ }
+ 
+-EglDisplay::Formats EglDisplay::queryImportFormats() const
+-{
++bool EglDisplay::restrictMtgpuFormatsToCurrentContext()
++{
++    if (!m_drmDevice || m_drmDevice->driverName() != QByteArrayLiteral("mtgpu")) {
++        return true;
++    }
++    const auto reject = [this](const char *reason) {
++        m_allFormats.clear();
++        m_nonExternalOnlyFormats.clear();
++        qCCritical(KWIN_OPENGL) << "MTT compatibility: context import formats rejected:" << reason;
++        return false;
++    };
++    if (eglGetCurrentDisplay() != m_handle || eglGetCurrentContext() == EGL_NO_CONTEXT) {
++        return reject("no matching current EGL context");
++    }
++    const char *renderer = reinterpret_cast<const char *>(glGetString(GL_RENDERER));
++    if (!renderer) {
++        return reject("missing current GL renderer");
++    }
++    if (QByteArrayView(renderer) != QByteArrayView("MTT S30")) {
++        return true;
++    }
++
++    // mtgpu 3.1.0's context-free query may delegate to the secondary driver,
++    // but its primary DMA-BUF importer validates its own format table first.
++    // Only remove entries: never advertise more than either verified query.
++    bool complete = false;
++    const auto current = queryImportFormats(&complete);
++    if (!complete) {
++        return reject("current-context DMA-BUF query failed");
++    }
++    auto all = m_allFormats.intersected(current.all);
++    auto nonExternalOnly = m_nonExternalOnlyFormats.intersected(current.nonExternalOnly);
++    if (all.isEmpty() || nonExternalOnly.isEmpty()) {
++        return reject("no compatible renderable DMA-BUF formats");
++    }
++
++    const auto names = [](const FormatModifierMap &formats) {
++        QStringList result;
++        for (auto it = formats.begin(); it != formats.end(); ++it) {
++            result.push_back(FormatInfo::drmFormatName(it.key()));
++        }
++        result.sort();
++        return result;
++    };
++    QStringList removed;
++    for (auto it = m_allFormats.begin(); it != m_allFormats.end(); ++it) {
++        if (!all.contains(it.key())) {
++            removed.push_back(FormatInfo::drmFormatName(it.key()));
++        }
++    }
++    removed.sort();
++    qCInfo(KWIN_OPENGL) << "MTT compatibility: context import formats"
++                       << "before" << names(m_allFormats)
++                       << "current" << names(current.all)
++                       << "accepted" << names(all) << "removed" << removed;
++    m_allFormats = std::move(all);
++    m_nonExternalOnlyFormats = std::move(nonExternalOnly);
++    return true;
++}
++
++EglDisplay::Formats EglDisplay::queryImportFormats(bool *complete) const
++{
++    if (complete) {
++        *complete = false;
++    }
+     if (!hasExtension(QByteArrayLiteral("EGL_EXT_image_dma_buf_import")) || !hasExtension(QByteArrayLiteral("EGL_EXT_image_dma_buf_import_modifiers"))) {
+         return {};
+     }
+@@ -337,7 +402,7 @@
+ 
+     EGLint count = 0;
+     EGLBoolean success = m_functions.queryDmaBufFormatsEXT(m_handle, 0, nullptr, &count);
+-    if (!success || count == 0) {
++    if (!success || count == 0 || (complete && (count < 0 || count > 4096))) {
+         qCCritical(KWIN_OPENGL) << "eglQueryDmaBufFormatsEXT failed!" << getEglErrorString();
+         return {};
+     }
+@@ -345,6 +410,12 @@
+     if (!m_functions.queryDmaBufFormatsEXT(m_handle, count, (EGLint *)formats.data(), &count)) {
+         qCCritical(KWIN_OPENGL) << "eglQueryDmaBufFormatsEXT with count" << count << "failed!" << getEglErrorString();
+         return {};
++    }
++    if (complete) {
++        if (count <= 0 || count > formats.size()) {
++            return {};
++        }
++        formats.resize(count);
+     }
+     Formats ret;
+     const ModifierList implicitModifiers = {DRM_FORMAT_MOD_INVALID, DRM_FORMAT_MOD_LINEAR};
+@@ -352,11 +423,26 @@
+         EGLint count = 0;
+         const bool success = m_functions.queryDmaBufModifiersEXT
+             && m_functions.queryDmaBufModifiersEXT(m_handle, format, 0, nullptr, nullptr, &count);
++        if (complete && !success) {
++            // This driver also enumerates formats whose modifier query it
++            // rejects. Do not turn that rejection into implicit support.
++            continue;
++        }
++        if (complete && (count < 0 || count > 4096)) {
++            return {};
++        }
+         if (success && count > 0) {
+             QList<uint64_t> tmp;
+             tmp.resize(count);
+             QList<EGLBoolean> externalOnly(count);
+             if (m_functions.queryDmaBufModifiersEXT(m_handle, format, count, tmp.data(), externalOnly.data(), &count)) {
++                if (complete) {
++                    if (count <= 0 || count > tmp.size()) {
++                        return {};
++                    }
++                    tmp.resize(count);
++                    externalOnly.resize(count);
++                }
+                 auto &allModifiers = ret.all[format];
+                 auto &nonExternalOnly = ret.nonExternalOnly[format];
+                 allModifiers = ModifierList(tmp);
+@@ -372,12 +458,18 @@
+                         nonExternalOnly.insert(DRM_FORMAT_MOD_INVALID);
+                     }
+                 }
++            } else if (complete) {
++                // A failed list query supplies no usable modifier evidence.
++                continue;
+             }
+         } else {
+             // no explicit modifiers are supported -> fall back to implicit modifiers
+             ret.all[format] = implicitModifiers;
+             ret.nonExternalOnly[format] = implicitModifiers;
+         }
++    }
++    if (complete) {
++        *complete = true;
+     }
+     return ret;
+ }
+--- a/src/opengl/eglcontext.cpp
++++ b/src/opengl/eglcontext.cpp
+@@ -37,6 +37,14 @@
+         return nullptr;
+     }
+     if (!eglMakeCurrent(display->handle(), EGL_NO_SURFACE, EGL_NO_SURFACE, handle)) {
++        eglDestroyContext(display->handle(), handle);
++        return nullptr;
++    }
++    if (!display->restrictMtgpuFormatsToCurrentContext()) {
++        // No EglContext owns this raw handle yet. Mirror the ordinary failed
++        // context cleanup and never leave the old current-context cache stale.
++        eglMakeCurrent(display->handle(), EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);
++        s_currentContext = nullptr;
+         eglDestroyContext(display->handle(), handle);
+         return nullptr;
+     }
+--- a/src/backends/drm/drm_egl_layer_surface.cpp
++++ b/src/backends/drm/drm_egl_layer_surface.cpp
+@@ -144,6 +144,12 @@
+                 };
+                 m_surface->shadowSwapchain = EglSwapchain::create(m_eglBackend->renderDevice(), options);
+                 if (m_surface->shadowSwapchain) {
++                    if (m_eglBackend->openglContext()->renderer() == QByteArrayView("MTT S30")) {
++                        qCInfo(KWIN_DRM) << "MTT validation: swapchain selected"
++                                        << "source shadow" << "size" << m_surface->shadowSwapchain->size()
++                                        << "fourcc" << m_surface->shadowSwapchain->format()
++                                        << "modifier" << m_surface->shadowSwapchain->modifier();
++                    }
+                     break;
+                 }
+             }
+@@ -492,6 +498,14 @@
+     if (!doRenderTestBuffer(ret.get())) {
+         return nullptr;
+     }
++    if (ret->context->renderer() == QByteArrayView("MTT S30")) {
++        qCInfo(KWIN_DRM) << "MTT validation: swapchain selected"
++                        << "source drm-layer" << "size" << size
++                        << "fourcc" << ret->gbmSwapchain->format()
++                        << "modifier" << ret->gbmSwapchain->modifier()
++                        << "importMode" << int(importMode)
++                        << "bufferTarget" << int(bufferTarget);
++    }
+     return ret;
+ }
+ 
+--- a/src/main_wayland.cpp
++++ b/src/main_wayland.cpp
+@@ -328,7 +328,7 @@
+     QCoreApplication::setAttribute(Qt::AA_DisableShaderDiskCache);
+ 
+     KWin::ApplicationWayland a(argc, argv);
+-    qInfo("MTT S30 isolated validation build: userland-fix1 (KWin 6.8.2)");
++    qInfo("MTT S30 isolated validation build: userland-fix6 (KWin 6.8.2)");
+ 
+     // Reset the environment variables so we don't propagate them to our children (e.g. apps
+     // launched from the overview effect)

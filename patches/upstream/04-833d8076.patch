@@ -1,0 +1,118 @@
+commit 833d80762b737c2d3dabbcc7ef0bf870a8f88995
+Author:     dixyes <dixyes@gmail.com>
+AuthorDate: Wed Dec 11 19:57:06 2024 +0800
+Commit:     dixyes <dixyes@gmail.com>
+CommitDate: Tue Apr 22 20:39:41 2025 +0800
+
+    Add missing headers
+
+diff --git a/src/common/os-interface-drm.c b/src/common/os-interface-drm.c
+index 1403b2d..4f525bb 100644
+--- a/src/common/os-interface-drm.c
++++ b/src/common/os-interface-drm.c
+@@ -20,6 +20,7 @@
+ #endif
+ #include <drm/drm_edid.h>
+ #include <drm/drm_crtc.h>
++#include <drm/drm_edid.h>
+ #include <drm/drm_encoder.h>
+ #include <drm/drm_crtc_helper.h>
+ #include <drm/gpu_scheduler.h>
+diff --git a/src/mtgpu/mtgpu_drm_drv.c b/src/mtgpu/mtgpu_drm_drv.c
+index 204c4d3..81ca1f8 100644
+--- a/src/mtgpu/mtgpu_drm_drv.c
++++ b/src/mtgpu/mtgpu_drm_drv.c
+@@ -40,6 +40,9 @@
+ #if defined(OS_DRM_DRM_FBDEV_GENERIC_H_EXIST)
+ #include <drm/drm_fbdev_generic.h>
+ #endif
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++#include <drm/drm_fbdev_shmem.h>
++#endif // LINUX_VERSION
+ #if defined(OS_DRM_DRM_SELF_REFRESH_HELPER_H_EXIST)
+ #include <drm/drm_self_refresh_helper.h>
+ #endif
+@@ -683,9 +686,20 @@ const struct dev_pm_ops mtgpu_drm_pm_ops = {
+ 	.restore = mtgpu_drm_resume,
+ };
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++static void _mtgpu_drm_remove(struct platform_device *pdev)
++{
++	mtgpu_drm_remove(pdev);
++}
++#endif // KERNEL_VERSION
++
+ static struct platform_driver mtgpu_drm_platform_driver = {
+ 	.probe		= mtgpu_drm_probe,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++	.remove		= _mtgpu_drm_remove,
++#else
+ 	.remove		= mtgpu_drm_remove,
++#endif // KERNEL_VERSION
+ 	.driver		= {
+ 		.owner  = THIS_MODULE,
+ 		.name	= "mtgpu-drm-driver",
+diff --git a/src/mtsnd/eld.c b/src/mtsnd/eld.c
+index 1809f2a..173a690 100644
+--- a/src/mtsnd/eld.c
++++ b/src/mtsnd/eld.c
+@@ -11,7 +11,7 @@
+ #include <linux/init.h>
+ #include <linux/slab.h>
+ #include <sound/core.h>
+-#include <asm/unaligned.h>
++#include <linux/unaligned.h>
+ #include <sound/hda_chmap.h>
+ #include <sound/hdmi-codec.h>
+ 
+diff --git a/src/mtvpu/mtvpu_drv.c b/src/mtvpu/mtvpu_drv.c
+index aeb97ba..5fdb452 100644
+--- a/src/mtvpu/mtvpu_drv.c
++++ b/src/mtvpu/mtvpu_drv.c
+@@ -14,6 +14,7 @@
+ #include <linux/version.h>
+ #include <linux/moduleparam.h>
+ #include <linux/dma-mapping.h>
++#include <linux/vmalloc.h>
+ #include <drm/drm_gem.h>
+ #include <drm/drm_drv.h>
+ #include <linux/acpi.h>
+@@ -680,6 +681,13 @@ static const struct dev_pm_ops vpu_pm_ops = {
+ 	.restore = vpu_resume,
+ };
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++static void _vpu_remove(struct platform_device *pdev)
++{
++	vpu_remove(pdev);
++}
++#endif // KERNEL_VERSION
++
+ struct platform_driver vpu_driver = {
+ 	.driver = {
+ 		.name = "mtgpu_vde",
+@@ -688,7 +696,11 @@ struct platform_driver vpu_driver = {
+ 		.acpi_match_table = vpu_acpi_id_tbl,
+ 	},
+ 	.probe = vpu_probe,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 11, 0)
++	.remove = _vpu_remove,
++#else
+ 	.remove = vpu_remove,
++#endif // KERNEL_VERSION
+ 	.id_table = vpu_id_tbl,
+ };
+ 
+diff --git a/src/mtvpu/mtvpu_gem.c b/src/mtvpu/mtvpu_gem.c
+index 698f6f4..8e83987 100644
+--- a/src/mtvpu/mtvpu_gem.c
++++ b/src/mtvpu/mtvpu_gem.c
+@@ -7,6 +7,7 @@
+ #include <linux/device.h>
+ 
+ #include <linux/io.h>
++#include <linux/vmalloc.h>
+ #include <drm/drm_file.h>
+ #include <drm/drm_gem.h>
+ #if defined(OS_DRM_DRMP_H_EXIST)

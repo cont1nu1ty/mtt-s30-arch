@@ -1,0 +1,39 @@
+struct mtgpu_dispc_ctx {
+	void *                     regs;                 /*     0     8 */
+	void *                     pre_regs;             /*     8     8 */
+	void *                     post_regs;            /*    16     8 */
+	void *                     out_regs;             /*    24     8 */
+	void *                     glb_regs;             /*    32     8 */
+	u64                        cursor_mem_base;      /*    40     8 */
+	u32                        cursor_mem_size;      /*    48     4 */
+	u8                         cursor_buffer_index;  /*    52     1 */
+
+	/* XXX 3 bytes hole, try to pack */
+
+	u64                        pcie_mem_base;        /*    56     8 */
+	/* --- cacheline 1 boundary (64 bytes) --- */
+	int                        irq;                  /*    64     4 */
+	int                        id;                   /*    68     4 */
+	struct videomode *         vm;                   /*    72     8 */
+	void *                     private;              /*    80     8 */
+	bool                       update_done;          /*    88     1 */
+	bool                       disable_done;         /*    89     1 */
+
+	/* XXX 6 bytes hole, try to pack */
+
+	wait_queue_head_t *        waitq;                /*    96     8 */
+	bool                       dsc_en;               /*   104     1 */
+
+	/* XXX 7 bytes hole, try to pack */
+
+	u16 *                      gamma_store;          /*   112     8 */
+	u32                        gamma_size;           /*   120     4 */
+	bool                       gamma_restore;        /*   124     1 */
+	bool                       gamma_visiable;       /*   125     1 */
+	bool                       vsyncoff_enable;      /*   126     1 */
+
+	/* size: 128, cachelines: 2, members: 22 */
+	/* sum members: 111, holes: 3, sum holes: 16 */
+	/* padding: 1 */
+};
+

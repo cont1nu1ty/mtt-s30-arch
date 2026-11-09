@@ -1,0 +1,2 @@
+libEGL info: MTT compatibility: Wayland display ABI bridge
+libEGL warning: egl: failed to create dri2 screen

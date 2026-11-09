@@ -1,0 +1,12 @@
+{
+  "kernel": "6.18.58-1-lts",
+  "build_exit": 0,
+  "module_built": true,
+  "runtime_tested": false,
+  "objtool_warnings": 5486,
+  "vendor_blob_modified": false,
+  "module_sha256": "658e341758548e14116d56f0f45f1c81a290eab5f12bec07bf0d788fa371331c",
+  "vermagic": "6.18.58-1-lts SMP preempt mod_unload",
+  "s30_pci_alias_present": true,
+  "unresolved_kernel_symbols": []
+}

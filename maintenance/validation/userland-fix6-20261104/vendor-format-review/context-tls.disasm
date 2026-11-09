@@ -1,0 +1,102 @@
+
+official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000006e38e0 <__driDriverGetExtensions_mtgpu@@VERS1.0-0x6e00>:
+  6e38e0:	48 85 ff             	test   %rdi,%rdi
+  6e38e3:	b8 01 00 00 00       	mov    $0x1,%eax
+  6e38e8:	74 26                	je     6e3910 <__gmon_start__@plt+0x624d60>
+  6e38ea:	53                   	push   %rbx
+  6e38eb:	48 89 fb             	mov    %rdi,%rbx
+  6e38ee:	48 83 ec 10          	sub    $0x10,%rsp
+  6e38f2:	48 8b 7f 30          	mov    0x30(%rdi),%rdi
+  6e38f6:	48 85 ff             	test   %rdi,%rdi
+  6e38f9:	74 25                	je     6e3920 <__gmon_start__@plt+0x624d70>
+  6e38fb:	48 8b 05 3e f3 a1 00 	mov    0xa1f33e(%rip),%rax        # 1102c40 <__driDriverGetExtensions_mtgpu@@VERS1.0+0xa18560>
+  6e3902:	ff 50 70             	call   *0x70(%rax)
+  6e3905:	48 83 c4 10          	add    $0x10,%rsp
+  6e3909:	5b                   	pop    %rbx
+  6e390a:	c3                   	ret
+  6e390b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+  6e3910:	f3 c3                	repz ret
+  6e3912:	0f 1f 40 00          	nopl   0x0(%rax)
+  6e3916:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  6e391d:	00 00 00 
+  6e3920:	48 8d 3d d1 14 9d 00 	lea    0x9d14d1(%rip),%rdi        # 10b4df8 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9ca718>
+  6e3927:	e8 f4 af 9d ff       	call   be920 <__tls_get_addr@plt>
+  6e392c:	48 8d 7c 24 08       	lea    0x8(%rsp),%rdi
+  6e3931:	45 31 c0             	xor    %r8d,%r8d
+  6e3934:	31 c9                	xor    %ecx,%ecx
+  6e3936:	48 c7 80 08 00 00 00 	movq   $0x0,0x8(%rax)
+  6e393d:	00 00 00 00 
+  6e3941:	48 8b 43 20          	mov    0x20(%rbx),%rax
+  6e3945:	31 d2                	xor    %edx,%edx
+  6e3947:	48 8b 70 10          	mov    0x10(%rax),%rsi
+  6e394b:	48 8d 05 7e 86 98 00 	lea    0x98867e(%rip),%rax        # 106bfd0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9818f0>
+  6e3952:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+  6e3957:	e8 84 59 ec ff       	call   5a92e0 <__gmon_start__@plt+0x4ea730>
+  6e395c:	0f b6 c0             	movzbl %al,%eax
+  6e395f:	eb a4                	jmp    6e3905 <__gmon_start__@plt+0x624d55>
+  6e3961:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+  6e3966:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  6e396d:	00 00 00 
+  6e3970:	53                   	push   %rbx
+  6e3971:	48 83 ec 30          	sub    $0x30,%rsp
+  6e3975:	48 8b 47 30          	mov    0x30(%rdi),%rax
+  6e3979:	48 85 c0             	test   %rax,%rax
+  6e397c:	74 42                	je     6e39c0 <__gmon_start__@plt+0x624e10>
+  6e397e:	48 8b 0d bb f2 a1 00 	mov    0xa1f2bb(%rip),%rcx        # 1102c40 <__driDriverGetExtensions_mtgpu@@VERS1.0+0xa18560>
+  6e3985:	48 85 f6             	test   %rsi,%rsi
+  6e3988:	48 8b 49 68          	mov    0x68(%rcx),%rcx
+  6e398c:	74 22                	je     6e39b0 <__gmon_start__@plt+0x624e00>
+  6e398e:	48 85 d2             	test   %rdx,%rdx
+  6e3991:	74 1d                	je     6e39b0 <__gmon_start__@plt+0x624e00>
+  6e3993:	48 8b 52 38          	mov    0x38(%rdx),%rdx
+  6e3997:	48 8b 76 38          	mov    0x38(%rsi),%rsi
+  6e399b:	48 89 c7             	mov    %rax,%rdi
+  6e399e:	ff d1                	call   *%rcx
+  6e39a0:	48 83 c4 30          	add    $0x30,%rsp
+  6e39a4:	5b                   	pop    %rbx
+  6e39a5:	c3                   	ret
+  6e39a6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  6e39ad:	00 00 00 
+  6e39b0:	48 89 c7             	mov    %rax,%rdi
+  6e39b3:	ff d1                	call   *%rcx
+  6e39b5:	48 83 c4 30          	add    $0x30,%rsp
+  6e39b9:	5b                   	pop    %rbx
+  6e39ba:	c3                   	ret
+  6e39bb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+  6e39c0:	48 8b 5f 20          	mov    0x20(%rdi),%rbx
+  6e39c4:	48 89 54 24 18       	mov    %rdx,0x18(%rsp)
+  6e39c9:	48 89 74 24 10       	mov    %rsi,0x10(%rsp)
+  6e39ce:	48 89 7c 24 08       	mov    %rdi,0x8(%rsp)
+  6e39d3:	48 8d 3d 1e 14 9d 00 	lea    0x9d141e(%rip),%rdi        # 10b4df8 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9ca718>
+  6e39da:	e8 41 af 9d ff       	call   be920 <__tls_get_addr@plt>
+  6e39df:	48 8b 74 24 10       	mov    0x10(%rsp),%rsi
+  6e39e4:	48 8b 7c 24 08       	mov    0x8(%rsp),%rdi
+  6e39e9:	31 c9                	xor    %ecx,%ecx
+  6e39eb:	48 89 98 08 00 00 00 	mov    %rbx,0x8(%rax)
+  6e39f2:	48 8b 54 24 18       	mov    0x18(%rsp),%rdx
+  6e39f7:	48 8b 43 10          	mov    0x10(%rbx),%rax
+  6e39fb:	48 85 f6             	test   %rsi,%rsi
+  6e39fe:	4c 8b 0f             	mov    (%rdi),%r9
+  6e3a01:	74 03                	je     6e3a06 <__gmon_start__@plt+0x624e56>
+  6e3a03:	48 8b 0e             	mov    (%rsi),%rcx
+  6e3a06:	45 31 c0             	xor    %r8d,%r8d
+  6e3a09:	48 85 d2             	test   %rdx,%rdx
+  6e3a0c:	74 03                	je     6e3a11 <__gmon_start__@plt+0x624e61>
+  6e3a0e:	4c 8b 02             	mov    (%rdx),%r8
+  6e3a11:	48 8d 1d b8 85 98 00 	lea    0x9885b8(%rip),%rbx        # 106bfd0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9818f0>
+  6e3a18:	48 8d 7c 24 28       	lea    0x28(%rsp),%rdi
+  6e3a1d:	4c 89 ca             	mov    %r9,%rdx
+  6e3a20:	48 89 c6             	mov    %rax,%rsi
+  6e3a23:	48 89 5c 24 28       	mov    %rbx,0x28(%rsp)
+  6e3a28:	e8 b3 58 ec ff       	call   5a92e0 <__gmon_start__@plt+0x4ea730>
+  6e3a2d:	48 83 c4 30          	add    $0x30,%rsp
+  6e3a31:	0f b6 c0             	movzbl %al,%eax
+  6e3a34:	5b                   	pop    %rbx
+  6e3a35:	c3                   	ret
+  6e3a36:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  6e3a3d:	00 00 00 

@@ -1,0 +1,25 @@
+{
+  "observed_at": "2026-11-09T17:15:21.669272+08:00",
+  "kernel": "7.2.14-arch1-1",
+  "boot_id": "4fd8b8ae-7e86-42bd-adea-ebea071a0e49",
+  "mtgpu_loaded": false,
+  "modinfo": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": "modinfo: ERROR: Module mtgpu not found.\n"
+  },
+  "display_manager": {
+    "exit": 0,
+    "stdout": "active\n",
+    "stderr": ""
+  },
+  "transient_units": {
+    "exit": 0,
+    "stdout": "Id=mtt-s30-once.service\nActiveState=inactive\n\nId=mtt-s30-deadline.timer\nActiveState=inactive\n\nId=mtt-s30-deadline.service\nActiveState=inactive\n",
+    "stderr": ""
+  },
+  "firmware_path": "",
+  "watchdog_state": "inactive",
+  "fresh_efi_recovery_independently_verified": false,
+  "full_test_export_present": false
+}

@@ -1,0 +1,1009 @@
+{
+  "schema": 1,
+  "scope": "Pinned official 3.1.0 userland; static and CPU-only. No GPU/device operations.",
+  "files": {
+    "egl": {
+      "path": "official/driver-3.1.0/usr/lib/x86_64-linux-gnu/libEGL_mtgpu.so.0.0.0",
+      "sha256": "0a9460529f715037c0db589cefc5fd864e2915c7b373cc0f37b32ec70a0500b3"
+    },
+    "mtgpu": {
+      "path": "official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so",
+      "sha256": "2583b5c4e793389e0d130bfb8895884dfdee358ac70d63195deeba1eb0d1a07c"
+    },
+    "musa": {
+      "path": "official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/musa_dri.so",
+      "sha256": "0c8ddef50a68b20db4fcb1b5e91a5c74075fa0c5527b3a9b45cd93aeaec3532b"
+    },
+    "support": {
+      "path": "official/driver-3.1.0/usr/lib/x86_64-linux-gnu/libmusa_dri_support.so.1.0.0",
+      "sha256": "bea665953469d99a2c15b72bb6a38724361d4d8bf311291c59f691c1bb500de1"
+    },
+    "gbm": {
+      "path": "official/driver-3.1.0/usr/lib/x86_64-linux-gnu/gbm/mtgpu_gbm.so",
+      "sha256": "e156b390ac850e55b62386163ce45422219948f1f880a7f8dcefa19f6da5cf14"
+    }
+  },
+  "primary_format_table": {
+    "file_offset": "0xc1c420",
+    "entries": [
+      {
+        "fourcc": "R8  ",
+        "value": 538982482,
+        "column_2": "0x8229",
+        "column_3": "0x0"
+      },
+      {
+        "fourcc": "GR88",
+        "value": 943215175,
+        "column_2": "0x822b",
+        "column_3": "0x13"
+      },
+      {
+        "fourcc": "R16 ",
+        "value": 540422482,
+        "column_2": "0x822a",
+        "column_3": "0x59"
+      },
+      {
+        "fourcc": "GR32",
+        "value": 842224199,
+        "column_2": "0x822c",
+        "column_3": "0x6d"
+      },
+      {
+        "fourcc": "RA24",
+        "value": 875708754,
+        "column_2": "0x8182",
+        "column_3": "0x35"
+      },
+      {
+        "fourcc": "AR24",
+        "value": 875713089,
+        "column_2": "0x8088",
+        "column_3": "0x2c"
+      },
+      {
+        "fourcc": "AB24",
+        "value": 875708993,
+        "column_2": "0x8058",
+        "column_3": "0x22"
+      },
+      {
+        "fourcc": "XR24",
+        "value": 875713112,
+        "column_2": "0x8083",
+        "column_3": "0x31"
+      },
+      {
+        "fourcc": "XR30",
+        "value": 808669784,
+        "column_2": "0x808e",
+        "column_3": "0x8d"
+      },
+      {
+        "fourcc": "RG16",
+        "value": 909199186,
+        "column_2": "0x0",
+        "column_3": "0x4d"
+      },
+      {
+        "fourcc": "AYUV",
+        "value": 1448433985,
+        "column_2": "0x0",
+        "column_3": "0x130"
+      },
+      {
+        "fourcc": "P010",
+        "value": 808530000,
+        "column_2": "0x0",
+        "column_3": "0x13a"
+      },
+      {
+        "fourcc": "P016",
+        "value": 909193296,
+        "column_2": "0x0",
+        "column_3": "0x139"
+      },
+      {
+        "fourcc": "UYVY",
+        "value": 1498831189,
+        "column_2": "0x0",
+        "column_3": "0x131"
+      },
+      {
+        "fourcc": "VYUY",
+        "value": 1498765654,
+        "column_2": "0x0",
+        "column_3": "0x132"
+      },
+      {
+        "fourcc": "NV12",
+        "value": 842094158,
+        "column_2": "0x0",
+        "column_3": "0x137"
+      },
+      {
+        "fourcc": "NV21",
+        "value": 825382478,
+        "column_2": "0x0",
+        "column_3": "0x138"
+      },
+      {
+        "fourcc": "YV12",
+        "value": 842094169,
+        "column_2": "0x0",
+        "column_3": "0x135"
+      }
+    ]
+  },
+  "modifier_format_table": {
+    "file_offset": "0xc1c500",
+    "entries": [
+      {
+        "fourcc": "AR24",
+        "value": 875713089,
+        "column_2": "0x1003",
+        "column_3": "0x8088"
+      },
+      {
+        "fourcc": "XR24",
+        "value": 875713112,
+        "column_2": "0x1002",
+        "column_3": "0x8083"
+      },
+      {
+        "fourcc": "AB24",
+        "value": 875708993,
+        "column_2": "0x1004",
+        "column_3": "0x8058"
+      },
+      {
+        "fourcc": "XB24",
+        "value": 875709016,
+        "column_2": "0x1005",
+        "column_3": "0x8051"
+      },
+      {
+        "fourcc": "XR30",
+        "value": 808669784,
+        "column_2": "0x1009",
+        "column_3": "0x808e"
+      },
+      {
+        "fourcc": "AR30",
+        "value": 808669761,
+        "column_2": "0x100a",
+        "column_3": "0x808d"
+      },
+      {
+        "fourcc": "XB30",
+        "value": 808665688,
+        "column_2": "0x1010",
+        "column_3": "0x8052"
+      },
+      {
+        "fourcc": "AB30",
+        "value": 808665665,
+        "column_2": "0x1011",
+        "column_3": "0x8059"
+      },
+      {
+        "fourcc": "RG16",
+        "value": 909199186,
+        "column_2": "0x1001",
+        "column_3": "0x8d62"
+      },
+      {
+        "fourcc": "R8  ",
+        "value": 538982482,
+        "column_2": "0x1006",
+        "column_3": "0x8040"
+      },
+      {
+        "fourcc": "AB4H",
+        "value": 1211384385,
+        "column_2": "0x1015",
+        "column_3": "0x805b"
+      },
+      {
+        "fourcc": "GR88",
+        "value": 943215175,
+        "column_2": "0x1007",
+        "column_3": "0x8042"
+      }
+    ]
+  },
+  "musa_format_table": {
+    "file_offset": "0x647c4",
+    "stride": 56,
+    "entries": [
+      {
+        "index": 0,
+        "fourcc_bytes": "41423330",
+        "fourcc_display": "AB30",
+        "hidden": false
+      },
+      {
+        "index": 1,
+        "fourcc_bytes": "41523234",
+        "fourcc_display": "AR24",
+        "hidden": false
+      },
+      {
+        "index": 2,
+        "fourcc_bytes": "58423283",
+        "fourcc_display": "XB2�",
+        "hidden": true
+      },
+      {
+        "index": 3,
+        "fourcc_bytes": "41423234",
+        "fourcc_display": "AB24",
+        "hidden": false
+      },
+      {
+        "index": 4,
+        "fourcc_bytes": "58423284",
+        "fourcc_display": "XB2�",
+        "hidden": true
+      },
+      {
+        "index": 5,
+        "fourcc_bytes": "58523234",
+        "fourcc_display": "XR24",
+        "hidden": false
+      },
+      {
+        "index": 6,
+        "fourcc_bytes": "42583234",
+        "fourcc_display": "BX24",
+        "hidden": false
+      },
+      {
+        "index": 7,
+        "fourcc_bytes": "58423234",
+        "fourcc_display": "XB24",
+        "hidden": false
+      },
+      {
+        "index": 8,
+        "fourcc_bytes": "42473234",
+        "fourcc_display": "BG24",
+        "hidden": false
+      },
+      {
+        "index": 9,
+        "fourcc_bytes": "424732ff",
+        "fourcc_display": "BG2�",
+        "hidden": true
+      },
+      {
+        "index": 10,
+        "fourcc_bytes": "52473136",
+        "fourcc_display": "RG16",
+        "hidden": false
+      },
+      {
+        "index": 11,
+        "fourcc_bytes": "47523838",
+        "fourcc_display": "GR88",
+        "hidden": false
+      },
+      {
+        "index": 12,
+        "fourcc_bytes": "52382020",
+        "fourcc_display": "R8  ",
+        "hidden": false
+      },
+      {
+        "index": 13,
+        "fourcc_bytes": "00000000",
+        "fourcc_display": "\u0000\u0000\u0000\u0000",
+        "hidden": false
+      },
+      {
+        "index": 14,
+        "fourcc_bytes": "00000000",
+        "fourcc_display": "\u0000\u0000\u0000\u0000",
+        "hidden": false
+      },
+      {
+        "index": 15,
+        "fourcc_bytes": "00000000",
+        "fourcc_display": "\u0000\u0000\u0000\u0000",
+        "hidden": false
+      },
+      {
+        "index": 16,
+        "fourcc_bytes": "00000000",
+        "fourcc_display": "\u0000\u0000\u0000\u0000",
+        "hidden": false
+      },
+      {
+        "index": 17,
+        "fourcc_bytes": "41523132",
+        "fourcc_display": "AR12",
+        "hidden": false
+      },
+      {
+        "index": 18,
+        "fourcc_bytes": "41523135",
+        "fourcc_display": "AR15",
+        "hidden": false
+      },
+      {
+        "index": 19,
+        "fourcc_bytes": "59555956",
+        "fourcc_display": "YUYV",
+        "hidden": false
+      },
+      {
+        "index": 20,
+        "fourcc_bytes": "494d4732",
+        "fourcc_display": "IMG2",
+        "hidden": false
+      },
+      {
+        "index": 21,
+        "fourcc_bytes": "4e563132",
+        "fourcc_display": "NV12",
+        "hidden": false
+      },
+      {
+        "index": 22,
+        "fourcc_bytes": "4e563231",
+        "fourcc_display": "NV21",
+        "hidden": false
+      },
+      {
+        "index": 23,
+        "fourcc_bytes": "59553132",
+        "fourcc_display": "YU12",
+        "hidden": false
+      },
+      {
+        "index": 24,
+        "fourcc_bytes": "59563132",
+        "fourcc_display": "YV12",
+        "hidden": false
+      },
+      {
+        "index": 25,
+        "fourcc_bytes": "59553234",
+        "fourcc_display": "YU24",
+        "hidden": false
+      },
+      {
+        "index": 26,
+        "fourcc_bytes": "00000000",
+        "fourcc_display": "\u0000\u0000\u0000\u0000",
+        "hidden": false
+      },
+      {
+        "index": 27,
+        "fourcc_bytes": "00000000",
+        "fourcc_display": "\u0000\u0000\u0000\u0000",
+        "hidden": false
+      },
+      {
+        "index": 28,
+        "fourcc_bytes": "47523332",
+        "fourcc_display": "GR32",
+        "hidden": false
+      },
+      {
+        "index": 29,
+        "fourcc_bytes": "52313620",
+        "fourcc_display": "R16 ",
+        "hidden": false
+      },
+      {
+        "index": 30,
+        "fourcc_bytes": "52473838",
+        "fourcc_display": "RG88",
+        "hidden": false
+      }
+    ]
+  },
+  "historical_screen_evidence": {
+    "core": "work/userland-fix5-20261104/egl-check.core",
+    "hardware_round": "20261104-112910",
+    "support_count": 31,
+    "format_mask_all_enabled": true,
+    "current_kwin_screen_measured": false
+  },
+  "cpu_queries": {
+    "guard_enabled": true,
+    "primary_formats": [
+      538982482,
+      943215175,
+      540422482,
+      842224199,
+      875708754,
+      875713089,
+      875708993,
+      875713112,
+      808669784,
+      909199186,
+      1448433985,
+      808530000,
+      909193296,
+      1498831189,
+      1498765654,
+      842094158,
+      825382478,
+      842094169
+    ],
+    "modifier_queries": [
+      {
+        "kind": 0,
+        "fourcc": 538982482,
+        "count_ok": 1,
+        "count": 2,
+        "list_ok": 1,
+        "list_count": 2,
+        "modifiers": [
+          "0x0000000000000000",
+          "0x9200000000000015"
+        ],
+        "external_only": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": 0,
+        "fourcc": 943215175,
+        "count_ok": 1,
+        "count": 2,
+        "list_ok": 1,
+        "list_count": 2,
+        "modifiers": [
+          "0x0000000000000000",
+          "0x9200000000000015"
+        ],
+        "external_only": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": 0,
+        "fourcc": 540422482,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 0,
+        "fourcc": 842224199,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 0,
+        "fourcc": 875708754,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 0,
+        "fourcc": 875713089,
+        "count_ok": 1,
+        "count": 2,
+        "list_ok": 1,
+        "list_count": 2,
+        "modifiers": [
+          "0x0000000000000000",
+          "0x9200000000000015"
+        ],
+        "external_only": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": 0,
+        "fourcc": 875708993,
+        "count_ok": 1,
+        "count": 2,
+        "list_ok": 1,
+        "list_count": 2,
+        "modifiers": [
+          "0x0000000000000000",
+          "0x9200000000000015"
+        ],
+        "external_only": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": 0,
+        "fourcc": 875713112,
+        "count_ok": 1,
+        "count": 2,
+        "list_ok": 1,
+        "list_count": 2,
+        "modifiers": [
+          "0x0000000000000000",
+          "0x9200000000000015"
+        ],
+        "external_only": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": 0,
+        "fourcc": 808669784,
+        "count_ok": 1,
+        "count": 2,
+        "list_ok": 1,
+        "list_count": 2,
+        "modifiers": [
+          "0x0000000000000000",
+          "0x9200000000000015"
+        ],
+        "external_only": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": 0,
+        "fourcc": 909199186,
+        "count_ok": 1,
+        "count": 2,
+        "list_ok": 1,
+        "list_count": 2,
+        "modifiers": [
+          "0x0000000000000000",
+          "0x9200000000000015"
+        ],
+        "external_only": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": 0,
+        "fourcc": 1448433985,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 0,
+        "fourcc": 808530000,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 0,
+        "fourcc": 909193296,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 0,
+        "fourcc": 1498831189,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 0,
+        "fourcc": 1498765654,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 0,
+        "fourcc": 842094158,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 0,
+        "fourcc": 825382478,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 0,
+        "fourcc": 842094169,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 0,
+        "fourcc": 875709016,
+        "count_ok": 1,
+        "count": 2,
+        "list_ok": 1,
+        "list_count": 2,
+        "modifiers": [
+          "0x0000000000000000",
+          "0x9200000000000015"
+        ],
+        "external_only": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": 4,
+        "fourcc": 538982482,
+        "count_ok": 1,
+        "count": 1,
+        "list_ok": 1,
+        "list_count": 1,
+        "modifiers": [
+          "0x0000000000000000"
+        ],
+        "external_only": [
+          0
+        ]
+      },
+      {
+        "kind": 4,
+        "fourcc": 943215175,
+        "count_ok": 1,
+        "count": 1,
+        "list_ok": 1,
+        "list_count": 1,
+        "modifiers": [
+          "0x0000000000000000"
+        ],
+        "external_only": [
+          0
+        ]
+      },
+      {
+        "kind": 4,
+        "fourcc": 540422482,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 4,
+        "fourcc": 842224199,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 4,
+        "fourcc": 875708754,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 4,
+        "fourcc": 875713089,
+        "count_ok": 1,
+        "count": 1,
+        "list_ok": 1,
+        "list_count": 1,
+        "modifiers": [
+          "0x0000000000000000"
+        ],
+        "external_only": [
+          0
+        ]
+      },
+      {
+        "kind": 4,
+        "fourcc": 875708993,
+        "count_ok": 1,
+        "count": 1,
+        "list_ok": 1,
+        "list_count": 1,
+        "modifiers": [
+          "0x0000000000000000"
+        ],
+        "external_only": [
+          0
+        ]
+      },
+      {
+        "kind": 4,
+        "fourcc": 875713112,
+        "count_ok": 1,
+        "count": 1,
+        "list_ok": 1,
+        "list_count": 1,
+        "modifiers": [
+          "0x0000000000000000"
+        ],
+        "external_only": [
+          0
+        ]
+      },
+      {
+        "kind": 4,
+        "fourcc": 808669784,
+        "count_ok": 1,
+        "count": 1,
+        "list_ok": 1,
+        "list_count": 1,
+        "modifiers": [
+          "0x0000000000000000"
+        ],
+        "external_only": [
+          0
+        ]
+      },
+      {
+        "kind": 4,
+        "fourcc": 909199186,
+        "count_ok": 1,
+        "count": 1,
+        "list_ok": 1,
+        "list_count": 1,
+        "modifiers": [
+          "0x0000000000000000"
+        ],
+        "external_only": [
+          0
+        ]
+      },
+      {
+        "kind": 4,
+        "fourcc": 1448433985,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 4,
+        "fourcc": 808530000,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 4,
+        "fourcc": 909193296,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 4,
+        "fourcc": 1498831189,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 4,
+        "fourcc": 1498765654,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 4,
+        "fourcc": 842094158,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 4,
+        "fourcc": 825382478,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 4,
+        "fourcc": 842094169,
+        "count_ok": 0,
+        "count": -1,
+        "list_ok": 0,
+        "list_count": -1,
+        "modifiers": [],
+        "external_only": []
+      },
+      {
+        "kind": 4,
+        "fourcc": 875709016,
+        "count_ok": 1,
+        "count": 1,
+        "list_ok": 1,
+        "list_count": 1,
+        "modifiers": [
+          "0x0000000000000000"
+        ],
+        "external_only": [
+          0
+        ]
+      }
+    ],
+    "musa_historical_mask_all_31_enabled_formats": [
+      808665665,
+      875713089,
+      875708993,
+      875713112,
+      875714626,
+      875709016,
+      875710274,
+      909199186,
+      943215175,
+      538982482,
+      842093121,
+      892424769,
+      1448695129,
+      843533641,
+      842094158,
+      825382478,
+      842093913,
+      842094169,
+      875713881,
+      842224199,
+      540422482,
+      943212370
+    ],
+    "gbm_format_support_query": [
+      {
+        "fourcc": 538982482,
+        "supported": 1
+      },
+      {
+        "fourcc": 943215175,
+        "supported": 1
+      },
+      {
+        "fourcc": 540422482,
+        "supported": 0
+      },
+      {
+        "fourcc": 842224199,
+        "supported": 0
+      },
+      {
+        "fourcc": 875708754,
+        "supported": 0
+      },
+      {
+        "fourcc": 875713089,
+        "supported": 1
+      },
+      {
+        "fourcc": 875708993,
+        "supported": 1
+      },
+      {
+        "fourcc": 875713112,
+        "supported": 1
+      },
+      {
+        "fourcc": 808669784,
+        "supported": 1
+      },
+      {
+        "fourcc": 909199186,
+        "supported": 1
+      },
+      {
+        "fourcc": 1448433985,
+        "supported": 0
+      },
+      {
+        "fourcc": 808530000,
+        "supported": 0
+      },
+      {
+        "fourcc": 909193296,
+        "supported": 0
+      },
+      {
+        "fourcc": 1498831189,
+        "supported": 0
+      },
+      {
+        "fourcc": 1498765654,
+        "supported": 0
+      },
+      {
+        "fourcc": 842094158,
+        "supported": 0
+      },
+      {
+        "fourcc": 825382478,
+        "supported": 0
+      },
+      {
+        "fourcc": 842094169,
+        "supported": 0
+      },
+      {
+        "fourcc": 875709016,
+        "supported": 1
+      }
+    ]
+  },
+  "control_flow": {
+    "query_formats": "TLS +8 nonzero or delegate absent -> primary table; otherwise delegate +0xa0 with screen +0xb0",
+    "bind_context": "mtgpu+0x6e3970 primary path stores context+0x20 at TLS+8, instruction0x6e39eb",
+    "unbind_context": "mtgpu+0x6e38e0 primary path clears TLS+8, instruction0x6e3936",
+    "import_dma2": "mtgpu+0x711c90 checks nonzero fourcc at0x712080 against all18 entries before GPU/fd-import helper0x279710 and before TLS/musa delegation; missing format returns NULL,error3 at0x712120",
+    "gbm_format_support": "mtgpu_gbm+0x1680 maps XB24 toDRI0x1005 then uses image.queryDmaBufModifiers; primary modifier function accepts XB24"
+  }
+}

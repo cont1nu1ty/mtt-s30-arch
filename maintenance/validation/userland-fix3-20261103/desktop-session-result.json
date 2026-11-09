@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "mode": "virtual-software",
+  "kwin_started": true,
+  "forced_kill": false,
+  "kwin_pid": 42520,
+  "renderer": "llvmpipe (LLVM 23.1.4, 256 bits)",
+  "drm_fds": [],
+  "client_exit": 0,
+  "checks_passed": true,
+  "termination_requested": true,
+  "kwin_exit": 15,
+  "compositor_faults": []
+}

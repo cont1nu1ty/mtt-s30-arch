@@ -1,0 +1,18 @@
+--- a/src/egl/drivers/dri2/egl_dri2.c
++++ b/src/egl/drivers/dri2/egl_dri2.c
+@@ -421,6 +421,15 @@
+    for (int i = 0; i < __DRI_ATTRIB_MAX; ++i) {
+       if (!dri2_dpy->core->indexConfigAttrib(dri_config, i, &attrib, &value))
+          break;
++
++      /* A DRI driver may enumerate attributes newer than this loader's
++       * interface.  Their IDs are not bounded by our enumeration index.
++       * Keep scanning: known attributes can follow vendor extensions.
++       */
++      if (attrib >= ARRAY_SIZE(dri2_to_egl_attribute_map)) {
++         _eglLog(_EGL_DEBUG, "Ignoring unknown DRI config attribute %u", attrib);
++         continue;
++      }
+ 
+       switch (attrib) {
+       case __DRI_ATTRIB_RENDER_TYPE:

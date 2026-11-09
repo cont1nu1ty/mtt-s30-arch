@@ -1,0 +1,31 @@
+{
+  "test_directory": "20261029-235643",
+  "review_date": "2026-10-30",
+  "module_sha256": "db8e4393ec50e0e2542dafdb7277240627406b847dc19d0427444712249143bb",
+  "kernel": "7.2.11-arch1-1",
+  "initialization_passed": true,
+  "old_three_kernel_faults_absent": true,
+  "vulkan_identity_verified": true,
+  "vulkan_device_api": "1.3.225",
+  "vaapi_driver_loaded": true,
+  "real_render_workload_tested": false,
+  "real_video_decode_tested": false,
+  "accelerated_kde_tested": false,
+  "recovery_verified": true,
+  "esp_comparison": {
+    "expected_files": 11,
+    "current_files": 11,
+    "added": [],
+    "removed": [],
+    "changed": [
+      "loader/random-seed"
+    ],
+    "unchanged_files": 10
+  },
+  "driver_currently_loaded": false,
+  "driver_installed": false,
+  "normal_reboot_requested_at": "2026-10-29T23:59:56+08:00",
+  "current_boot_id": "9a8466a8-bada-4835-a173-53b5c40f0c1b",
+  "watchdog_expiry_reset_proven": false,
+  "other_observation": "clocksource remote CPU watchdog read timeout also observed in previous pre-load boots and current boot without mtgpu; not attributed to GPU from present evidence"
+}

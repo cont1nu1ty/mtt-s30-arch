@@ -1,0 +1,8 @@
+{
+  "COREDUMP_SIGNAL": "11",
+  "COREDUMP_UID": "0",
+  "_BOOT_ID": "ba558900333845c9a700514e4acdce87",
+  "COREDUMP_UNIT": "mtt-s30-once.service",
+  "COREDUMP_EXE": "/usr/bin/plasmashell",
+  "COREDUMP_PID": "30149"
+}

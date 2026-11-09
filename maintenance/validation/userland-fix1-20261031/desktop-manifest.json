@@ -1,0 +1,88 @@
+{
+  "profile": "kwin-wayland-v2",
+  "files": {
+    "egl/50_mesa.json": {
+      "sha256": "4aafa7f214e777358e7196084dff436d6b0aab3b13f367c2abf2a5f98b507df7",
+      "size": 92
+    },
+    "egl/libEGL_mesa.so.0": {
+      "sha256": "9d1f358320923c8609055bad359f7250cca6b6bc34019b1d48ff85b46830d5e3",
+      "size": 296600
+    },
+    "egl/libglapi.so.0": {
+      "sha256": "3b796b01bb3b6d8fa8bd0b970258fd2c284841fd3ded0e82f684adc06ba2f1cb",
+      "size": 211304
+    },
+    "egl-check": {
+      "sha256": "ed2b9dce3daa904a4f4bcded8375fdb8badde814e99e11f231cdca8da8a28cb0",
+      "size": 82024
+    },
+    "kwin/kwin_wayland": {
+      "sha256": "1bd48a3430cfbb270e7835602343b43d1eb1783d065e34f453f1b4ad3a77c37a",
+      "size": 2607248
+    },
+    "kwin/libkwin.so.6": {
+      "sha256": "d3c0d684c021b36e18aa6001eb5d1d5844f494a144ed6a568ae51fc247e850b5",
+      "size": 16881960
+    }
+  },
+  "sources": {
+    "kwin-6.8.2.tar.xz": {
+      "url": "https://download.kde.org/stable/plasma/6.8.2/kwin-6.8.2.tar.xz",
+      "sha256": "ea5e68d957c7d70abed97222a592d4445fda29129e20942658badd224ee138b4"
+    },
+    "wayland-protocols-1.50-1-any.pkg.tar.zst": {
+      "url": "https://archive.archlinux.org/packages/w/wayland-protocols/wayland-protocols-1.50-1-any.pkg.tar.zst",
+      "sha256": "9fc5d6f59513343bf20a994037591373e3d473f005c58c33ed089b01f52a9c84"
+    },
+    "plasma-wayland-protocols-1.23.0-1-any.pkg.tar.zst": {
+      "url": "https://archive.archlinux.org/packages/p/plasma-wayland-protocols/plasma-wayland-protocols-1.23.0-1-any.pkg.tar.zst",
+      "sha256": "3f89f37dbb8c7a70eba54567764cb35e9e4fd253c803ef14bfb8425588b05ea7"
+    },
+    "libegl-mesa0_23.2.1-1ubuntu3.1~22.04.3_amd64.deb": {
+      "url": "https://snapshot.ubuntu.com/ubuntu/20250516T000000Z/pool/main/m/mesa/libegl-mesa0_23.2.1-1ubuntu3.1~22.04.3_amd64.deb",
+      "sha256": "3f7066355233c54a82332c009169b8156de48e2be9f15b54cadfb0ab03f95122"
+    },
+    "libglapi-mesa_23.2.1-1ubuntu3.1~22.04.3_amd64.deb": {
+      "url": "https://snapshot.ubuntu.com/ubuntu/20250516T000000Z/pool/main/m/mesa/libglapi-mesa_23.2.1-1ubuntu3.1~22.04.3_amd64.deb",
+      "sha256": "6a1a64062d386a0a9ca651057e369b1d418ceebb6c71584c2d0cda324166caea"
+    }
+  },
+  "patch_sha256": "19d190aa75a7dcf71bbd5d8a858fd2937378646714d101586e1cac8826fdf721",
+  "builder_sha256": "0bb68f1c0bd1d7077ff69ab8669fcae83fecb28d61f4fb831cdb622f88f88f2b",
+  "egl_check_manifest": {
+    "profile": "kwin-wayland-v1",
+    "files": {
+      "egl-check": {
+        "sha256": "ed2b9dce3daa904a4f4bcded8375fdb8badde814e99e11f231cdca8da8a28cb0",
+        "size": 82024
+      }
+    },
+    "source_sha256": {
+      "egl-check.c": "094011f69781fb9e3ff0a58935a9f7f8737f7522ab65f2891234ed113d52889c",
+      "build.py": "9412b84f134c221dafb30a0289d743f9c6e9a9d3e29a2de9f66d69e31f67f62c"
+    },
+    "protocol_sha256": {
+      "/usr/share/qt6/wayland/protocols/xdg-shell/xdg-shell.xml": "b72112a7a1f9b2ad94ffa59468753ced568d6e7b2069df94a9d437e488b8506e",
+      "/usr/share/qt6/wayland/protocols/presentation-time/presentation-time.xml": "57c15a794125d5c3b3d83f5069a10d96d23988cb464ae9f3635b7116a10ab481"
+    }
+  },
+  "kwin_configure": [
+    "cmake",
+    "-S",
+    "/home/bull/Documents/mtt-s30-arch/work/userland-fix-20261031/kwin-6.8.2",
+    "-B",
+    "/home/bull/Documents/mtt-s30-arch/work/userland-fix-20261031/kwin-build",
+    "-G",
+    "Ninja",
+    "-DCMAKE_BUILD_TYPE=Release",
+    "-DBUILD_TESTING=OFF",
+    "-DKWIN_BUILD_KCMS=OFF",
+    "-DKWIN_BUILD_X11=ON",
+    "-DCMAKE_INSTALL_PREFIX=/usr",
+    "-DCMAKE_SKIP_RPATH=ON",
+    "-DPlasmaWaylandProtocols_DIR=/home/bull/Documents/mtt-s30-arch/work/userland-fix-20261031/deps/usr/share/cmake/PlasmaWaylandProtocols"
+  ],
+  "egl_dri_internal_version": "23.2.1-1ubuntu3.1~22.04.3",
+  "hardware_tested": false
+}

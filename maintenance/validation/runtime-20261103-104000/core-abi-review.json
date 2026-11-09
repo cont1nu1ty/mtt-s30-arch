@@ -1,0 +1,65 @@
+{
+  "run": "20261103-104000",
+  "mode": "offline core and static vendor-library review; no GPU initialization",
+  "core": "egl-check.core",
+  "commands": "core-abi-review.gdb",
+  "log": "core-abi-review.log",
+  "actual_crash": {
+    "function": "get_screen_param",
+    "caller": "dri2_setup_screen",
+    "source": "egl_dri2.c:834",
+    "pipe_screen": null,
+    "incorrect_private_layout_api_mask": 2489709264,
+    "public_api_mask_from_vendor_callback_semantics": 31
+  },
+  "confirmed_additional_blocker": {
+    "field": "DRI_Mesa.createContext",
+    "value": null,
+    "public_replacement": "DRI_IMAGE_DRIVER v1 createContextAttribs",
+    "callback_vendor_offset": "0x6e4c10"
+  },
+  "actual_screen_extensions": {
+    "DRI_IMAGE": 20,
+    "DRI2_Fence": 2,
+    "DRI2_Flush": 4,
+    "DRI_CONFIG_QUERY": 1,
+    "DRI2_BufferDamage": 1
+  },
+  "current_same_gpu_window_callbacks_non_null": [
+    "core.getConfigAttrib",
+    "core.indexConfigAttrib",
+    "image_driver.createNewDrawable",
+    "image_driver.createContextAttribs",
+    "image_driver.getAPIMask",
+    "core.bindContext",
+    "core.unbindContext",
+    "image.createImage",
+    "image.createImageWithModifiers",
+    "image.createImageWithModifiers2",
+    "image.createImageFromDmaBufs",
+    "image.createImageFromDmaBufs2",
+    "image.queryDmaBufFormats",
+    "image.queryDmaBufModifiers",
+    "image.queryImage",
+    "image.fromPlanar",
+    "fence.get_capabilities",
+    "fence.create_fence_fd",
+    "fence.get_fence_fd",
+    "flush.invalidate",
+    "flush.flush_with_flags",
+    "config.configQueryi"
+  ],
+  "optional_unsafe_advertisement": [
+    {
+      "extension": "EGL_MESA_drm_image",
+      "reason": "getCapabilities NULL fallback advertises global names although createImageFromName is NULL",
+      "call_site": "egl_dri2.c:dri2_create_image_mesa_drm_buffer"
+    },
+    {
+      "extension": "EGL_WL_bind_wayland_display",
+      "reason": "getCapabilities NULL fallback advertises server wl_drm binding although createImageFromNames is NULL",
+      "call_site": "egl_dri2.c:dri2_wl_reference_buffer fd == -1"
+    }
+  ],
+  "review_boundary": "Non-NULL callbacks and opaque ABI routing do not prove successful GPU rendering. Remaining real window initialization, allocation, rendering and presentation need hardware test."
+}

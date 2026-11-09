@@ -1,0 +1,336 @@
+
+official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000711c90 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x275b0>:
+  711c90:	41 57                	push   %r15
+  711c92:	41 56                	push   %r14
+  711c94:	41 55                	push   %r13
+  711c96:	41 54                	push   %r12
+  711c98:	49 89 fd             	mov    %rdi,%r13
+  711c9b:	55                   	push   %rbp
+  711c9c:	53                   	push   %rbx
+  711c9d:	31 ff                	xor    %edi,%edi
+  711c9f:	89 cb                	mov    %ecx,%ebx
+  711ca1:	4d 89 cc             	mov    %r9,%r12
+  711ca4:	b9 01 00 00 80       	mov    $0x80000001,%ecx
+  711ca9:	48 83 ec 78          	sub    $0x78,%rsp
+  711cad:	48 8b 05 2c 44 9f 00 	mov    0x9f442c(%rip),%rax        # 11060e0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0xa1ba00>
+  711cb4:	89 74 24 14          	mov    %esi,0x14(%rsp)
+  711cb8:	89 54 24 20          	mov    %edx,0x20(%rsp)
+  711cbc:	be 08 00 00 00       	mov    $0x8,%esi
+  711cc1:	4c 89 44 24 08       	mov    %r8,0x8(%rsp)
+  711cc6:	ba 08 00 00 00       	mov    $0x8,%edx
+  711ccb:	ff 50 08             	call   *0x8(%rax)
+  711cce:	48 85 c0             	test   %rax,%rax
+  711cd1:	48 89 c5             	mov    %rax,%rbp
+  711cd4:	74 07                	je     711cdd <__driDriverGetExtensions_mtgpu@@VERS1.0+0x275fd>
+  711cd6:	48 c7 00 00 00 00 00 	movq   $0x0,(%rax)
+  711cdd:	83 bc 24 b0 00 00 00 	cmpl   $0x1,0xb0(%rsp)
+  711ce4:	01 
+  711ce5:	0f 85 35 04 00 00    	jne    712120 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x27a40>
+  711ceb:	4d 85 e4             	test   %r12,%r12
+  711cee:	0f 84 2c 04 00 00    	je     712120 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x27a40>
+  711cf4:	49 8b 45 10          	mov    0x10(%r13),%rax
+  711cf8:	81 fb 58 52 33 30    	cmp    $0x30335258,%ebx
+  711cfe:	48 8b 40 08          	mov    0x8(%rax),%rax
+  711d02:	48 89 44 24 18       	mov    %rax,0x18(%rsp)
+  711d07:	0f 84 33 04 00 00    	je     712140 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x27a60>
+  711d0d:	0f 8e ad 02 00 00    	jle    711fc0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x278e0>
+  711d13:	81 fb 58 52 32 34    	cmp    $0x34325258,%ebx
+  711d19:	0f 84 21 04 00 00    	je     712140 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x27a60>
+  711d1f:	81 fb 47 52 38 38    	cmp    $0x38385247,%ebx
+  711d25:	0f 84 c5 02 00 00    	je     711ff0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x27910>
+  711d2b:	81 fb 47 52 33 32    	cmp    $0x32335247,%ebx
+  711d31:	0f 84 b9 02 00 00    	je     711ff0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x27910>
+  711d37:	c7 44 24 28 01 00 00 	movl   $0x1,0x28(%rsp)
+  711d3e:	00 
+  711d3f:	48 b8 15 00 00 00 00 	movabs $0x9200000000000015,%rax
+  711d46:	00 00 92 
+  711d49:	48 39 44 24 08       	cmp    %rax,0x8(%rsp)
+  711d4e:	c7 44 24 24 e1 80 00 	movl   $0x80e1,0x24(%rsp)
+  711d55:	00 
+  711d56:	41 be 2c 00 00 00    	mov    $0x2c,%r14d
+  711d5c:	0f 95 c1             	setne  %cl
+  711d5f:	0f b6 c1             	movzbl %cl,%eax
+  711d62:	0f b6 c9             	movzbl %cl,%ecx
+  711d65:	c1 e0 03             	shl    $0x3,%eax
+  711d68:	85 db                	test   %ebx,%ebx
+  711d6a:	8d 0c cd 10 00 00 00 	lea    0x10(,%rcx,8),%ecx
+  711d71:	89 44 24 34          	mov    %eax,0x34(%rsp)
+  711d75:	0f 85 05 03 00 00    	jne    712080 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x279a0>
+  711d7b:	8b 84 24 c8 00 00 00 	mov    0xc8(%rsp),%eax
+  711d82:	c6 44 24 2f 00       	movb   $0x0,0x2f(%rsp)
+  711d87:	2d 7f 32 00 00       	sub    $0x327f,%eax
+  711d8c:	83 f8 02             	cmp    $0x2,%eax
+  711d8f:	77 0f                	ja     711da0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x276c0>
+  711d91:	48 8d 35 70 a6 50 00 	lea    0x50a670(%rip),%rsi        # c1c408 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x531d28>
+  711d98:	0f b6 04 86          	movzbl (%rsi,%rax,4),%eax
+  711d9c:	88 44 24 2f          	mov    %al,0x2f(%rsp)
+  711da0:	48 8d 44 24 50       	lea    0x50(%rsp),%rax
+  711da5:	48 8b 3d 34 43 9f 00 	mov    0x9f4334(%rip),%rdi        # 11060e0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0xa1ba00>
+  711dac:	89 4c 24 30          	mov    %ecx,0x30(%rsp)
+  711db0:	66 0f 6f 05 58 79 4f 	movdqa 0x4f7958(%rip),%xmm0        # c09710 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x51f030>
+  711db7:	00 
+  711db8:	48 89 c6             	mov    %rax,%rsi
+  711dbb:	c6 44 24 60 00       	movb   $0x0,0x60(%rsp)
+  711dc0:	c7 44 24 64 01 00 00 	movl   $0x80000001,0x64(%rsp)
+  711dc7:	80 
+  711dc8:	0f 29 44 24 50       	movaps %xmm0,0x50(%rsp)
+  711dcd:	48 89 44 24 38       	mov    %rax,0x38(%rsp)
+  711dd2:	e8 69 b9 22 00       	call   93d740 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x253060>
+  711dd7:	48 85 c0             	test   %rax,%rax
+  711dda:	49 89 c7             	mov    %rax,%r15
+  711ddd:	0f 84 43 01 00 00    	je     711f26 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x27846>
+  711de3:	48 89 c7             	mov    %rax,%rdi
+  711de6:	e8 95 45 b7 ff       	call   286380 <__gmon_start__@plt+0x1c77d0>
+  711deb:	8b 44 24 14          	mov    0x14(%rsp),%eax
+  711def:	8b 7c 24 20          	mov    0x20(%rsp),%edi
+  711df3:	8b 4c 24 30          	mov    0x30(%rsp),%ecx
+  711df7:	41 c7 87 10 01 00 00 	movl   $0x8,0x110(%r15)
+  711dfe:	08 00 00 00 
+  711e02:	45 89 b7 1c 01 00 00 	mov    %r14d,0x11c(%r15)
+  711e09:	41 c7 87 28 01 00 00 	movl   $0x1,0x128(%r15)
+  711e10:	01 00 00 00 
+  711e14:	41 89 87 20 01 00 00 	mov    %eax,0x120(%r15)
+  711e1b:	41 89 87 60 01 00 00 	mov    %eax,0x160(%r15)
+  711e22:	8b 44 24 28          	mov    0x28(%rsp),%eax
+  711e26:	41 89 bf 24 01 00 00 	mov    %edi,0x124(%r15)
+  711e2d:	49 c7 87 34 01 00 00 	movq   $0x0,0x134(%r15)
+  711e34:	00 00 00 00 
+  711e38:	41 89 bf 64 01 00 00 	mov    %edi,0x164(%r15)
+  711e3f:	41 89 8f 98 01 00 00 	mov    %ecx,0x198(%r15)
+  711e46:	41 c7 87 b0 01 00 00 	movl   $0xde1,0x1b0(%r15)
+  711e4d:	e1 0d 00 00 
+  711e51:	41 89 87 9c 01 00 00 	mov    %eax,0x19c(%r15)
+  711e58:	8b 44 24 24          	mov    0x24(%rsp),%eax
+  711e5c:	41 c6 87 b4 01 00 00 	movb   $0x0,0x1b4(%r15)
+  711e63:	00 
+  711e64:	41 c6 87 b5 01 00 00 	movb   $0x0,0x1b5(%r15)
+  711e6b:	00 
+  711e6c:	41 c6 87 b6 01 00 00 	movb   $0x0,0x1b6(%r15)
+  711e73:	00 
+  711e74:	41 c6 87 b7 01 00 00 	movb   $0x0,0x1b7(%r15)
+  711e7b:	00 
+  711e7c:	41 89 87 bc 01 00 00 	mov    %eax,0x1bc(%r15)
+  711e83:	41 8d 86 d0 fe ff ff 	lea    -0x130(%r14),%eax
+  711e8a:	45 89 b7 b8 01 00 00 	mov    %r14d,0x1b8(%r15)
+  711e91:	41 c7 87 c0 01 00 00 	movl   $0xffffffff,0x1c0(%r15)
+  711e98:	ff ff ff ff 
+  711e9c:	41 c6 87 0c 02 00 00 	movb   $0x1,0x20c(%r15)
+  711ea3:	01 
+  711ea4:	83 f8 0b             	cmp    $0xb,%eax
+  711ea7:	0f 87 13 02 00 00    	ja     7120c0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x279e0>
+  711ead:	81 bc 24 d0 00 00 00 	cmpl   $0x3283,0xd0(%rsp)
+  711eb4:	83 32 00 00 
+  711eb8:	0f b6 44 24 2f       	movzbl 0x2f(%rsp),%eax
+  711ebd:	41 c6 87 15 02 00 00 	movb   $0x0,0x215(%r15)
+  711ec4:	00 
+  711ec5:	41 c7 87 20 02 00 00 	movl   $0x0,0x220(%r15)
+  711ecc:	00 00 00 00 
+  711ed0:	41 0f 94 87 45 01 00 	sete   0x145(%r15)
+  711ed7:	00 
+  711ed8:	81 bc 24 d8 00 00 00 	cmpl   $0x3284,0xd8(%rsp)
+  711edf:	84 32 00 00 
+  711ee3:	41 88 87 44 01 00 00 	mov    %al,0x144(%r15)
+  711eea:	48 8d 05 ff c5 94 00 	lea    0x94c5ff(%rip),%rax        # 105e4f0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x973e10>
+  711ef1:	49 89 07             	mov    %rax,(%r15)
+  711ef4:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+  711ef9:	41 0f 95 87 46 01 00 	setne  0x146(%r15)
+  711f00:	00 
+  711f01:	81 bc 24 e0 00 00 00 	cmpl   $0x3284,0xe0(%rsp)
+  711f08:	84 32 00 00 
+  711f0c:	49 89 87 18 02 00 00 	mov    %rax,0x218(%r15)
+  711f13:	41 0f 95 87 47 01 00 	setne  0x147(%r15)
+  711f1a:	00 
+  711f1b:	41 c7 87 3c 01 00 00 	movl   $0x8,0x13c(%r15)
+  711f22:	08 00 00 00 
+  711f26:	48 8b 84 24 b8 00 00 	mov    0xb8(%rsp),%rax
+  711f2d:	00 
+  711f2e:	41 8b 14 24          	mov    (%r12),%edx
+  711f32:	4c 89 ff             	mov    %r15,%rdi
+  711f35:	48 8b 74 24 18       	mov    0x18(%rsp),%rsi
+  711f3a:	44 8b 00             	mov    (%rax),%r8d
+  711f3d:	48 8b 84 24 c0 00 00 	mov    0xc0(%rsp),%rax
+  711f44:	00 
+  711f45:	8b 08                	mov    (%rax),%ecx
+  711f47:	e8 c4 77 b6 ff       	call   279710 <__gmon_start__@plt+0x1bab60>
+  711f4c:	85 c0                	test   %eax,%eax
+  711f4e:	0f 84 fc 01 00 00    	je     712150 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x27a70>
+  711f54:	48 89 ee             	mov    %rbp,%rsi
+  711f57:	31 ed                	xor    %ebp,%ebp
+  711f59:	31 ff                	xor    %edi,%edi
+  711f5b:	ff 15 2f e8 9a 00    	call   *0x9ae82f(%rip)        # 10c0790 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9d60b0>
+  711f61:	4c 89 fe             	mov    %r15,%rsi
+  711f64:	31 ff                	xor    %edi,%edi
+  711f66:	ff 15 24 e8 9a 00    	call   *0x9ae824(%rip)        # 10c0790 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9d60b0>
+  711f6c:	48 8d 3d 85 2e 9a 00 	lea    0x9a2e85(%rip),%rdi        # 10b4df8 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9ca718>
+  711f73:	e8 a8 c9 9a ff       	call   be920 <__tls_get_addr@plt>
+  711f78:	48 83 b8 08 00 00 00 	cmpq   $0x0,0x8(%rax)
+  711f7f:	00 
+  711f80:	74 7e                	je     712000 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x27920>
+  711f82:	be 28 00 00 00       	mov    $0x28,%esi
+  711f87:	bf 01 00 00 00       	mov    $0x1,%edi
+  711f8c:	e8 cf be 9a ff       	call   bde60 <calloc@plt>
+  711f91:	48 85 c0             	test   %rax,%rax
+  711f94:	74 04                	je     711f9a <__driDriverGetExtensions_mtgpu@@VERS1.0+0x278ba>
+  711f96:	48 89 68 20          	mov    %rbp,0x20(%rax)
+  711f9a:	48 8b 9c 24 e8 00 00 	mov    0xe8(%rsp),%rbx
+  711fa1:	00 
+  711fa2:	c7 03 00 00 00 00    	movl   $0x0,(%rbx)
+  711fa8:	48 83 c4 78          	add    $0x78,%rsp
+  711fac:	5b                   	pop    %rbx
+  711fad:	5d                   	pop    %rbp
+  711fae:	41 5c                	pop    %r12
+  711fb0:	41 5d                	pop    %r13
+  711fb2:	41 5e                	pop    %r14
+  711fb4:	41 5f                	pop    %r15
+  711fb6:	c3                   	ret
+  711fb7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+  711fbe:	00 00 
+  711fc0:	81 fb 52 38 20 20    	cmp    $0x20203852,%ebx
+  711fc6:	74 0c                	je     711fd4 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x278f4>
+  711fc8:	81 fb 52 31 36 20    	cmp    $0x20363152,%ebx
+  711fce:	0f 85 63 fd ff ff    	jne    711d37 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x27657>
+  711fd4:	c7 44 24 28 06 00 00 	movl   $0x6,0x28(%rsp)
+  711fdb:	00 
+  711fdc:	e9 5e fd ff ff       	jmp    711d3f <__driDriverGetExtensions_mtgpu@@VERS1.0+0x2765f>
+  711fe1:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+  711fe6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  711fed:	00 00 00 
+  711ff0:	c7 44 24 28 05 00 00 	movl   $0x5,0x28(%rsp)
+  711ff7:	00 
+  711ff8:	e9 42 fd ff ff       	jmp    711d3f <__driDriverGetExtensions_mtgpu@@VERS1.0+0x2765f>
+  711ffd:	0f 1f 00             	nopl   (%rax)
+  712000:	48 8b 05 69 0c 9f 00 	mov    0x9f0c69(%rip),%rax        # 1102c70 <__driDriverGetExtensions_mtgpu@@VERS1.0+0xa18590>
+  712007:	48 85 c0             	test   %rax,%rax
+  71200a:	0f 84 72 ff ff ff    	je     711f82 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x278a2>
+  712010:	48 83 ec 08          	sub    $0x8,%rsp
+  712014:	49 8b bd b0 00 00 00 	mov    0xb0(%r13),%rdi
+  71201b:	4d 89 e1             	mov    %r12,%r9
+  71201e:	ff b4 24 f8 00 00 00 	push   0xf8(%rsp)
+  712025:	ff b4 24 f8 00 00 00 	push   0xf8(%rsp)
+  71202c:	8b b4 24 f8 00 00 00 	mov    0xf8(%rsp),%esi
+  712033:	56                   	push   %rsi
+  712034:	8b b4 24 f8 00 00 00 	mov    0xf8(%rsp),%esi
+  71203b:	56                   	push   %rsi
+  71203c:	8b 94 24 f8 00 00 00 	mov    0xf8(%rsp),%edx
+  712043:	52                   	push   %rdx
+  712044:	8b 8c 24 f8 00 00 00 	mov    0xf8(%rsp),%ecx
+  71204b:	51                   	push   %rcx
+  71204c:	ff b4 24 f8 00 00 00 	push   0xf8(%rsp)
+  712053:	89 d9                	mov    %ebx,%ecx
+  712055:	ff b4 24 f8 00 00 00 	push   0xf8(%rsp)
+  71205c:	6a 01                	push   $0x1
+  71205e:	4c 8b 44 24 58       	mov    0x58(%rsp),%r8
+  712063:	8b 54 24 70          	mov    0x70(%rsp),%edx
+  712067:	8b 74 24 64          	mov    0x64(%rsp),%esi
+  71206b:	ff 90 98 00 00 00    	call   *0x98(%rax)
+  712071:	48 83 c4 50          	add    $0x50,%rsp
+  712075:	e9 17 ff ff ff       	jmp    711f91 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x278b1>
+  71207a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  712080:	48 8d 35 99 a3 50 00 	lea    0x50a399(%rip),%rsi        # c1c420 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x531d40>
+  712087:	31 c0                	xor    %eax,%eax
+  712089:	48 89 f2             	mov    %rsi,%rdx
+  71208c:	eb 12                	jmp    7120a0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x279c0>
+  71208e:	66 90                	xchg   %ax,%ax
+  712090:	83 c0 01             	add    $0x1,%eax
+  712093:	48 83 c2 0c          	add    $0xc,%rdx
+  712097:	83 f8 12             	cmp    $0x12,%eax
+  71209a:	0f 84 80 00 00 00    	je     712120 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x27a40>
+  7120a0:	3b 1a                	cmp    (%rdx),%ebx
+  7120a2:	75 ec                	jne    712090 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x279b0>
+  7120a4:	48 8d 04 40          	lea    (%rax,%rax,2),%rax
+  7120a8:	48 8d 04 86          	lea    (%rsi,%rax,4),%rax
+  7120ac:	8b 70 04             	mov    0x4(%rax),%esi
+  7120af:	44 8b 70 08          	mov    0x8(%rax),%r14d
+  7120b3:	89 74 24 24          	mov    %esi,0x24(%rsp)
+  7120b7:	e9 bf fc ff ff       	jmp    711d7b <__driDriverGetExtensions_mtgpu@@VERS1.0+0x2769b>
+  7120bc:	0f 1f 40 00          	nopl   0x0(%rax)
+  7120c0:	48 8d 05 29 c4 94 00 	lea    0x94c429(%rip),%rax        # 105e4f0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x973e10>
+  7120c7:	44 89 f2             	mov    %r14d,%edx
+  7120ca:	41 c7 87 20 02 00 00 	movl   $0x0,0x220(%r15)
+  7120d1:	00 00 00 00 
+  7120d5:	48 6b d2 5c          	imul   $0x5c,%rdx,%rdx
+  7120d9:	41 c6 87 15 02 00 00 	movb   $0x0,0x215(%r15)
+  7120e0:	00 
+  7120e1:	49 89 07             	mov    %rax,(%r15)
+  7120e4:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+  7120e9:	49 89 87 18 02 00 00 	mov    %rax,0x218(%r15)
+  7120f0:	48 8d 05 c9 76 af 00 	lea    0xaf76c9(%rip),%rax        # 12097c0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0xb1f0e0>
+  7120f7:	f6 44 10 0d 01       	testb  $0x1,0xd(%rax,%rdx,1)
+  7120fc:	0f 85 19 fe ff ff    	jne    711f1b <__driDriverGetExtensions_mtgpu@@VERS1.0+0x2783b>
+  712102:	83 7c 24 34 01       	cmpl   $0x1,0x34(%rsp)
+  712107:	19 c0                	sbb    %eax,%eax
+  712109:	83 e0 f0             	and    $0xfffffff0,%eax
+  71210c:	83 c0 1a             	add    $0x1a,%eax
+  71210f:	41 89 87 3c 01 00 00 	mov    %eax,0x13c(%r15)
+  712116:	e9 0b fe ff ff       	jmp    711f26 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x27846>
+  71211b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+  712120:	48 8b 84 24 e8 00 00 	mov    0xe8(%rsp),%rax
+  712127:	00 
+  712128:	c7 00 03 00 00 00    	movl   $0x3,(%rax)
+  71212e:	48 83 c4 78          	add    $0x78,%rsp
+  712132:	31 c0                	xor    %eax,%eax
+  712134:	5b                   	pop    %rbx
+  712135:	5d                   	pop    %rbp
+  712136:	41 5c                	pop    %r12
+  712138:	41 5d                	pop    %r13
+  71213a:	41 5e                	pop    %r14
+  71213c:	41 5f                	pop    %r15
+  71213e:	c3                   	ret
+  71213f:	90                   	nop
+  712140:	c7 44 24 28 02 00 00 	movl   $0x2,0x28(%rsp)
+  712147:	00 
+  712148:	e9 f2 fb ff ff       	jmp    711d3f <__driDriverGetExtensions_mtgpu@@VERS1.0+0x2765f>
+  71214d:	0f 1f 00             	nopl   (%rax)
+  712150:	48 8b 7d 00          	mov    0x0(%rbp),%rdi
+  712154:	4c 89 7d 00          	mov    %r15,0x0(%rbp)
+  712158:	48 85 ff             	test   %rdi,%rdi
+  71215b:	74 09                	je     712166 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x27a86>
+  71215d:	48 83 c7 08          	add    $0x8,%rdi
+  712161:	e8 7a 3b b7 ff       	call   285ce0 <__gmon_start__@plt+0x1c7130>
+  712166:	48 c7 44 24 50 00 00 	movq   $0x0,0x50(%rsp)
+  71216d:	00 00 
+  71216f:	49 8b 07             	mov    (%r15),%rax
+  712172:	48 8d 15 17 77 b6 ff 	lea    -0x4988e9(%rip),%rdx        # 279890 <__gmon_start__@plt+0x1bace0>
+  712179:	48 8b 40 38          	mov    0x38(%rax),%rax
+  71217d:	48 39 d0             	cmp    %rdx,%rax
+  712180:	75 5d                	jne    7121df <__driDriverGetExtensions_mtgpu@@VERS1.0+0x27aff>
+  712182:	49 8b 77 10          	mov    0x10(%r15),%rsi
+  712186:	48 8b 7c 24 38       	mov    0x38(%rsp),%rdi
+  71218b:	e8 20 dd bd ff       	call   2efeb0 <__gmon_start__@plt+0x231300>
+  712190:	41 8b 75 0c          	mov    0xc(%r13),%esi
+  712194:	48 8b 7c 24 38       	mov    0x38(%rsp),%rdi
+  712199:	48 8d 54 24 4c       	lea    0x4c(%rsp),%rdx
+  71219e:	c7 44 24 4c 00 00 00 	movl   $0x0,0x4c(%rsp)
+  7121a5:	00 
+  7121a6:	e8 75 3f fd ff       	call   6e6120 <__gmon_start__@plt+0x627570>
+  7121ab:	84 c0                	test   %al,%al
+  7121ad:	48 8b 55 00          	mov    0x0(%rbp),%rdx
+  7121b1:	74 0a                	je     7121bd <__driDriverGetExtensions_mtgpu@@VERS1.0+0x27add>
+  7121b3:	41 8b 45 0c          	mov    0xc(%r13),%eax
+  7121b7:	89 82 08 02 00 00    	mov    %eax,0x208(%rdx)
+  7121bd:	48 8b 7c 24 50       	mov    0x50(%rsp),%rdi
+  7121c2:	8b 44 24 4c          	mov    0x4c(%rsp),%eax
+  7121c6:	48 85 ff             	test   %rdi,%rdi
+  7121c9:	89 82 04 02 00 00    	mov    %eax,0x204(%rdx)
+  7121cf:	0f 84 97 fd ff ff    	je     711f6c <__driDriverGetExtensions_mtgpu@@VERS1.0+0x2788c>
+  7121d5:	e8 d6 b2 22 00       	call   93d4b0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x252dd0>
+  7121da:	e9 8d fd ff ff       	jmp    711f6c <__driDriverGetExtensions_mtgpu@@VERS1.0+0x2788c>
+  7121df:	31 d2                	xor    %edx,%edx
+  7121e1:	48 8b 74 24 38       	mov    0x38(%rsp),%rsi
+  7121e6:	4c 89 ff             	mov    %r15,%rdi
+  7121e9:	ff d0                	call   *%rax
+  7121eb:	eb a3                	jmp    712190 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x27ab0>
+  7121ed:	48 8b 7c 24 50       	mov    0x50(%rsp),%rdi
+  7121f2:	48 89 c3             	mov    %rax,%rbx
+  7121f5:	48 85 ff             	test   %rdi,%rdi
+  7121f8:	74 05                	je     7121ff <__driDriverGetExtensions_mtgpu@@VERS1.0+0x27b1f>
+  7121fa:	e8 b1 b2 22 00       	call   93d4b0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x252dd0>
+  7121ff:	48 89 df             	mov    %rbx,%rdi
+  712202:	e8 89 c7 9a ff       	call   be990 <_Unwind_Resume@plt>
+  712207:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+  71220e:	00 00 

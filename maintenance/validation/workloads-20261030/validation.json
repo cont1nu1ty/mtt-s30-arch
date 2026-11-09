@@ -1,0 +1,27 @@
+{
+  "prepared_profile": "render-decode-v1",
+  "kernel_module_unchanged": true,
+  "module_sha256": "db8e4393ec50e0e2542dafdb7277240627406b847dc19d0427444712249143bb",
+  "workload_manifest_sha256": "68c2d8c057dae856de6f5baad1771125fd2310647b02098ad92b1586e5766ea8",
+  "recovery_tests_passed": 30,
+  "software_vulkan_draw_and_readback_passed": true,
+  "vulkan_validation_and_sync_errors": 0,
+  "wrong_shader_rejected": true,
+  "software_vulkan_rejected_in_s30_mode": true,
+  "software_h264_all_48_frames_match": true,
+  "one_byte_reference_corruption_rejected": true,
+  "missing_vaapi_device_rejected": true,
+  "vendor_private_library_dependency_check_passed": true,
+  "staging_roundtrip_hashes_verified": true,
+  "s30_workloads_executed": false,
+  "accelerated_kde_executed": false,
+  "runtime_window_seconds": 180,
+  "command_timeout_seconds": 30,
+  "source_sha256": {
+    "build.py": "c8945f0eba854b3b4be80da681fb273cbb3f8558695995576bdcfc49ef1577c1",
+    "h264-check.c": "a88c84adc54866076cf491c0f0ab3f71c84ce37e0c1f5be40a802fc8db41693a",
+    "pattern.frag": "1bfae234bff810ca8f4a1fff004713a084fa5de87e37b823ca209587244f5460",
+    "pattern.vert": "d16907bcf9e7b7d6d24689250489b3b396b6b0cc7d4cd505d471181b8bbd7b04",
+    "vk-offscreen.c": "2cc4bb5b8af0a4401e59c5196e0ac6ac7356fe257309a290775f875f588db702"
+  }
+}

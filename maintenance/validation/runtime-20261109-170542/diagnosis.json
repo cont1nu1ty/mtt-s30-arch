@@ -1,0 +1,32 @@
+{
+  "run": "20261109-170542",
+  "profile": "kwin-plasma-xwayland-v12",
+  "pid": 30149,
+  "signal": 11,
+  "thread_id": 30186,
+  "diagnosis": "Qt 6 Quick rendering thread calls QEGLPlatformContext::checkGraphicsReset() which invokes glGetGraphicsResetStatus. mtgpu_dri.so lacks GL_ARB_robustness and leaves dispatch table slot 841 (offset 0x1a48) NULL in musa_glapi_tls_Dispatch, resulting in a direct jump to 0x0 and SIGSEGV.",
+  "core_evidence": {
+    "lwp": 30186,
+    "thread_name": "QSGRenderThread",
+    "call_chain": [
+      "0x0 in ?? ()",
+      "0x7f0b92716a0b in QEGLPlatformContext::checkGraphicsReset() + 27 (libQt6Gui.so.6)",
+      "0x7f0b88060ee4 in QtWaylandClient::QWaylandGLContext::makeCurrent(QPlatformSurface*) (libqt-plugin-wayland-egl.so)",
+      "0x7f0b925d85a7 in QOpenGLContext::makeCurrent(QSurface*) (libQt6Gui.so.6)",
+      "0x7f0b924364e8 in QRhi::beginFrame(QRhiSwapChain*, QFlags<QRhi::BeginFrameFlag>) (libQt6Gui.so.6)"
+    ],
+    "caller_instruction": "call *%rax at QEGLPlatformContext::checkGraphicsReset() + 25",
+    "stub_called": "0x7f0b79429760 (libglapi_musa.so.0 glGetGraphicsResetStatusARB stub)",
+    "dispatch_tls_offset": -2720,
+    "current_dispatch_table": "0x55bc06c659f0",
+    "slot_offset": "0x1a48 (slot 841)",
+    "slot_value": "0x0000000000000000"
+  },
+  "patch": {
+    "path": "patches/mesa-23.2.1-mtgpu-gl-dispatch.patch",
+    "scope": "Intercept glGetGraphicsResetStatus* in _eglGetClientGLProcAddress and patch slots 841 and 973 in client GL dispatch table during bindContext",
+    "dummy_function": "s30_dummy_glGetGraphicsResetStatus returning 0 (GL_NO_ERROR)",
+    "marker": "MTT compatibility: Wayland GLES dispatch"
+  },
+  "resolution": "Built in desktop-plasma-v13-20261109 (manifest SHA256: 7d9e8aa3574ffecd34ae810baefb039411763d77445cd5017623e5b02b47cf40)"
+}

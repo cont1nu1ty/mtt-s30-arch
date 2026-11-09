@@ -1,0 +1,105 @@
+{
+  "test": "20261109-170542",
+  "independently_verified": true,
+  "export": "/var/tmp/mtt-s30-results-20261109-170542",
+  "desktop_manifest_sha256": "d9d00ef849dab55a77e895a787194b6dfd04f2fdd724563666be4b353142b94a",
+  "verified_bundle_files": 12,
+  "saved_images": {
+    "render.rgba": {
+      "pixels": 12288,
+      "bytes": 49152,
+      "frame": 7,
+      "sha256": "f6b5fea7be1327ca395fb1e22b7a3a3b813ac4edcc8c568e8102d0670dabaedd",
+      "independent_match": true
+    },
+    "egl-gbm.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 7,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    },
+    "wayland.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 59,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    },
+    "qt.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 11,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    }
+  },
+  "qt_png_matches_rgba": true,
+  "video_bytes_compared": 4423680,
+  "video_reference_match": true,
+  "video_fresh_cpu_decode_match": true,
+  "video_sha256": "71bc2ca60616df175a713a32e904a759ecf4b46982a3d352d68c9d7c40756b3c",
+  "wayland_client": {
+    "passed": true,
+    "mode": "wayland-s30",
+    "frames": 300,
+    "pixels_checked": 14745600,
+    "mismatches": 0,
+    "presented": 300,
+    "discarded": 0,
+    "hardware_presentations": 300,
+    "presentation_flags_all": 7,
+    "completed_cycles": 5,
+    "frames_per_cycle": 60,
+    "renderer": "MTT S30",
+    "vendor": "MOORE THREADS",
+    "egl_vendor": "Mesa Project"
+  },
+  "qt_quick_client": {
+    "frames": 12,
+    "gl_version": "OpenGL ES 3.2 build 20250516 release HEAD a8e4abb80@20250506 ",
+    "graphics_api": "OpenGL",
+    "mismatches": 0,
+    "mode": "qt-wayland-s30",
+    "opengles": true,
+    "passed": true,
+    "pixels_checked": 589824,
+    "renderer": "MTT S30",
+    "swapped": 14,
+    "vendor": "MOORE THREADS",
+    "window_destroyed": true
+  },
+  "client_exit": 0,
+  "qt_client_exit": 0,
+  "plasma_result": {
+    "passed": false,
+    "mode": "plasma-s30",
+    "phase": "failed",
+    "forced_kill": false,
+    "full_login_session_tested": false,
+    "shell_pid": 30149,
+    "activity_pid": 30147,
+    "kio_pid": 30148,
+    "last_startup_observation": "Command '['qdbus6', 'org.kde.plasmashell', '/PlasmaShell', 'org.kde.PlasmaShell.evaluateScript', 'var ds=desktops(); var ps=panels();\\nprint(JSON.stringify({desktops:ds.map(function(d){return {id:d.id,type:d.type,screen:d.screen};}),\\npanels:ps.map(function(p){return {id:p.id,type:p.type,screen:p.screen,height:p.height,\\nwidgets:p.widgets().map(function(w){return w.type;})};})}));']' returned non-zero exit status 1.",
+    "error": "Plasma workspace process exited during startup.",
+    "exit_codes": {
+      "plasma.log": {
+        "code": -11,
+        "termination_requested": false
+      },
+      "plasma-kio.log": {
+        "code": -15,
+        "termination_requested": true
+      },
+      "plasma-activities.log": {
+        "code": -15,
+        "termination_requested": true
+      }
+    }
+  },
+  "kwin_orderly_exit": true,
+  "compositor_faults": [],
+  "recovery_verified": true,
+  "plasma_coredump_matched": true,
+  "scope": "Vulkan, H.264, EGL/GBM, 5 cycles Wayland (300 frames) and Qt Quick (12 frames) passed. Plasma failed with SIGSEGV in plasmashell thread 30186 at 0x0 via QEGLPlatformContext::checkGraphicsReset() + 27 calling glGetGraphicsResetStatus."
+}

@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-11-04T03:17:42.562744+00:00",
+  "running_kernel": "7.2.14-arch1-1",
+  "boot_id": "12f0f572-974f-4319-b462-dc6b873bcd3c",
+  "display_manager": "active",
+  "driver_loaded": false,
+  "watchdog_state": "inactive",
+  "root_recovery_export_pending": false
+}

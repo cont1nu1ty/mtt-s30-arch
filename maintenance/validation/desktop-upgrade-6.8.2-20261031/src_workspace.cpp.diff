@@ -1,0 +1,45 @@
+--- 6.8.1/src/workspace.cpp
++++ 6.8.2/src/workspace.cpp
+@@ -387,8 +387,10 @@
+     QStringList hashes;
+     for (const auto &output : std::as_const(m_outputs)) {
+         QCryptographicHash hash(QCryptographicHash::Md5);
+-        if (output->backendOutput()->edid().isValid()) {
+-            hash.addData(output->backendOutput()->edid().raw());
++        const auto &edid = output->backendOutput()->edid();
++        if (edid.isValid()) {
++            hash.addData(edid.identifier());
++            hash.addData(edid.serialNumber());
+         } else {
+             hash.addData(output->name().toLatin1());
+         }
+@@ -607,6 +609,8 @@
+         // AboutToTurnOff state, inhibiting sleep forever.
+         m_dpms = DpmsState::Off;
+         m_sleepInhibitor.reset();
++        m_dpmsFilter = std::make_unique<DpmsInputEventFilter>();
++        input()->installInputEventFilter(m_dpmsFilter.get());
+     } else {
+         m_dpmsFilter = std::make_unique<DpmsInputEventFilter>();
+         input()->installInputEventFilter(m_dpmsFilter.get());
+@@ -1887,9 +1891,19 @@
+         support.append(m_decorationBridge->supportInformation());
+         support.append(QStringLiteral("\n"));
+     }
+-    support.append(QStringLiteral("LogicalOutput backend\n"));
++    support.append(QStringLiteral("Output backend\n"));
+     support.append(QStringLiteral("==============\n"));
+     support.append(kwinApp()->outputBackend()->supportInformation());
++    support.append(QStringLiteral("\n"));
++
++    support.append(QStringLiteral("Environment variables\n"));
++    support.append(QStringLiteral("=====================\n"));
++    const QProcessEnvironment environment = QProcessEnvironment::systemEnvironment();
++    for (const QString &key : environment.keys()) {
++        if (key.contains("KWIN")) {
++            support.append(key + '=' + environment.value(key) + '\n');
++        }
++    }
+     support.append(QStringLiteral("\n"));
+ 
+     const Cursor *cursor = Cursors::self()->mouse();

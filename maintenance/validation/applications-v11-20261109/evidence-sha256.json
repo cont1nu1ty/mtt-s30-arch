@@ -1,0 +1,19 @@
+{
+  "compatible-protocol.log": "8a2f7e828ffaf2af19f864b7db70712313b842db42ccf65061f6de0bfd062c58",
+  "desktop-session-result.json": "06bb7a18be926034d1df83f8ee102a7a6fd97bce1b50afbcb89dd75d278572ac",
+  "flow-tests.log": "66cbe2c065850d51b1066151aa6db9cd288304c193847ffa75ed370007ed272f",
+  "kernel-package-validation.json": "ca2e32622c0d25d925ad0449d06394e1aa92db1ad8353364272553dfca9bb5f2",
+  "kwin-support-after.log": "f096039394543ce0864ab692de8476db33c31bdbf98bff40710c5a367b547107",
+  "kwin-support-before.log": "f096039394543ce0864ab692de8476db33c31bdbf98bff40710c5a367b547107",
+  "kwin.log": "0655fd05cb2d4c0395ae7d095cb110d4b20a7c37cc9dbd25ff379f02c81eddbb",
+  "lifecycle-validation.json": "52263652390806a72e033f8a2373be4dcd4c0511b2561e6812da472c65c1d514",
+  "manifest.json": "8b6f7a9f028bac894b34a206b17a9755470e45b88e5e2b923122eab64cd18f64",
+  "qt-client.log": "b451348fe13179119ae019cb3ba71d3289b6469b99ea32bf4fda1770ddbf5e48",
+  "qt.rgba": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+  "qt.rgba.png": "46cf02f401b22fa4b70d9fa623056e681fdb692a2566c0239228f2388d3853f6",
+  "validation.json": "255f78ec500d0b2108051513068c9a110260c9daf1006e684ae31c232eed2c2c",
+  "validation.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "vendor-protocol.log": "fd2a5c3d36d5bacaec88722508fbaad318d514af191907345e6e5877a4d222b7",
+  "wayland-client.log": "7dffeed4eda4db840ef44f7d95a351611b21e7adad94d4e105a42b0c997ef1ea",
+  "wayland.rgba": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5"
+}

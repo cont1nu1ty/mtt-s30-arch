@@ -1,0 +1,71 @@
+{
+  "profile": "kwin-wayland-v11",
+  "status": "prepared; S30 hardware test pending",
+  "hardware_tested": false,
+  "latest_hardware_pass": "20261109-153310 (v10, 60 frames)",
+  "manifest_sha256": "8b6f7a9f028bac894b34a206b17a9755470e45b88e5e2b923122eab64cd18f64",
+  "bundle": "/home/bull/Documents/mtt-s30-arch/builds/desktop-applications-v11-20261109",
+  "byte_identical_second_build": true,
+  "unchanged_v10_library_files": 7,
+  "host_package_pins_verified": {
+    "kwin": "6.8.2-1",
+    "mesa": "1:26.2.6-1",
+    "qt6-base": "6.12.0-3",
+    "qt6-declarative": "6.12.0-4",
+    "kdecoration": "6.8.2-1"
+  },
+  "staging_and_runtime_dependencies_passed": true,
+  "recovery_flow_tests": 77,
+  "lifecycle_local_tests": 12,
+  "software_session_passed": true,
+  "software_wayland": {
+    "passed": true,
+    "mode": "wayland-software",
+    "frames": 300,
+    "pixels_checked": 14745600,
+    "mismatches": 0,
+    "presented": 300,
+    "discarded": 0,
+    "hardware_presentations": 300,
+    "presentation_flags_all": 7,
+    "completed_cycles": 5,
+    "frames_per_cycle": 60,
+    "renderer": "softpipe",
+    "vendor": "Mesa",
+    "egl_vendor": "Mesa Project"
+  },
+  "software_qt": {
+    "frames": 12,
+    "gl_version": "OpenGL ES 3.1 Mesa 23.2.1-1ubuntu3.1~22.04.3",
+    "graphics_api": "OpenGL",
+    "mismatches": 0,
+    "mode": "qt-wayland-software",
+    "opengles": true,
+    "passed": true,
+    "pixels_checked": 589824,
+    "renderer": "softpipe",
+    "swapped": 13,
+    "vendor": "Mesa",
+    "window_destroyed": true
+  },
+  "independent_final_pixels_match": true,
+  "qt_success_record_after_application_destruction": true,
+  "full_plasma_tested": false,
+  "xwayland_tested": false,
+  "scanout_pixels_captured": false,
+  "kernel_module_sha256": "6857f52e14db1071ca5b089029725432d5bbb71022dba55f9cd973121bc4adff",
+  "session_total_timeout_seconds": 75,
+  "supervisor_reboot_seconds": 180,
+  "fallback_reboot_seconds": 210,
+  "watchdog_reset_proven": false,
+  "local_failures_fixed": [
+    {
+      "path": "work/applications-v11-software-20261109",
+      "reason": "Qt application teardown logged after successful JSON; moved success after QGuiApplication destruction."
+    },
+    {
+      "path": "work/applications-v11-software-final-20261109",
+      "reason": "Test directory socket path exceeded UNIX limit; added pre-launch length gate and used short validation stage."
+    }
+  ]
+}

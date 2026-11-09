@@ -1,0 +1,24 @@
+struct mtgpu_dispc {
+	struct drm_crtc *          crtc;                 /*     0     8 */
+	struct mtgpu_dispc_ctx     ctx;                  /*     8   128 */
+
+	/* XXX last struct has 1 byte of padding, 3 holes */
+
+	/* --- cacheline 2 boundary (128 bytes) was 8 bytes ago --- */
+	struct mtgpu_dispc_ops *   core;                 /*   136     8 */
+	struct mtgpu_dispc_glb_ops * glb;                /*   144     8 */
+	struct mtgpu_dispc_capability * caps;            /*   152     8 */
+	struct device *            dev;                  /*   160     8 */
+	struct mtgpu_cursor_info   cursor_info;          /*   168    32 */
+	/* --- cacheline 3 boundary (192 bytes) was 8 bytes ago --- */
+	struct mtgpu_dispc_debugfs debugfs;              /*   200    16 */
+	u32                        bandwidth;            /*   216     4 */
+	bool                       active;               /*   220     1 */
+
+	/* size: 224, cachelines: 4, members: 10 */
+	/* padding: 3 */
+	/* member types with holes: 1, total: 3 */
+	/* paddings: 1, sum paddings: 1 */
+	/* last cacheline: 32 bytes */
+};
+

@@ -1,0 +1,251 @@
+{
+  "test": "20261103-104000",
+  "status": "failed",
+  "evidence_stage": "exported pixels/video and recovery independently verified; actual client core analyzed",
+  "boot_recovery_verified": true,
+  "failure": "SIGSEGV in private EGL get_screen_param at +0x1ea4b (egl_dri2.c:834); opaque vendor screen interpreted as Mesa Gallium private layout.",
+  "probe": {
+    "phase": "failed",
+    "checks": {
+      "stop-desktop": 0,
+      "protect-esp": 0,
+      "kernel-before": 0,
+      "dependencies": 0,
+      "insmod": 0,
+      "iomem-after": 0,
+      "pci-resources": 0,
+      "kernel-check": 0,
+      "mthreads-gmi": 0,
+      "vulkan": 0,
+      "vaapi": 0,
+      "render-workload": 0,
+      "video-workload": 0,
+      "egl-gbm": 0,
+      "kwin-session": 1,
+      "kernel-final": 0
+    },
+    "desktop_started": true,
+    "module_load_attempted": true,
+    "profile": "kwin-wayland-v3",
+    "active_check": "kernel-final",
+    "command_seconds": {
+      "stop-desktop": 0.165,
+      "protect-esp": 0.114,
+      "kernel-before": 0.016,
+      "dependencies": 0.064,
+      "insmod": 0.967,
+      "iomem-after": 0.002,
+      "pci-resources": 0.001,
+      "kernel-check": 0.016,
+      "mthreads-gmi": 0.064,
+      "vulkan": 0.415,
+      "vaapi": 0.032,
+      "render-workload": 0.365,
+      "video-workload": 0.164,
+      "egl-gbm": 0.315,
+      "kwin-session": 3.07,
+      "kernel-final": 0.016
+    },
+    "desktop_shutdown_observations": [
+      {
+        "display_manager": "inactive",
+        "graphical_processes": [
+          "965 kwin_wayland",
+          "1049 Xwayland"
+        ],
+        "drm_users": "1   656   965  1049",
+        "drm_diagnostics": "/dev/dri/card0:",
+        "settled": false,
+        "elapsed_seconds": 0.254
+      },
+      {
+        "display_manager": "inactive",
+        "graphical_processes": [],
+        "drm_users": "",
+        "drm_diagnostics": "",
+        "settled": true,
+        "elapsed_seconds": 1.348
+      },
+      {
+        "display_manager": "inactive",
+        "graphical_processes": [],
+        "drm_users": "",
+        "drm_diagnostics": "",
+        "settled": true,
+        "elapsed_seconds": 2.464
+      }
+    ],
+    "esp_read_only": true,
+    "bound_driver": "mtgpu",
+    "render_nodes": [
+      "renderD128"
+    ],
+    "kernel_faults": [],
+    "workloads": {
+      "profile": "render-decode-v1",
+      "passed": true,
+      "render": {
+        "passed": true,
+        "mode": "s30",
+        "frames": 8,
+        "pixels_checked": 98304,
+        "mismatches": 0
+      },
+      "video": {
+        "passed": true,
+        "mode": "vaapi",
+        "frames": 48,
+        "hardware_frames": 48,
+        "bad_frames": 0,
+        "different_bytes": 0,
+        "max_abs_error": 0
+      },
+      "render_sha256": "f6b5fea7be1327ca395fb1e22b7a3a3b813ac4edcc8c568e8102d0670dabaedd",
+      "decoded_sha256": "71bc2ca60616df175a713a32e904a759ecf4b46982a3d352d68c9d7c40756b3c",
+      "manifest_sha256": "68c2d8c057dae856de6f5baad1771125fd2310647b02098ad92b1586e5766ea8",
+      "accelerated_desktop_tested": false
+    },
+    "kms_node": "/dev/dri/card0",
+    "passed": false,
+    "error": "Isolated KWin/Wayland session failed.",
+    "failed_check": "kwin-session",
+    "driver_loaded": true,
+    "desktop_session": {
+      "passed": false,
+      "mode": "drm-s30",
+      "kwin_started": true,
+      "forced_kill": false,
+      "kwin_pid": 23963,
+      "private_kwin_library_verified": true,
+      "renderer": "MTT S30",
+      "drm_fds": [
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/card0",
+        "/dev/dri/card0",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/card0",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/card0"
+      ],
+      "client_exit": -11,
+      "error": "Wayland GLES client failed.",
+      "termination_requested": true,
+      "kwin_exit": 15,
+      "compositor_faults": []
+    }
+  },
+  "new_kernel": "7.2.14-arch1-1",
+  "new_kernel_module_loaded": true,
+  "reboot_observed": true,
+  "current_boot_id": "9520fa64-c0d2-4c3a-9154-1597fdf1124d",
+  "next_test_ready": false,
+  "esp_comparison": {
+    "expected_files": 11,
+    "current_files": 11,
+    "added": [],
+    "removed": [],
+    "changed": [
+      "loader/random-seed"
+    ],
+    "unchanged_files": 10
+  },
+  "vulkan_pixels_independently_verified": true,
+  "h264_all_bytes_independently_verified": true,
+  "egl_gbm_independently_verified": true,
+  "egl_gbm": {
+    "passed": true,
+    "mode": "gbm-s30",
+    "frames": 8,
+    "pixels_checked": 393216,
+    "mismatches": 0,
+    "presented": 0,
+    "discarded": 0,
+    "hardware_presentations": 0,
+    "presentation_flags_all": 0,
+    "renderer": "MTT S30",
+    "vendor": "MOORE THREADS",
+    "egl_vendor": "MTT Mesa Client"
+  },
+  "kwin_renderer": "MTT S30",
+  "kwin_faults": [],
+  "lookup_v1_selected": true,
+  "root_core_exported": true,
+  "core_analysis": {
+    "run": "20261103-104000",
+    "mode": "offline core and static vendor-library review; no GPU initialization",
+    "core": "egl-check.core",
+    "commands": "core-abi-review.gdb",
+    "log": "core-abi-review.log",
+    "actual_crash": {
+      "function": "get_screen_param",
+      "caller": "dri2_setup_screen",
+      "source": "egl_dri2.c:834",
+      "pipe_screen": null,
+      "incorrect_private_layout_api_mask": 2489709264,
+      "public_api_mask_from_vendor_callback_semantics": 31
+    },
+    "confirmed_additional_blocker": {
+      "field": "DRI_Mesa.createContext",
+      "value": null,
+      "public_replacement": "DRI_IMAGE_DRIVER v1 createContextAttribs",
+      "callback_vendor_offset": "0x6e4c10"
+    },
+    "actual_screen_extensions": {
+      "DRI_IMAGE": 20,
+      "DRI2_Fence": 2,
+      "DRI2_Flush": 4,
+      "DRI_CONFIG_QUERY": 1,
+      "DRI2_BufferDamage": 1
+    },
+    "current_same_gpu_window_callbacks_non_null": [
+      "core.getConfigAttrib",
+      "core.indexConfigAttrib",
+      "image_driver.createNewDrawable",
+      "image_driver.createContextAttribs",
+      "image_driver.getAPIMask",
+      "core.bindContext",
+      "core.unbindContext",
+      "image.createImage",
+      "image.createImageWithModifiers",
+      "image.createImageWithModifiers2",
+      "image.createImageFromDmaBufs",
+      "image.createImageFromDmaBufs2",
+      "image.queryDmaBufFormats",
+      "image.queryDmaBufModifiers",
+      "image.queryImage",
+      "image.fromPlanar",
+      "fence.get_capabilities",
+      "fence.create_fence_fd",
+      "fence.get_fence_fd",
+      "flush.invalidate",
+      "flush.flush_with_flags",
+      "config.configQueryi"
+    ],
+    "optional_unsafe_advertisement": [
+      {
+        "extension": "EGL_MESA_drm_image",
+        "reason": "getCapabilities NULL fallback advertises global names although createImageFromName is NULL",
+        "call_site": "egl_dri2.c:dri2_create_image_mesa_drm_buffer"
+      },
+      {
+        "extension": "EGL_WL_bind_wayland_display",
+        "reason": "getCapabilities NULL fallback advertises server wl_drm binding although createImageFromNames is NULL",
+        "call_site": "egl_dri2.c:dri2_wl_reference_buffer fd == -1"
+      }
+    ],
+    "review_boundary": "Non-NULL callbacks and opaque ABI routing do not prove successful GPU rendering. Remaining real window initialization, allocation, rendering and presentation need hardware test."
+  },
+  "runtime_wayland_passed": false
+}

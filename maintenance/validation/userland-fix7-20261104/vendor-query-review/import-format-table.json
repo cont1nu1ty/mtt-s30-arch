@@ -1,0 +1,136 @@
+{
+  "vendor_sha256": "2583b5c4e793389e0d130bfb8895884dfdee358ac70d63195deeba1eb0d1a07c",
+  "virtual_address": "0xc1c420",
+  "file_offset": "0xc1c420",
+  "count": 18,
+  "stride_bytes": 12,
+  "table_sha256": "b4663bd6b57237893a6aeb9b117767074adab2e6a3b515535c175511cdee4995",
+  "entries": [
+    {
+      "index": 0,
+      "fourcc": "R8  ",
+      "value": 538982482,
+      "column_2": "0x8229",
+      "column_3": "0x0"
+    },
+    {
+      "index": 1,
+      "fourcc": "GR88",
+      "value": 943215175,
+      "column_2": "0x822b",
+      "column_3": "0x13"
+    },
+    {
+      "index": 2,
+      "fourcc": "R16 ",
+      "value": 540422482,
+      "column_2": "0x822a",
+      "column_3": "0x59"
+    },
+    {
+      "index": 3,
+      "fourcc": "GR32",
+      "value": 842224199,
+      "column_2": "0x822c",
+      "column_3": "0x6d"
+    },
+    {
+      "index": 4,
+      "fourcc": "RA24",
+      "value": 875708754,
+      "column_2": "0x8182",
+      "column_3": "0x35"
+    },
+    {
+      "index": 5,
+      "fourcc": "AR24",
+      "value": 875713089,
+      "column_2": "0x8088",
+      "column_3": "0x2c"
+    },
+    {
+      "index": 6,
+      "fourcc": "AB24",
+      "value": 875708993,
+      "column_2": "0x8058",
+      "column_3": "0x22"
+    },
+    {
+      "index": 7,
+      "fourcc": "XR24",
+      "value": 875713112,
+      "column_2": "0x8083",
+      "column_3": "0x31"
+    },
+    {
+      "index": 8,
+      "fourcc": "XR30",
+      "value": 808669784,
+      "column_2": "0x808e",
+      "column_3": "0x8d"
+    },
+    {
+      "index": 9,
+      "fourcc": "RG16",
+      "value": 909199186,
+      "column_2": "0x0",
+      "column_3": "0x4d"
+    },
+    {
+      "index": 10,
+      "fourcc": "AYUV",
+      "value": 1448433985,
+      "column_2": "0x0",
+      "column_3": "0x130"
+    },
+    {
+      "index": 11,
+      "fourcc": "P010",
+      "value": 808530000,
+      "column_2": "0x0",
+      "column_3": "0x13a"
+    },
+    {
+      "index": 12,
+      "fourcc": "P016",
+      "value": 909193296,
+      "column_2": "0x0",
+      "column_3": "0x139"
+    },
+    {
+      "index": 13,
+      "fourcc": "UYVY",
+      "value": 1498831189,
+      "column_2": "0x0",
+      "column_3": "0x131"
+    },
+    {
+      "index": 14,
+      "fourcc": "VYUY",
+      "value": 1498765654,
+      "column_2": "0x0",
+      "column_3": "0x132"
+    },
+    {
+      "index": 15,
+      "fourcc": "NV12",
+      "value": 842094158,
+      "column_2": "0x0",
+      "column_3": "0x137"
+    },
+    {
+      "index": 16,
+      "fourcc": "NV21",
+      "value": 825382478,
+      "column_2": "0x0",
+      "column_3": "0x138"
+    },
+    {
+      "index": 17,
+      "fourcc": "YV12",
+      "value": 842094169,
+      "column_2": "0x0",
+      "column_3": "0x135"
+    }
+  ]
+}

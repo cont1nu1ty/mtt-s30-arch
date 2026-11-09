@@ -1,0 +1,44 @@
+{
+  "profile": "kwin-wayland-v5",
+  "manifest_sha256": "04989706955b33380a844732845d61db97686eaf0bad1e23c4f1a6158cb4715e",
+  "bundle": "builds/desktop-userland-fix4-20261104",
+  "reviewed_packages": {
+    "kwin": "6.8.2-1",
+    "mesa": "1:26.2.6-1",
+    "qt6-base": "6.12.0-3",
+    "qt6-declarative": "6.12.0-4",
+    "kdecoration": "6.8.2-1"
+  },
+  "kernel": "7.2.14-arch1-1",
+  "module_sha256": "6857f52e14db1071ca5b089029725432d5bbb71022dba55f9cd973121bc4adff",
+  "module_unchanged": true,
+  "driver_installed": false,
+  "driver_loaded": false,
+  "watchdog_state": "inactive",
+  "current_services": {
+    "display-manager": "active",
+    "mtt-s30-once.service": "inactive",
+    "mtt-s30-deadline.timer": "inactive"
+  },
+  "boot_id": "12f0f572-974f-4319-b462-dc6b873bcd3c",
+  "staging_and_dependency_resolution_verified": true,
+  "no_rpath_runpath": true,
+  "software_wayland": {
+    "passed": true,
+    "mode": "wayland-software",
+    "frames": 60,
+    "pixels_checked": 2949120,
+    "mismatches": 0,
+    "presented": 60,
+    "discarded": 0,
+    "hardware_presentations": 60,
+    "presentation_flags_all": 7,
+    "renderer": "softpipe",
+    "vendor": "Mesa",
+    "egl_vendor": "Mesa Project"
+  },
+  "independent_software_pixels_verified": true,
+  "software_rejected_as_hardware": true,
+  "s30_v5_window_tested": false,
+  "replay_validation_pending": true
+}

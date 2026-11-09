@@ -1,0 +1,182 @@
+{
+  "current_boot_id": "6bc433ce-e2dd-4308-8e87-68e14136baae",
+  "test_boot_id": "5c991afe-1696-4edd-8c7d-b916e5dd7f6e",
+  "reboot_observed": true,
+  "hardware_watchdog_reset_proven": false,
+  "copied": [
+    {
+      "name": "supervisor-result.json",
+      "source_bytes": 4412,
+      "tail_only": false
+    },
+    {
+      "name": "probe-result.json",
+      "source_bytes": 3542,
+      "tail_only": false
+    },
+    {
+      "name": "config.json",
+      "source_bytes": 594,
+      "tail_only": false
+    },
+    {
+      "name": "kernel-live.log",
+      "source_bytes": 14123,
+      "tail_only": false
+    },
+    {
+      "name": "kernel-before.log",
+      "source_bytes": 87548,
+      "tail_only": false
+    },
+    {
+      "name": "kernel-check.log",
+      "source_bytes": 98734,
+      "tail_only": false
+    },
+    {
+      "name": "kernel-final.log",
+      "source_bytes": 122995,
+      "tail_only": false
+    },
+    {
+      "name": "probe.log",
+      "source_bytes": 0,
+      "tail_only": false
+    },
+    {
+      "name": "stop-desktop.log",
+      "source_bytes": 0,
+      "tail_only": false
+    },
+    {
+      "name": "protect-esp.log",
+      "source_bytes": 0,
+      "tail_only": false
+    },
+    {
+      "name": "dependencies.log",
+      "source_bytes": 0,
+      "tail_only": false
+    },
+    {
+      "name": "insmod.log",
+      "source_bytes": 0,
+      "tail_only": false
+    },
+    {
+      "name": "iomem-after.log",
+      "source_bytes": 3014,
+      "tail_only": false
+    },
+    {
+      "name": "pci-resources.log",
+      "source_bytes": 741,
+      "tail_only": false
+    },
+    {
+      "name": "mthreads-gmi.log",
+      "source_bytes": 1077,
+      "tail_only": false
+    },
+    {
+      "name": "vulkan.log",
+      "source_bytes": 1906,
+      "tail_only": false
+    },
+    {
+      "name": "vaapi.log",
+      "source_bytes": 2437,
+      "tail_only": false
+    },
+    {
+      "name": "render-workload.log",
+      "source_bytes": 367,
+      "tail_only": false
+    },
+    {
+      "name": "video-workload.log",
+      "source_bytes": 173,
+      "tail_only": false
+    },
+    {
+      "name": "render.rgba",
+      "source_bytes": 49152,
+      "tail_only": false
+    },
+    {
+      "name": "decoded.nv12",
+      "source_bytes": 4423680,
+      "tail_only": false
+    },
+    {
+      "name": "workload-result.json",
+      "source_bytes": 655,
+      "tail_only": false
+    },
+    {
+      "name": "workload-manifest.json",
+      "source_bytes": 1305,
+      "tail_only": false
+    },
+    {
+      "name": "desktop-manifest.json",
+      "source_bytes": 685,
+      "tail_only": false
+    },
+    {
+      "name": "egl-gbm.log",
+      "source_bytes": 350,
+      "tail_only": false
+    },
+    {
+      "name": "egl-gbm.rgba",
+      "source_bytes": 196608,
+      "tail_only": false
+    },
+    {
+      "name": "kwin-session.log",
+      "source_bytes": 0,
+      "tail_only": false
+    },
+    {
+      "name": "kwin.log",
+      "source_bytes": 136,
+      "tail_only": false
+    },
+    {
+      "name": "kwin-support-before.log",
+      "source_bytes": 5881,
+      "tail_only": false
+    },
+    {
+      "name": "wayland-client.log",
+      "source_bytes": 164,
+      "tail_only": false
+    },
+    {
+      "name": "kwin-kernel-check.log",
+      "source_bytes": 98820,
+      "tail_only": false
+    },
+    {
+      "name": "desktop-session-result.json",
+      "source_bytes": 792,
+      "tail_only": false
+    }
+  ],
+  "esp_comparison": {
+    "expected_files": 11,
+    "current_files": 11,
+    "added": [],
+    "removed": [],
+    "changed": [
+      "loader/random-seed"
+    ],
+    "unchanged_files": 10
+  },
+  "all_efi_files_identical": false,
+  "original_boot_and_efi_verified": true,
+  "verification_scope": "All baseline checks; after observed reboot only loader/random-seed content rotation is allowed. Added/removed files or any other changed content fail.",
+  "journal_exit": 0
+}

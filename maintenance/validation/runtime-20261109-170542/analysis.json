@@ -1,0 +1,141 @@
+{
+  "test": "20261109-170542",
+  "profile": "kwin-plasma-xwayland-v12",
+  "kernel": "7.2.14-arch1-1",
+  "passed": false,
+  "test_boot_id": "ba558900-3338-45c9-a700-514e4acdce87",
+  "current_boot_id": "4fd8b8ae-7e86-42bd-adea-ebea071a0e49",
+  "reboot_observed": true,
+  "boot_and_efi_verified": true,
+  "esp_comparison": {
+    "expected_files": 11,
+    "current_files": 11,
+    "added": [],
+    "removed": [],
+    "changed": [
+      "loader/random-seed"
+    ],
+    "unchanged_files": 10
+  },
+  "driver_installed": false,
+  "driver_currently_loaded": false,
+  "current_watchdog_state": "inactive",
+  "hardware_watchdog_reset_proven": false,
+  "module_sha256": "6857f52e14db1071ca5b089029725432d5bbb71022dba55f9cd973121bc4adff",
+  "private_desktop_manifest_sha256": "d9d00ef849dab55a77e895a787194b6dfd04f2fdd724563666be4b353142b94a",
+  "bound_driver_in_test": "mtgpu",
+  "render_nodes": [
+    "renderD128"
+  ],
+  "vulkan": {
+    "passed": true,
+    "mode": "s30",
+    "frames": 8,
+    "pixels_checked": 98304,
+    "mismatches": 0
+  },
+  "h264": {
+    "passed": true,
+    "mode": "vaapi",
+    "frames": 48,
+    "hardware_frames": 48,
+    "bad_frames": 0,
+    "different_bytes": 0,
+    "max_abs_error": 0
+  },
+  "h264_all_bytes_independently_verified": true,
+  "h264_fresh_cpu_decode_match": true,
+  "h264_bytes_compared": 4423680,
+  "egl_gbm": {
+    "passed": true,
+    "mode": "gbm-s30",
+    "frames": 8,
+    "pixels_checked": 393216,
+    "mismatches": 0,
+    "renderer": "MTT S30",
+    "vendor": "MOORE THREADS"
+  },
+  "saved_images": {
+    "render.rgba": {
+      "pixels": 12288,
+      "bytes": 49152,
+      "frame": 7,
+      "sha256": "f6b5fea7be1327ca395fb1e22b7a3a3b813ac4edcc8c568e8102d0670dabaedd",
+      "independent_match": true
+    },
+    "egl-gbm.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 7,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    },
+    "wayland.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 59,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    },
+    "qt.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 11,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    }
+  },
+  "wayland_client": {
+    "passed": true,
+    "mode": "wayland-s30",
+    "frames": 300,
+    "pixels_checked": 14745600,
+    "mismatches": 0,
+    "presented": 300,
+    "discarded": 0,
+    "hardware_presentations": 300,
+    "presentation_flags_all": 7,
+    "completed_cycles": 5,
+    "frames_per_cycle": 60,
+    "renderer": "MTT S30",
+    "vendor": "MOORE THREADS"
+  },
+  "qt_quick_client": {
+    "frames": 12,
+    "gl_version": "OpenGL ES 3.2 build 20250516 release HEAD a8e4abb80@20250506 ",
+    "graphics_api": "OpenGL",
+    "mismatches": 0,
+    "mode": "qt-wayland-s30",
+    "opengles": true,
+    "passed": true,
+    "pixels_checked": 589824,
+    "renderer": "MTT S30",
+    "swapped": 14,
+    "vendor": "MOORE THREADS",
+    "window_destroyed": true
+  },
+  "qt_png_matches_rgba": true,
+  "client_exit": 0,
+  "qt_client_exit": 0,
+  "plasma_workspace": {
+    "passed": false,
+    "shell_pid": 30149,
+    "signal": 11,
+    "error": "Plasma workspace process exited during startup."
+  },
+  "kwin_renderer": "MTT S30",
+  "kwin_requested_exit_signal": 15,
+  "kwin_forced_kill": false,
+  "selected_output": "HDMI-A-1",
+  "selected_drm_layer_size": [
+    1920,
+    1080
+  ],
+  "selected_drm_layer_fourcc": "XR24",
+  "compositor_faults": [],
+  "post_load_kernel_faults": [],
+  "planned_reboot_requested_at": "2026-11-09T17:06:55+08:00",
+  "root_cause": "plasmashell thread 30186 SIGSEGV at 0x0 called from QEGLPlatformContext::checkGraphicsReset() + 27 calling glGetGraphicsResetStatus; mtgpu_dri.so dispatch table slot 841 is NULL.",
+  "fixed_in_candidate": "kwin-plasma-xwayland-v13",
+  "verified_utc": "2026-11-09T13:04:00Z"
+}

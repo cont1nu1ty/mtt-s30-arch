@@ -1,0 +1,163 @@
+{
+  "phase": "reboot_requested",
+  "logs": "/var/lib/mtt-s30-test/20261103-142638/test",
+  "driver_installed": false,
+  "reboot_planned": true,
+  "supervisor_pid": 106268,
+  "boot_id": "9520fa64-c0d2-4c3a-9154-1597fdf1124d",
+  "hardware_reset_verified": false,
+  "profile": "kwin-wayland-v4",
+  "watchdog_calibration": {
+    "identity": "SP5100 TCO timer",
+    "first": 60,
+    "after_3s": 57,
+    "after_ping": 60,
+    "hardware_reset_verified": false
+  },
+  "watchdog": "SP5100 TCO timer",
+  "watchdog_timeout": 60,
+  "start_utc": "2026-11-03T06:26:50Z",
+  "probe_exit": 1,
+  "probe": {
+    "phase": "failed",
+    "checks": {
+      "stop-desktop": 0,
+      "protect-esp": 0,
+      "kernel-before": 0,
+      "dependencies": 0,
+      "insmod": 0,
+      "iomem-after": 0,
+      "pci-resources": 0,
+      "kernel-check": 0,
+      "mthreads-gmi": 0,
+      "vulkan": 0,
+      "vaapi": 0,
+      "render-workload": 0,
+      "video-workload": 0,
+      "egl-gbm": 0,
+      "kwin-session": 1,
+      "kernel-final": 0
+    },
+    "desktop_started": true,
+    "module_load_attempted": true,
+    "profile": "kwin-wayland-v4",
+    "active_check": "kernel-final",
+    "command_seconds": {
+      "stop-desktop": 0.166,
+      "protect-esp": 0.264,
+      "kernel-before": 0.016,
+      "dependencies": 0.064,
+      "insmod": 0.916,
+      "iomem-after": 0.002,
+      "pci-resources": 0.001,
+      "kernel-check": 0.008,
+      "mthreads-gmi": 0.064,
+      "vulkan": 0.417,
+      "vaapi": 0.032,
+      "render-workload": 0.365,
+      "video-workload": 0.114,
+      "egl-gbm": 0.314,
+      "kwin-session": 3.02,
+      "kernel-final": 0.016
+    },
+    "desktop_shutdown_observations": [
+      {
+        "display_manager": "inactive",
+        "graphical_processes": [
+          "1464 kwin_wayland",
+          "1550 Xwayland"
+        ],
+        "drm_users": "1   657  1464  1550",
+        "drm_diagnostics": "/dev/dri/card0:",
+        "settled": false,
+        "elapsed_seconds": 0.288
+      },
+      {
+        "display_manager": "inactive",
+        "graphical_processes": [],
+        "drm_users": "",
+        "drm_diagnostics": "",
+        "settled": true,
+        "elapsed_seconds": 1.385
+      },
+      {
+        "display_manager": "inactive",
+        "graphical_processes": [],
+        "drm_users": "",
+        "drm_diagnostics": "",
+        "settled": true,
+        "elapsed_seconds": 2.479
+      }
+    ],
+    "esp_read_only": true,
+    "bound_driver": "mtgpu",
+    "render_nodes": [
+      "renderD128"
+    ],
+    "kernel_faults": [],
+    "workloads": {
+      "profile": "render-decode-v1",
+      "passed": true,
+      "render": {
+        "passed": true,
+        "mode": "s30",
+        "frames": 8,
+        "pixels_checked": 98304,
+        "mismatches": 0
+      },
+      "video": {
+        "passed": true,
+        "mode": "vaapi",
+        "frames": 48,
+        "hardware_frames": 48,
+        "bad_frames": 0,
+        "different_bytes": 0,
+        "max_abs_error": 0
+      },
+      "render_sha256": "f6b5fea7be1327ca395fb1e22b7a3a3b813ac4edcc8c568e8102d0670dabaedd",
+      "decoded_sha256": "71bc2ca60616df175a713a32e904a759ecf4b46982a3d352d68c9d7c40756b3c",
+      "manifest_sha256": "68c2d8c057dae856de6f5baad1771125fd2310647b02098ad92b1586e5766ea8",
+      "accelerated_desktop_tested": false
+    },
+    "kms_node": "/dev/dri/card0",
+    "passed": false,
+    "error": "Isolated KWin/Wayland session failed.",
+    "failed_check": "kwin-session",
+    "driver_loaded": true,
+    "desktop_session": {
+      "passed": false,
+      "mode": "drm-s30",
+      "kwin_started": true,
+      "forced_kill": false,
+      "kwin_pid": 106822,
+      "private_kwin_library_verified": true,
+      "renderer": "MTT S30",
+      "drm_fds": [
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/card0",
+        "/dev/dri/card0",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/card0",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/renderD128",
+        "/dev/dri/card0"
+      ],
+      "client_exit": -6,
+      "error": "Wayland GLES client failed.",
+      "termination_requested": true,
+      "kwin_exit": 15,
+      "compositor_faults": []
+    }
+  }
+}

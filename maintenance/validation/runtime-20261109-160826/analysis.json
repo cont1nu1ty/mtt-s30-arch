@@ -1,0 +1,165 @@
+{
+  "test": "20261109-160826",
+  "profile": "kwin-wayland-v11",
+  "kernel": "7.2.14-arch1-1",
+  "passed": true,
+  "test_boot_id": "812ae8c5-0a59-4809-96da-3b96172be7dc",
+  "current_boot_id": "ba558900-3338-45c9-a700-514e4acdce87",
+  "reboot_observed": true,
+  "boot_and_efi_verified": true,
+  "esp_comparison": {
+    "expected_files": 11,
+    "current_files": 11,
+    "added": [],
+    "removed": [],
+    "changed": [
+      "loader/random-seed"
+    ],
+    "unchanged_files": 10
+  },
+  "driver_installed": false,
+  "driver_currently_loaded": false,
+  "current_watchdog_state": "inactive",
+  "hardware_watchdog_reset_proven": false,
+  "module_sha256": "6857f52e14db1071ca5b089029725432d5bbb71022dba55f9cd973121bc4adff",
+  "private_desktop_manifest_sha256": "8b6f7a9f028bac894b34a206b17a9755470e45b88e5e2b923122eab64cd18f64",
+  "client_primary_sha256": "05cd2ddd3dcb2c0a77994d52b959548babcf912027b550efb9a45aeb6201fc23",
+  "bound_driver_in_test": "mtgpu",
+  "render_nodes": [
+    "renderD128"
+  ],
+  "vulkan": {
+    "passed": true,
+    "mode": "s30",
+    "frames": 8,
+    "pixels_checked": 98304,
+    "mismatches": 0
+  },
+  "h264": {
+    "passed": true,
+    "mode": "vaapi",
+    "frames": 48,
+    "hardware_frames": 48,
+    "bad_frames": 0,
+    "different_bytes": 0,
+    "max_abs_error": 0
+  },
+  "h264_all_bytes_independently_verified": true,
+  "h264_fresh_cpu_decode_match": true,
+  "h264_bytes_compared": 4423680,
+  "egl_gbm": {
+    "passed": true,
+    "mode": "gbm-s30",
+    "frames": 8,
+    "pixels_checked": 393216,
+    "mismatches": 0,
+    "presented": 0,
+    "discarded": 0,
+    "hardware_presentations": 0,
+    "presentation_flags_all": 0,
+    "completed_cycles": 1,
+    "frames_per_cycle": 8,
+    "renderer": "MTT S30",
+    "vendor": "MOORE THREADS",
+    "egl_vendor": "MTT Mesa Client"
+  },
+  "saved_images": {
+    "render.rgba": {
+      "pixels": 12288,
+      "bytes": 49152,
+      "frame": 7,
+      "sha256": "f6b5fea7be1327ca395fb1e22b7a3a3b813ac4edcc8c568e8102d0670dabaedd",
+      "independent_match": true
+    },
+    "egl-gbm.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 7,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    },
+    "wayland.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 59,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    },
+    "qt.rgba": {
+      "pixels": 49152,
+      "bytes": 196608,
+      "frame": 11,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5",
+      "independent_match": true
+    }
+  },
+  "wayland_client": {
+    "passed": true,
+    "mode": "wayland-s30",
+    "frames": 300,
+    "pixels_checked": 14745600,
+    "mismatches": 0,
+    "presented": 300,
+    "discarded": 0,
+    "hardware_presentations": 300,
+    "presentation_flags_all": 7,
+    "completed_cycles": 5,
+    "frames_per_cycle": 60,
+    "renderer": "MTT S30",
+    "vendor": "MOORE THREADS",
+    "egl_vendor": "Mesa Project"
+  },
+  "qt_quick_client": {
+    "frames": 12,
+    "gl_version": "OpenGL ES 3.2 build 20250516 release HEAD a8e4abb80@20250506 ",
+    "graphics_api": "OpenGL",
+    "mismatches": 0,
+    "mode": "qt-wayland-s30",
+    "opengles": true,
+    "passed": true,
+    "pixels_checked": 589824,
+    "renderer": "MTT S30",
+    "swapped": 12,
+    "vendor": "MOORE THREADS",
+    "window_destroyed": true
+  },
+  "qt_png_matches_rgba": true,
+  "client_exit": 0,
+  "qt_client_exit": 0,
+  "client_core": {
+    "status": "not_found",
+    "reason": "No matching client SIGABRT/SIGSEGV in test boot."
+  },
+  "qt_client_core": {
+    "status": "not_found",
+    "reason": "No matching client SIGABRT/SIGSEGV in test boot."
+  },
+  "kwin_renderer": "MTT S30",
+  "kwin_requested_exit_signal": 15,
+  "kwin_forced_kill": false,
+  "selected_output": "HDMI-A-1",
+  "selected_drm_layer_size": [
+    1920,
+    1080
+  ],
+  "selected_drm_layer_fourcc": "XR24",
+  "compositor_faults": [],
+  "window_lifecycle_cycles_verified": 5,
+  "hardware_presentations_matched": 300,
+  "all_presentation_flags": 7,
+  "protocol_cleanup_and_roundtrip_each_cycle": true,
+  "qt_application_cleanup_verified": true,
+  "post_load_kernel_faults": [],
+  "planned_reboot_requested_at": "2026-11-09T16:11:40+08:00",
+  "full_plasma_tested": false,
+  "xwayland_tested": false,
+  "scanout_pixels_captured": false,
+  "long_duration_stability_tested": false,
+  "residual_startup_messages": [
+    "swrast load failed",
+    "EGL_NOT_INITIALIZED",
+    "PipeWire context connection failed"
+  ],
+  "residual_egl_attribution": "Same as v10 source/log-order inference: optional software EGL device startup; exact EGLDisplay not traced.",
+  "verified_utc": "2026-11-09T08:17:55.392587+00:00"
+}

@@ -1,0 +1,57 @@
+--- a/src/plugins/blur/shaders/downsample.frag
++++ b/src/plugins/blur/shaders/downsample.frag
+@@ -9,11 +9,11 @@
+ 
+ void main(void)
+ {
+-    vec4 sum = texture2D(texUnit, uv) * 4.0;
+-    sum += texture2D(texUnit, uv - halfpixel.xy * offset);
+-    sum += texture2D(texUnit, uv + halfpixel.xy * offset);
+-    sum += texture2D(texUnit, uv + vec2(halfpixel.x, -halfpixel.y) * offset);
+-    sum += texture2D(texUnit, uv - vec2(halfpixel.x, -halfpixel.y) * offset);
++    vec4 sum = texture(texUnit, uv) * 4.0;
++    sum += texture(texUnit, uv - halfpixel.xy * offset);
++    sum += texture(texUnit, uv + halfpixel.xy * offset);
++    sum += texture(texUnit, uv + vec2(halfpixel.x, -halfpixel.y) * offset);
++    sum += texture(texUnit, uv - vec2(halfpixel.x, -halfpixel.y) * offset);
+ 
+     fragColor = sum / 8.0;
+ }
+--- a/src/main_wayland.cpp
++++ b/src/main_wayland.cpp
+@@ -328,6 +328,7 @@
+     QCoreApplication::setAttribute(Qt::AA_DisableShaderDiskCache);
+ 
+     KWin::ApplicationWayland a(argc, argv);
++    qInfo("MTT S30 isolated validation build: userland-fix1 (KWin 6.8.2)");
+ 
+     // Reset the environment variables so we don't propagate them to our children (e.g. apps
+     // launched from the overview effect)
+--- a/src/opengl/egldisplay.cpp
++++ b/src/opengl/egldisplay.cpp
+@@ -298,7 +298,15 @@
+ 
+     attribs << EGL_NONE;
+ 
+-    return createImage(EGL_NO_CONTEXT, EGL_LINUX_DMA_BUF_EXT, nullptr, attribs.data());
++    const EGLImageKHR image = createImage(EGL_NO_CONTEXT, EGL_LINUX_DMA_BUF_EXT, nullptr, attribs.data());
++    if (image == EGL_NO_IMAGE_KHR) {
++        qCWarning(KWIN_OPENGL) << "MTT validation: dma-buf import failed"
++                              << "size" << dmabuf.width << dmabuf.height
++                              << "fourcc" << dmabuf.format << "modifier" << dmabuf.modifier
++                              << "planes" << dmabuf.planeCount
++                              << "pitch0" << dmabuf.pitch[0] << "offset0" << dmabuf.offset[0];
++    }
++    return image;
+ }
+ 
+ const FormatModifierMap &EglDisplay::allSupportedDrmFormats() const
+@@ -435,7 +443,7 @@
+         image = importDmaBufAsImage(*buffer->dmabufAttributes(), coefficients, range);
+         // On Nvidia, sampling from udmabuf just results in black,
+         // and on i915 there are glitches on some systems
+-    } else if (buffer->udmabufAttributes() && (!m_drmDevice || !s_disableUdmabuf.value_or(m_drmDevice->isNvidia() || m_drmDevice->isI915()))) {
++    } else if (buffer->udmabufAttributes() && !s_disableUdmabuf.value_or(m_drmDevice && (m_drmDevice->isNvidia() || m_drmDevice->isI915()))) {
+         image = importDmaBufAsImage(*buffer->udmabufAttributes(), coefficients, range);
+     }
+     m_importCache[key] = image;

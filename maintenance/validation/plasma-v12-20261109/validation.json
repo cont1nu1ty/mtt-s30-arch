@@ -1,0 +1,267 @@
+{
+  "verified_utc": "2026-11-09T08:58:43.098862+00:00",
+  "profile": "kwin-plasma-xwayland-v12",
+  "status": "prepared; S30 Plasma/XWayland hardware run pending",
+  "hardware_tested": false,
+  "latest_hardware_pass": "20261109-160826 (v11)",
+  "manifest_sha256": "d9d00ef849dab55a77e895a787194b6dfd04f2fdd724563666be4b353142b94a",
+  "bundle": "/home/bull/Documents/mtt-s30-arch/builds/desktop-plasma-v12-20261109",
+  "byte_identical_second_build": true,
+  "payload_file_count": 12,
+  "unchanged_v11_bundle_verified": true,
+  "host_package_pins_verified": {
+    "kwin": "6.8.2-1",
+    "mesa": "1:26.2.6-1",
+    "qt6-base": "6.12.0-3",
+    "qt6-declarative": "6.12.0-4",
+    "kdecoration": "6.8.2-1",
+    "plasma-workspace": "6.8.2-1",
+    "plasma-desktop": "6.8.2-1",
+    "libplasma": "6.8.2-1",
+    "kactivitymanagerd": "6.8.2-1",
+    "kio": "6.31.0-1",
+    "xorg-xwayland": "24.1.14-1",
+    "libglvnd": "1.7.0-3",
+    "libx11": "1.8.14-1"
+  },
+  "staging_and_runtime_dependencies_passed": true,
+  "recovery_flow_tests": 107,
+  "process_group_cleanup_tests_included": 5,
+  "kwin_final_library_format_tests": 35,
+  "kwin_startup_guard_tests": 5,
+  "software_session_passed": true,
+  "software_wayland": {
+    "passed": true,
+    "mode": "wayland-software",
+    "frames": 300,
+    "pixels_checked": 14745600,
+    "mismatches": 0,
+    "presented": 300,
+    "discarded": 0,
+    "hardware_presentations": 300,
+    "presentation_flags_all": 7,
+    "completed_cycles": 5,
+    "frames_per_cycle": 60,
+    "renderer": "softpipe",
+    "vendor": "Mesa",
+    "egl_vendor": "Mesa Project"
+  },
+  "software_qt": {
+    "frames": 12,
+    "gl_version": "OpenGL ES 3.1 Mesa 23.2.1-1ubuntu3.1~22.04.3",
+    "graphics_api": "OpenGL",
+    "mismatches": 0,
+    "mode": "qt-wayland-software",
+    "opengles": true,
+    "passed": true,
+    "pixels_checked": 589824,
+    "renderer": "softpipe",
+    "swapped": 13,
+    "vendor": "Mesa",
+    "window_destroyed": true
+  },
+  "software_plasma": {
+    "passed": true,
+    "mode": "plasma-software",
+    "phase": "complete",
+    "forced_kill": false,
+    "full_login_session_tested": false,
+    "shell_pid": 28372,
+    "activity_pid": 28370,
+    "kio_pid": 28371,
+    "last_startup_observation": "Plasma desktop/panel did not submit rendered buffers.",
+    "opengl_contexts": [
+      {
+        "vendor": "Mesa",
+        "renderer": "softpipe",
+        "version": "3.3 (Compatibility Profile) Mesa 23.2.1-1ubuntu3.1~22.04.3"
+      },
+      {
+        "vendor": "Mesa",
+        "renderer": "softpipe",
+        "version": "3.3 (Compatibility Profile) Mesa 23.2.1-1ubuntu3.1~22.04.3"
+      }
+    ],
+    "private_egl_verified": true,
+    "private_dri_pair_verified": false,
+    "drawn_layer_surfaces": {
+      "desktop": "47",
+      "dock": "79"
+    },
+    "dmabuf_buffers_per_layer": {
+      "desktop": [],
+      "dock": []
+    },
+    "layer_buffer_submissions": {
+      "desktop": 18,
+      "dock": 29
+    },
+    "graphics_faults": [],
+    "active_activity": "948e69c6-5fc5-4302-a046-64e1b1b9a071",
+    "panel_layout_change_and_restore": true,
+    "exercise": {
+      "passed": true,
+      "phase": "complete",
+      "software_control": true,
+      "client_exit": 0,
+      "server": {
+        "pid": 28510,
+        "parent_pid": 28196,
+        "display": ":100",
+        "authenticated": true,
+        "exe": "/usr/bin/Xwayland",
+        "setup_helper_verified": true,
+        "hardware_server_verified": false
+      },
+      "client": {
+        "passed": true,
+        "mode": "xwayland-glx-software",
+        "frames": 12,
+        "pixels_checked": 589824,
+        "mismatches": 0,
+        "swapped": 12,
+        "direct": true,
+        "xwayland_extension": true,
+        "desktop_opengl": true,
+        "gl_major": 4,
+        "gl_minor": 6,
+        "window_destroyed": true,
+        "context_destroyed": true,
+        "display_closed": true,
+        "renderer": "llvmpipe (LLVM 23.1.4, 256 bits)",
+        "vendor": "Mesa",
+        "gl_version": "4.6 (Core Profile) Mesa 26.2.6-arch1.1",
+        "glx_vendor": "Mesa Project and SGI",
+        "xserver_vendor": "The X.Org Foundation",
+        "dri3_extension": false,
+        "dri3_node": "",
+        "dri3_device_major": 0,
+        "dri3_device_minor": 0
+      }
+    },
+    "checks_passed": true,
+    "exit_codes": {
+      "plasma.log": {
+        "code": 0,
+        "termination_requested": true
+      },
+      "plasma-kio.log": {
+        "code": -15,
+        "termination_requested": true
+      },
+      "plasma-activities.log": {
+        "code": -15,
+        "termination_requested": true
+      }
+    }
+  },
+  "software_xwayland": {
+    "passed": true,
+    "phase": "complete",
+    "software_control": true,
+    "client_exit": 0,
+    "server": {
+      "pid": 28510,
+      "parent_pid": 28196,
+      "display": ":100",
+      "authenticated": true,
+      "exe": "/usr/bin/Xwayland",
+      "setup_helper_verified": true,
+      "hardware_server_verified": false
+    },
+    "client": {
+      "passed": true,
+      "mode": "xwayland-glx-software",
+      "frames": 12,
+      "pixels_checked": 589824,
+      "mismatches": 0,
+      "swapped": 12,
+      "direct": true,
+      "xwayland_extension": true,
+      "desktop_opengl": true,
+      "gl_major": 4,
+      "gl_minor": 6,
+      "window_destroyed": true,
+      "context_destroyed": true,
+      "display_closed": true,
+      "renderer": "llvmpipe (LLVM 23.1.4, 256 bits)",
+      "vendor": "Mesa",
+      "gl_version": "4.6 (Core Profile) Mesa 26.2.6-arch1.1",
+      "glx_vendor": "Mesa Project and SGI",
+      "xserver_vendor": "The X.Org Foundation",
+      "dri3_extension": false,
+      "dri3_node": "",
+      "dri3_device_major": 0,
+      "dri3_device_minor": 0
+    }
+  },
+  "independent_pixels": {
+    "wayland.rgba": {
+      "matched": true,
+      "pixels": 49152,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5"
+    },
+    "qt.rgba": {
+      "matched": true,
+      "pixels": 49152,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5"
+    },
+    "x11.rgba": {
+      "matched": true,
+      "pixels": 49152,
+      "sha256": "ff69dca52686e1a7d30f78a0edb17f91460b290a4b7ecc4d392679f5fb1359e5"
+    }
+  },
+  "qt_png_matches_rgba": true,
+  "no_remaining_private_runtime_processes": true,
+  "software_presentation_flags_are_not_hardware_evidence": true,
+  "full_login_session_tested": false,
+  "s30_plasma_tested": false,
+  "s30_xwayland_tested": false,
+  "scanout_pixels_captured": false,
+  "watchdog_reset_proven": false,
+  "session_total_timeout_seconds": 100,
+  "session_timeout_cleanup_max_additional_seconds": 4,
+  "supervisor_reboot_seconds": 180,
+  "fallback_reboot_seconds": 210,
+  "fresh_root_backup_and_boot_audit_pending": true,
+  "module_sha256": "6857f52e14db1071ca5b089029725432d5bbb71022dba55f9cd973121bc4adff",
+  "current_boot_id": "ba558900-3338-45c9-a700-514e4acdce87",
+  "current_kernel": "7.2.14-arch1-1",
+  "module_loaded": false,
+  "display_manager_active": true,
+  "system_install_or_boot_change_performed": false,
+  "local_failure_fixed": {
+    "stage": "work/v12-cpu",
+    "cause": "Qt readback completed before the last frameSwapped signal; now waits within the original watchdog before app cleanup."
+  },
+  "earlier_control_scope": "Standalone Plasma controls precede private X endpoint metadata; final integrated run above uses final manifest. X11 source matches unchanged C++ source.",
+  "sources_sha256": {
+    "maintenance/desktop/build-plasma-checks.py": "e7565c6423280b1d32fe0873787611834bc21e2173d3ba51830fe3a870d0a48e",
+    "maintenance/desktop/build-kwin-session-compat.py": "07478b0e025a35eae5f37b4ef901da2ef4d14bfd4cda9478d0a7081630d81c89",
+    "maintenance/desktop/validate-userland.py": "db0799aa1923fc1decceb4c845a4d4df3c87cbdfafdfa3314eab14bd39f45f8f",
+    "maintenance/desktop/qt-check.cpp": "ac72abeb182078c1af09db861d757e9b7e639725b4b082f3458005471726bc87",
+    "maintenance/desktop/x11-check.cpp": "af5cb23b12a5c71b2450919d1a0d0422f80566291c842b2406aa8f24926eb0d0",
+    "maintenance/desktop/build-x11-check.py": "f1f8886781d6dfc64e153158fd7516d0c9c9f91f8fbff752c5bcae5325ff6205",
+    "maintenance/recovery/collect-results.py": "117b2e2db2ab6eed62f0b45b21b4505fa9a258290878915f65a9b89eec71247c",
+    "maintenance/recovery/desktop_support.py": "7a2d554b4bb8bdc6d960c62207c1e0bd2e5b33961620ba59cd3eb59d0bfb928a",
+    "maintenance/recovery/inspect-next-boot.py": "9848f3c5f2b78fad0cbc75a98b366dafd06b3a628256bd6beef82b5f46b7c36a",
+    "maintenance/recovery/plasma_support.py": "d42a07e1234d8b96f3e2129f906f877dd1656fd923927fa0be6fe507e87d93c3",
+    "maintenance/recovery/prepare-and-test.py": "f6c8f0b0024856fdbda4e0ed416faefa4f199e2a3c7155ee7a956f6dcd98c0a5",
+    "maintenance/recovery/prepare-recovery.py": "ef64d6f5ea974b230c0089a06bd435ef6126a479cb8e7c6dc8b8d4aa7b51a51b",
+    "maintenance/recovery/session_process.py": "af2efa1cd595adf90d572089ac6d1eb9a4f3eb5d8fa95ddfd6ff1453934b68c4",
+    "maintenance/recovery/test-once.py": "8030591585980170dd392d85fed324f699a7f73c86a09b2de7c79ab266048c6c",
+    "maintenance/recovery/test_collect_results.py": "ec62dc52a3e18fd3874160105928d0e905ad3a8636fb82feff6a015d6a7b382d",
+    "maintenance/recovery/test_desktop.py": "311f5946183de9005c36968bdef736391c78e85a7b04fddf84d7013b35831a40",
+    "maintenance/recovery/test_launch.py": "1c35da135146cce5c04c7348c51db4a1e2ae9e4dd5c2f9e13d58b5b45cbe6fc6",
+    "maintenance/recovery/test_next_boot.py": "4eeee7e5a70665dd6bd58281f5bb81498079fc276f989e4308d017cf63d10f00",
+    "maintenance/recovery/test_plasma.py": "dad24c789347d652007e21d6c6efb9589f8b2d6bc47a4be21ae21bb6293d68b9",
+    "maintenance/recovery/test_preflight.py": "7f2e67a73b304541e2a34ae4c0026494ca01b4e36e40e93f0419037cb3bc55fb",
+    "maintenance/recovery/test_runner.py": "a33f3b507cbf91944c7289ca53c51ca1c467a9c91dbe90be649394d63516a806",
+    "maintenance/recovery/test_session_process.py": "6297639336e9df7257eaddae8a32b749e73107ba0eafb7c7a726bd40f22b30d9",
+    "maintenance/recovery/test_workloads.py": "a1b3370a0b45f51bf989e178145375e31a486d452618272546008daa92d0811c",
+    "maintenance/recovery/test_xwayland.py": "46042e0a3a2870c7e348209918c9628607732de8b6e4675f62a3c1274cf1b075",
+    "maintenance/recovery/workload_support.py": "d1b15c6592b6f64c3aaaee11dc22f40d10c2cf4622789b4d7695161037299602",
+    "maintenance/recovery/xwayland_support.py": "6a564442d81dc0ac52bfb6098331f4693995546d4ae666caf148f2cbe21e504a"
+  }
+}

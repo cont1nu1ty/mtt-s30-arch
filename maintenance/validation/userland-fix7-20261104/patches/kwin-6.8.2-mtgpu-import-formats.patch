@@ -1,0 +1,92 @@
+From: Local MTT S30 compatibility maintenance
+Subject: [PATCH] kwin: bound S30 imports by the pinned vendor import table
+
+A current S30 context can use secondary DRI, so re-querying formats does
+not remove XB24/AB30 even though the primary DMA2 importer rejects them.
+For the private official 3.1.0 bundle, intersect both maps with the exact
+18-format mandatory import table verified from its pinned binary. Keep
+query/modifier checks, error propagation and actual image validation.
+Log the raw current query and the post-table accepted set separately.
+
+This is a necessary-condition restriction, not proof of format support.
+No class data members or system/vendor binaries are changed.
+
+--- a/src/opengl/egldisplay.cpp
++++ b/src/opengl/egldisplay.cpp
+@@ -19,6 +19,7 @@
+ #include <QOpenGLContext>
+ #include <QStringList>
+ #include <algorithm>
++#include <array>
+ #include <drm_fourcc.h>
+ 
+ #ifndef EGL_DRM_RENDER_NODE_FILE_EXT
+@@ -349,8 +350,8 @@
+         return true;
+     }
+ 
+-    // mtgpu 3.1.0's context-free query may delegate to the secondary driver,
+-    // but its primary DMA-BUF importer validates its own format table first.
++    // A current S30 context may still use the secondary DRI driver. Its
++    // format enumeration can exceed the primary DMA-BUF importer's table.
+     // Only remove entries: never advertise more than either verified query.
+     bool complete = false;
+     const auto current = queryImportFormats(&complete);
+@@ -359,6 +360,46 @@
+     }
+     auto all = m_allFormats.intersected(current.all);
+     auto nonExternalOnly = m_nonExternalOnlyFormats.intersected(current.nonExternalOnly);
++
++    // This private bundle pins official 3.1.0 mtgpu_dri.so SHA256
++    // 2583b5c4e793389e0d130bfb8895884dfdee358ac70d63195deeba1eb0d1a07c.
++    // createImageFromDmaBufs2 (0x711c90) checks this table at 0xc1c420,
++    // via 0x712080, before importing any fd or delegating to secondary DRI.
++    // Table membership is necessary, not sufficient: retain the ordinary
++    // modifier, image import, framebuffer and presentation validation.
++    constexpr std::array<uint32_t, 18> mtgpu31PrimaryImportFormats = {
++        DRM_FORMAT_R8, DRM_FORMAT_GR88, DRM_FORMAT_R16, DRM_FORMAT_GR1616,
++        DRM_FORMAT_RGBA8888, DRM_FORMAT_ARGB8888, DRM_FORMAT_ABGR8888,
++        DRM_FORMAT_XRGB8888, DRM_FORMAT_XRGB2101010, DRM_FORMAT_RGB565,
++        DRM_FORMAT_AYUV, DRM_FORMAT_P010, DRM_FORMAT_P016, DRM_FORMAT_UYVY,
++        DRM_FORMAT_VYUY, DRM_FORMAT_NV12, DRM_FORMAT_NV21, DRM_FORMAT_YVU420,
++    };
++    const auto primaryImports = [&mtgpu31PrimaryImportFormats](uint32_t format) {
++        return std::find(mtgpu31PrimaryImportFormats.begin(), mtgpu31PrimaryImportFormats.end(), format)
++            != mtgpu31PrimaryImportFormats.end();
++    };
++    const auto constrain = [&primaryImports](FormatModifierMap &formats) {
++        for (auto it = formats.begin(); it != formats.end();) {
++            if (!primaryImports(it.key())) {
++                it = formats.erase(it);
++            } else {
++                ++it;
++            }
++        }
++    };
++    constrain(all);
++    constrain(nonExternalOnly);
++    QStringList outsidePrimaryTable;
++    for (auto it = current.all.begin(); it != current.all.end(); ++it) {
++        if (!primaryImports(it.key())) {
++            outsidePrimaryTable.push_back(FormatInfo::drmFormatName(it.key()));
++        }
++    }
++    outsidePrimaryTable.sort();
++    qCInfo(KWIN_OPENGL) << "MTT compatibility: fixed-driver import formats"
++                       << "tableEntries" << mtgpu31PrimaryImportFormats.size()
++                       << "vendorSha256" << "2583b5c4e793389e0d130bfb8895884dfdee358ac70d63195deeba1eb0d1a07c"
++                       << "outside-primary-table" << outsidePrimaryTable;
+     if (all.isEmpty() || nonExternalOnly.isEmpty()) {
+         return reject("no compatible renderable DMA-BUF formats");
+     }
+--- a/src/main_wayland.cpp
++++ b/src/main_wayland.cpp
+@@ -328,7 +328,7 @@
+     QCoreApplication::setAttribute(Qt::AA_DisableShaderDiskCache);
+ 
+     KWin::ApplicationWayland a(argc, argv);
+-    qInfo("MTT S30 isolated validation build: userland-fix6 (KWin 6.8.2)");
++    qInfo("MTT S30 isolated validation build: userland-fix7 (KWin 6.8.2)");
+ 
+     // Reset the environment variables so we don't propagate them to our children (e.g. apps
+     // launched from the overview effect)

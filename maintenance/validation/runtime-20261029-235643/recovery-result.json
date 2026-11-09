@@ -1,0 +1,107 @@
+{
+  "current_boot_id": "9a8466a8-bada-4835-a173-53b5c40f0c1b",
+  "test_boot_id": "eb4afdcb-b337-45eb-bf3a-45de403fe3d2",
+  "reboot_observed": true,
+  "hardware_watchdog_reset_proven": false,
+  "copied": [
+    {
+      "name": "supervisor-result.json",
+      "source_bytes": 2308,
+      "tail_only": false
+    },
+    {
+      "name": "probe-result.json",
+      "source_bytes": 1611,
+      "tail_only": false
+    },
+    {
+      "name": "config.json",
+      "source_bytes": 174,
+      "tail_only": false
+    },
+    {
+      "name": "kernel-live.log",
+      "source_bytes": 13616,
+      "tail_only": false
+    },
+    {
+      "name": "kernel-before.log",
+      "source_bytes": 80867,
+      "tail_only": false
+    },
+    {
+      "name": "kernel-check.log",
+      "source_bytes": 91835,
+      "tail_only": false
+    },
+    {
+      "name": "kernel-final.log",
+      "source_bytes": 114371,
+      "tail_only": false
+    },
+    {
+      "name": "probe.log",
+      "source_bytes": 0,
+      "tail_only": false
+    },
+    {
+      "name": "stop-desktop.log",
+      "source_bytes": 0,
+      "tail_only": false
+    },
+    {
+      "name": "protect-esp.log",
+      "source_bytes": 0,
+      "tail_only": false
+    },
+    {
+      "name": "dependencies.log",
+      "source_bytes": 0,
+      "tail_only": false
+    },
+    {
+      "name": "insmod.log",
+      "source_bytes": 0,
+      "tail_only": false
+    },
+    {
+      "name": "iomem-after.log",
+      "source_bytes": 3014,
+      "tail_only": false
+    },
+    {
+      "name": "pci-resources.log",
+      "source_bytes": 741,
+      "tail_only": false
+    },
+    {
+      "name": "mthreads-gmi.log",
+      "source_bytes": 1077,
+      "tail_only": false
+    },
+    {
+      "name": "vulkan.log",
+      "source_bytes": 1971,
+      "tail_only": false
+    },
+    {
+      "name": "vaapi.log",
+      "source_bytes": 2437,
+      "tail_only": false
+    }
+  ],
+  "esp_comparison": {
+    "expected_files": 11,
+    "current_files": 11,
+    "added": [],
+    "removed": [],
+    "changed": [
+      "loader/random-seed"
+    ],
+    "unchanged_files": 10
+  },
+  "all_efi_files_identical": false,
+  "original_boot_and_efi_verified": true,
+  "verification_scope": "All baseline checks; after observed reboot only loader/random-seed content rotation is allowed. Added/removed files or any other changed content fail.",
+  "journal_exit": 0
+}

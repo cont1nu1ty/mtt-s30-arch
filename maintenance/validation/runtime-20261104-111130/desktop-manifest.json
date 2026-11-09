@@ -1,0 +1,83 @@
+{
+  "profile": "kwin-wayland-v4",
+  "files": {
+    "egl/50_mesa.json": {
+      "sha256": "4aafa7f214e777358e7196084dff436d6b0aab3b13f367c2abf2a5f98b507df7",
+      "size": 92
+    },
+    "egl/libEGL_mesa.so.0": {
+      "sha256": "a1b4eab31a2e8a10e38be599ca3e33cbeabfeed6cb4e31ca6e999bce6a19b119",
+      "size": 1659312
+    },
+    "egl/libglapi.so.0": {
+      "sha256": "3b796b01bb3b6d8fa8bd0b970258fd2c284841fd3ded0e82f684adc06ba2f1cb",
+      "size": 211304
+    },
+    "egl-check": {
+      "sha256": "bcea4982281b3c13f900c38b48d56b1f909b2a3f930787b40e9c0b48413ecaa2",
+      "size": 82112
+    },
+    "kwin/kwin_wayland": {
+      "sha256": "1bd48a3430cfbb270e7835602343b43d1eb1783d065e34f453f1b4ad3a77c37a",
+      "size": 2607248
+    },
+    "kwin/libkwin.so.6": {
+      "sha256": "d3c0d684c021b36e18aa6001eb5d1d5844f494a144ed6a568ae51fc247e850b5",
+      "size": 16881960
+    }
+  },
+  "base_manifest_sha256": "4a2f2c694807c91b2d467a41fac968296e3419d61c1f65682a39a339ea9fddcc",
+  "sources": {
+    "mesa_23.2.1.orig.tar.gz": "c1458ab511b87d60644b2c46d67f7d9d5c0e3db691db6aae11762b1cc5b43ca0",
+    "mesa_23.2.1-1ubuntu3.1~22.04.3.diff.gz": "f43f7e603db34bb4f8fd8b41be102d112c23042e769d94a0d78fee0ee6ee7fd2"
+  },
+  "source_url": "https://snapshot.ubuntu.com/ubuntu/20250516T000000Z/pool/main/m/mesa/",
+  "patch_sha256": "cb349e6b195bc2fcd5f4a489ce3eaed3c1ebdd5d516aaefcc13f3caceb2a9102",
+  "builder_sha256": "985ffbe415cd323cc0efe0536b303a0ffd22b8d35395d709f248c4f0232cd776",
+  "c11_patch_sha256": "73cfb3dedafe937996b171c55082d6317cf62e4371f6c1146c2d2a902cf7060b",
+  "screen_abi_patch_sha256": "9d5683b8670f071241924b172d7e683030203f8f637c38b7972a7c264eb762fc",
+  "c11_upstream_commit": "179e744f7577d98df7c79d7324c22acfb32a0154",
+  "egl_check_manifest": {
+    "profile": "kwin-wayland-v1",
+    "files": {
+      "egl-check": {
+        "sha256": "bcea4982281b3c13f900c38b48d56b1f909b2a3f930787b40e9c0b48413ecaa2",
+        "size": 82112
+      }
+    },
+    "source_sha256": {
+      "egl-check.c": "003c3c5aeadfeb34f8f4a7f27dc4bb1cb9f57eaaab5e9681b261e120f46c9d5c",
+      "build.py": "9412b84f134c221dafb30a0289d743f9c6e9a9d3e29a2de9f66d69e31f67f62c"
+    },
+    "protocol_sha256": {
+      "/usr/share/qt6/wayland/protocols/xdg-shell/xdg-shell.xml": "b72112a7a1f9b2ad94ffa59468753ced568d6e7b2069df94a9d437e488b8506e",
+      "/usr/share/qt6/wayland/protocols/presentation-time/presentation-time.xml": "57c15a794125d5c3b3d83f5069a10d96d23988cb464ae9f3635b7116a10ab481"
+    }
+  },
+  "configure": [
+    "meson",
+    "setup",
+    "/home/bull/Documents/mtt-s30-arch/work/egl-screen-abi-final-v3-20261103/mesa-build",
+    "/home/bull/Documents/mtt-s30-arch/work/egl-screen-abi-final-v3-20261103/mesa-23.2.1",
+    "--buildtype=debugoptimized",
+    "--prefix=/usr",
+    "-Dplatforms=wayland",
+    "-Dgallium-drivers=swrast",
+    "-Dvulkan-drivers=",
+    "-Degl=enabled",
+    "-Dgbm=enabled",
+    "-Dglx=disabled",
+    "-Dgles1=disabled",
+    "-Dgles2=enabled",
+    "-Dopengl=true",
+    "-Dllvm=disabled",
+    "-Dshared-glapi=enabled",
+    "-Dglvnd=true",
+    "-Dlibunwind=disabled",
+    "-Dvalgrind=disabled",
+    "-Dbuild-tests=false"
+  ],
+  "dri_internal_version": "23.2.1-1ubuntu3.1~22.04.3",
+  "abi_version_check_bypassed": false,
+  "hardware_tested": false
+}

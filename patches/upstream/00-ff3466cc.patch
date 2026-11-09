@@ -1,0 +1,25 @@
+commit ff3466ccb9a80210234b40ebcf24c77af5675e58
+Author:     dixyes <dixyes@gmail.com>
+AuthorDate: Tue Apr 22 13:20:08 2025 +0800
+Commit:     dixyes <dixyes@gmail.com>
+CommitDate: Tue Apr 22 13:21:09 2025 +0800
+
+    Donot define os_follow_pfn after 6.10
+
+diff --git a/src/common/os-interface.c b/src/common/os-interface.c
+index f49b243..4016dec 100644
+--- a/src/common/os-interface.c
++++ b/src/common/os-interface.c
+@@ -2158,10 +2158,12 @@ uint64_t os_untagged_addr(u64 addr)
+ 	return untagged_addr(addr);
+ }
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(6, 10, 0)
+ int os_follow_pfn(struct vm_area_struct *vma, unsigned long address, unsigned long *pfn)
+ {
+ 	return follow_pfn(vma, address, pfn);
+ }
++#endif // LINUX_VERSION
+ 
+ int os_fixup_user_fault(struct task_struct *tsk, struct mm_struct *mm, unsigned long address,
+ 			unsigned int fault_flags, bool *unlocked)

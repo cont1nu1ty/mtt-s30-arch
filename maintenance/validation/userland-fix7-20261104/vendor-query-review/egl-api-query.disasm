@@ -1,0 +1,115 @@
+
+official/driver-3.1.0/usr/lib/x86_64-linux-gnu/libEGL_mtgpu.so.0.0.0:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000016c50 <__egl_Main@@Base-0x28720>:
+   16c50:	41 57                	push   %r15
+   16c52:	41 56                	push   %r14
+   16c54:	49 89 ce             	mov    %rcx,%r14
+   16c57:	41 55                	push   %r13
+   16c59:	41 54                	push   %r12
+   16c5b:	49 89 d5             	mov    %rdx,%r13
+   16c5e:	55                   	push   %rbp
+   16c5f:	53                   	push   %rbx
+   16c60:	48 89 fb             	mov    %rdi,%rbx
+   16c63:	41 89 f4             	mov    %esi,%r12d
+   16c66:	48 83 ec 08          	sub    $0x8,%rsp
+   16c6a:	48 8b 3d 6f cf 23 00 	mov    0x23cf6f(%rip),%rdi        # 253be0 <_fini@@Base+0x2147b0>
+   16c71:	e8 3a 91 ff ff       	call   fdb0 <pthread_mutex_lock@plt>
+   16c76:	48 8b 05 6b cf 23 00 	mov    0x23cf6b(%rip),%rax        # 253be8 <_fini@@Base+0x2147b8>
+   16c7d:	48 85 c0             	test   %rax,%rax
+   16c80:	74 1b                	je     16c9d <__cxa_finalize@plt+0x6e8d>
+   16c82:	48 39 c3             	cmp    %rax,%rbx
+   16c85:	75 0e                	jne    16c95 <__cxa_finalize@plt+0x6e85>
+   16c87:	e9 64 01 00 00       	jmp    16df0 <__cxa_finalize@plt+0x6fe0>
+   16c8c:	0f 1f 40 00          	nopl   0x0(%rax)
+   16c90:	48 39 c3             	cmp    %rax,%rbx
+   16c93:	74 5b                	je     16cf0 <__cxa_finalize@plt+0x6ee0>
+   16c95:	48 8b 00             	mov    (%rax),%rax
+   16c98:	48 85 c0             	test   %rax,%rax
+   16c9b:	75 f3                	jne    16c90 <__cxa_finalize@plt+0x6e80>
+   16c9d:	48 8b 3d 3c cf 23 00 	mov    0x23cf3c(%rip),%rdi        # 253be0 <_fini@@Base+0x2147b0>
+   16ca4:	e8 e7 8b ff ff       	call   f890 <pthread_mutex_unlock@plt>
+   16ca9:	e8 d2 28 01 00       	call   29580 <__cxa_finalize@plt+0x19770>
+   16cae:	48 89 c3             	mov    %rax,%rbx
+   16cb1:	e8 aa 27 01 00       	call   29460 <__cxa_finalize@plt+0x19650>
+   16cb6:	85 c0                	test   %eax,%eax
+   16cb8:	89 c5                	mov    %eax,%ebp
+   16cba:	0f 84 00 01 00 00    	je     16dc0 <__cxa_finalize@plt+0x6fb0>
+   16cc0:	48 8d 35 09 9f 02 00 	lea    0x29f09(%rip),%rsi        # 40bd0 <_fini@@Base+0x17a0>
+   16cc7:	31 c9                	xor    %ecx,%ecx
+   16cc9:	ba b9 33 00 00       	mov    $0x33b9,%edx
+   16cce:	bf 03 30 00 00       	mov    $0x3003,%edi
+   16cd3:	31 c0                	xor    %eax,%eax
+   16cd5:	31 ed                	xor    %ebp,%ebp
+   16cd7:	e8 64 e8 00 00       	call   25540 <__cxa_finalize@plt+0x15730>
+   16cdc:	48 83 c4 08          	add    $0x8,%rsp
+   16ce0:	89 e8                	mov    %ebp,%eax
+   16ce2:	5b                   	pop    %rbx
+   16ce3:	5d                   	pop    %rbp
+   16ce4:	41 5c                	pop    %r12
+   16ce6:	41 5d                	pop    %r13
+   16ce8:	41 5e                	pop    %r14
+   16cea:	41 5f                	pop    %r15
+   16cec:	c3                   	ret
+   16ced:	0f 1f 00             	nopl   (%rax)
+   16cf0:	48 8b 3d e9 ce 23 00 	mov    0x23cee9(%rip),%rdi        # 253be0 <_fini@@Base+0x2147b0>
+   16cf7:	e8 94 8b ff ff       	call   f890 <pthread_mutex_unlock@plt>
+   16cfc:	48 85 db             	test   %rbx,%rbx
+   16cff:	74 a8                	je     16ca9 <__cxa_finalize@plt+0x6e99>
+   16d01:	4c 8d 7b 08          	lea    0x8(%rbx),%r15
+   16d05:	4c 89 ff             	mov    %r15,%rdi
+   16d08:	e8 a3 90 ff ff       	call   fdb0 <pthread_mutex_lock@plt>
+   16d0d:	e8 6e 28 01 00       	call   29580 <__cxa_finalize@plt+0x19770>
+   16d12:	48 89 c5             	mov    %rax,%rbp
+   16d15:	e8 46 27 01 00       	call   29460 <__cxa_finalize@plt+0x19650>
+   16d1a:	85 c0                	test   %eax,%eax
+   16d1c:	75 a2                	jne    16cc0 <__cxa_finalize@plt+0x6eb0>
+   16d1e:	48 8d 35 ab 9e 02 00 	lea    0x29eab(%rip),%rsi        # 40bd0 <_fini@@Base+0x17a0>
+   16d25:	48 c7 45 28 00 00 00 	movq   $0x0,0x28(%rbp)
+   16d2c:	00 
+   16d2d:	48 89 75 20          	mov    %rsi,0x20(%rbp)
+   16d31:	8b 6b 50             	mov    0x50(%rbx),%ebp
+   16d34:	85 ed                	test   %ebp,%ebp
+   16d36:	74 68                	je     16da0 <__cxa_finalize@plt+0x6f90>
+   16d38:	48 8b 43 48          	mov    0x48(%rbx),%rax
+   16d3c:	4c 89 f1             	mov    %r14,%rcx
+   16d3f:	4c 89 ea             	mov    %r13,%rdx
+   16d42:	44 89 e6             	mov    %r12d,%esi
+   16d45:	48 89 df             	mov    %rbx,%rdi
+   16d48:	ff 90 68 01 00 00    	call   *0x168(%rax)
+   16d4e:	4c 89 ff             	mov    %r15,%rdi
+   16d51:	89 c5                	mov    %eax,%ebp
+   16d53:	e8 38 8b ff ff       	call   f890 <pthread_mutex_unlock@plt>
+   16d58:	85 ed                	test   %ebp,%ebp
+   16d5a:	0f 84 7c ff ff ff    	je     16cdc <__cxa_finalize@plt+0x6ecc>
+   16d60:	8b 0d 82 d1 23 00    	mov    0x23d182(%rip),%ecx        # 253ee8 <__bss_start@@Base+0x278>
+   16d66:	85 c9                	test   %ecx,%ecx
+   16d68:	0f 84 93 00 00 00    	je     16e01 <__cxa_finalize@plt+0x6ff1>
+   16d6e:	48 8b 05 0b c2 23 00 	mov    0x23c20b(%rip),%rax        # 252f80 <_fini@@Base+0x213b50>
+   16d75:	64 48 8b 00          	mov    %fs:(%rax),%rax
+   16d79:	48 85 c0             	test   %rax,%rax
+   16d7c:	0f 84 28 01 00 00    	je     16eaa <__cxa_finalize@plt+0x709a>
+   16d82:	48 8d 15 77 d1 23 00 	lea    0x23d177(%rip),%rdx        # 253f00 <__bss_start@@Base+0x290>
+   16d89:	48 39 d0             	cmp    %rdx,%rax
+   16d8c:	0f 84 4a ff ff ff    	je     16cdc <__cxa_finalize@plt+0x6ecc>
+   16d92:	c7 00 00 30 00 00    	movl   $0x3000,(%rax)
+   16d98:	e9 3f ff ff ff       	jmp    16cdc <__cxa_finalize@plt+0x6ecc>
+   16d9d:	0f 1f 00             	nopl   (%rax)
+   16da0:	bf 01 30 00 00       	mov    $0x3001,%edi
+   16da5:	e8 96 ed 00 00       	call   25b40 <__cxa_finalize@plt+0x15d30>
+   16daa:	4c 89 ff             	mov    %r15,%rdi
+   16dad:	e8 de 8a ff ff       	call   f890 <pthread_mutex_unlock@plt>
+   16db2:	e9 25 ff ff ff       	jmp    16cdc <__cxa_finalize@plt+0x6ecc>
+   16db7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+   16dbe:	00 00 
+   16dc0:	48 8d 35 09 9e 02 00 	lea    0x29e09(%rip),%rsi        # 40bd0 <_fini@@Base+0x17a0>
+   16dc7:	48 c7 43 28 00 00 00 	movq   $0x0,0x28(%rbx)
+   16dce:	00 
+   16dcf:	bf 08 30 00 00       	mov    $0x3008,%edi
+   16dd4:	48 89 73 20          	mov    %rsi,0x20(%rbx)
+   16dd8:	e8 63 ed 00 00       	call   25b40 <__cxa_finalize@plt+0x15d30>
+   16ddd:	e9                   	.byte 0xe9
+   16dde:	fa                   	cli

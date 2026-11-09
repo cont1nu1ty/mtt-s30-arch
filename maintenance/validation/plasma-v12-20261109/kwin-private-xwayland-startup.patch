@@ -1,0 +1,93 @@
+--- a/src/xwayland/xwayland.cpp
++++ b/src/xwayland/xwayland.cpp
+@@ -39,6 +39,8 @@
+ 
+ #include <QAbstractEventDispatcher>
+ #include <QDataStream>
++#include <QCoreApplication>
++#include <QFileInfo>
+ #include <QDir>
+ #include <QFile>
+ #include <QRandomGenerator>
+@@ -585,36 +587,54 @@
+ 
+ void Xwayland::runXWaylandStartupScripts()
+ {
++    // This private validation build must never enumerate the installed
++    // session scripts (at-spi, input method, user-manager integrations).
++    const QString privateScripts = qEnvironmentVariable("MTT_S30_XWAYLAND_STARTUP_DIR");
++    const QFileInfo privateInfo(privateScripts);
++    const QDir scriptDir(privateScripts);
++    if (!QDir::isAbsolutePath(privateScripts) || !privateInfo.isDir() || privateInfo.isSymLink()
++        || !scriptDir.entryList(QDir::AllEntries | QDir::Hidden | QDir::System | QDir::NoDotAndDotDot).isEmpty()) {
++        qCCritical(KWIN_XWL) << "MTT validation: Xwayland startup failed: private empty script directory required";
++        QCoreApplication::exit(1);
++        return;
++    }
++
++    const QString helper = QString(LIBEXEC_DIR) + QStringLiteral("/plasma-setup-xwayland");
++    if (helper != QStringLiteral("/usr/lib/plasma-setup-xwayland")) {
++        qCCritical(KWIN_XWL) << "MTT validation: Xwayland startup failed: wrong Arch helper path" << helper;
++        QCoreApplication::exit(1);
++        return;
++    }
++    qCInfo(KWIN_XWL) << "MTT validation: Xwayland startup directory" << privateScripts
++                    << "systemScriptsSkipped true helper" << helper;
+     QProcessEnvironment setupEnv = kwinApp()->processStartupEnvironment();
+     setupEnv.insert("DISPLAY", m_launcher->initDisplayName());
+-
+-    std::shared_ptr<QObject> readyGuard(new QObject());
+-    // captured by every process, then out of scope when finished
+-    connect(readyGuard.get(), &QObject::destroyed, this, [this]() {
+-        registerReady();
++    auto *process = new QProcess(this);
++    process->setProcessEnvironment(setupEnv);
++    connect(process, &QProcess::finished, this, [this, process, helper](int code, QProcess::ExitStatus status) {
++        qCInfo(KWIN_XWL) << "MTT validation: Xwayland setup helper completed" << helper
++                        << "exitCode" << code << "normalExit" << (status == QProcess::NormalExit);
++        if (code == 0 && status == QProcess::NormalExit) {
++            registerReady();
++        } else {
++            qCCritical(KWIN_XWL) << "MTT validation: Xwayland startup failed: helper did not finish normally";
++            QCoreApplication::exit(1);
++        }
++        process->deleteLater();
+     });
+-
+-    QDir scriptDir(XWAYLAND_SESSION_SCRIPTS);
+-    QStringList scripts = scriptDir.entryList(QStringList(), QDir::Files, QDir::Name);
+-    scripts << QString(LIBEXEC_DIR) + QStringLiteral("/plasma-setup-xwayland");
+-
+-    for (const QString &script : std::as_const(scripts)) {
+-        const QString path = scriptDir.filePath(script);
+-        qCDebug(KWIN_XWL) << "Running Xwayland startup script" << path;
+-
+-        auto *process = new QProcess;
+-        process->setProcessEnvironment(setupEnv);
+-        connect(process, &QProcess::finished, process, [process, path, readyGuard]() {
+-            qCDebug(KWIN_XWL) << "Finished Xwayland startup script" << path;
+-            process->deleteLater();
+-        });
+-        // if the script fails to start entirely (bad intepreter, dead symlink, etc), don't block forever
+-        connect(process, &QProcess::errorOccurred, process, [process, path, readyGuard]() {
+-            qCWarning(KWIN_XWL) << "Failed to start Xwayland startup script" << path;
+-            process->deleteLater();
+-        });
+-        process->start(path);
+-    }
++    connect(process, &QProcess::errorOccurred, this, [process, helper](QProcess::ProcessError error) {
++        qCCritical(KWIN_XWL) << "MTT validation: Xwayland startup failed: helper error" << helper << error;
++        QCoreApplication::exit(1);
++        process->deleteLater();
++    });
++    QTimer::singleShot(5000, process, [process]() {
++        if (process->state() != QProcess::NotRunning) {
++            qCCritical(KWIN_XWL) << "MTT validation: Xwayland startup failed: helper timed out";
++            process->kill();
++            QCoreApplication::exit(1);
++        }
++    });
++    process->start(helper);
+ }
+ 
+ bool Xwayland::dragMoveFilter(Window *target, const QPointF &position)

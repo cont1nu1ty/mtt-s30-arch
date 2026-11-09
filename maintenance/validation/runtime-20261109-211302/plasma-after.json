@@ -1,0 +1,26 @@
+{
+  "desktops": [
+    {
+      "id": 1,
+      "type": "org.kde.plasma.folder",
+      "screen": 0
+    }
+  ],
+  "panels": [
+    {
+      "id": 2,
+      "type": "org.kde.panel",
+      "screen": 0,
+      "height": 44,
+      "widgets": [
+        "org.kde.plasma.kickoff",
+        "org.kde.plasma.pager",
+        "org.kde.plasma.icontasks",
+        "org.kde.plasma.marginsseparator",
+        "org.kde.plasma.systemtray",
+        "org.kde.plasma.digitalclock",
+        "org.kde.plasma.showdesktop"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+diff --git a/inc/common/os-interface.h b/inc/common/os-interface.h
+index be6475d..d9672fc 100644
+--- a/inc/common/os-interface.h
++++ b/inc/common/os-interface.h
+@@ -517,7 +517,11 @@ typedef void (*poll_queue_proc)(struct file *, wait_queue_head_t *, struct poll_
+ typedef int mt_kref;
+ typedef int pci_power_t;
+ typedef unsigned long kernel_ulong_t;
++#ifdef OS_STRUCT_MEMPOOL_EXIST
++typedef struct mempool mempool_t;
++#else
+ typedef struct mempool_s mempool_t;
++#endif
+ typedef s64 ktime_t;
+ 
+ struct mt_file_operations {
+diff --git a/src/common/os-interface.c b/src/common/os-interface.c
+index 5f888d9..59e1f56 100644
+--- a/src/common/os-interface.c
++++ b/src/common/os-interface.c
+@@ -2826,7 +2826,11 @@ int os_mod_timer(struct timer_list *timer, unsigned long expires)
+ 
+ int os_del_timer_sync(struct timer_list *timer)
+ {
++#ifdef OS_TIMER_DELETE_SYNC_CALLABLE
++	return timer_delete_sync(timer);
++#else
+ 	return del_timer_sync(timer);
++#endif
+ }
+ 
+ void os_timer_setup(struct timer_list *timer, void (*function)(struct timer_list *),
+@@ -2851,9 +2855,13 @@ void os_destroy_timer(struct timer_list *timer)
+ 
+ void os_hrtimer_init(struct hrtimer *timer, void *function)
+ {
++#ifdef OS_HRTIMER_SETUP_CALLABLE
++	hrtimer_setup(timer, (enum hrtimer_restart(*)(struct hrtimer *))function,
++		      CLOCK_MONOTONIC, HRTIMER_MODE_REL);
++#else
+ 	hrtimer_init(timer, CLOCK_MONOTONIC, HRTIMER_MODE_REL);
+-
+ 	timer->function = (enum hrtimer_restart(*)(struct hrtimer *))function;
++#endif
+ }
+ 
+ void os_hrtimer_start(struct hrtimer *timer, u64 periods)
+@@ -3250,7 +3258,11 @@ void os_pci_release_resource(struct pci_dev *dev, int resno)
+ 
+ int os_pci_resize_resource(struct pci_dev *dev, int resno, int size)
+ {
+-	return pci_resize_resource(dev,  resno,  size);
++#ifdef OS_PCI_RESIZE_RESOURCE_HAS_FOUR_ARGS
++	return pci_resize_resource(dev, resno, size, 0);
++#else
++	return pci_resize_resource(dev, resno, size);
++#endif
+ }
+ 
+ void os_pci_assign_unassigned_bus_resources(struct pci_bus *bus)
+@@ -4773,8 +4785,12 @@ int os_dma_fence_ops_init(struct dma_fence_ops **ops,
+ 	dma_ops->signaled = mt_ops->signaled;
+ 	dma_ops->wait = mt_ops->wait;
+ 	dma_ops->release = mt_ops->release;
++#ifdef OS_STRUCT_DMA_FENCE_OPS_HAS_FENCE_VALUE_STR
+ 	dma_ops->fence_value_str = mt_ops->fence_value_str;
++#endif
++#ifdef OS_STRUCT_DMA_FENCE_OPS_HAS_TIMELINE_VALUE_STR
+ 	dma_ops->timeline_value_str = mt_ops->timeline_value_str;
++#endif
+ 
+ 	*ops = dma_ops;
+ 
+@@ -5421,7 +5437,12 @@ char *os_strcpy(char *dest, const char *src)
+ 
+ char *os_strncpy(char *dest, const char *src, size_t count)
+ {
+-	return strncpy(dest, src, count);
++	/* Keep strncpy's fixed-width, zero-padding semantics for the binary core. */
++	size_t len = strnlen(src, count);
++
++	memcpy(dest, src, len);
++	memset(dest + len, 0, count - len);
++	return dest;
+ }
+ 
+ char *os_strchr(const char *s, int c)

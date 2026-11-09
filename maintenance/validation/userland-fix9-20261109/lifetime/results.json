@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "library": "original",
+      "destructor": "complete",
+      "nodes": 1,
+      "exit": 77
+    },
+    {
+      "library": "original",
+      "destructor": "complete",
+      "nodes": 3,
+      "exit": 77
+    },
+    {
+      "library": "original",
+      "destructor": "deleting",
+      "nodes": 1,
+      "exit": 77
+    },
+    {
+      "library": "original",
+      "destructor": "deleting",
+      "nodes": 3,
+      "exit": 77
+    },
+    {
+      "library": "candidate",
+      "destructor": "complete",
+      "nodes": 1,
+      "exit": 0
+    },
+    {
+      "library": "candidate",
+      "destructor": "complete",
+      "nodes": 3,
+      "exit": 0
+    },
+    {
+      "library": "candidate",
+      "destructor": "deleting",
+      "nodes": 1,
+      "exit": 0
+    },
+    {
+      "library": "candidate",
+      "destructor": "deleting",
+      "nodes": 3,
+      "exit": 0
+    }
+  ],
+  "load_unload_control": {
+    "original": {
+      "leaked_bytes": 74268,
+      "allocations": 22
+    },
+    "candidate": {
+      "leaked_bytes": 74268,
+      "allocations": 22
+    }
+  },
+  "sha256": {
+    "original": "2583b5c4e793389e0d130bfb8895884dfdee358ac70d63195deeba1eb0d1a07c",
+    "candidate": "05cd2ddd3dcb2c0a77994d52b959548babcf912027b550efb9a45aeb6201fc23"
+  },
+  "gpu_opened": false
+}

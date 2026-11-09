@@ -1,0 +1,55 @@
+config 0 rejected
+config 1 rejected
+config 2 rejected
+config 3 rejected
+config 4 rejected
+config 5 rejected
+config 6 rejected
+config 7 rejected
+config 8 accepted rgba=8,8,8,8 depth=0 stencil=0 samples=0 color=12430 caveat=12344 api=76
+config 9 rejected
+config 10 accepted rgba=8,8,8,8 depth=0 stencil=0 samples=2 color=12430 caveat=12344 api=76
+config 11 rejected
+config 12 accepted rgba=8,8,8,8 depth=0 stencil=0 samples=4 color=12430 caveat=12344 api=76
+config 13 rejected
+config 14 accepted rgba=8,8,8,8 depth=0 stencil=0 samples=8 color=12430 caveat=12344 api=76
+config 15 rejected
+config 16 rejected
+config 17 rejected
+config 18 rejected
+config 19 rejected
+config 20 rejected
+config 21 rejected
+config 22 rejected
+config 23 rejected
+config 24 accepted rgba=8,8,8,8 depth=24 stencil=0 samples=0 color=12430 caveat=12344 api=76
+config 25 rejected
+config 26 accepted rgba=8,8,8,8 depth=24 stencil=0 samples=2 color=12430 caveat=12344 api=76
+config 27 rejected
+config 28 accepted rgba=8,8,8,8 depth=24 stencil=0 samples=4 color=12430 caveat=12344 api=76
+config 29 rejected
+config 30 accepted rgba=8,8,8,8 depth=24 stencil=0 samples=8 color=12430 caveat=12344 api=76
+config 31 rejected
+config 32 rejected
+config 33 rejected
+config 34 rejected
+config 35 rejected
+config 36 rejected
+config 37 rejected
+config 38 rejected
+config 39 rejected
+config 40 accepted rgba=8,8,8,8 depth=24 stencil=8 samples=0 color=12430 caveat=12344 api=76
+config 41 rejected
+config 42 accepted rgba=8,8,8,8 depth=24 stencil=8 samples=2 color=12430 caveat=12344 api=76
+config 43 rejected
+config 44 accepted rgba=8,8,8,8 depth=24 stencil=8 samples=4 color=12430 caveat=12344 api=76
+config 45 rejected
+config 46 accepted rgba=8,8,8,8 depth=24 stencil=8 samples=8 color=12430 caveat=12344 api=76
+config 47 rejected
+config 48 rejected
+config 49 accepted rgba=8,8,8,0 depth=0 stencil=0 samples=0 color=12430 caveat=12344 api=76
+config 50 rejected
+config 51 accepted rgba=8,8,8,0 depth=24 stencil=0 samples=0 color=12430 caveat=12344 api=76
+config 52 rejected
+config 53 accepted rgba=8,8,8,0 depth=24 stencil=8 samples=0 color=12430 caveat=12344 api=76
+accepted=15 total=54

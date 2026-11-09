@@ -1,0 +1,61 @@
+{
+  "profile": "kwin-wayland-v8",
+  "files": {
+    "egl/50_mesa.json": {
+      "sha256": "4aafa7f214e777358e7196084dff436d6b0aab3b13f367c2abf2a5f98b507df7",
+      "size": 92
+    },
+    "egl/libEGL_mesa.so.0": {
+      "sha256": "1745f0903656a0a4a6b764313fb56eff988ba7855ecd66278e1128153ce2f6dc",
+      "size": 1661320
+    },
+    "egl/libglapi.so.0": {
+      "sha256": "3b796b01bb3b6d8fa8bd0b970258fd2c284841fd3ded0e82f684adc06ba2f1cb",
+      "size": 211304
+    },
+    "egl-check": {
+      "sha256": "963a424d31dbffb20f227a2897cc1210b74c87fafd301c54369bf02bf9ef8f79",
+      "size": 82112
+    },
+    "kwin/kwin_wayland": {
+      "sha256": "f3d11822f04a3d81ab1bda8aaf79ee362c72faa707f91619089b0ec62c7aca12",
+      "size": 2607248
+    },
+    "kwin/libkwin.so.6": {
+      "sha256": "70f2110f553b260311d24ded8f287c262e60700eb8ba146b5f949c47eaedd5f0",
+      "size": 16903120
+    }
+  },
+  "base_manifest_sha256": "d6220525b89a82a46b4e2d4f15b6cfd5fc6a0a0cc20a3b1cbe123bcf4d2811c6",
+  "source_archives": {
+    "kwin-6.8.2.tar.xz": "ea5e68d957c7d70abed97222a592d4445fda29129e20942658badd224ee138b4",
+    "wayland-protocols-1.50-1-any.pkg.tar.zst": "9fc5d6f59513343bf20a994037591373e3d473f005c58c33ed089b01f52a9c84",
+    "plasma-wayland-protocols-1.23.0-1-any.pkg.tar.zst": "3f89f37dbb8c7a70eba54567764cb35e9e4fd253c803ef14bfb8425588b05ea7"
+  },
+  "patches": {
+    "kwin-6.8.2-s30-test.patch": "19d190aa75a7dcf71bbd5d8a858fd2937378646714d101586e1cac8826fdf721",
+    "kwin-6.8.2-mtgpu-format-context.patch": "f298197f65595211d656d522b6eeb42f0e14393f164904a71425242eec6d07d1",
+    "kwin-6.8.2-mtgpu-import-formats.patch": "a98fa9c7039e989798b80dd2f7d891abcfcae87c025a9bc08c8e556db51e666b"
+  },
+  "builder_sha256": "b35669d8851c4e435c335174cfc0a1979741d7e67665cd5dce975bd3f81fda1a",
+  "kwin_configure": [
+    "cmake",
+    "-S",
+    "/home/bull/Documents/mtt-s30-arch/work/kwin-import-table-final-20261104/kwin-6.8.2",
+    "-B",
+    "/home/bull/Documents/mtt-s30-arch/work/kwin-import-table-final-20261104/kwin-build",
+    "-G",
+    "Ninja",
+    "-DCMAKE_BUILD_TYPE=Release",
+    "-DBUILD_TESTING=OFF",
+    "-DKWIN_BUILD_KCMS=OFF",
+    "-DKWIN_BUILD_X11=ON",
+    "-DCMAKE_INSTALL_PREFIX=/usr",
+    "-DCMAKE_SKIP_RPATH=ON",
+    "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+    "-DPlasmaWaylandProtocols_DIR=/home/bull/Documents/mtt-s30-arch/work/kwin-import-table-final-20261104/deps/usr/share/cmake/PlasmaWaylandProtocols"
+  ],
+  "client_egl_unchanged": true,
+  "vendor_binary_modified": false,
+  "hardware_tested": false
+}

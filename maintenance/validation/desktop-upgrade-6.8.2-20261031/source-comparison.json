@@ -1,0 +1,90 @@
+[
+  {
+    "path": "src/main_wayland.cpp",
+    "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/main_wayland.cpp",
+    "sha256": "9ebeac06104c6483dbb77534e9ff2b1462935a44247968b45907d4844322badf",
+    "old_available": true,
+    "same": false,
+    "diff_lines": 18
+  },
+  {
+    "path": "src/core/session.cpp",
+    "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/core/session.cpp",
+    "sha256": "942b57cc9c4f4f4218a8d59d2fb19f01b44f0d778dccb2f911944c6c9e72d00b",
+    "old_available": true,
+    "same": true,
+    "diff_lines": 0
+  },
+  {
+    "path": "src/core/session_noop.cpp",
+    "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/core/session_noop.cpp",
+    "sha256": "9e20aa19d136e1397db1f1d2a892b26f2a41f34513a512a59dcf9c57edfcc735",
+    "old_available": true,
+    "same": true,
+    "diff_lines": 0
+  },
+  {
+    "path": "src/core/session_logind.cpp",
+    "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/core/session_logind.cpp",
+    "sha256": "e874e3e390258c3cd896de0bbe786e3b94d3417fe1b3b107f438bbec2c8734d2",
+    "old_available": true,
+    "same": true,
+    "diff_lines": 0
+  },
+  {
+    "path": "src/backends/drm/drm_backend.cpp",
+    "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/backends/drm/drm_backend.cpp",
+    "sha256": "da64df39c0231d0bce3ed1017edc3de3becbb8abb739a1796bcf1548759e753f",
+    "old_available": true,
+    "same": true,
+    "diff_lines": 0
+  },
+  {
+    "path": "src/backends/drm/drm_egl_backend.cpp",
+    "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/backends/drm/drm_egl_backend.cpp",
+    "sha256": "ca202a6e0568463d7aa63857a176a645a63687305386b91aa468ce88a7d3788a",
+    "old_available": true,
+    "same": true,
+    "diff_lines": 0
+  },
+  {
+    "path": "src/backends/drm/drm_gpu.cpp",
+    "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/backends/drm/drm_gpu.cpp",
+    "sha256": "90141bb907baf9ee3440a84bed4dccb2300d9ddd718358c122ecb5ebbc360e30",
+    "old_available": true,
+    "same": true,
+    "diff_lines": 0
+  },
+  {
+    "path": "src/workspace.cpp",
+    "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/workspace.cpp",
+    "sha256": "a9c73b6a6e53d1ab47f1733244284e75970fb73d9ef274b036434f248b989395",
+    "old_available": true,
+    "same": false,
+    "diff_lines": 45
+  },
+  {
+    "path": "src/wayland/presentationtime.cpp",
+    "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/wayland/presentationtime.cpp",
+    "sha256": "040e6bf1aafbdb615a1133f35814b762c6308c5c178aa7954be3872f2c50965a",
+    "old_available": true,
+    "same": true,
+    "diff_lines": 0
+  },
+  {
+    "path": "src/opengl/eglcontext.cpp",
+    "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/opengl/eglcontext.cpp",
+    "sha256": "71ada4249484ef34c56398a422790ced2ace6c4afe4281b508db60bb8637d54d",
+    "old_available": true,
+    "same": false,
+    "diff_lines": 13
+  },
+  {
+    "path": "src/compositor.cpp",
+    "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/compositor.cpp",
+    "sha256": "511851d1797a4eed15397a42405ea3dd9664e06cce97d53275c4ea06ba5a37ed",
+    "old_available": true,
+    "same": false,
+    "diff_lines": 22
+  }
+]

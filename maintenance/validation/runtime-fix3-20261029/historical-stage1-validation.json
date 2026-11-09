@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-29",
+  "kernels_build_passed": [
+    "7.2.11-arch1-1",
+    "6.18.58-1-lts"
+  ],
+  "wrapper_tests_passed": 4,
+  "wrapper_tests": "actual wrapper source with fake kernel APIs; ASan/UBSan; not hardware validation",
+  "arch_source_hashes_verified": true,
+  "complete_arch_package_built": false,
+  "driver_installed": false,
+  "driver_loaded": false,
+  "gpu_acceleration_verified": false,
+  "remaining": [
+    "vendor binary objtool warnings",
+    "console maintenance window",
+    "real device initialization",
+    "userspace graphics/video/desktop/recovery tests"
+  ],
+  "patch_sha256": "d4dc6b12bb78e95076fa0b90da7d59dba3bbda742a470277e8cb57aad0ec7d22"
+}

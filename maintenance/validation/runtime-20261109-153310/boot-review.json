@@ -1,0 +1,74 @@
+{
+  "test": "20261109-153310",
+  "profile": "kwin-wayland-v10",
+  "reviewed_utc": "2026-11-09T07:40:01.118894+00:00",
+  "current_boot_id": "812ae8c5-0a59-4809-96da-3b96172be7dc",
+  "test_boot_id": "fb247138-c6a2-41c1-83d4-3562f237680a",
+  "current_kernel": "7.2.14-arch1-1",
+  "current_boot_start": "2026-11-09 15:37:01",
+  "kernel_fault_pattern": "\\bBUG:|\\bOops:|\\bWARNING:|kernel panic|general protection fault|soft lockup|hard LOCKUP|IO_PAGE_FAULT|DMAR:.*fault|IOMMU.*fault|GPU.*(?:hang|reset)|firmware.*(?:failed|error|mismatch)|resource sanity check:|mapping multiple BARs|DISPC-\\d+:.*timed out|VPU register layout rejected|Failed to bind other components",
+  "post_load_kernel_faults": [],
+  "driver_initialization_time": "2026-11-09T15:33:57+08:00",
+  "planned_reboot_request_time": "2026-11-09T15:36:23.642727+08:00",
+  "planned_reboot_requester_pid": 22176,
+  "planned_reboot_requester_unit": "mtt-s30-once.service",
+  "services": {
+    "display-manager.service": "active",
+    "mtt-s30-once.service": "inactive",
+    "mtt-s30-deadline.timer": "inactive",
+    "mtt-s30-deadline.service": "inactive"
+  },
+  "watchdog_state": "inactive",
+  "mtgpu_currently_loaded": false,
+  "mtgpu_installed": false,
+  "probe_exit": 0,
+  "probe_phase": "desktop_checks_passed",
+  "hardware_watchdog_reset_proven": false,
+  "root_exports": {
+    "/var/tmp/mtt-s30-results-20261109-153310": {
+      "current_boot_id": "812ae8c5-0a59-4809-96da-3b96172be7dc",
+      "test_boot_id": "fb247138-c6a2-41c1-83d4-3562f237680a",
+      "reboot_observed": true,
+      "esp_comparison": {
+        "expected_files": 11,
+        "current_files": 11,
+        "added": [],
+        "removed": [],
+        "changed": [
+          "loader/random-seed"
+        ],
+        "unchanged_files": 10
+      },
+      "original_boot_and_efi_verified": true,
+      "client_core": {
+        "status": "not_found",
+        "reason": "No matching client SIGABRT/SIGSEGV in test boot."
+      }
+    },
+    "/var/tmp/mtt-s30-results-20261109-153310-46qtcw6l": {
+      "current_boot_id": "812ae8c5-0a59-4809-96da-3b96172be7dc",
+      "test_boot_id": "fb247138-c6a2-41c1-83d4-3562f237680a",
+      "reboot_observed": true,
+      "esp_comparison": {
+        "expected_files": 11,
+        "current_files": 11,
+        "added": [],
+        "removed": [],
+        "changed": [
+          "loader/random-seed"
+        ],
+        "unchanged_files": 10
+      },
+      "original_boot_and_efi_verified": true,
+      "client_core": {
+        "status": "not_found",
+        "reason": "No matching client SIGABRT/SIGSEGV in test boot."
+      }
+    }
+  },
+  "notes": [
+    "Expected supervisor stop timeout and watchdog did-not-stop occurred after the planned reboot request. The supervisor intentionally stops feeding and keeps the device open after requesting reboot.",
+    "No device-wide hang or firmware failure matched the exact recorded postload screening. This finite window does not establish long-duration stability.",
+    "The full coredump journal contains desktop applications terminated while stopping the prior KDE session before mtgpu initialized. The no-client-core conclusion uses the root export scoped to the test client executable and test boot."
+  ]
+}

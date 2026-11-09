@@ -1,0 +1,39 @@
+{
+  "package": "/home/bull/Documents/mtt-s30-arch/work/arch-package-20261109/package/mtgpu-s30-dkms-3.1.0-2-x86_64.pkg.tar.zst",
+  "package_sha256": "7e7b0c3361579fb0fc42d04824c2aa022fbecdca101829f2e6f96c5700a2679e",
+  "kernel": "7.2.14-arch1-1",
+  "dkms_version": "3.4.4-1",
+  "dkms_status": "mtgpu-s30/3.1.0, 7.2.14-arch1-1, x86_64: built",
+  "system_install_or_load_performed": false,
+  "source_files_matching_validated_tree": 401,
+  "closed_core_sha256": "d0fdaceab37bce7387d376f8a87a2e9dbf210eeccf4f4f7c67f8dee83f4e8200",
+  "firmware_files_matching_upstream": 26,
+  "all_declared_firmware_present": [
+    "mthreads/mtlog-gen3.dict",
+    "mthreads/mtlog-gen2.dict",
+    "mthreads/mtlog-gen1.dict",
+    "mthreads/mtfw-gen3.bin",
+    "mthreads/mtfw-gen2.bin",
+    "mthreads/mtfw-gen1.bin",
+    "mthreads/mtvpu-02-1.0.bin",
+    "mthreads/mtvpu-01-1.0.bin",
+    "mthreads/mtvpu-00-1.0.bin",
+    "mthreads/musa.sh.1.0.0.0",
+    "mthreads/musa.fw.1.0.0.0"
+  ],
+  "vendor_license_unchanged": true,
+  "debian_hooks_absent": true,
+  "generated_objects_absent_from_package": true,
+  "global_boot_and_graphics_config_absent": true,
+  "module_sha256": "d367c7c15d14645c4360e39a81e3b75bfe1647efaa1a369b45025423c8806a4d",
+  "vermagic": "7.2.14-arch1-1 SMP preempt mod_unload",
+  "s30_pci_alias_present": true,
+  "objtool_warning_count": 5486,
+  "private_build_unsigned": true,
+  "not_tested": [
+    "pacman install/remove hooks",
+    "persistent driver boot",
+    "complete desktop userland packaging",
+    "package module hardware load"
+  ]
+}

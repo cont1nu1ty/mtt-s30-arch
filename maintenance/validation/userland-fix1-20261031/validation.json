@@ -1,0 +1,92 @@
+{
+  "prepared_at": "2026-10-31T20:05:07.844085+08:00",
+  "profile": "kwin-wayland-v2",
+  "bundle": "builds/desktop-userland-fix1-v2-20261031",
+  "manifest_sha256": "4a2f2c694807c91b2d467a41fac968296e3419d61c1f65682a39a339ea9fddcc",
+  "ready_for_controlled_hardware_test": true,
+  "hardware_tested": false,
+  "full_plasma_tested": false,
+  "kwin_source_version": "6.8.2",
+  "kwin_patch_sha256": "19d190aa75a7dcf71bbd5d8a858fd2937378646714d101586e1cac8826fdf721",
+  "dri_internal_abi": "23.2.1-1ubuntu3.1~22.04.3",
+  "abi_version_check_bypassed": false,
+  "egl_ubuntu_archive_signature_verified": true,
+  "egl_package_index_and_package_sha256_verified": true,
+  "protocol_build_dependency_signatures_verified": true,
+  "runtime_packages": {
+    "kwin": "6.8.2-1",
+    "mesa": "1:26.2.6-1",
+    "qt6-base": "6.12.0-3",
+    "qt6-declarative": "6.12.0-3",
+    "kdecoration": "6.8.2-1"
+  },
+  "software_kwin_session": {
+    "passed": true,
+    "mode": "virtual-software",
+    "kwin_started": true,
+    "forced_kill": false,
+    "kwin_pid": 16678,
+    "renderer": "llvmpipe (LLVM 23.1.4, 256 bits)",
+    "drm_fds": [],
+    "client_exit": 0,
+    "checks_passed": true,
+    "termination_requested": true,
+    "kwin_exit": 15,
+    "compositor_faults": []
+  },
+  "compatible_egl_wayland_client": {
+    "passed": true,
+    "mode": "wayland-software",
+    "frames": 60,
+    "pixels_checked": 2949120,
+    "mismatches": 0,
+    "presented": 60,
+    "discarded": 0,
+    "hardware_presentations": 60,
+    "presentation_flags_all": 7,
+    "renderer": "softpipe",
+    "vendor": "Mesa",
+    "egl_vendor": "Mesa Project"
+  },
+  "independent_final_pixels_verified": true,
+  "software_result_rejected_in_hardware_mode": true,
+  "vendor_requires_legacy_discovery": true,
+  "compatible_egl_requests_default_dmabuf_feedback": true,
+  "recovery_flow_tests_passed": 45,
+  "root_staging_shape_and_dependency_checks_passed": true,
+  "elf_search_paths": [
+    {
+      "file": "kwin/kwin_wayland",
+      "no_embedded_rpath": true
+    },
+    {
+      "file": "kwin/libkwin.so.6",
+      "no_embedded_rpath": true
+    },
+    {
+      "file": "egl/libEGL_mesa.so.0",
+      "no_embedded_rpath": true
+    },
+    {
+      "file": "egl/libglapi.so.0",
+      "no_embedded_rpath": true
+    },
+    {
+      "file": "egl-check",
+      "no_embedded_rpath": true
+    }
+  ],
+  "kernel_module_unchanged": true,
+  "kernel_module_sha256": "db8e4393ec50e0e2542dafdb7277240627406b847dc19d0427444712249143bb",
+  "driver_currently_loaded": false,
+  "watchdog_state": "inactive",
+  "current_boot_id": "6bc433ce-e2dd-4308-8e87-68e14136baae",
+  "boot_configuration_modified": false,
+  "global_libraries_replaced": false,
+  "hardware_reset_verified": false,
+  "runtime_window_seconds": 180,
+  "software_deadline_seconds": 210,
+  "watchdog_test_timeout_seconds": 60,
+  "existing_systemd_reboot_watchdog_seconds": 600,
+  "remaining": "S30 native EGL window and KWin import workaround must pass the next physical run; no full Plasma/Xwayland or long-duration claim."
+}

@@ -1,0 +1,508 @@
+
+official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000006e4380 <__driDriverGetExtensions_mtgpu@@VERS1.0-0x6360>:
+  6e4380:	53                   	push   rbx
+  6e4381:	48 89 fb             	mov    rbx,rdi
+  6e4384:	48 83 ec 10          	sub    rsp,0x10
+  6e4388:	48 8b 37             	mov    rsi,QWORD PTR [rdi]
+  6e438b:	48 85 f6             	test   rsi,rsi
+  6e438e:	74 16                	je     6e43a6 <__gmon_start__@plt+0x6257f6>
+  6e4390:	48 8d 05 39 7c 98 00 	lea    rax,[rip+0x987c39]        # 106bfd0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9818f0>
+  6e4397:	48 8d 7c 24 08       	lea    rdi,[rsp+0x8]
+  6e439c:	48 89 44 24 08       	mov    QWORD PTR [rsp+0x8],rax
+  6e43a1:	e8 6a 31 ec ff       	call   5a7510 <__gmon_start__@plt+0x4e8960>
+  6e43a6:	48 8b 05 93 e8 a1 00 	mov    rax,QWORD PTR [rip+0xa1e893]        # 1102c40 <__driDriverGetExtensions_mtgpu@@VERS1.0+0xa18560>
+  6e43ad:	48 85 c0             	test   rax,rax
+  6e43b0:	74 0c                	je     6e43be <__gmon_start__@plt+0x62580e>
+  6e43b2:	48 8b 7b 38          	mov    rdi,QWORD PTR [rbx+0x38]
+  6e43b6:	48 85 ff             	test   rdi,rdi
+  6e43b9:	74 03                	je     6e43be <__gmon_start__@plt+0x62580e>
+  6e43bb:	ff 50 40             	call   QWORD PTR [rax+0x40]
+  6e43be:	48 83 c4 10          	add    rsp,0x10
+  6e43c2:	48 89 df             	mov    rdi,rbx
+  6e43c5:	5b                   	pop    rbx
+  6e43c6:	e9                   	.byte 0xe9
+
+official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000005a7510 <__driDriverGetExtensions_mtgpu@@VERS1.0-0x1431d0>:
+  5a7510:	53                   	push   rbx
+  5a7511:	48 89 f3             	mov    rbx,rsi
+  5a7514:	e8 37 24 cd ff       	call   279950 <__gmon_start__@plt+0x1bada0>
+  5a7519:	48 8b 7b 08          	mov    rdi,QWORD PTR [rbx+0x8]
+  5a751d:	48 85 ff             	test   rdi,rdi
+  5a7520:	74 1e                	je     5a7540 <__gmon_start__@plt+0x4e8990>
+  5a7522:	80 3d ed 94 c6 00 00 	cmp    BYTE PTR [rip+0xc694ed],0x0        # 1210a16 <__driDriverGetExtensions_mtgpu@@VERS1.0+0xb26336>
+  5a7529:	75 65                	jne    5a7590 <__gmon_start__@plt+0x4e89e0>
+  5a752b:	83 6f 08 01          	sub    DWORD PTR [rdi+0x8],0x1
+  5a752f:	74 66                	je     5a7597 <__gmon_start__@plt+0x4e89e7>
+  5a7531:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+  5a7536:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+  5a753d:	00 00 00 
+  5a7540:	48 8b 73 28          	mov    rsi,QWORD PTR [rbx+0x28]
+  5a7544:	48 85 f6             	test   rsi,rsi
+  5a7547:	74 0c                	je     5a7555 <__gmon_start__@plt+0x4e89a5>
+  5a7549:	48 8b 05 90 eb b5 00 	mov    rax,QWORD PTR [rip+0xb5eb90]        # 11060e0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0xa1ba00>
+  5a7550:	31 ff                	xor    edi,edi
+  5a7552:	ff 50 10             	call   QWORD PTR [rax+0x10]
+  5a7555:	48 8b 7b 38          	mov    rdi,QWORD PTR [rbx+0x38]
+  5a7559:	48 85 ff             	test   rdi,rdi
+  5a755c:	74 15                	je     5a7573 <__gmon_start__@plt+0x4e89c3>
+  5a755e:	48 8b 07             	mov    rax,QWORD PTR [rdi]
+  5a7561:	ff 10                	call   QWORD PTR [rax]
+  5a7563:	48 8b 05 76 eb b5 00 	mov    rax,QWORD PTR [rip+0xb5eb76]        # 11060e0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0xa1ba00>
+  5a756a:	48 8b 73 38          	mov    rsi,QWORD PTR [rbx+0x38]
+  5a756e:	31 ff                	xor    edi,edi
+  5a7570:	ff 50 10             	call   QWORD PTR [rax+0x10]
+  5a7573:	48 8b 05 66 eb b5 00 	mov    rax,QWORD PTR [rip+0xb5eb66]        # 11060e0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0xa1ba00>
+  5a757a:	48 89 de             	mov    rsi,rbx
+  5a757d:	31 ff                	xor    edi,edi
+  5a757f:	ff 50 10             	call   QWORD PTR [rax+0x10]
+  5a7582:	b8 01 00 00 00       	mov    eax,0x1
+  5a7587:	5b                   	pop    rbx
+  5a7588:	c3                   	ret
+  5a7589:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+  5a7590:	f0 83 6f 08 01       	lock sub DWORD PTR [rdi+0x8],0x1
+  5a7595:	75 a9                	jne    5a7540 <__gmon_start__@plt+0x4e8990>
+  5a7597:	48 8b 07             	mov    rax,QWORD PTR [rdi]
+  5a759a:	ff 50 10             	call   QWORD PTR [rax+0x10]
+  5a759d:	eb a1                	jmp    5a7540 <__gmon_start__@plt+0x4e8990>
+
+official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000006ea0b0 <__driDriverGetExtensions_mtgpu@@VERS1.0-0x630>:
+  6ea0b0:	41 57                	push   r15
+  6ea0b2:	41 56                	push   r14
+  6ea0b4:	49 89 f6             	mov    r14,rsi
+  6ea0b7:	41 55                	push   r13
+  6ea0b9:	41 54                	push   r12
+  6ea0bb:	49 89 fd             	mov    r13,rdi
+  6ea0be:	55                   	push   rbp
+  6ea0bf:	53                   	push   rbx
+  6ea0c0:	be 01 00 00 00       	mov    esi,0x1
+  6ea0c5:	bf 40 00 00 00       	mov    edi,0x40
+  6ea0ca:	48 89 d3             	mov    rbx,rdx
+  6ea0cd:	48 81 ec f8 01 00 00 	sub    rsp,0x1f8
+  6ea0d4:	e8 87 3d 9d ff       	call   bde60 <calloc@plt>
+  6ea0d9:	48 89 c5             	mov    rbp,rax
+  6ea0dc:	48 8b 05 65 8b a1 00 	mov    rax,QWORD PTR [rip+0xa18b65]        # 1102c48 <__driDriverGetExtensions_mtgpu@@VERS1.0+0xa18568>
+  6ea0e3:	48 85 c0             	test   rax,rax
+  6ea0e6:	74 14                	je     6ea0fc <__gmon_start__@plt+0x62b54c>
+  6ea0e8:	49 8b bd b0 00 00 00 	mov    rdi,QWORD PTR [r13+0xb0]
+  6ea0ef:	48 89 da             	mov    rdx,rbx
+  6ea0f2:	4c 89 f6             	mov    rsi,r14
+  6ea0f5:	ff 50 18             	call   QWORD PTR [rax+0x18]
+  6ea0f8:	48 89 45 38          	mov    QWORD PTR [rbp+0x38],rax
+  6ea0fc:	4d 8b 65 10          	mov    r12,QWORD PTR [r13+0x10]
+  6ea100:	48 8d 05 c9 1e 98 00 	lea    rax,[rip+0x981ec9]        # 106bfd0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9818f0>
+  6ea107:	48 89 5d 08          	mov    QWORD PTR [rbp+0x8],rbx
+  6ea10b:	4c 89 6d 18          	mov    QWORD PTR [rbp+0x18],r13
+  6ea10f:	48 89 44 24 38       	mov    QWORD PTR [rsp+0x38],rax
+  6ea114:	41 83 3c 24 04       	cmp    DWORD PTR [r12],0x4
+  6ea119:	74 18                	je     6ea133 <__gmon_start__@plt+0x62b583>
+  6ea11b:	49 83 7d 40 00       	cmp    QWORD PTR [r13+0x40],0x0
+  6ea120:	49 8b 45 60          	mov    rax,QWORD PTR [r13+0x60]
+  6ea124:	0f 84 c6 01 00 00    	je     6ea2f0 <__gmon_start__@plt+0x62b740>
+  6ea12a:	48 85 c0             	test   rax,rax
+  6ea12d:	0f 84 9f 01 00 00    	je     6ea2d2 <__gmon_start__@plt+0x62b722>
+  6ea133:	4c 8d ac 24 e0 00 00 	lea    r13,[rsp+0xe0]
+  6ea13a:	00 
+  6ea13b:	4c 8d 7c 24 70       	lea    r15,[rsp+0x70]
+  6ea140:	4c 89 ef             	mov    rdi,r13
+  6ea143:	e8 48 de ff ff       	call   6e7f90 <__gmon_start__@plt+0x6293e0>
+
+official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000006ea21a <__driDriverGetExtensions_mtgpu@@VERS1.0-0x4c6>:
+  6ea21a:	6a 00                	push   0x0
+  6ea21c:	6a 00                	push   0x0
+  6ea21e:	e8 fd 4c 1a 00       	call   88ef20 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x1a4840>
+  6ea223:	44 0f b6 b4 24 dd 00 	movzx  r14d,BYTE PTR [rsp+0xdd]
+  6ea22a:	00 00 
+  6ea22c:	49 8b 44 24 10       	mov    rax,QWORD PTR [r12+0x10]
+  6ea231:	49 8b 74 24 08       	mov    rsi,QWORD PTR [r12+0x8]
+  6ea236:	48 89 44 24 10       	mov    QWORD PTR [rsp+0x10],rax
+  6ea23b:	8b 84 24 94 00 00 00 	mov    eax,DWORD PTR [rsp+0x94]
+  6ea242:	45 84 f6             	test   r14b,r14b
+  6ea245:	59                   	pop    rcx
+  6ea246:	5f                   	pop    rdi
+  6ea247:	0f 85 93 03 00 00    	jne    6ea5e0 <__gmon_start__@plt+0x62ba30>
+  6ea24d:	66 0f ef c0          	pxor   xmm0,xmm0
+  6ea251:	48 8d 7c 24 40       	lea    rdi,[rsp+0x40]
+  6ea256:	0f 29 44 24 50       	movaps XMMWORD PTR [rsp+0x50],xmm0
+  6ea25b:	89 44 24 5c          	mov    DWORD PTR [rsp+0x5c],eax
+  6ea25f:	8b 44 24 70          	mov    eax,DWORD PTR [rsp+0x70]
+  6ea263:	0f 29 44 24 60       	movaps XMMWORD PTR [rsp+0x60],xmm0
+  6ea268:	89 44 24 60          	mov    DWORD PTR [rsp+0x60],eax
+  6ea26c:	8b 44 24 74          	mov    eax,DWORD PTR [rsp+0x74]
+  6ea270:	f3 0f 7e 04 24       	movq   xmm0,QWORD PTR [rsp]
+  6ea275:	48 89 2c 24          	mov    QWORD PTR [rsp],rbp
+  6ea279:	0f 16 04 24          	movhps xmm0,QWORD PTR [rsp]
+  6ea27d:	c7 44 24 58 01 00 00 	mov    DWORD PTR [rsp+0x58],0x1
+  6ea284:	00 
+  6ea285:	c6 44 24 68 01       	mov    BYTE PTR [rsp+0x68],0x1
+  6ea28a:	89 44 24 64          	mov    DWORD PTR [rsp+0x64],eax
+  6ea28e:	0f b6 84 24 cf 00 00 	movzx  eax,BYTE PTR [rsp+0xcf]
+  6ea295:	00 
+  6ea296:	0f 29 44 24 40       	movaps XMMWORD PTR [rsp+0x40],xmm0
+  6ea29b:	44 88 74 24 6a       	mov    BYTE PTR [rsp+0x6a],r14b
+  6ea2a0:	88 44 24 6b          	mov    BYTE PTR [rsp+0x6b],al
+  6ea2a4:	0f b6 84 24 ce 00 00 	movzx  eax,BYTE PTR [rsp+0xce]
+  6ea2ab:	00 
+  6ea2ac:	88 44 24 6c          	mov    BYTE PTR [rsp+0x6c],al
+  6ea2b0:	e8 cb 25 09 00       	call   77c880 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x921a0>
+  6ea2b5:	4c 89 f9             	mov    rcx,r15
+  6ea2b8:	4c 89 ea             	mov    rdx,r13
+  6ea2bb:	48 89 de             	mov    rsi,rbx
+  6ea2be:	4c 89 e7             	mov    rdi,r12
+  6ea2c1:	48 89 84 24 b0 00 00 	mov    QWORD PTR [rsp+0xb0],rax
+  6ea2c8:	00 
+  6ea2c9:	e8 82 31 1b 00       	call   89d450 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x1b2d70>
+  6ea2ce:	48 89 45 00          	mov    QWORD PTR [rbp+0x0],rax
+  6ea2d2:	48 81 c4 f8 01 00 00 	add    rsp,0x1f8
+  6ea2d9:	48 89 e8             	mov    rax,rbp
+  6ea2dc:	5b                   	pop    rbx
+  6ea2dd:	5d                   	pop    rbp
+  6ea2de:	41 5c                	pop    r12
+  6ea2e0:	41 5d                	pop    r13
+  6ea2e2:	41 5e                	pop    r14
+  6ea2e4:	41 5f                	pop    r15
+  6ea2e6:	c3                   	ret
+
+official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000077c880 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x921a0>:
+  77c880:	55                   	push   rbp
+  77c881:	31 d2                	xor    edx,edx
+  77c883:	48 89 e5             	mov    rbp,rsp
+  77c886:	41 57                	push   r15
+  77c888:	41 56                	push   r14
+  77c88a:	41 55                	push   r13
+  77c88c:	41 54                	push   r12
+  77c88e:	49 89 f6             	mov    r14,rsi
+  77c891:	53                   	push   rbx
+  77c892:	31 f6                	xor    esi,esi
+  77c894:	48 83 ec 68          	sub    rsp,0x68
+  77c898:	48 89 7d 98          	mov    QWORD PTR [rbp-0x68],rdi
+  77c89c:	48 8b 3f             	mov    rdi,QWORD PTR [rdi]
+  77c89f:	e8 ac b7 f6 ff       	call   6e8050 <__gmon_start__@plt+0x6294a0>
+  77c8a4:	83 f8 04             	cmp    eax,0x4
+  77c8a7:	0f 84 e3 02 00 00    	je     77cb90 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x924b0>
+  77c8ad:	83 f8 08             	cmp    eax,0x8
+  77c8b0:	0f 84 7a 02 00 00    	je     77cb30 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x92450>
+  77c8b6:	85 c0                	test   eax,eax
+  77c8b8:	74 56                	je     77c910 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x92230>
+
+official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000006e8050 <__driDriverGetExtensions_mtgpu@@VERS1.0-0x2690>:
+  6e8050:	8b 05 be e5 9c 00    	mov    eax,DWORD PTR [rip+0x9ce5be]        # 10b6614 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9cbf34>
+  6e8056:	49 89 f8             	mov    r8,rdi
+  6e8059:	83 f8 ff             	cmp    eax,0xffffffff
+  6e805c:	74 09                	je     6e8067 <__gmon_start__@plt+0x6294b7>
+  6e805e:	48 39 3d 2b b7 9d 00 	cmp    QWORD PTR [rip+0x9db72b],rdi        # 10c3790 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9d90b0>
+  6e8065:	74 2c                	je     6e8093 <__gmon_start__@plt+0x6294e3>
+  6e8067:	83 fe 01             	cmp    esi,0x1
+  6e806a:	89 d0                	mov    eax,edx
+  6e806c:	74 18                	je     6e8086 <__gmon_start__@plt+0x6294d6>
+  6e806e:	4d 85 c0             	test   r8,r8
+  6e8071:	b8 07 00 00 00       	mov    eax,0x7
+  6e8076:	74 0e                	je     6e8086 <__gmon_start__@plt+0x6294d6>
+  6e8078:	4c 3b 05 81 dd 9d 00 	cmp    r8,QWORD PTR [rip+0x9ddd81]        # 10c5e00 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9db720>
+  6e807f:	b8 08 00 00 00       	mov    eax,0x8
+  6e8084:	75 1a                	jne    6e80a0 <__gmon_start__@plt+0x6294f0>
+  6e8086:	89 05 88 e5 9c 00    	mov    DWORD PTR [rip+0x9ce588],eax        # 10b6614 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9cbf34>
+  6e808c:	4c 89 05 fd b6 9d 00 	mov    QWORD PTR [rip+0x9db6fd],r8        # 10c3790 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9d90b0>
+  6e8093:	f3 c3                	repz ret
+  6e8095:	90                   	nop
+  6e8096:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+  6e809d:	00 00 00 
+  6e80a0:	4c 3b 05 e1 b6 9d 00 	cmp    r8,QWORD PTR [rip+0x9db6e1]        # 10c3788 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9d90a8>
+  6e80a7:	b8 05 00 00 00       	mov    eax,0x5
+  6e80ac:	74 d8                	je     6e8086 <__gmon_start__@plt+0x6294d6>
+  6e80ae:	4c 3b 05 43 dd 9d 00 	cmp    r8,QWORD PTR [rip+0x9ddd43]        # 10c5df8 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9db718>
+  6e80b5:	b8 04 00 00 00       	mov    eax,0x4
+  6e80ba:	74 ca                	je     6e8086 <__gmon_start__@plt+0x6294d6>
+
+official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000077cb90 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x924b0>:
+  77cb90:	48 8b 3d 49 95 98 00 	mov    rdi,QWORD PTR [rip+0x989549]        # 11060e0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0xa1ba00>
+  77cb97:	48 8d 75 b0          	lea    rsi,[rbp-0x50]
+  77cb9b:	c6 45 c0 00          	mov    BYTE PTR [rbp-0x40],0x0
+  77cb9f:	66 0f 6f 05 79 26 2e 	movdqa xmm0,XMMWORD PTR [rip+0x2e2679]        # a5f220 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x374b40>
+  77cba6:	00 
+  77cba7:	c7 45 c4 01 00 00 80 	mov    DWORD PTR [rbp-0x3c],0x80000001
+  77cbae:	0f 29 45 b0          	movaps XMMWORD PTR [rbp-0x50],xmm0
+  77cbb2:	e8 89 0b 1c 00       	call   93d740 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x253060>
+  77cbb7:	48 85 c0             	test   rax,rax
+  77cbba:	48 89 c3             	mov    rbx,rax
+  77cbbd:	0f 84 35 fd ff ff    	je     77c8f8 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x92218>
+  77cbc3:	48 8b 55 98          	mov    rdx,QWORD PTR [rbp-0x68]
+  77cbc7:	48 89 c7             	mov    rdi,rax
+  77cbca:	4c 89 f6             	mov    rsi,r14
+  77cbcd:	e8 8e f7 ff ff       	call   77c360 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x91c80>
+  77cbd2:	48 8d 05 af 34 8f 00 	lea    rax,[rip+0x8f34af]        # 1070088 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9859a8>
+  77cbd9:	b9 01 00 00 80       	mov    ecx,0x80000001
+  77cbde:	ba 10 00 00 00       	mov    edx,0x10
+  77cbe3:	be 08 00 00 00       	mov    esi,0x8
+  77cbe8:	31 ff                	xor    edi,edi
+  77cbea:	48 89 03             	mov    QWORD PTR [rbx],rax
+  77cbed:	ff 15 95 3b 94 00    	call   QWORD PTR [rip+0x943b95]        # 10c0788 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9d60a8>
+  77cbf3:	48 89 83 38 02 00 00 	mov    QWORD PTR [rbx+0x238],rax
+  77cbfa:	48 c7 00 00 00 00 00 	mov    QWORD PTR [rax],0x0
+  77cc01:	e9 f2 fc ff ff       	jmp    77c8f8 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x92218>
+
+official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000005a5170 <__driDriverGetExtensions_mtgpu@@VERS1.0-0x145570>:
+  5a5170:	53                   	push   rbx
+  5a5171:	48 8b b7 38 02 00 00 	mov    rsi,QWORD PTR [rdi+0x238]
+  5a5178:	48 8d 05 09 af ac 00 	lea    rax,[rip+0xacaf09]        # 1070088 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9859a8>
+  5a517f:	48 89 fb             	mov    rbx,rdi
+  5a5182:	48 89 07             	mov    QWORD PTR [rdi],rax
+  5a5185:	48 85 f6             	test   rsi,rsi
+  5a5188:	74 13                	je     5a519d <__gmon_start__@plt+0x4e65ed>
+  5a518a:	31 ff                	xor    edi,edi
+  5a518c:	ff 15 fe b5 b1 00    	call   QWORD PTR [rip+0xb1b5fe]        # 10c0790 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9d60b0>
+  5a5192:	48 c7 83 38 02 00 00 	mov    QWORD PTR [rbx+0x238],0x0
+  5a5199:	00 00 00 00 
+  5a519d:	48 89 df             	mov    rdi,rbx
+  5a51a0:	e8 db e7 da ff       	call   353980 <__gmon_start__@plt+0x294dd0>
+  5a51a5:	48 89 df             	mov    rdi,rbx
+  5a51a8:	5b                   	pop    rbx
+  5a51a9:	e9 d2 e7 da ff       	jmp    353980 <__gmon_start__@plt+0x294dd0>
+
+official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000005875b0 <__driDriverGetExtensions_mtgpu@@VERS1.0-0x163130>:
+  5875b0:	53                   	push   rbx
+  5875b1:	48 8b b7 38 02 00 00 	mov    rsi,QWORD PTR [rdi+0x238]
+  5875b8:	48 8d 05 c9 8a ae 00 	lea    rax,[rip+0xae8ac9]        # 1070088 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9859a8>
+  5875bf:	48 89 fb             	mov    rbx,rdi
+  5875c2:	48 89 07             	mov    QWORD PTR [rdi],rax
+  5875c5:	48 85 f6             	test   rsi,rsi
+  5875c8:	74 13                	je     5875dd <__gmon_start__@plt+0x4c8a2d>
+  5875ca:	31 ff                	xor    edi,edi
+  5875cc:	ff 15 be 91 b3 00    	call   QWORD PTR [rip+0xb391be]        # 10c0790 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9d60b0>
+  5875d2:	48 c7 83 38 02 00 00 	mov    QWORD PTR [rbx+0x238],0x0
+  5875d9:	00 00 00 00 
+  5875dd:	48 89 df             	mov    rdi,rbx
+  5875e0:	e8 9b c3 dc ff       	call   353980 <__gmon_start__@plt+0x294dd0>
+  5875e5:	48 89 df             	mov    rdi,rbx
+  5875e8:	e8 93 c3 dc ff       	call   353980 <__gmon_start__@plt+0x294dd0>
+  5875ed:	48 89 df             	mov    rdi,rbx
+  5875f0:	be 40 02 00 00       	mov    esi,0x240
+  5875f5:	5b                   	pop    rbx
+  5875f6:	e9 a8 ee 47 00       	jmp    a064a3 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x31bdc3>
+
+official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000353980 <__driDriverGetExtensions_mtgpu@@VERS1.0-0x396d60>:
+  353980:	41 54                	push   r12
+  353982:	55                   	push   rbp
+  353983:	48 8d 05 36 c8 d1 00 	lea    rax,[rip+0xd1c836]        # 10701c0 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x985ae0>
+  35398a:	53                   	push   rbx
+  35398b:	8b 97 a8 01 00 00    	mov    edx,DWORD PTR [rdi+0x1a8]
+  353991:	48 89 fb             	mov    rbx,rdi
+  353994:	48 89 07             	mov    QWORD PTR [rdi],rax
+  353997:	85 d2                	test   edx,edx
+  353999:	74 68                	je     353a03 <__gmon_start__@plt+0x294e53>
+  35399b:	bd 01 00 00 00       	mov    ebp,0x1
+  3539a0:	41 bc 01 00 00 00    	mov    r12d,0x1
+  3539a6:	eb 1c                	jmp    3539c4 <__gmon_start__@plt+0x294e14>
+  3539a8:	0f 1f 84 00 00 00 00 	nop    DWORD PTR [rax+rax*1+0x0]
+  3539af:	00 
+  3539b0:	83 6f 08 01          	sub    DWORD PTR [rdi+0x8],0x1
+  3539b4:	0f 84 26 01 00 00    	je     353ae0 <__gmon_start__@plt+0x294f30>
+  3539ba:	89 e8                	mov    eax,ebp
+  3539bc:	48 83 c5 01          	add    rbp,0x1
+  3539c0:	39 d0                	cmp    eax,edx
+  3539c2:	73 3f                	jae    353a03 <__gmon_start__@plt+0x294e53>
+  3539c4:	48 8b 7c eb 10       	mov    rdi,QWORD PTR [rbx+rbp*8+0x10]
+  3539c9:	48 c7 44 eb 10 00 00 	mov    QWORD PTR [rbx+rbp*8+0x10],0x0
+  3539d0:	00 00 
+  3539d2:	48 85 ff             	test   rdi,rdi
+  3539d5:	74 e3                	je     3539ba <__gmon_start__@plt+0x294e0a>
+  3539d7:	80 3d 37 d0 eb 00 00 	cmp    BYTE PTR [rip+0xebd037],0x0        # 1210a15 <__driDriverGetExtensions_mtgpu@@VERS1.0+0xb26335>
+  3539de:	74 d0                	je     3539b0 <__gmon_start__@plt+0x294e00>
+  3539e0:	b8 ff ff ff ff       	mov    eax,0xffffffff
+  3539e5:	f0 0f c1 47 08       	lock xadd DWORD PTR [rdi+0x8],eax
+  3539ea:	44 39 e0             	cmp    eax,r12d
+  3539ed:	0f 84 ed 00 00 00    	je     353ae0 <__gmon_start__@plt+0x294f30>
+  3539f3:	8b 93 a8 01 00 00    	mov    edx,DWORD PTR [rbx+0x1a8]
+  3539f9:	89 e8                	mov    eax,ebp
+  3539fb:	48 83 c5 01          	add    rbp,0x1
+  3539ff:	39 d0                	cmp    eax,edx
+  353a01:	72 c1                	jb     3539c4 <__gmon_start__@plt+0x294e14>
+  353a03:	48 8b bb c0 01 00 00 	mov    rdi,QWORD PTR [rbx+0x1c0]
+  353a0a:	48 85 ff             	test   rdi,rdi
+  353a0d:	74 05                	je     353a14 <__gmon_start__@plt+0x294e64>
+  353a0f:	48 8b 07             	mov    rax,QWORD PTR [rdi]
+  353a12:	ff 10                	call   QWORD PTR [rax]
+  353a14:	48 8b bb e0 01 00 00 	mov    rdi,QWORD PTR [rbx+0x1e0]
+  353a1b:	48 85 ff             	test   rdi,rdi
+  353a1e:	74 3e                	je     353a5e <__gmon_start__@plt+0x294eae>
+  353a20:	48 8b 83 28 02 00 00 	mov    rax,QWORD PTR [rbx+0x228]
+  353a27:	48 8b ab 08 02 00 00 	mov    rbp,QWORD PTR [rbx+0x208]
+  353a2e:	4c 8d 60 08          	lea    r12,[rax+0x8]
+  353a32:	49 39 ec             	cmp    r12,rbp
+  353a35:	76 22                	jbe    353a59 <__gmon_start__@plt+0x294ea9>
+  353a37:	66 0f 1f 84 00 00 00 	nop    WORD PTR [rax+rax*1+0x0]
+  353a3e:	00 00 
+  353a40:	48 8b 7d 00          	mov    rdi,QWORD PTR [rbp+0x0]
+  353a44:	48 83 c5 08          	add    rbp,0x8
+  353a48:	e8 0a 37 6b 00       	call   a07157 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x31ca77>
+  353a4d:	49 39 ec             	cmp    r12,rbp
+  353a50:	77 ee                	ja     353a40 <__gmon_start__@plt+0x294e90>
+  353a52:	48 8b bb e0 01 00 00 	mov    rdi,QWORD PTR [rbx+0x1e0]
+  353a59:	e8 f9 36 6b 00       	call   a07157 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x31ca77>
+  353a5e:	48 8b bb 60 01 00 00 	mov    rdi,QWORD PTR [rbx+0x160]
+  353a65:	48 85 ff             	test   rdi,rdi
+  353a68:	74 05                	je     353a6f <__gmon_start__@plt+0x294ebf>
+  353a6a:	e8 e8 36 6b 00       	call   a07157 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x31ca77>
+  353a6f:	48 8d ab d0 00 00 00 	lea    rbp,[rbx+0xd0]
+  353a76:	41 bc 01 00 00 00    	mov    r12d,0x1
+  353a7c:	48 83 c3 10          	add    rbx,0x10
+  353a80:	eb 1d                	jmp    353a9f <__gmon_start__@plt+0x294eef>
+  353a82:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+  353a86:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+  353a8d:	00 00 00 
+  353a90:	83 6f 08 01          	sub    DWORD PTR [rdi+0x8],0x1
+  353a94:	74 2a                	je     353ac0 <__gmon_start__@plt+0x294f10>
+  353a96:	48 83 ed 08          	sub    rbp,0x8
+  353a9a:	48 39 eb             	cmp    rbx,rbp
+  353a9d:	74 30                	je     353acf <__gmon_start__@plt+0x294f1f>
+  353a9f:	48 8b 7d 00          	mov    rdi,QWORD PTR [rbp+0x0]
+  353aa3:	48 85 ff             	test   rdi,rdi
+  353aa6:	74 ee                	je     353a96 <__gmon_start__@plt+0x294ee6>
+  353aa8:	80 3d 66 cf eb 00 00 	cmp    BYTE PTR [rip+0xebcf66],0x0        # 1210a15 <__driDriverGetExtensions_mtgpu@@VERS1.0+0xb26335>
+  353aaf:	74 df                	je     353a90 <__gmon_start__@plt+0x294ee0>
+  353ab1:	b8 ff ff ff ff       	mov    eax,0xffffffff
+  353ab6:	f0 0f c1 47 08       	lock xadd DWORD PTR [rdi+0x8],eax
+  353abb:	44 39 e0             	cmp    eax,r12d
+  353abe:	75 d6                	jne    353a96 <__gmon_start__@plt+0x294ee6>
+  353ac0:	48 8b 07             	mov    rax,QWORD PTR [rdi]
+  353ac3:	48 83 ed 08          	sub    rbp,0x8
+  353ac7:	ff 50 20             	call   QWORD PTR [rax+0x20]
+  353aca:	48 39 eb             	cmp    rbx,rbp
+  353acd:	75 d0                	jne    353a9f <__gmon_start__@plt+0x294eef>
+  353acf:	5b                   	pop    rbx
+  353ad0:	5d                   	pop    rbp
+  353ad1:	41 5c                	pop    r12
+  353ad3:	c3                   	ret
+  353ad4:	66 90                	xchg   ax,ax
+  353ad6:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+  353add:	00 00 00 
+  353ae0:	48 8b 07             	mov    rax,QWORD PTR [rdi]
+  353ae3:	ff 50 20             	call   QWORD PTR [rax+0x20]
+  353ae6:	e9 08 ff ff ff       	jmp    3539f3 <__gmon_start__@plt+0x294e43>
+  353aeb:	90                   	nop
+  353aec:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+  353af0:	53                   	push   rbx
+  353af1:	48 89 fb             	mov    rbx,rdi
+  353af4:	e8 87 fe ff ff       	call   353980 <__gmon_start__@plt+0x294dd0>
+  353af9:	48 89 df             	mov    rdi,rbx
+  353afc:	be 38 02 00 00       	mov    esi,0x238
+  353b01:	5b                   	pop    rbx
+  353b02:	e9 9c 29 6b 00       	jmp    a064a3 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x31bdc3>
+  353b07:	66 0f 1f 84 00 00 00 	nop    WORD PTR [rax+rax*1+0x0]
+  353b0e:	00 00 
+  353b10:	41 57                	push   r15
+  353b12:	41 56                	push   r14
+  353b14:	89 d0                	mov    eax,edx
+  353b16:	41 55                	push   r13
+  353b18:	41 54                	push   r12
+  353b1a:	41 89 d7             	mov    r15d,edx
+  353b1d:	55                   	push   rbp
+  353b1e:	53                   	push   rbx
+  353b1f:	48 81 ec 88 00 00 00 	sub    rsp,0x88
+  353b26:	83 e8 01             	sub    eax,0x1
+  353b29:	48 89 7c 24 18       	mov    QWORD PTR [rsp+0x18],rdi
+  353b2e:	48 89 74 24 48       	mov    QWORD PTR [rsp+0x48],rsi
+  353b33:	89 0c 24             	mov    DWORD PTR [rsp],ecx
+  353b36:	44 89 44 24 44       	mov    DWORD PTR [rsp+0x44],r8d
+  353b3b:	0f 88 ef 11 00 00    	js     354d30 <__gmon_start__@plt+0x296180>
+  353b41:	85 c2                	test   edx,eax
+  353b43:	89 54 24 30          	mov    DWORD PTR [rsp+0x30],edx
+  353b47:	0f 85 c3 06 00 00    	jne    354210 <__gmon_start__@plt+0x295660>
+  353b4d:	8b 44 24 30          	mov    eax,DWORD PTR [rsp+0x30]
+  353b51:	83 f8 01             	cmp    eax,0x1
+  353b54:	0f 86 ef 11 00 00    	jbe    354d49 <__gmon_start__@plt+0x296199>
+  353b5a:	83 e8 01             	sub    eax,0x1
+  353b5d:	ba 20 00 00 00       	mov    edx,0x20
+  353b62:	8b 1c 24             	mov    ebx,DWORD PTR [rsp]
+  353b65:	0f bd c0             	bsr    eax,eax
+  353b68:	83 f0 1f             	xor    eax,0x1f
+  353b6b:	29 c2                	sub    edx,eax
+  353b6d:	41 89 d6             	mov    r14d,edx
+  353b70:	89 d8                	mov    eax,ebx
+  353b72:	83 e8 01             	sub    eax,0x1
+  353b75:	0f 88 96 11 00 00    	js     354d11 <__gmon_start__@plt+0x296161>
+  353b7b:	85 c3                	test   ebx,eax
+  353b7d:	89 5c 24 50          	mov    DWORD PTR [rsp+0x50],ebx
+  353b81:	0f 85 69 06 00 00    	jne    3541f0 <__gmon_start__@plt+0x295640>
+  353b87:	8b 44 24 50          	mov    eax,DWORD PTR [rsp+0x50]
+  353b8b:	8b 74 24 30          	mov    esi,DWORD PTR [rsp+0x30]
+  353b8f:	0f af f0             	imul   esi,eax
+  353b92:	83 f8 01             	cmp    eax,0x1
+  353b95:	89 74 24 14          	mov    DWORD PTR [rsp+0x14],esi
+  353b99:	0f 86 b5 11 00 00    	jbe    354d54 <__gmon_start__@plt+0x2961a4>
+  353b9f:	83 e8 01             	sub    eax,0x1
+  353ba2:	ba 20 00 00 00       	mov    edx,0x20
+  353ba7:	8b 2c 24             	mov    ebp,DWORD PTR [rsp]
+  353baa:	0f bd c0             	bsr    eax,eax
+  353bad:	83 f0 1f             	xor    eax,0x1f
+  353bb0:	29 c2                	sub    edx,eax
+  353bb2:	89 54 24 28          	mov    DWORD PTR [rsp+0x28],edx
+  353bb6:	8b 44 24 44          	mov    eax,DWORD PTR [rsp+0x44]
+  353bba:	c1 e8 02             	shr    eax,0x2
+  353bbd:	41 39 ef             	cmp    r15d,ebp
+
+official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000006e9e90 <__driDriverGetExtensions_mtgpu@@VERS1.0-0x850>:
+  6e9e90:	e8 4b 05 c8 ff       	call   36a3e0 <__gmon_start__@plt+0x2ab830>
+  6e9e95:	48 8b 85 90 fd ff ff 	mov    rax,QWORD PTR [rbp-0x270]
+  6e9e9c:	48 8d 0d 35 49 97 00 	lea    rcx,[rip+0x974935]        # 105e7d8 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9740f8>
+  6e9ea3:	c7 80 38 02 00 00 00 	mov    DWORD PTR [rax+0x238],0x0
+  6e9eaa:	00 00 00 
+  6e9ead:	48 89 08             	mov    QWORD PTR [rax],rcx
+  6e9eb0:	44 88 a8 3c 02 00 00 	mov    BYTE PTR [rax+0x23c],r13b
+  6e9eb7:	c6 80 34 02 00 00 01 	mov    BYTE PTR [rax+0x234],0x1
+  6e9ebe:	48 8b 80 c8 01 00 00 	mov    rax,QWORD PTR [rax+0x1c8]
+  6e9ec5:	45 84 ed             	test   r13b,r13b

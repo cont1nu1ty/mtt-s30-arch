@@ -1,0 +1,16 @@
+struct mtgpu_irq_data {
+	int                        target;               /*     0     4 */
+	int                        host_irq;             /*     4     4 */
+	int                        claim_int_times;      /*     8     4 */
+	int                        complete_int_times;   /*    12     4 */
+	int                        last_claim_int_id;    /*    16     4 */
+
+	/* XXX 4 bytes hole, try to pack */
+
+	struct mtgpu_device *      mtdev;                /*    24     8 */
+
+	/* size: 32, cachelines: 1, members: 6 */
+	/* sum members: 28, holes: 1, sum holes: 4 */
+	/* last cacheline: 32 bytes */
+};
+

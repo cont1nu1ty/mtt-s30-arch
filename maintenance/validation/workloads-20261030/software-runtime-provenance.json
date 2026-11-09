@@ -1,0 +1,14 @@
+{
+  "vulkan-swrast": {
+    "archive_url": "https://archive.archlinux.org/packages/v/vulkan-swrast/vulkan-swrast-1%3A26.2.5-1-x86_64.pkg.tar.zst",
+    "sha256": "e14837dfe51c29d8bdb29422b40daaafc2291908c4a6349a0e63addd09fa546b",
+    "detached_signature_verified_with_pacman_key": true,
+    "installed_to_system": false
+  },
+  "vulkan-validation-layers": {
+    "archive_url": "https://archive.archlinux.org/packages/v/vulkan-validation-layers/vulkan-validation-layers-1.4.363.0-1-x86_64.pkg.tar.zst",
+    "sha256": "904f4eba2e708c9c96579900688a284309cd56dc09b5af3f78c563ffda13df9e",
+    "detached_signature_verified_with_pacman_key": true,
+    "installed_to_system": false
+  }
+}

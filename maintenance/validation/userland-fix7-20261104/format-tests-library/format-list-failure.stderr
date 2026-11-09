@@ -1,0 +1,2 @@
+kwin_scene_opengl: eglQueryDmaBufFormatsEXT with count 4 failed! "EGL_SUCCESS"
+kwin_scene_opengl: MTT compatibility: context import formats rejected: current-context DMA-BUF query failed

@@ -1,0 +1,153 @@
+{
+  "reviewed_at": "2026-10-31T19:14:55+08:00",
+  "reviewed_desktop_packages": {
+    "kwin": "6.8.2-1",
+    "mesa": "1:26.2.6-1"
+  },
+  "aborted_attempt": "20261031-190526",
+  "abort_phase": "version check before test staging/service start",
+  "running_kernel": "7.2.11-arch1-1",
+  "module_sha256": "db8e4393ec50e0e2542dafdb7277240627406b847dc19d0427444712249143bb",
+  "desktop_manifest_sha256": "65cb6f8b6d0ed8403c26ff79f8fe9f649b91e4ba2fd3352bf8ee5815505de1f9",
+  "flow_tests_passed": 40,
+  "software_egl_8_frames_passed": true,
+  "software_kwin_60_frames_passed": true,
+  "software_kwin_session": {
+    "passed": true,
+    "mode": "virtual-software",
+    "kwin_started": true,
+    "forced_kill": false,
+    "kwin_pid": 1120049,
+    "renderer": "llvmpipe (LLVM 23.1.4, 256 bits)",
+    "drm_fds": [],
+    "client_exit": 0,
+    "checks_passed": true,
+    "termination_requested": true,
+    "kwin_exit": 15,
+    "compositor_faults": []
+  },
+  "wayland_client": {
+    "passed": true,
+    "mode": "wayland-software",
+    "frames": 60,
+    "pixels_checked": 2949120,
+    "mismatches": 0,
+    "presented": 60,
+    "discarded": 0,
+    "hardware_presentations": 60,
+    "presentation_flags_all": 7,
+    "renderer": "llvmpipe (LLVM 23.1.4, 256 bits)",
+    "vendor": "Mesa"
+  },
+  "new_host_gate_passed": true,
+  "future_version_drift_rejected_before_backup": true,
+  "vendor_library_dependency_checks_passed": true,
+  "source_comparison": [
+    {
+      "path": "src/main_wayland.cpp",
+      "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/main_wayland.cpp",
+      "sha256": "9ebeac06104c6483dbb77534e9ff2b1462935a44247968b45907d4844322badf",
+      "old_available": true,
+      "same": false,
+      "diff_lines": 18
+    },
+    {
+      "path": "src/core/session.cpp",
+      "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/core/session.cpp",
+      "sha256": "942b57cc9c4f4f4218a8d59d2fb19f01b44f0d778dccb2f911944c6c9e72d00b",
+      "old_available": true,
+      "same": true,
+      "diff_lines": 0
+    },
+    {
+      "path": "src/core/session_noop.cpp",
+      "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/core/session_noop.cpp",
+      "sha256": "9e20aa19d136e1397db1f1d2a892b26f2a41f34513a512a59dcf9c57edfcc735",
+      "old_available": true,
+      "same": true,
+      "diff_lines": 0
+    },
+    {
+      "path": "src/core/session_logind.cpp",
+      "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/core/session_logind.cpp",
+      "sha256": "e874e3e390258c3cd896de0bbe786e3b94d3417fe1b3b107f438bbec2c8734d2",
+      "old_available": true,
+      "same": true,
+      "diff_lines": 0
+    },
+    {
+      "path": "src/backends/drm/drm_backend.cpp",
+      "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/backends/drm/drm_backend.cpp",
+      "sha256": "da64df39c0231d0bce3ed1017edc3de3becbb8abb739a1796bcf1548759e753f",
+      "old_available": true,
+      "same": true,
+      "diff_lines": 0
+    },
+    {
+      "path": "src/backends/drm/drm_egl_backend.cpp",
+      "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/backends/drm/drm_egl_backend.cpp",
+      "sha256": "ca202a6e0568463d7aa63857a176a645a63687305386b91aa468ce88a7d3788a",
+      "old_available": true,
+      "same": true,
+      "diff_lines": 0
+    },
+    {
+      "path": "src/backends/drm/drm_gpu.cpp",
+      "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/backends/drm/drm_gpu.cpp",
+      "sha256": "90141bb907baf9ee3440a84bed4dccb2300d9ddd718358c122ecb5ebbc360e30",
+      "old_available": true,
+      "same": true,
+      "diff_lines": 0
+    },
+    {
+      "path": "src/workspace.cpp",
+      "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/workspace.cpp",
+      "sha256": "a9c73b6a6e53d1ab47f1733244284e75970fb73d9ef274b036434f248b989395",
+      "old_available": true,
+      "same": false,
+      "diff_lines": 45
+    },
+    {
+      "path": "src/wayland/presentationtime.cpp",
+      "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/wayland/presentationtime.cpp",
+      "sha256": "040e6bf1aafbdb615a1133f35814b762c6308c5c178aa7954be3872f2c50965a",
+      "old_available": true,
+      "same": true,
+      "diff_lines": 0
+    },
+    {
+      "path": "src/opengl/eglcontext.cpp",
+      "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/opengl/eglcontext.cpp",
+      "sha256": "71ada4249484ef34c56398a422790ced2ace6c4afe4281b508db60bb8637d54d",
+      "old_available": true,
+      "same": false,
+      "diff_lines": 13
+    },
+    {
+      "path": "src/compositor.cpp",
+      "url": "https://raw.githubusercontent.com/KDE/kwin/v6.8.2/src/compositor.cpp",
+      "sha256": "511851d1797a4eed15397a42405ea3dd9664e06cce97d53275c4ea06ba5a37ed",
+      "old_available": true,
+      "same": false,
+      "diff_lines": 22
+    }
+  ],
+  "gbm_symbols": {
+    "old_sha256": "b66f5cb3dac86bf2ba0635a7778a8714c9df380aa37629537aad48c80e40e368",
+    "new_sha256": "a08ccb5fedecd653eb79775c1b3f881255dd65612261b29f56060aee053ff0a1",
+    "old_defined_symbols": 38,
+    "new_defined_symbols": 38,
+    "removed": [],
+    "added": []
+  },
+  "hardware_desktop_executed": false,
+  "currently_mtgpu_loaded": false,
+  "current_watchdog_state": "inactive",
+  "current_source_sha256": {
+    "maintenance/recovery/desktop_support.py": "5fe71a089a8f10675feb3de68892f3770281e30016eb3098cf99d1a23049a56d",
+    "maintenance/recovery/prepare-and-test.py": "f6c8f0b0024856fdbda4e0ed416faefa4f199e2a3c7155ee7a956f6dcd98c0a5",
+    "maintenance/recovery/test-once.py": "794fb4ada0e7acc867dd0c7105cae2b38ff89d17b38b7cac0854549e5b343c79"
+  },
+  "software_harness_source_sha256": "f20de261bbcdfad08534a319ce6aa749d2f6d537fe434633267c54690a26bb98",
+  "harness_note": "The software session was run before updating the host-version gate. Session code and binary stayed unchanged; updated gate and early-launch behavior were tested separately."
+}

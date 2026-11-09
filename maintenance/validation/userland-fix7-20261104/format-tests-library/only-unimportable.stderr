@@ -1,0 +1,2 @@
+kwin_scene_opengl: MTT compatibility: fixed-driver import formats tableEntries 18 vendorSha256 2583b5c4e793389e0d130bfb8895884dfdee358ac70d63195deeba1eb0d1a07c outside-primary-table QList("AB30 little-endian (0x30334241)", "XB24 little-endian (0x34324258)")
+kwin_scene_opengl: MTT compatibility: context import formats rejected: no compatible renderable DMA-BUF formats

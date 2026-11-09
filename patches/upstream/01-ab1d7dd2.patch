@@ -1,0 +1,25 @@
+commit ab1d7dd2f766f1bf1d809907b458567c08b778cd
+Author:     dixyes <dixyes@gmail.com>
+AuthorDate: Wed Dec 11 19:47:33 2024 +0800
+Commit:     dixyes <dixyes@gmail.com>
+CommitDate: Tue Apr 22 13:21:09 2025 +0800
+
+    Define PCI_IRQ_LEGACY if not exist
+    
+    from torvalds/linux@58ff9c5acb4aef58e118bbf39736cc4d6c11a3d3
+
+diff --git a/src/common/os-interface.c b/src/common/os-interface.c
+index 4016dec..68dc47b 100644
+--- a/src/common/os-interface.c
++++ b/src/common/os-interface.c
+@@ -178,6 +178,10 @@ struct mt_affinity_notify {
+ 	void *data;
+ };
+ 
++#ifndef PCI_IRQ_LEGACY
++#define PCI_IRQ_LEGACY PCI_IRQ_INTX
++#endif // PCI_IRQ_LEGACY
++
+ const u64 os_value[] = {
+ #define X(VALUE) VALUE,
+ 	DECLEAR_OS_VALUE

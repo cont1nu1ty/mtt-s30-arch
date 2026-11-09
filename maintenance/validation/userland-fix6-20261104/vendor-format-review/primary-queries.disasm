@@ -1,0 +1,208 @@
+
+official/driver-3.1.0/usr/lib/x86_64-linux-gnu/dri/mtgpu_dri.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000006e2450 <__driDriverGetExtensions_mtgpu@@VERS1.0-0x8290>:
+  6e2450:	41 55                	push   %r13
+  6e2452:	41 54                	push   %r12
+  6e2454:	49 89 fd             	mov    %rdi,%r13
+  6e2457:	55                   	push   %rbp
+  6e2458:	53                   	push   %rbx
+  6e2459:	48 89 d5             	mov    %rdx,%rbp
+  6e245c:	89 f3                	mov    %esi,%ebx
+  6e245e:	49 89 cc             	mov    %rcx,%r12
+  6e2461:	48 83 ec 08          	sub    $0x8,%rsp
+  6e2465:	48 8d 3d 8c 29 9d 00 	lea    0x9d298c(%rip),%rdi        # 10b4df8 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x9ca718>
+  6e246c:	e8 af c4 9d ff       	call   be920 <__tls_get_addr@plt>
+  6e2471:	48 83 b8 08 00 00 00 	cmpq   $0x0,0x8(%rax)
+  6e2478:	00 
+  6e2479:	74 65                	je     6e24e0 <__gmon_start__@plt+0x623930>
+  6e247b:	83 fb 12             	cmp    $0x12,%ebx
+  6e247e:	7f 50                	jg     6e24d0 <__gmon_start__@plt+0x623920>
+  6e2480:	85 db                	test   %ebx,%ebx
+  6e2482:	74 4c                	je     6e24d0 <__gmon_start__@plt+0x623920>
+  6e2484:	85 db                	test   %ebx,%ebx
+  6e2486:	0f 8e 84 00 00 00    	jle    6e2510 <__gmon_start__@plt+0x623960>
+  6e248c:	48 85 ed             	test   %rbp,%rbp
+  6e248f:	74 21                	je     6e24b2 <__gmon_start__@plt+0x623902>
+  6e2491:	48 8d 3d 88 9f 53 00 	lea    0x539f88(%rip),%rdi        # c1c420 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x531d40>
+  6e2498:	31 c0                	xor    %eax,%eax
+  6e249a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  6e24a0:	8b 37                	mov    (%rdi),%esi
+  6e24a2:	48 83 c7 0c          	add    $0xc,%rdi
+  6e24a6:	89 74 85 00          	mov    %esi,0x0(%rbp,%rax,4)
+  6e24aa:	48 83 c0 01          	add    $0x1,%rax
+  6e24ae:	39 c3                	cmp    %eax,%ebx
+  6e24b0:	7f ee                	jg     6e24a0 <__gmon_start__@plt+0x6238f0>
+  6e24b2:	41 89 1c 24          	mov    %ebx,(%r12)
+  6e24b6:	48 83 c4 08          	add    $0x8,%rsp
+  6e24ba:	b8 01 00 00 00       	mov    $0x1,%eax
+  6e24bf:	5b                   	pop    %rbx
+  6e24c0:	5d                   	pop    %rbp
+  6e24c1:	41 5c                	pop    %r12
+  6e24c3:	41 5d                	pop    %r13
+  6e24c5:	c3                   	ret
+  6e24c6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  6e24cd:	00 00 00 
+  6e24d0:	bb 12 00 00 00       	mov    $0x12,%ebx
+  6e24d5:	eb b5                	jmp    6e248c <__gmon_start__@plt+0x6238dc>
+  6e24d7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+  6e24de:	00 00 
+  6e24e0:	48 8b 05 89 07 a2 00 	mov    0xa20789(%rip),%rax        # 1102c70 <__driDriverGetExtensions_mtgpu@@VERS1.0+0xa18590>
+  6e24e7:	48 85 c0             	test   %rax,%rax
+  6e24ea:	74 8f                	je     6e247b <__gmon_start__@plt+0x6238cb>
+  6e24ec:	49 8b bd b0 00 00 00 	mov    0xb0(%r13),%rdi
+  6e24f3:	48 8b 80 a0 00 00 00 	mov    0xa0(%rax),%rax
+  6e24fa:	48 83 c4 08          	add    $0x8,%rsp
+  6e24fe:	4c 89 e1             	mov    %r12,%rcx
+  6e2501:	48 89 ea             	mov    %rbp,%rdx
+  6e2504:	89 de                	mov    %ebx,%esi
+  6e2506:	5b                   	pop    %rbx
+  6e2507:	5d                   	pop    %rbp
+  6e2508:	41 5c                	pop    %r12
+  6e250a:	41 5d                	pop    %r13
+  6e250c:	ff e0                	jmp    *%rax
+  6e250e:	66 90                	xchg   %ax,%ax
+  6e2510:	31 db                	xor    %ebx,%ebx
+  6e2512:	eb 9e                	jmp    6e24b2 <__gmon_start__@plt+0x623902>
+  6e2514:	66 90                	xchg   %ax,%ax
+  6e2516:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  6e251d:	00 00 00 
+  6e2520:	81 fe 41 52 32 34    	cmp    $0x34325241,%esi
+  6e2526:	0f 84 94 00 00 00    	je     6e25c0 <__gmon_start__@plt+0x623a10>
+  6e252c:	81 fe 58 52 32 34    	cmp    $0x34325258,%esi
+  6e2532:	0f 84 78 01 00 00    	je     6e26b0 <__gmon_start__@plt+0x623b00>
+  6e2538:	81 fe 41 42 32 34    	cmp    $0x34324241,%esi
+  6e253e:	0f 84 7c 01 00 00    	je     6e26c0 <__gmon_start__@plt+0x623b10>
+  6e2544:	81 fe 58 42 32 34    	cmp    $0x34324258,%esi
+  6e254a:	0f 84 80 01 00 00    	je     6e26d0 <__gmon_start__@plt+0x623b20>
+  6e2550:	81 fe 58 52 33 30    	cmp    $0x30335258,%esi
+  6e2556:	0f 84 84 01 00 00    	je     6e26e0 <__gmon_start__@plt+0x623b30>
+  6e255c:	81 fe 41 52 33 30    	cmp    $0x30335241,%esi
+  6e2562:	0f 84 88 01 00 00    	je     6e26f0 <__gmon_start__@plt+0x623b40>
+  6e2568:	81 fe 58 42 33 30    	cmp    $0x30334258,%esi
+  6e256e:	0f 84 ac 01 00 00    	je     6e2720 <__gmon_start__@plt+0x623b70>
+  6e2574:	81 fe 41 42 33 30    	cmp    $0x30334241,%esi
+  6e257a:	0f 84 b0 01 00 00    	je     6e2730 <__gmon_start__@plt+0x623b80>
+  6e2580:	81 fe 52 47 31 36    	cmp    $0x36314752,%esi
+  6e2586:	0f 84 74 01 00 00    	je     6e2700 <__gmon_start__@plt+0x623b50>
+  6e258c:	81 fe 52 38 20 20    	cmp    $0x20203852,%esi
+  6e2592:	0f 84 c8 01 00 00    	je     6e2760 <__gmon_start__@plt+0x623bb0>
+  6e2598:	81 fe 41 42 34 48    	cmp    $0x48344241,%esi
+  6e259e:	0f 84 cc 01 00 00    	je     6e2770 <__gmon_start__@plt+0x623bc0>
+  6e25a4:	31 c0                	xor    %eax,%eax
+  6e25a6:	81 fe 47 52 38 38    	cmp    $0x38385247,%esi
+  6e25ac:	0f 84 5e 01 00 00    	je     6e2710 <__gmon_start__@plt+0x623b60>
+  6e25b2:	f3 c3                	repz ret
+  6e25b4:	66 90                	xchg   %ax,%ax
+  6e25b6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  6e25bd:	00 00 00 
+  6e25c0:	31 c0                	xor    %eax,%eax
+  6e25c2:	0f 1f 40 00          	nopl   0x0(%rax)
+  6e25c6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  6e25cd:	00 00 00 
+  6e25d0:	48 8d 34 40          	lea    (%rax,%rax,2),%rsi
+  6e25d4:	48 8d 05 25 9f 53 00 	lea    0x539f25(%rip),%rax        # c1c500 <__driDriverGetExtensions_mtgpu@@VERS1.0+0x531e20>
+  6e25db:	8b 44 b0 08          	mov    0x8(%rax,%rsi,4),%eax
+  6e25df:	85 c0                	test   %eax,%eax
+  6e25e1:	0f 84 b9 00 00 00    	je     6e26a0 <__gmon_start__@plt+0x623af0>
+  6e25e7:	4d 85 c9             	test   %r9,%r9
+  6e25ea:	0f 84 b0 00 00 00    	je     6e26a0 <__gmon_start__@plt+0x623af0>
+  6e25f0:	48 8b 47 10          	mov    0x10(%rdi),%rax
+  6e25f4:	8b 00                	mov    (%rax),%eax
+  6e25f6:	83 f8 04             	cmp    $0x4,%eax
+  6e25f9:	74 75                	je     6e2670 <__gmon_start__@plt+0x623ac0>
+  6e25fb:	83 f8 08             	cmp    $0x8,%eax
+  6e25fe:	74 60                	je     6e2660 <__gmon_start__@plt+0x623ab0>
+  6e2600:	85 d2                	test   %edx,%edx
+  6e2602:	74 4a                	je     6e264e <__gmon_start__@plt+0x623a9e>
+  6e2604:	48 85 c9             	test   %rcx,%rcx
+  6e2607:	0f 84 33 01 00 00    	je     6e2740 <__gmon_start__@plt+0x623b90>
+  6e260d:	83 fa 01             	cmp    $0x1,%edx
+  6e2610:	0f 84 6a 01 00 00    	je     6e2780 <__gmon_start__@plt+0x623bd0>
+  6e2616:	7f 08                	jg     6e2620 <__gmon_start__@plt+0x623a70>
+  6e2618:	b8 01 00 00 00       	mov    $0x1,%eax
+  6e261d:	c3                   	ret
+  6e261e:	66 90                	xchg   %ax,%ax
+  6e2620:	48 b8 15 00 00 00 00 	movabs $0x9200000000000015,%rax
+  6e2627:	00 00 92 
+  6e262a:	4d 85 c0             	test   %r8,%r8
+  6e262d:	48 c7 01 00 00 00 00 	movq   $0x0,(%rcx)
+  6e2634:	48 89 41 08          	mov    %rax,0x8(%rcx)
+  6e2638:	41 c7 01 02 00 00 00 	movl   $0x2,(%r9)
+  6e263f:	74 d7                	je     6e2618 <__gmon_start__@plt+0x623a68>
+  6e2641:	48 b8 00 00 00 00 01 	movabs $0x100000000,%rax
+  6e2648:	00 00 00 
+  6e264b:	49 89 00             	mov    %rax,(%r8)
+  6e264e:	41 c7 01 02 00 00 00 	movl   $0x2,(%r9)
+  6e2655:	b8 01 00 00 00       	mov    $0x1,%eax
+  6e265a:	c3                   	ret
+  6e265b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+  6e2660:	48 8b 05 a1 e3 b2 00 	mov    0xb2e3a1(%rip),%rax        # 1210a08 <__driDriverGetExtensions_mtgpu@@VERS1.0+0xb26328>
+  6e2667:	80 b8 8c 15 00 00 00 	cmpb   $0x0,0x158c(%rax)
+  6e266e:	74 90                	je     6e2600 <__gmon_start__@plt+0x623a50>
+  6e2670:	85 d2                	test   %edx,%edx
+  6e2672:	74 18                	je     6e268c <__gmon_start__@plt+0x623adc>
+  6e2674:	48 85 c9             	test   %rcx,%rcx
+  6e2677:	74 07                	je     6e2680 <__gmon_start__@plt+0x623ad0>
+  6e2679:	48 c7 01 00 00 00 00 	movq   $0x0,(%rcx)
+  6e2680:	4d 85 c0             	test   %r8,%r8
+  6e2683:	74 07                	je     6e268c <__gmon_start__@plt+0x623adc>
+  6e2685:	41 c7 00 00 00 00 00 	movl   $0x0,(%r8)
+  6e268c:	41 c7 01 01 00 00 00 	movl   $0x1,(%r9)
+  6e2693:	b8 01 00 00 00       	mov    $0x1,%eax
+  6e2698:	c3                   	ret
+  6e2699:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+  6e26a0:	31 c0                	xor    %eax,%eax
+  6e26a2:	c3                   	ret
+  6e26a3:	0f 1f 00             	nopl   (%rax)
+  6e26a6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  6e26ad:	00 00 00 
+  6e26b0:	b8 01 00 00 00       	mov    $0x1,%eax
+  6e26b5:	e9 16 ff ff ff       	jmp    6e25d0 <__gmon_start__@plt+0x623a20>
+  6e26ba:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  6e26c0:	b8 02 00 00 00       	mov    $0x2,%eax
+  6e26c5:	e9 06 ff ff ff       	jmp    6e25d0 <__gmon_start__@plt+0x623a20>
+  6e26ca:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  6e26d0:	b8 03 00 00 00       	mov    $0x3,%eax
+  6e26d5:	e9 f6 fe ff ff       	jmp    6e25d0 <__gmon_start__@plt+0x623a20>
+  6e26da:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  6e26e0:	b8 04 00 00 00       	mov    $0x4,%eax
+  6e26e5:	e9 e6 fe ff ff       	jmp    6e25d0 <__gmon_start__@plt+0x623a20>
+  6e26ea:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  6e26f0:	b8 05 00 00 00       	mov    $0x5,%eax
+  6e26f5:	e9 d6 fe ff ff       	jmp    6e25d0 <__gmon_start__@plt+0x623a20>
+  6e26fa:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  6e2700:	b8 08 00 00 00       	mov    $0x8,%eax
+  6e2705:	e9 c6 fe ff ff       	jmp    6e25d0 <__gmon_start__@plt+0x623a20>
+  6e270a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  6e2710:	b8 0b 00 00 00       	mov    $0xb,%eax
+  6e2715:	e9 b6 fe ff ff       	jmp    6e25d0 <__gmon_start__@plt+0x623a20>
+  6e271a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  6e2720:	b8 06 00 00 00       	mov    $0x6,%eax
+  6e2725:	e9 a6 fe ff ff       	jmp    6e25d0 <__gmon_start__@plt+0x623a20>
+  6e272a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  6e2730:	b8 07 00 00 00       	mov    $0x7,%eax
+  6e2735:	e9 96 fe ff ff       	jmp    6e25d0 <__gmon_start__@plt+0x623a20>
+  6e273a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  6e2740:	4d 85 c0             	test   %r8,%r8
+  6e2743:	0f 84 cf fe ff ff    	je     6e2618 <__gmon_start__@plt+0x623a68>
+  6e2749:	83 fa 01             	cmp    $0x1,%edx
+  6e274c:	0f 84 33 ff ff ff    	je     6e2685 <__gmon_start__@plt+0x623ad5>
+  6e2752:	0f 8f e9 fe ff ff    	jg     6e2641 <__gmon_start__@plt+0x623a91>
+  6e2758:	e9 bb fe ff ff       	jmp    6e2618 <__gmon_start__@plt+0x623a68>
+  6e275d:	0f 1f 00             	nopl   (%rax)
+  6e2760:	b8 09 00 00 00       	mov    $0x9,%eax
+  6e2765:	e9 66 fe ff ff       	jmp    6e25d0 <__gmon_start__@plt+0x623a20>
+  6e276a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  6e2770:	b8 0a 00 00 00       	mov    $0xa,%eax
+  6e2775:	e9 56 fe ff ff       	jmp    6e25d0 <__gmon_start__@plt+0x623a20>
+  6e277a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  6e2780:	4d 85 c0             	test   %r8,%r8
+  6e2783:	48 c7 01 00 00 00 00 	movq   $0x0,(%rcx)
+  6e278a:	41 c7 01 01 00 00 00 	movl   $0x1,(%r9)
+  6e2791:	0f 85 ee fe ff ff    	jne    6e2685 <__gmon_start__@plt+0x623ad5>
+  6e2797:	e9 7c fe ff ff       	jmp    6e2618 <__gmon_start__@plt+0x623a68>
+  6e279c:	0f 1f 40 00          	nopl   0x0(%rax)

@@ -1,0 +1,71 @@
+{
+  "profile": "kwin-wayland-v9",
+  "files": {
+    "egl/50_mesa.json": {
+      "sha256": "4aafa7f214e777358e7196084dff436d6b0aab3b13f367c2abf2a5f98b507df7",
+      "size": 92
+    },
+    "egl/libEGL_mesa.so.0": {
+      "sha256": "6c8de88d01a2a3a7a61a95aa1e3a98b26d37dcc67d916a2302fb41c05f050fd3",
+      "size": 1667952
+    },
+    "egl/libglapi.so.0": {
+      "sha256": "3b796b01bb3b6d8fa8bd0b970258fd2c284841fd3ded0e82f684adc06ba2f1cb",
+      "size": 211304
+    },
+    "egl-check": {
+      "sha256": "963a424d31dbffb20f227a2897cc1210b74c87fafd301c54369bf02bf9ef8f79",
+      "size": 82112
+    },
+    "kwin/kwin_wayland": {
+      "sha256": "f3d11822f04a3d81ab1bda8aaf79ee362c72faa707f91619089b0ec62c7aca12",
+      "size": 2607248
+    },
+    "kwin/libkwin.so.6": {
+      "sha256": "70f2110f553b260311d24ded8f287c262e60700eb8ba146b5f949c47eaedd5f0",
+      "size": 16903120
+    }
+  },
+  "base_manifest_sha256": "0451e520e6bc2372c9165e110f9358ca1bff06e56fa4d01e4dfba1ffa4254ae1",
+  "sources": {
+    "mesa_23.2.1.orig.tar.gz": "c1458ab511b87d60644b2c46d67f7d9d5c0e3db691db6aae11762b1cc5b43ca0",
+    "mesa_23.2.1-1ubuntu3.1~22.04.3.diff.gz": "f43f7e603db34bb4f8fd8b41be102d112c23042e769d94a0d78fee0ee6ee7fd2"
+  },
+  "source_url": "https://snapshot.ubuntu.com/ubuntu/20250516T000000Z/pool/main/m/mesa/",
+  "patches": {
+    "mesa-23.2.1-mtgpu-image-lookup-v1.patch": "cb349e6b195bc2fcd5f4a489ce3eaed3c1ebdd5d516aaefcc13f3caceb2a9102",
+    "mesa-c11-glibc-once.patch": "73cfb3dedafe937996b171c55082d6317cf62e4371f6c1146c2d2a902cf7060b",
+    "mesa-23.2.1-mtgpu-screen-abi.patch": "9d5683b8670f071241924b172d7e683030203f8f637c38b7972a7c264eb762fc",
+    "mesa-23.2.1-dri-config-bounds.patch": "a234a74a360b1988d55f55f49a32961f470041a68558274ce6859c9849fde4d3",
+    "mesa-23.2.1-mtgpu-display-abi.patch": "2c3c62a07c2c5506c8b1f4d616c5e525a7a9c2dc8be9de42b363b11902b778ef",
+    "mesa-23.2.1-mtgpu-gl-dispatch.patch": "46e48196607fadf80e75035389d8c117dd64b07229ff1793818db06b9d4248ce"
+  },
+  "builder_sha256": "b6b8b30571d8bf647475a16aaae896d57c663dc9cb220c4c7169a039e601e299",
+  "c11_upstream_commit": "179e744f7577d98df7c79d7324c22acfb32a0154",
+  "configure": [
+    "meson",
+    "setup",
+    "/home/bull/Documents/mtt-s30-arch/work/egl-gles-dispatch-final-20261106/mesa-build",
+    "/home/bull/Documents/mtt-s30-arch/work/egl-gles-dispatch-final-20261106/mesa-23.2.1",
+    "--buildtype=debugoptimized",
+    "--prefix=/usr",
+    "-Dplatforms=wayland",
+    "-Dgallium-drivers=swrast",
+    "-Dvulkan-drivers=",
+    "-Degl=enabled",
+    "-Dgbm=enabled",
+    "-Dglx=disabled",
+    "-Dgles1=disabled",
+    "-Dgles2=enabled",
+    "-Dopengl=true",
+    "-Dllvm=disabled",
+    "-Dshared-glapi=enabled",
+    "-Dglvnd=true",
+    "-Dlibunwind=disabled",
+    "-Dvalgrind=disabled",
+    "-Dbuild-tests=false"
+  ],
+  "dri_internal_version": "23.2.1-1ubuntu3.1~22.04.3",
+  "abi_version_check_bypassed": false,
+  "hardware_tested": false
+}
