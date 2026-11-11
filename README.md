@@ -64,8 +64,8 @@ sudo pacman -S --needed dkms linux-headers
 
 # 2. 从 GitHub Releases 一键下载并安装
 sudo pacman -U \
-  https://github.com/cont1nu1ty/mtt-s30-arch/releases/download/v3.1.0/mtgpu-s30-dkms-3.1.0-2-x86_64.pkg.tar.zst \
-  https://github.com/cont1nu1ty/mtt-s30-arch/releases/download/v3.1.0/mtgpu-s30-userland-3.1.0-1-x86_64.pkg.tar.zst
+  https://github.com/cont1nu1ty/mtt-s30-arch/releases/download/v3.1.0/mtgpu-s30-dkms-3.1.0-5-x86_64.pkg.tar.zst \
+  https://github.com/cont1nu1ty/mtt-s30-arch/releases/download/v3.1.0/mtgpu-s30-userland-3.1.0-5-x86_64.pkg.tar.zst
 ```
 
 ---
