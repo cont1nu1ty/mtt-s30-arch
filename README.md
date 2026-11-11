@@ -29,6 +29,11 @@
   - MTT VPU 硬件加速流畅解码 1080p60 H.264 视频流（逐帧与 CPU 参照实现 100% 像素级一致）。
 - 🌋 **Vulkan 1.0 支持**：
   - 通过 `libVK_MT.so` 导出标准 Vulkan ICD，支持标准 Vulkan 图形与计算管线。
+- 📊 **KDE 系统监视器（KDE System Monitor）全面原生集成**：
+  - 内核 sysfs 原生导出 `gpu_busy_percent`（GPU 核心利用率百分比）、显存占用量与动态频率；
+  - 深度定制 `ksystemstats_plugin_gpu.so`，系统监视器概览（Overview）页面原生支持如 CPU 一样直观呈现 MTT S30 GPU 核心使用率环形仪表盘。
+- 🎨 **桌面图标文字阴影无瑕渲染**：
+  - 自动优化 Plasma 6 桌面图标标签样式，消除软件光栅化回退时的黑色半透明底色块，恢复通透纯净的原生桌面视觉。
 - 🧮 **MUSA 计算与 AI 运行时**：
   - 完整保留 `mthreads-gmi` 状态监控工具与 MUSA Tensor 计算 SDK（`/usr/include/musa`、`libmusa.so`、`libmusart.so`）。
 
@@ -95,6 +100,12 @@ makepkg -si
    - 在私有目录 `/usr/lib/mthreads/egl/` 中提供兼容桥，保持系统官方 `mesa` 不受任何污染。
 3. **Plasma 6.8.2 OpenGL 分发槽 NULL 异常规避**：
    - 解决 Qt 6 / Plasma 调用 `glGetGraphicsResetStatus` 时因厂商 DRI 虚表 slot 841/973 未填充而发生段错误的问题。
+4. **Plasma 6 桌面图标文本软件回退底色块优化**：
+   - 当 `plasmashell` 处于软件回退或阴影着色器降级时，默认在 `ShadowedLabel.qml` 中绘制了 45% 不透明度的黑色圆角矩形背景。
+   - `mtgpu-s30-userland` 安装钩子自动将该降级背景框安全禁用，恢复清爽无底框的原生图标文字外观。
+5. **MTT S30 硬件遥测与 KDE System Monitor 遥测管线**：
+   - 反向工程闭源内核模块 `objs/x86_64/mtgpu_core.o_binary` 的 `GpuStatusExport` 内部调度器，通过 `PVRSRVGetDeviceInstanceByOSId` 原生挂载 `gpu_busy_percent` (0-100%) 与 `pp_dpm_sclk` / `pp_dpm_mclk` 实时时钟；
+   - 适配开源 `ksystemstats_plugin_gpu`，让系统监视器自动识别 `0x1ed5`（Moore Threads）厂商设备并映射至标准传感器树形架构。
 
 ---
 
