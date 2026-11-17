@@ -15,8 +15,13 @@ mtt-s30-arch/
     ├── mtgpu-s30-dkms/               # 内核层
     │   ├── PKGBUILD                  # 内核配方
     │   ├── .SRCINFO                  # AUR 元数据
-    │   ├── linux-modern.patch        # 现代内核 (7.x) DRM 适配补丁
+    │   ├── linux-modern.patch        # 现代内核 (7.x) DRM/conftest 适配补丁
     │   ├── prepare.py                # 内核树补丁生成脚本
+    │   ├── 10-mtgpu-s30-dracut.conf  # dracut early initramfs 排除配置
+    │   ├── 10-mtgpu-watchdog.conf    # modprobe 安全加载看门狗规则
+    │   ├── mtgpu-modprobe-guard      # 并发安全看门狗与失败回退包装脚本
+    │   ├── mtgpu-boot-confirm*       # 启动后健康确认与看门狗复位服务
+    │   ├── mtgpu-dkms-check / *.hook # pacman 内核升级 DKMS 缺失警报钩子
     │   └── mtgpu-s30-dkms-*.pkg.tar.zst
     │
     └── mtgpu-s30-userland/           # 用户态层
@@ -25,8 +30,12 @@ mtt-s30-arch/
         ├── repair-mtgpu-dri.py       # Wayland 析构函数 double-free 补丁脚本
         ├── libEGL_mesa.so.0          # Mesa 23.2.1 EGL Wayland 兼容协议桥
         ├── libglapi.so.0             # 协议桥配对 GLAPI
-        ├── 50_mtt_mesa.json          # EGL ICD 描述文件
-        ├── 10-mtt-s30.conf           # 桌面环境变量提示 (GBM/KWin)
+        ├── mtgpu-guards.tar.gz       # GLVND EGL & Vulkan ICD 运行时哨兵源码包
+        ├── ksystemstats-plugin.tar.gz# KDE System Monitor GPU 监视器插件源码包
+        ├── 00_mtgpu.json / 50_mtt_mesa.json / musaicdconf.json
+        ├── mtgpu-env-probe / 20-mtt-s30-*-generator # 动态环境与 systemd 单元生成器
+        ├── mtgpu-fallback-notify*    # 桌面安全回退提醒服务
+        ├── mtgpu-ctl                 # 诊断与回退管理命令行工具
         ├── 70-mtgpu.rules            # /dev/musa* 权限 udev 规则
         └── mtgpu-s30-userland-*.pkg.tar.zst
 ```

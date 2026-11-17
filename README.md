@@ -32,6 +32,10 @@
 - 📊 **KDE 系统监视器（KDE System Monitor）全面原生集成**：
   - 内核 sysfs 原生导出 `gpu_busy_percent`（GPU 核心利用率百分比）、显存占用量与动态频率；
   - 深度定制 `ksystemstats_plugin_gpu.so`，系统监视器概览（Overview）页面原生支持如 CPU 一样直观呈现 MTT S30 GPU 核心使用率环形仪表盘。
+- 🛡️ **防变砖与无感自动回退保障（Linux 7.3+ 容错架构）**：
+  - 支持 Linux 7.3+（基于 `conftest` 特性探测适配 `dma_fence_enable_signaling` 等内核 API）；
+  - GLVND / Vulkan ICD 运行时哨兵 + `systemd` 动态环境生成器：若将来内核升级导致 DKMS 失效或模块被拉黑，系统自动退避至 `simpledrm` / 核显进入完整图形桌面，绝不卡死在黑屏或登录前；
+  - 配备 `dracut` 早期启动隔离、启动异常看门狗、`pacman` DKMS 漏编报警与桌面回退提醒通知，内置诊断命令行工具 `mtgpu-ctl`。
 - 🎨 **桌面图标文字阴影无瑕渲染**：
   - 自动优化 Plasma 6 桌面图标标签样式，消除软件光栅化回退时的黑色半透明底色块，恢复通透纯净的原生桌面视觉。
 - 🧮 **MUSA 计算与 AI 运行时**：
@@ -64,8 +68,8 @@ sudo pacman -S --needed dkms linux-headers
 
 # 2. 从 GitHub Releases 一键下载并安装
 sudo pacman -U \
-  https://github.com/cont1nu1ty/mtt-s30-arch/releases/download/v3.1.0/mtgpu-s30-dkms-3.1.0-5-x86_64.pkg.tar.zst \
-  https://github.com/cont1nu1ty/mtt-s30-arch/releases/download/v3.1.0/mtgpu-s30-userland-3.1.0-5-x86_64.pkg.tar.zst
+  https://github.com/cont1nu1ty/mtt-s30-arch/releases/download/v3.1.0/mtgpu-s30-dkms-3.1.0-6-x86_64.pkg.tar.zst \
+  https://github.com/cont1nu1ty/mtt-s30-arch/releases/download/v3.1.0/mtgpu-s30-userland-3.1.0-6-x86_64.pkg.tar.zst
 ```
 
 ---
@@ -106,6 +110,10 @@ makepkg -si
 5. **MTT S30 硬件遥测与 KDE System Monitor 遥测管线**：
    - 反向工程闭源内核模块 `objs/x86_64/mtgpu_core.o_binary` 的 `GpuStatusExport` 内部调度器，通过 `PVRSRVGetDeviceInstanceByOSId` 原生挂载 `gpu_busy_percent` (0-100%) 与 `pp_dpm_sclk` / `pp_dpm_mclk` 实时时钟；
    - 适配开源 `ksystemstats_plugin_gpu`，让系统监视器自动识别 `0x1ed5`（Moore Threads）厂商设备并映射至标准传感器树形架构。
+6. **防变砖、自动降级与启动看门狗架构（3.1.0-6）**：
+   - 解决了无 `mtgpu` 内核模块时 `00_mtgpu.json` (`libEGL_mtgpu.so.0`) 在 `Xorg`/`swrast_dri.so` 下触发 `__strdup(NULL)` 段错误导致桌面瘫痪的问题：通过 C 哨兵库 `libEGL_mtgpu_guard.so` 与 `libVK_MT_guard.so` 仅在硬件和内核驱动就绪时挂载厂商栈，否则安全交由官方 Mesa (`simpledrm` + `llvmpipe` 或核显) 渲染；
+   - 使用 `systemd` 动态环境/单元生成器替代静态 `/etc/environment.d/10-mtt-s30.conf`，确保回退状态下零环境变量污染；
+   - 增加 `dracut` early initramfs 隔离、`modprobe` 并发安全启动看门狗、内核更新 DKMS 缺失警告钩子与桌面回退通知（可随时通过 `mtgpu-ctl status` 诊断或使用启动参数 `nomtgpu` 一键进安全桌面）。
 
 ---
 

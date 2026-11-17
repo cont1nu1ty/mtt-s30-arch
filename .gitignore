@@ -27,6 +27,7 @@ __pycache__/
 !maintenance/arch/mtgpu-s30-userland/libEGL_mesa.so.0
 !maintenance/arch/mtgpu-s30-userland/libglapi.so.0
 !maintenance/arch/mtgpu-s30-userland/ksystemstats-plugin.tar.gz
+!maintenance/arch/mtgpu-s30-userland/mtgpu-guards.tar.gz
 *.core.zst
 *.core
 *.nv12
